@@ -1,0 +1,12 @@
+# TransferMigrateAccountResponse
+
+
+## Fields
+
+| Field                                                                                 | Type                                                                                  | Required                                                                              | Description                                                                           |
+| ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- |
+| `content_type`                                                                        | *str*                                                                                 | :heavy_check_mark:                                                                    | N/A                                                                                   |
+| `plaid_error`                                                                         | dict[str, *Any*]                                                                      | :heavy_minus_sign:                                                                    | Error response                                                                        |
+| `status_code`                                                                         | *int*                                                                                 | :heavy_check_mark:                                                                    | N/A                                                                                   |
+| `raw_response`                                                                        | [requests.Response](https://requests.readthedocs.io/en/latest/api/#requests.Response) | :heavy_minus_sign:                                                                    | N/A                                                                                   |
+| `transfer_migrate_account_response`                                                   | dict[str, *Any*]                                                                      | :heavy_minus_sign:                                                                    | OK                                                                                    |
