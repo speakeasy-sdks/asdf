@@ -13,11 +13,6 @@ from typing import Optional
 @dataclasses.dataclass
 class IdentityVerificationCreateRequest:
     r"""Request schema for '/identity_verification/create'"""
-    gave_consent: bool = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('gave_consent') }})
-    r"""A flag specifying whether the end user has already agreed to a privacy policy specifying that their data will be shared with Plaid for verification purposes.
-
-    If `gave_consent` is set to `true`, the `accept_tos` step will be marked as `skipped` and the end user's session will start at the next step requirement.
-    """
     is_shareable: bool = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('is_shareable') }})
     r"""A flag specifying whether you would like Plaid to expose a shareable URL for the verification being created."""
     template_id: str = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('template_id') }})
@@ -26,6 +21,11 @@ class IdentityVerificationCreateRequest:
     r"""Your Plaid API `client_id`. The `client_id` is required and may be provided either in the `PLAID-CLIENT-ID` header or as part of a request body."""
     client_user_id: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('client_user_id'), 'exclude': lambda f: f is None }})
     r"""A unique ID that identifies the end user in your system. This ID can also be used to associate user-specific data from other Plaid products. Financial Account Matching requires this field and the `/link/token/create` `client_user_id` to be consistent. Personally identifiable information, such as an email address or phone number, should not be used in the `client_user_id`."""
+    gave_consent: Optional[bool] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('gave_consent'), 'exclude': lambda f: f is None }})
+    r"""A flag specifying whether the end user has already agreed to a privacy policy specifying that their data will be shared with Plaid for verification purposes.
+
+    If `gave_consent` is set to `true`, the `accept_tos` step will be marked as `skipped` and the end user's session will start at the next step requirement.
+    """
     is_idempotent: Optional[bool] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('is_idempotent'), 'exclude': lambda f: f is None }})
     r"""An optional flag specifying how you would like Plaid to handle attempts to create an Identity Verification when an Identity Verification already exists for the provided `client_user_id` and `template_id`.
     If idempotency is enabled, Plaid will return the existing Identity Verification. If idempotency is disabled, Plaid will reject the request with a `400 Bad Request` status code if an Identity Verification already exists for the supplied `client_user_id` and `template_id`.
