@@ -10,11 +10,14 @@ from typing import Any, Optional
 @dataclasses.dataclass
 class BankTransferBalanceGetResponse:
     content_type: str = dataclasses.field()
+    r"""HTTP response content type for this operation"""
     status_code: int = dataclasses.field()
+    r"""HTTP response status code for this operation"""
     bank_transfer_balance_get_response: Optional[dict[str, Any]] = dataclasses.field(default=None)
     r"""OK"""
     plaid_error: Optional[dict[str, Any]] = dataclasses.field(default=None)
     r"""Error response"""
     raw_response: Optional[requests_http.Response] = dataclasses.field(default=None)
+    r"""Raw HTTP response; suitable for custom response parsing"""
     
 

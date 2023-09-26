@@ -621,8 +621,6 @@ src/test_plaid/models/shared/webhookverificationkeygetrequest.py
 src/test_plaid/models/shared/security.py
 src/test_plaid/models/shared/__init__.py
 src/test_plaid/models/errors/__init__.py
-docs/sdks/testplaid/README.md
-docs/sdks/plaid/README.md
 USAGE.md
 docs/models/operations/accountsbalancegetresponse.md
 docs/models/operations/accountsgetresponse.md
@@ -1244,4 +1242,6 @@ docs/models/shared/updateindividualscreeningrequestsearchterms.md
 docs/models/shared/watchlistscreeningindividualupdaterequestresettablefield.md
 docs/models/shared/webhookverificationkeygetrequest.md
 docs/models/shared/security.md
+docs/sdks/testplaid/README.md
+docs/sdks/plaid/README.md
 .gitattributes

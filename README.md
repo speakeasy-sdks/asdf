@@ -16,8 +16,6 @@ pip install git+https://github.com/speakeasy-sdks/asdf.git
 
 ## SDK Example Usage
 <!-- Start SDK Example Usage -->
-
-
 ```python
 import test_plaid
 import dateutil.parser
@@ -33,14 +31,14 @@ s = test_plaid.TestPlaid(
 
 req = shared.AccountsBalanceGetRequest(
     access_token='corrupti',
-    client_id='provident',
+    client_id='illum',
     options=shared.AccountsBalanceGetRequestOptions(
         account_ids=[
-            'distinctio',
+            'vel',
         ],
-        min_last_updated_datetime=dateutil.parser.isoparse('2021-03-11T23:22:42.658Z'),
+        min_last_updated_datetime=dateutil.parser.isoparse('2021-09-16T11:56:06.019Z'),
     ),
-    secret='nulla',
+    secret='suscipit',
 )
 
 res = s.plaid.accounts_balance_get(req)
@@ -285,6 +283,32 @@ if res.accounts_get_response is not None:
 * [watchlist_screening_individual_update](docs/sdks/plaid/README.md#watchlist_screening_individual_update) - Update individual watchlist screening
 * [webhook_verification_key_get](docs/sdks/plaid/README.md#webhook_verification_key_get) - Get webhook verification key
 <!-- End SDK Available Operations -->
+
+
+
+<!-- Start Dev Containers -->
+
+
+
+<!-- End Dev Containers -->
+
+
+
+<!-- Start Pagination -->
+# Pagination
+
+Some of the endpoints in this SDK support pagination. To use pagination, you make your SDK calls as usual, but the
+returned response object will have a `Next` method that can be called to pull down the next group of results. If the
+return value of `Next` is `None`, then there are no more pages to be fetched.
+
+Here's an example of one such pagination call:
+
+
+<!-- End Pagination -->
+
+<!-- Placeholder for Future Speakeasy SDK Sections -->
+
+
 
 ### Maturity
 
