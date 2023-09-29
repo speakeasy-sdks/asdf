@@ -12,11 +12,11 @@ from typing import Optional
 @dataclasses.dataclass
 class TransactionsSyncRequestOptions:
     r"""An optional object to be used with the request. If specified, `options` must not be `null`."""
-    include_logo_and_counterparty_beta: Optional[bool] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('include_logo_and_counterparty_beta'), 'exclude': lambda f: f is None }})
+    include_logo_and_counterparty_beta: Optional[bool] = dataclasses.field(default=False, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('include_logo_and_counterparty_beta'), 'exclude': lambda f: f is None }})
     r"""Include counterparties and extra merchant fields in the transaction. This field is disabled by default. If you need this information in addition to the parsed data provided, contact your Plaid Account Manager."""
-    include_original_description: Optional[bool] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('include_original_description'), 'exclude': lambda f: f is None }})
+    include_original_description: Optional[bool] = dataclasses.field(default=False, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('include_original_description') }})
     r"""Include the raw unparsed transaction description from the financial institution. This field is disabled by default. If you need this information in addition to the parsed data provided, contact your Plaid Account Manager or submit a [Support request](https://dashboard.plaid.com/support/new/product-and-development/product-troubleshooting/product-functionality)."""
-    include_personal_finance_category: Optional[bool] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('include_personal_finance_category'), 'exclude': lambda f: f is None }})
+    include_personal_finance_category: Optional[bool] = dataclasses.field(default=False, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('include_personal_finance_category'), 'exclude': lambda f: f is None }})
     r"""Include the [`personal_finance_category`](https://plaid.com/docs/api/products/transactions/#transactions-sync-response-added-personal-finance-category) object in the response.
 
     All implementations are encouraged to use set this field to `true` and to use the `personal_finance_category` instead of `category` for more meaningful and accurate categorization.

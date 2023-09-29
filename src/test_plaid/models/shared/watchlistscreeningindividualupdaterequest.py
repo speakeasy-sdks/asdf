@@ -3,7 +3,6 @@
 from __future__ import annotations
 import dataclasses
 from ..shared import updateindividualscreeningrequestsearchterms as shared_updateindividualscreeningrequestsearchterms
-from ..shared import watchlistscreeningindividualupdaterequestresettablefield as shared_watchlistscreeningindividualupdaterequestresettablefield
 from ..shared import watchlistscreeningstatus as shared_watchlistscreeningstatus
 from dataclasses_json import Undefined, dataclass_json
 from test_plaid import utils
@@ -23,9 +22,9 @@ class WatchlistScreeningIndividualUpdateRequest:
     r"""Your Plaid API `client_id`. The `client_id` is required and may be provided either in the `PLAID-CLIENT-ID` header or as part of a request body."""
     client_user_id: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('client_user_id'), 'exclude': lambda f: f is None }})
     r"""A unique ID that identifies the end user in your system. This ID can also be used to associate user-specific data from other Plaid products. Financial Account Matching requires this field and the `/link/token/create` `client_user_id` to be consistent. Personally identifiable information, such as an email address or phone number, should not be used in the `client_user_id`."""
-    reset_fields: Optional[list[shared_watchlistscreeningindividualupdaterequestresettablefield.WatchlistScreeningIndividualUpdateRequestResettableField]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('reset_fields'), 'exclude': lambda f: f is None }})
+    reset_fields: Optional[list[str]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('reset_fields') }})
     r"""A list of fields to reset back to null"""
-    search_terms: Optional[shared_updateindividualscreeningrequestsearchterms.UpdateIndividualScreeningRequestSearchTerms] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('search_terms'), 'exclude': lambda f: f is None }})
+    search_terms: Optional[shared_updateindividualscreeningrequestsearchterms.UpdateIndividualScreeningRequestSearchTerms] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('search_terms') }})
     r"""Search terms for editing an individual watchlist screening"""
     secret: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('secret'), 'exclude': lambda f: f is None }})
     r"""Your Plaid API `secret`. The `secret` is required and may be provided either in the `PLAID-SECRET` header or as part of a request body."""

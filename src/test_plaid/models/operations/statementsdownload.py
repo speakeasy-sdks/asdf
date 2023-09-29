@@ -15,7 +15,7 @@ class StatementsDownloadResponse:
     r"""HTTP response status code for this operation"""
     raw_response: Optional[requests_http.Response] = dataclasses.field(default=None)
     r"""Raw HTTP response; suitable for custom response parsing"""
-    statements_download_response: Optional[bytes] = dataclasses.field(default=None)
+    statements_download_response: Optional[requests_http.Response] = dataclasses.field(default=None)
     r"""OK"""
     
 

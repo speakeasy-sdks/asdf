@@ -14,7 +14,7 @@ class ProcessorTokenWebhookUpdateRequest:
     r"""ProcessorTokenWebhookUpdateRequest defines the request schema for `/processor/token/webhook/update`"""
     processor_token: str = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('processor_token') }})
     r"""The processor token obtained from the Plaid integration partner. Processor tokens are in the format: `processor-<environment>-<identifier>`"""
-    webhook: str = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('webhook') }})
+    webhook: Optional[str] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('webhook') }})
     r"""The new webhook URL to associate with the processor token. To remove a webhook from a processor token, set to `null`."""
     client_id: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('client_id'), 'exclude': lambda f: f is None }})
     r"""Your Plaid API `client_id`. The `client_id` is required and may be provided either in the `PLAID-CLIENT-ID` header or as part of a request body."""

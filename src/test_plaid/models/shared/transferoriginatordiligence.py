@@ -25,9 +25,9 @@ class TransferOriginatorDiligence:
     r"""The tax ID of the originator."""
     website: str = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('website') }})
     r"""The website of the originator."""
-    credit_usage_configuration: Optional[shared_transfercreditusageconfiguration.TransferCreditUsageConfiguration] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('credit_usage_configuration'), 'exclude': lambda f: f is None }})
+    credit_usage_configuration: Optional[shared_transfercreditusageconfiguration.TransferCreditUsageConfiguration] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('credit_usage_configuration') }})
     r"""Specifies the originator's expected usage of credits. For all dollar amounts, use a decimal string with two digits of precision e.g. \\"10.00\\". This field is required if the originator is expected to process credit transfers."""
-    debit_usage_configuration: Optional[shared_transferdebitusageconfiguration.TransferDebitUsageConfiguration] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('debit_usage_configuration'), 'exclude': lambda f: f is None }})
+    debit_usage_configuration: Optional[shared_transferdebitusageconfiguration.TransferDebitUsageConfiguration] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('debit_usage_configuration') }})
     r"""Specifies the originator's expected usage of debits. For all dollar amounts, use a decimal string with two digits of precision e.g. \\"10.00\\". This field is required if the originator is expected to process debit transfers."""
     
 

@@ -12,7 +12,7 @@ from typing import Optional
 @dataclasses.dataclass
 class LinkTokenCreateRequestUpdate:
     r"""Specifies options for initializing Link for [update mode](https://plaid.com/docs/link/update-mode)."""
-    account_selection_enabled: Optional[bool] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('account_selection_enabled'), 'exclude': lambda f: f is None }})
+    account_selection_enabled: Optional[bool] = dataclasses.field(default=False, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('account_selection_enabled'), 'exclude': lambda f: f is None }})
     r"""If `true`, enables [update mode with Account Select](https://plaid.com/docs/link/update-mode/#using-update-mode-to-request-new-accounts) for institutions that do not use OAuth, or that use OAuth but do not have their own account selection flow. For institutions that have an OAuth account selection flow (i.e. most OAuth-enabled institutions), update mode with Account Select will always be enabled, regardless of the value of this field."""
     
 

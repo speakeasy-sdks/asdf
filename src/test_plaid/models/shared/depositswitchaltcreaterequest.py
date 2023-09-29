@@ -25,7 +25,7 @@ class DepositSwitchAltCreateRequest:
     r"""The deposit switch target user"""
     client_id: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('client_id'), 'exclude': lambda f: f is None }})
     r"""Your Plaid API `client_id`. The `client_id` is required and may be provided either in the `PLAID-CLIENT-ID` header or as part of a request body."""
-    country_code: Optional[DepositSwitchAltCreateRequestCountryCode] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('country_code'), 'exclude': lambda f: f is None }})
+    country_code: Optional[DepositSwitchAltCreateRequestCountryCode] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('country_code') }})
     r"""ISO-3166-1 alpha-2 country code standard."""
     options: Optional[shared_depositswitchcreaterequestoptions.DepositSwitchCreateRequestOptions] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('options'), 'exclude': lambda f: f is None }})
     r"""Options to configure the `/deposit_switch/create` request. If provided, cannot be `null`."""

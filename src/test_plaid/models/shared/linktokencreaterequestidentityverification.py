@@ -14,8 +14,8 @@ class LinkTokenCreateRequestIdentityVerification:
     r"""Specifies option for initializing Link for use with the Identity Verification product."""
     template_id: str = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('template_id') }})
     r"""ID of the associated Identity Verification template."""
-    consent: Optional[bool] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('consent'), 'exclude': lambda f: f is None }})
-    gave_consent: Optional[bool] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('gave_consent'), 'exclude': lambda f: f is None }})
+    consent: Optional[bool] = dataclasses.field(default=False, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('consent'), 'exclude': lambda f: f is None }})
+    gave_consent: Optional[bool] = dataclasses.field(default=False, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('gave_consent'), 'exclude': lambda f: f is None }})
     r"""A flag specifying whether the end user has already agreed to a privacy policy specifying that their data will be shared with Plaid for verification purposes.
 
     If `gave_consent` is set to `true`, the `accept_tos` step will be marked as `skipped` and the end user's session will start at the next step requirement.

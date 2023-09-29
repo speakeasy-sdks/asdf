@@ -306,7 +306,6 @@ src/test_plaid/models/shared/creditpayrollincomerefreshrequestoptions.py
 src/test_plaid/models/shared/creditpayrollincomerisksignalsgetrequest.py
 src/test_plaid/models/shared/creditrelaycreaterequest.py
 src/test_plaid/models/shared/creditrelaygetrequest.py
-src/test_plaid/models/shared/reporttype.py
 src/test_plaid/models/shared/creditrelaypdfgetrequest.py
 src/test_plaid/models/shared/creditrelayrefreshrequest.py
 src/test_plaid/models/shared/creditrelayremoverequest.py
@@ -542,7 +541,6 @@ src/test_plaid/models/shared/transferconfigurationgetrequest.py
 src/test_plaid/models/shared/transfercreaterequest.py
 src/test_plaid/models/shared/transferuserinrequestdeprecated.py
 src/test_plaid/models/shared/transferdiligencedocumentuploadrequest.py
-src/test_plaid/models/shared/transferdocumentpurpose.py
 src/test_plaid/models/shared/transferdiligencesubmitrequest.py
 src/test_plaid/models/shared/transferoriginatordiligence.py
 src/test_plaid/models/shared/transferdebitusageconfiguration.py
@@ -603,7 +601,6 @@ src/test_plaid/models/shared/watchlistscreeningentityreviewcreaterequest.py
 src/test_plaid/models/shared/watchlistscreeningentityreviewlistrequest.py
 src/test_plaid/models/shared/watchlistscreeningentityupdaterequest.py
 src/test_plaid/models/shared/updateentityscreeningrequestsearchterms.py
-src/test_plaid/models/shared/watchlistscreeningentityupdaterequestresettablefield.py
 src/test_plaid/models/shared/watchlistscreeningindividualcreaterequest.py
 src/test_plaid/models/shared/watchlistscreeningrequestsearchterms.py
 src/test_plaid/models/shared/watchlistscreeningindividualgetrequest.py
@@ -616,7 +613,6 @@ src/test_plaid/models/shared/watchlistscreeningindividualreviewcreaterequest.py
 src/test_plaid/models/shared/watchlistscreeningindividualreviewlistrequest.py
 src/test_plaid/models/shared/watchlistscreeningindividualupdaterequest.py
 src/test_plaid/models/shared/updateindividualscreeningrequestsearchterms.py
-src/test_plaid/models/shared/watchlistscreeningindividualupdaterequestresettablefield.py
 src/test_plaid/models/shared/webhookverificationkeygetrequest.py
 src/test_plaid/models/shared/security.py
 src/test_plaid/models/shared/__init__.py
@@ -918,7 +914,6 @@ docs/models/shared/creditpayrollincomerefreshrequestoptions.md
 docs/models/shared/creditpayrollincomerisksignalsgetrequest.md
 docs/models/shared/creditrelaycreaterequest.md
 docs/models/shared/creditrelaygetrequest.md
-docs/models/shared/reporttype.md
 docs/models/shared/creditrelaypdfgetrequest.md
 docs/models/shared/creditrelayrefreshrequest.md
 docs/models/shared/creditrelayremoverequest.md
@@ -1036,7 +1031,6 @@ docs/models/shared/linktokencreaterequestemploymentbankincome.md
 docs/models/shared/linktokencreaterequestdepositswitch.md
 docs/models/shared/consumerreportpermissiblepurpose.md
 docs/models/shared/linktokencreaterequestbasereport.md
-docs/models/shared/linktokencreaterequestauthflowtype.md
 docs/models/shared/linktokencreaterequestauthreroutetocredentials.md
 docs/models/shared/linktokencreaterequestauth.md
 docs/models/shared/linktokengetrequest.md
@@ -1165,7 +1159,6 @@ docs/models/shared/transfercreaterequesttransfertype.md
 docs/models/shared/transfercreaterequest.md
 docs/models/shared/transferuserinrequestdeprecated.md
 docs/models/shared/transferdiligencedocumentuploadrequest.md
-docs/models/shared/transferdocumentpurpose.md
 docs/models/shared/transferdiligencesubmitrequest.md
 docs/models/shared/transferoriginatordiligence.md
 docs/models/shared/transferdebitusageconfiguration.md
@@ -1226,7 +1219,6 @@ docs/models/shared/watchlistscreeningentityreviewcreaterequest.md
 docs/models/shared/watchlistscreeningentityreviewlistrequest.md
 docs/models/shared/watchlistscreeningentityupdaterequest.md
 docs/models/shared/updateentityscreeningrequestsearchterms.md
-docs/models/shared/watchlistscreeningentityupdaterequestresettablefield.md
 docs/models/shared/watchlistscreeningindividualcreaterequest.md
 docs/models/shared/watchlistscreeningrequestsearchterms.md
 docs/models/shared/watchlistscreeningindividualgetrequest.md
@@ -1239,7 +1231,6 @@ docs/models/shared/watchlistscreeningindividualreviewcreaterequest.md
 docs/models/shared/watchlistscreeningindividualreviewlistrequest.md
 docs/models/shared/watchlistscreeningindividualupdaterequest.md
 docs/models/shared/updateindividualscreeningrequestsearchterms.md
-docs/models/shared/watchlistscreeningindividualupdaterequestresettablefield.md
 docs/models/shared/webhookverificationkeygetrequest.md
 docs/models/shared/security.md
 docs/sdks/testplaid/README.md
