@@ -12,7 +12,7 @@ from typing import Optional
 @dataclasses.dataclass
 class CreditBankIncomeGetRequestOptions:
     r"""An optional object for `/credit/bank_income/get` request options."""
-    count: Optional[int] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('count'), 'exclude': lambda f: f is None }})
+    count: Optional[int] = dataclasses.field(default=1, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('count'), 'exclude': lambda f: f is None }})
     r"""How many Bank Income Reports should be fetched. Multiple reports may be available if the report has been re-created or refreshed. If more than one report is available, the most recent reports will be returned first."""
     
 

@@ -12,9 +12,9 @@ from typing import Optional
 @dataclasses.dataclass
 class SignalDevice:
     r"""Details about the end user's device"""
-    ip_address: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('ip_address'), 'exclude': lambda f: f is None }})
+    ip_address: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('ip_address') }})
     r"""The IP address of the device that initiated the transaction"""
-    user_agent: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('user_agent'), 'exclude': lambda f: f is None }})
+    user_agent: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('user_agent') }})
     r"""The user agent of the device that initiated the transaction (e.g. \\"Mozilla/5.0\\")"""
     
 

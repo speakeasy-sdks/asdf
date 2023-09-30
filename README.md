@@ -30,15 +30,15 @@ s = test_plaid.TestPlaid(
 )
 
 req = shared.AccountsBalanceGetRequest(
-    access_token='corrupti',
-    client_id='illum',
+    access_token='Alafaya Loan',
+    client_id='Bacon',
     options=shared.AccountsBalanceGetRequestOptions(
         account_ids=[
-            'vel',
+            'Blues',
         ],
-        min_last_updated_datetime=dateutil.parser.isoparse('2021-09-16T11:56:06.019Z'),
+        min_last_updated_datetime=dateutil.parser.isoparse('2022-09-07T02:18:16.768Z'),
     ),
-    secret='suscipit',
+    secret='Fermium payment',
 )
 
 res = s.plaid.accounts_balance_get(req)

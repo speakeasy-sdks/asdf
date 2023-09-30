@@ -14,9 +14,9 @@ from typing import Optional
 @dataclasses.dataclass
 class PaymentConsentValidDateTime:
     r"""Life span for the payment consent. After the `to` date the payment consent expires and can no longer be used for payment initiation."""
-    from_: Optional[datetime] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('from'), 'encoder': utils.datetimeisoformat(True), 'decoder': dateutil.parser.isoparse, 'exclude': lambda f: f is None }})
+    from_: Optional[datetime] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('from'), 'encoder': utils.datetimeisoformat(True), 'decoder': dateutil.parser.isoparse }})
     r"""The date and time from which the consent should be active, in [ISO 8601](https://wikipedia.org/wiki/ISO_8601) format."""
-    to: Optional[datetime] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('to'), 'encoder': utils.datetimeisoformat(True), 'decoder': dateutil.parser.isoparse, 'exclude': lambda f: f is None }})
+    to: Optional[datetime] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('to'), 'encoder': utils.datetimeisoformat(True), 'decoder': dateutil.parser.isoparse }})
     r"""The date and time at which the consent expires, in [ISO 8601](https://wikipedia.org/wiki/ISO_8601) format."""
     
 

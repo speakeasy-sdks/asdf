@@ -14,9 +14,9 @@ class AccountAccess:
     r"""Allow or disallow product access by account. Unlisted (e.g. missing) accounts will be considered `new_accounts`."""
     unique_id: str = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('unique_id') }})
     r"""The unique account identifier for this account. This value must match that returned by the data access API for this account."""
-    account_product_access: Optional[dict[str, Any]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('account_product_access'), 'exclude': lambda f: f is None }})
+    account_product_access: Optional[dict[str, Any]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('account_product_access') }})
     r"""Allow the application to access specific products on this account"""
-    authorized: Optional[bool] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('authorized'), 'exclude': lambda f: f is None }})
+    authorized: Optional[bool] = dataclasses.field(default=True, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('authorized') }})
     r"""Allow the application to see this account (and associated details, including balance) in the list of accounts  If unset, defaults to `true`."""
     
 

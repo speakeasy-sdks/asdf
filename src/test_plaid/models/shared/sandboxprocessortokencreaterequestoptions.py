@@ -12,9 +12,9 @@ from typing import Optional
 @dataclasses.dataclass
 class SandboxProcessorTokenCreateRequestOptions:
     r"""An optional set of options to be used when configuring the Item. If specified, must not be `null`."""
-    override_password: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('override_password'), 'exclude': lambda f: f is None }})
+    override_password: Optional[str] = dataclasses.field(default='pass_good', metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('override_password') }})
     r"""Test password to use for the creation of the Sandbox Item. Default value is `pass_good`."""
-    override_username: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('override_username'), 'exclude': lambda f: f is None }})
+    override_username: Optional[str] = dataclasses.field(default='user_good', metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('override_username') }})
     r"""Test username to use for the creation of the Sandbox Item. Default value is `user_good`."""
     
 

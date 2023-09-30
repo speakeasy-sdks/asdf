@@ -12,7 +12,7 @@ from typing import Optional
 @dataclasses.dataclass
 class IncomeVerificationPrecheckPayrollInstitution:
     r"""Information about the end user's payroll institution"""
-    name: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('name'), 'exclude': lambda f: f is None }})
+    name: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('name') }})
     r"""The name of payroll institution"""
     
 

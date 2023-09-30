@@ -12,7 +12,7 @@ from typing import Optional
 @dataclasses.dataclass
 class TransactionsRecurringGetRequestOptions:
     r"""An optional object to be used with the request. If specified, `options` must not be `null`."""
-    include_personal_finance_category: Optional[bool] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('include_personal_finance_category'), 'exclude': lambda f: f is None }})
+    include_personal_finance_category: Optional[bool] = dataclasses.field(default=False, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('include_personal_finance_category'), 'exclude': lambda f: f is None }})
     r"""Include the [`personal_finance_category`](https://plaid.com/docs/api/products/transactions/#transactions-get-response-transactions-personal-finance-category) object for each transaction stream in the response.
 
     All implementations are encouraged to set this field to `true` and to use the `personal_finance_category` field instead of `category`. Personal finance categories are the preferred categorization system for transactions, providing higher accuracy and more meaningful categories.
