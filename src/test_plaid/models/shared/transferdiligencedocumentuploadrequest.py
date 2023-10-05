@@ -2,9 +2,9 @@
 
 from __future__ import annotations
 import dataclasses
+from ..shared import transferdocumentpurpose as shared_transferdocumentpurpose
 from dataclasses_json import Undefined, dataclass_json
 from test_plaid import utils
-from typing import Final
 
 
 @dataclass_json(undefined=Undefined.EXCLUDE)
@@ -16,7 +16,7 @@ class TransferDiligenceDocumentUploadRequest:
     r"""A file to upload."""
     originator_client_id: str = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('originator_client_id') }})
     r"""The Client ID of the originator whose document that you want to upload."""
-    PURPOSE: Final[str] = dataclasses.field(default='DUE_DILIGENCE', metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('purpose') }})
+    purpose: shared_transferdocumentpurpose.TransferDocumentPurpose = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('purpose') }})
     r"""Specifies the purpose of the uploaded file.
 
     `\"DUE_DILIGENCE\"` - The transfer due diligence document of the originator.

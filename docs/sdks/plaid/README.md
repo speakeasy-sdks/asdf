@@ -2497,8 +2497,8 @@ s = test_plaid.TestPlaid(
 req = shared.CreditRelayGetRequest(
     client_id='South blue given',
     relay_token='coupon',
-    report_type='Bicycle',
-    secret='fuchsia transmitter blockchains',
+    report_type=shared.ReportType.ASSET,
+    secret='Bicycle',
 )
 
 res = s.plaid.credit_relay_get(req)
@@ -2548,8 +2548,8 @@ s = test_plaid.TestPlaid(
 req = shared.CreditRelayPDFGetRequest(
     client_id='yowza 1080p',
     relay_token='down',
-    report_type='success Implementation bypassing',
-    secret='monitoring',
+    report_type=shared.ReportType.ASSET,
+    secret='success Implementation bypassing',
 )
 
 res = s.plaid.credit_relay_pdf_get(req)
@@ -2593,9 +2593,9 @@ s = test_plaid.TestPlaid(
 req = shared.CreditRelayRefreshRequest(
     client_id='motivating',
     relay_token='Berkshire',
-    report_type='Southeast',
-    secret='Alaska hovel Investor',
-    webhook='Integration',
+    report_type=shared.ReportType.ASSET,
+    secret='Southeast',
+    webhook='Alaska hovel Investor',
 )
 
 res = s.plaid.credit_relay_refresh(req)
@@ -4964,26 +4964,25 @@ req = shared.LinkTokenCreateRequest(
     auth=shared.LinkTokenCreateRequestAuth(
         auth_type_select_enabled=False,
         automated_microdeposits_enabled=False,
-        flow_type='Southwest green',
         instant_match_enabled=False,
         reroute_to_credentials=shared.LinkTokenCreateRequestAuthRerouteToCredentials.OPTIONAL,
         same_day_microdeposits_enabled=False,
     ),
     base_report=shared.LinkTokenCreateRequestBaseReport(
-        days_requested=438572,
+        days_requested=112550,
     ),
-    client_id='Volkswagen Factors hard',
-    client_name='invoice SCSI geez',
-    consumer_report_permissible_purpose=shared.ConsumerReportPermissiblePurpose.LEGITIMATE_BUSINESS_NEED_OTHER,
+    client_id='green Assistant Factors',
+    client_name='adipisci Architect',
+    consumer_report_permissible_purpose=shared.ConsumerReportPermissiblePurpose.WRITTEN_INSTRUCTION_OTHER,
     country_codes=[
-        shared.CountryCode.PL,
+        shared.CountryCode.DE,
     ],
     deposit_switch=shared.LinkTokenCreateRequestDepositSwitch(
-        deposit_switch_id='Gold Berkelium Persevering',
+        deposit_switch_id='geez Infrastructure',
     ),
     employment=shared.LinkTokenCreateRequestEmployment(
         bank_employment=shared.LinkTokenCreateRequestEmploymentBankIncome(
-            days_requested=538846,
+            days_requested=774302,
         ),
         employment_source_types=[
             shared.EmploymentSourceType.PAYROLL,
@@ -4993,7 +4992,7 @@ req = shared.LinkTokenCreateRequest(
         headless=False,
     ),
     hosted_link={
-        "recusandae": 'Hyundai',
+        "id": 'Berkelium',
     },
     identity_verification=shared.LinkTokenCreateRequestIdentityVerification(
         consent=True,
@@ -5002,28 +5001,28 @@ req = shared.LinkTokenCreateRequest(
     ),
     income_verification=shared.LinkTokenCreateRequestIncomeVerification(
         access_tokens=[
-            'yellow',
+            'Persevering',
         ],
-        asset_report_id='uniform',
+        asset_report_id='male Hyundai',
         bank_income=shared.LinkTokenCreateRequestIncomeVerificationBankIncome(
-            days_requested=13594,
+            days_requested=179366,
             enable_multiple_items=False,
         ),
         income_source_types=[
-            shared.IncomeVerificationSourceType.PAYROLL,
+            shared.IncomeVerificationSourceType.BANK,
         ],
-        income_verification_id='orange',
+        income_verification_id='uniform',
         payroll_income=shared.LinkTokenCreateRequestIncomeVerificationPayrollIncome(
             flow_types=[
-                shared.IncomeVerificationPayrollFlowType.PAYROLL_DOCUMENT_INCOME,
+                shared.IncomeVerificationPayrollFlowType.PAYROLL_DIGITAL_INCOME,
             ],
             is_update_mode=False,
-            item_id_to_update='katal stench Sedan',
+            item_id_to_update='Florida Radium versus',
             parsing_config=[
-                shared.IncomeVerificationDocParsingConfig.OCR,
+                shared.IncomeVerificationDocParsingConfig.FRAUD_RISK,
             ],
         ),
-        precheck_id='customized Bedfordshire',
+        precheck_id='Cab customized Bedfordshire',
         stated_income_sources=[
             shared.LinkTokenCreateRequestUserStatedIncomeSource(
                 category=shared.UserStatedIncomeSourceCategory.RENTAL,
@@ -9105,7 +9104,7 @@ s = test_plaid.TestPlaid(
 req = shared.TransferDiligenceDocumentUploadRequest(
     file='^7k&D6@hF%'.encode(),
     originator_client_id='indexing',
-    purpose='Hybrid male',
+    purpose=shared.TransferDocumentPurpose.DUE_DILIGENCE,
 )
 
 res = s.plaid.transfer_diligence_document_upload(req)
@@ -11186,7 +11185,7 @@ req = shared.WatchlistScreeningEntityUpdateRequest(
     client_user_id='your-db-id-3b24110',
     entity_watchlist_screening_id='entscr_52xR9LKo77r1Np',
     reset_fields=[
-        'but',
+        shared.WatchlistScreeningEntityUpdateRequestResettableField.ASSIGNEE,
     ],
     search_terms=shared.UpdateEntityScreeningRequestSearchTerms(
         country='US',
@@ -11197,7 +11196,7 @@ req = shared.WatchlistScreeningEntityUpdateRequest(
         phone_number='+14025671234',
         url='https://example.com',
     ),
-    secret='rich Gasoline Reggae',
+    secret='Cambridgeshire Southwest',
     status=shared.WatchlistScreeningStatus.CLEARED,
 )
 
@@ -11663,7 +11662,7 @@ req = shared.WatchlistScreeningIndividualUpdateRequest(
     client_id='local drat woman',
     client_user_id='your-db-id-3b24110',
     reset_fields=[
-        'ouch',
+        shared.WatchlistScreeningIndividualUpdateRequestResettableField.ASSIGNEE,
     ],
     search_terms=shared.UpdateIndividualScreeningRequestSearchTerms(
         country='US',
@@ -11672,7 +11671,7 @@ req = shared.WatchlistScreeningIndividualUpdateRequest(
         legal_name='Aleksey Potemkin',
         watchlist_program_id='prg_2eRPsDnL66rZ7H',
     ),
-    secret='North Technician icebreaker',
+    secret='henry North Technician',
     status=shared.WatchlistScreeningStatus.CLEARED,
     watchlist_screening_id='scr_52xR9LKo77r1Np',
 )
