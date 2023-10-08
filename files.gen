@@ -333,7 +333,6 @@ src/test_plaid/models/shared/fdxnotificationseverity.py
 src/test_plaid/models/shared/fdxnotificationpriority.py
 src/test_plaid/models/shared/fdxnotificationpayload.py
 src/test_plaid/models/shared/fdxnotificationpayloadidtype.py
-src/test_plaid/models/shared/fdxfiattribute.py
 src/test_plaid/models/shared/fdxnotificationcategory.py
 src/test_plaid/models/shared/identitygetrequest.py
 src/test_plaid/models/shared/identitygetrequestoptions.py
@@ -947,7 +946,6 @@ docs/models/shared/fdxnotificationseverity.md
 docs/models/shared/fdxnotificationpriority.md
 docs/models/shared/fdxnotificationpayload.md
 docs/models/shared/fdxnotificationpayloadidtype.md
-docs/models/shared/fdxfiattribute.md
 docs/models/shared/fdxnotificationcategory.md
 docs/models/shared/identitygetrequest.md
 docs/models/shared/identitygetrequestoptions.md

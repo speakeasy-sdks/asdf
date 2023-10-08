@@ -16,14 +16,11 @@ s = test_plaid.TestPlaid(
 
 req = shared.AccountsBalanceGetRequest(
     access_token='Alafaya Loan',
-    client_id='Bacon',
     options=shared.AccountsBalanceGetRequestOptions(
         account_ids=[
-            'Blues',
+            'Conroe',
         ],
-        min_last_updated_datetime=dateutil.parser.isoparse('2022-09-07T02:18:16.768Z'),
     ),
-    secret='Fermium payment',
 )
 
 res = s.plaid.accounts_balance_get(req)
