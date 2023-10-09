@@ -2,11 +2,10 @@
 
 from __future__ import annotations
 import dataclasses
-from ..shared import fdxfiattribute as shared_fdxfiattribute
 from ..shared import fdxnotificationpayloadidtype as shared_fdxnotificationpayloadidtype
 from dataclasses_json import Undefined, dataclass_json
 from test_plaid import utils
-from typing import Optional
+from typing import Any, Optional
 
 
 @dataclass_json(undefined=Undefined.EXCLUDE)
@@ -14,7 +13,7 @@ from typing import Optional
 @dataclasses.dataclass
 class FDXNotificationPayload:
     r"""Custom key-value pairs payload for a notification"""
-    custom_fields: Optional[list[shared_fdxfiattribute.FDXFiAttribute]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('customFields'), 'exclude': lambda f: f is None }})
+    custom_fields: Optional[list[dict[str, Any]]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('customFields'), 'exclude': lambda f: f is None }})
     id: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('id'), 'exclude': lambda f: f is None }})
     r"""ID for the origination entity related to the notification"""
     id_type: Optional[shared_fdxnotificationpayloadidtype.FDXNotificationPayloadIDType] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('idType'), 'exclude': lambda f: f is None }})
