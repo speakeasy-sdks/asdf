@@ -8,7 +8,6 @@ from typing import Optional
 
 
 @dataclass_json(undefined=Undefined.EXCLUDE)
-
 @dataclasses.dataclass
 class EntityWatchlistSearchTerms:
     r"""Search inputs for creating an entity watchlist screening"""

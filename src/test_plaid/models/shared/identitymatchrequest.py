@@ -3,13 +3,13 @@
 from __future__ import annotations
 import dataclasses
 from ..shared import identitymatchrequestoptions as shared_identitymatchrequestoptions
+from ..shared import identitymatchuser as shared_identitymatchuser
 from dataclasses_json import Undefined, dataclass_json
 from test_plaid import utils
-from typing import Any, Optional
+from typing import Optional
 
 
 @dataclass_json(undefined=Undefined.EXCLUDE)
-
 @dataclasses.dataclass
 class IdentityMatchRequest:
     r"""IdentityMatchRequest defines the request schema for `/identity/match`"""
@@ -21,7 +21,7 @@ class IdentityMatchRequest:
     r"""An optional object to filter /identity/match results"""
     secret: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('secret'), 'exclude': lambda f: f is None }})
     r"""Your Plaid API `secret`. The `secret` is required and may be provided either in the `PLAID-SECRET` header or as part of a request body."""
-    user: Optional[dict[str, Any]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('user'), 'exclude': lambda f: f is None }})
+    user: Optional[shared_identitymatchuser.IdentityMatchUser] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('user'), 'exclude': lambda f: f is None }})
     r"""The user's legal name, phone number, email address and address used to perform fuzzy match. If Financial Account Matching is enabled in the Identity Verification product, leave this field empty to automatically match against PII collected from the Identity Verification checks."""
     
 

@@ -8,7 +8,6 @@ from typing import Optional
 
 
 @dataclass_json(undefined=Undefined.EXCLUDE)
-
 @dataclasses.dataclass
 class InstitutionsGetByIDRequestOptions:
     r"""Specifies optional parameters for `/institutions/get_by_id`. If provided, must not be `null`."""

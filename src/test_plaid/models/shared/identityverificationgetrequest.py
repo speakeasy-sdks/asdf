@@ -8,7 +8,6 @@ from typing import Optional
 
 
 @dataclass_json(undefined=Undefined.EXCLUDE)
-
 @dataclasses.dataclass
 class IdentityVerificationGetRequest:
     r"""Request input for fetching an identity verification"""

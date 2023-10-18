@@ -7,7 +7,6 @@ from test_plaid import utils
 
 
 @dataclass_json(undefined=Undefined.EXCLUDE)
-
 @dataclasses.dataclass
 class ItemImportRequestUserAuth:
     r"""Object of user ID and auth token pair, permitting Plaid to aggregate a user’s accounts"""

@@ -10,7 +10,6 @@ from typing import Optional
 
 
 @dataclass_json(undefined=Undefined.EXCLUDE)
-
 @dataclasses.dataclass
 class TransferRecurringSchedule:
     r"""The schedule that the recurring transfer will be executed on."""

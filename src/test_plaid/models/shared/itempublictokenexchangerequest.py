@@ -8,7 +8,6 @@ from typing import Optional
 
 
 @dataclass_json(undefined=Undefined.EXCLUDE)
-
 @dataclasses.dataclass
 class ItemPublicTokenExchangeRequest:
     r"""ItemPublicTokenExchangeRequest defines the request schema for `/item/public_token/exchange`"""

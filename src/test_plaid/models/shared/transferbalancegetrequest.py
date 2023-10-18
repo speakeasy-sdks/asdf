@@ -9,7 +9,6 @@ from typing import Optional
 
 
 @dataclass_json(undefined=Undefined.EXCLUDE)
-
 @dataclasses.dataclass
 class TransferBalanceGetRequest:
     r"""Defines the request schema for `/transfer/balance/get`"""

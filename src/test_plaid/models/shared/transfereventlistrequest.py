@@ -8,11 +8,10 @@ from ..shared import transfereventtype as shared_transfereventtype
 from dataclasses_json import Undefined, dataclass_json
 from datetime import datetime
 from test_plaid import utils
-from typing import Optional
+from typing import List, Optional
 
 
 @dataclass_json(undefined=Undefined.EXCLUDE)
-
 @dataclasses.dataclass
 class TransferEventListRequest:
     r"""Defines the request schema for `/transfer/event/list`"""
@@ -24,7 +23,7 @@ class TransferEventListRequest:
     r"""The maximum number of transfer events to return. If the number of events matching the above parameters is greater than `count`, the most recent events will be returned."""
     end_date: Optional[datetime] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('end_date'), 'encoder': utils.datetimeisoformat(True), 'decoder': dateutil.parser.isoparse }})
     r"""The end datetime of transfers to list. This should be in RFC 3339 format (i.e. `2019-12-06T22:35:49Z`)"""
-    event_types: Optional[list[shared_transfereventtype.TransferEventType]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('event_types'), 'exclude': lambda f: f is None }})
+    event_types: Optional[List[shared_transfereventtype.TransferEventType]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('event_types'), 'exclude': lambda f: f is None }})
     r"""Filter events by event type."""
     funding_account_id: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('funding_account_id') }})
     r"""Filter transfer events to only those with the specified `funding_account_id`."""

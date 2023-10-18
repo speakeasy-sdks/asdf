@@ -8,7 +8,6 @@ from typing import Optional
 
 
 @dataclass_json(undefined=Undefined.EXCLUDE)
-
 @dataclasses.dataclass
 class CreditBankIncomeRefreshRequestOptions:
     r"""An optional object for `/credit/bank_income/refresh` request options."""

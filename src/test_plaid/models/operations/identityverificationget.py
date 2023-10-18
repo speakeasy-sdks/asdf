@@ -3,8 +3,8 @@
 from __future__ import annotations
 import dataclasses
 import requests as requests_http
-from typing import Any, Optional
-
+from ..shared import identityverificationgetresponse as shared_identityverificationgetresponse
+from typing import Optional
 
 
 @dataclasses.dataclass
@@ -13,7 +13,7 @@ class IdentityVerificationGetResponse:
     r"""HTTP response content type for this operation"""
     status_code: int = dataclasses.field()
     r"""HTTP response status code for this operation"""
-    identity_verification_get_response: Optional[dict[str, Any]] = dataclasses.field(default=None)
+    identity_verification_get_response: Optional[shared_identityverificationgetresponse.IdentityVerificationGetResponse] = dataclasses.field(default=None)
     r"""OK"""
     raw_response: Optional[requests_http.Response] = dataclasses.field(default=None)
     r"""Raw HTTP response; suitable for custom response parsing"""

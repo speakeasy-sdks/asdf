@@ -3,8 +3,8 @@
 from __future__ import annotations
 import dataclasses
 import requests as requests_http
-from typing import Any, Optional
-
+from ..shared import watchlistscreeningindividualgetresponse as shared_watchlistscreeningindividualgetresponse
+from typing import Optional
 
 
 @dataclasses.dataclass
@@ -15,7 +15,7 @@ class WatchlistScreeningIndividualGetResponse:
     r"""HTTP response status code for this operation"""
     raw_response: Optional[requests_http.Response] = dataclasses.field(default=None)
     r"""Raw HTTP response; suitable for custom response parsing"""
-    watchlist_screening_individual_get_response: Optional[dict[str, Any]] = dataclasses.field(default=None)
+    watchlist_screening_individual_get_response: Optional[shared_watchlistscreeningindividualgetresponse.WatchlistScreeningIndividualGetResponse] = dataclasses.field(default=None)
     r"""OK"""
     
 

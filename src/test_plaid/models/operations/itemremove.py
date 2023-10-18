@@ -3,8 +3,9 @@
 from __future__ import annotations
 import dataclasses
 import requests as requests_http
-from typing import Any, Optional
-
+from ..shared import itemremoveresponse as shared_itemremoveresponse
+from ..shared import plaiderror as shared_plaiderror
+from typing import Optional
 
 
 @dataclasses.dataclass
@@ -13,9 +14,9 @@ class ItemRemoveResponse:
     r"""HTTP response content type for this operation"""
     status_code: int = dataclasses.field()
     r"""HTTP response status code for this operation"""
-    item_remove_response: Optional[dict[str, Any]] = dataclasses.field(default=None)
+    item_remove_response: Optional[shared_itemremoveresponse.ItemRemoveResponse] = dataclasses.field(default=None)
     r"""success"""
-    plaid_error: Optional[dict[str, Any]] = dataclasses.field(default=None)
+    plaid_error: Optional[shared_plaiderror.PlaidError] = dataclasses.field(default=None)
     r"""Error response."""
     raw_response: Optional[requests_http.Response] = dataclasses.field(default=None)
     r"""Raw HTTP response; suitable for custom response parsing"""

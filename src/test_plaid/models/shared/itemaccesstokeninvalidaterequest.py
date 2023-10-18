@@ -8,7 +8,6 @@ from typing import Optional
 
 
 @dataclass_json(undefined=Undefined.EXCLUDE)
-
 @dataclasses.dataclass
 class ItemAccessTokenInvalidateRequest:
     r"""ItemAccessTokenInvalidateRequest defines the request schema for `/item/access_token/invalidate`"""

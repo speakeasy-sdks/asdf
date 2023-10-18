@@ -3,8 +3,8 @@
 from __future__ import annotations
 import dataclasses
 import requests as requests_http
-from typing import Any, Optional
-
+from ..shared import creditbankincomewebhookupdateresponse as shared_creditbankincomewebhookupdateresponse
+from typing import Optional
 
 
 @dataclasses.dataclass
@@ -13,7 +13,7 @@ class CreditBankIncomeWebhookUpdateResponse:
     r"""HTTP response content type for this operation"""
     status_code: int = dataclasses.field()
     r"""HTTP response status code for this operation"""
-    credit_bank_income_webhook_update_response: Optional[dict[str, Any]] = dataclasses.field(default=None)
+    credit_bank_income_webhook_update_response: Optional[shared_creditbankincomewebhookupdateresponse.CreditBankIncomeWebhookUpdateResponse] = dataclasses.field(default=None)
     r"""OK"""
     raw_response: Optional[requests_http.Response] = dataclasses.field(default=None)
     r"""Raw HTTP response; suitable for custom response parsing"""

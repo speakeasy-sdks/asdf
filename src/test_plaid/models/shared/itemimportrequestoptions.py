@@ -8,7 +8,6 @@ from typing import Optional
 
 
 @dataclass_json(undefined=Undefined.EXCLUDE)
-
 @dataclasses.dataclass
 class ItemImportRequestOptions:
     r"""An optional object to configure `/item/import` request."""

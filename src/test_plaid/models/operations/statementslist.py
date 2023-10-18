@@ -3,8 +3,8 @@
 from __future__ import annotations
 import dataclasses
 import requests as requests_http
-from typing import Any, Optional
-
+from ..shared import statementslistresponse as shared_statementslistresponse
+from typing import Optional
 
 
 @dataclasses.dataclass
@@ -15,7 +15,7 @@ class StatementsListResponse:
     r"""HTTP response status code for this operation"""
     raw_response: Optional[requests_http.Response] = dataclasses.field(default=None)
     r"""Raw HTTP response; suitable for custom response parsing"""
-    statements_list_response: Optional[dict[str, Any]] = dataclasses.field(default=None)
+    statements_list_response: Optional[shared_statementslistresponse.StatementsListResponse] = dataclasses.field(default=None)
     r"""OK"""
     
 

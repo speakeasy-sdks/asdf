@@ -3,8 +3,8 @@
 from __future__ import annotations
 import dataclasses
 import requests as requests_http
-from typing import Any, Optional
-
+from ..shared import webhookverificationkeygetresponse as shared_webhookverificationkeygetresponse
+from typing import Optional
 
 
 @dataclasses.dataclass
@@ -15,7 +15,7 @@ class WebhookVerificationKeyGetResponse:
     r"""HTTP response status code for this operation"""
     raw_response: Optional[requests_http.Response] = dataclasses.field(default=None)
     r"""Raw HTTP response; suitable for custom response parsing"""
-    webhook_verification_key_get_response: Optional[dict[str, Any]] = dataclasses.field(default=None)
+    webhook_verification_key_get_response: Optional[shared_webhookverificationkeygetresponse.WebhookVerificationKeyGetResponse] = dataclasses.field(default=None)
     r"""OK"""
     
 

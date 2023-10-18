@@ -9,7 +9,6 @@ from typing import Optional
 
 
 @dataclass_json(undefined=Undefined.EXCLUDE)
-
 @dataclasses.dataclass
 class LinkDeliveryCommunicationMethod:
     r"""The communication method containing both the type and address to send the URL."""

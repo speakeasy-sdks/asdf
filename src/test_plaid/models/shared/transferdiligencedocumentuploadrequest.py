@@ -8,7 +8,6 @@ from test_plaid import utils
 
 
 @dataclass_json(undefined=Undefined.EXCLUDE)
-
 @dataclasses.dataclass
 class TransferDiligenceDocumentUploadRequest:
     r"""Defines the request schema for `/transfer/diligence/document/upload`"""

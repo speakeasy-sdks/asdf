@@ -8,7 +8,6 @@ from typing import Optional
 
 
 @dataclass_json(undefined=Undefined.EXCLUDE)
-
 @dataclasses.dataclass
 class IncomeVerificationPrecheckMilitaryInfo:
     r"""Data about military info in the income verification precheck."""

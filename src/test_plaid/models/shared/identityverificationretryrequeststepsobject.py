@@ -7,7 +7,6 @@ from test_plaid import utils
 
 
 @dataclass_json(undefined=Undefined.EXCLUDE)
-
 @dataclasses.dataclass
 class IdentityVerificationRetryRequestStepsObject:
     r"""Instructions for the `custom` retry strategy specifying which steps should be required or skipped.

@@ -9,7 +9,6 @@ from typing import Optional
 
 
 @dataclass_json(undefined=Undefined.EXCLUDE)
-
 @dataclasses.dataclass
 class LinkDeliveryCreateRequest:
     r"""LinkDeliveryCreateRequest defines the request schema for `/link_delivery/create`"""

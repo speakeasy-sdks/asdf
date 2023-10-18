@@ -10,7 +10,6 @@ from typing import Optional
 
 
 @dataclass_json(undefined=Undefined.EXCLUDE)
-
 @dataclasses.dataclass
 class ProcessorTransactionsGetRequest:
     r"""ProcessorTransactionsGetRequest defines the request schema for `/processor/transactions/get`"""

@@ -2,13 +2,13 @@
 
 from __future__ import annotations
 import dataclasses
+from ..shared import signaladdressdata as shared_signaladdressdata
 from dataclasses_json import Undefined, dataclass_json
 from test_plaid import utils
-from typing import Any, Optional
+from typing import Optional
 
 
 @dataclass_json(undefined=Undefined.EXCLUDE)
-
 @dataclasses.dataclass
 class IncomeVerificationPrecheckUser:
     r"""Information about the user whose eligibility is being evaluated."""
@@ -16,7 +16,7 @@ class IncomeVerificationPrecheckUser:
     r"""The user's email address"""
     first_name: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('first_name') }})
     r"""The user's first name"""
-    home_address: Optional[dict[str, Any]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('home_address') }})
+    home_address: Optional[shared_signaladdressdata.SignalAddressData] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('home_address') }})
     r"""Data about the components comprising an address."""
     last_name: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('last_name') }})
     r"""The user's last name"""

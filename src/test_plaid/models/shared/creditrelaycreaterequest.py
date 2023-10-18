@@ -4,15 +4,14 @@ from __future__ import annotations
 import dataclasses
 from dataclasses_json import Undefined, dataclass_json
 from test_plaid import utils
-from typing import Optional
+from typing import List, Optional
 
 
 @dataclass_json(undefined=Undefined.EXCLUDE)
-
 @dataclasses.dataclass
 class CreditRelayCreateRequest:
     r"""CreditRelayCreateRequest defines the request schema for `/credit/relay/create`"""
-    report_tokens: list[str] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('report_tokens') }})
+    report_tokens: List[str] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('report_tokens') }})
     r"""List of report token strings, with at most one token of each report type. Currently only Asset Report token is supported."""
     secondary_client_id: str = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('secondary_client_id') }})
     r"""The `secondary_client_id` is the client id of the third party with whom you would like to share the relay token."""

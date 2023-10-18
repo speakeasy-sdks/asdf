@@ -14,7 +14,6 @@ class SandboxItemSetVerificationStatusRequestVerificationStatus(str, Enum):
 
 
 @dataclass_json(undefined=Undefined.EXCLUDE)
-
 @dataclasses.dataclass
 class SandboxItemSetVerificationStatusRequest:
     r"""SandboxItemSetVerificationStatusRequest defines the request schema for `/sandbox/item/set_verification_status`"""

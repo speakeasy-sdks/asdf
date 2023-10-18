@@ -258,10 +258,10 @@ s = test_plaid.TestPlaid(
 )
 
 req = shared.AccountsBalanceGetRequest(
-    access_token='Alafaya Loan',
+    access_token='AGP',
     options=shared.AccountsBalanceGetRequestOptions(
         account_ids=[
-            'Conroe',
+            'East',
         ],
     ),
 )
@@ -309,10 +309,10 @@ s = test_plaid.TestPlaid(
 )
 
 req = shared.AccountsGetRequest(
-    access_token='indigo Southeast knottily',
+    access_token='shackle',
     options=shared.AccountsGetRequestOptions(
         account_ids=[
-            'Planner',
+            'yellow',
         ],
     ),
 )
@@ -355,9 +355,9 @@ s = test_plaid.TestPlaid(
 )
 
 req = shared.ApplicationGetRequest(
-    application_id='Automotive',
-    client_id='Fermium Executive',
-    secret='circuit whiteboard unkempt',
+    application_id='Island',
+    client_id='payment',
+    secret='Passenger',
 )
 
 res = s.plaid.application_get(req)
@@ -402,7 +402,7 @@ s = test_plaid.TestPlaid(
 )
 
 req = shared.AssetReportAuditCopyCreateRequest(
-    asset_report_token='Sports Rand',
+    asset_report_token='Directives',
 )
 
 res = s.plaid.asset_report_audit_copy_create(req)
@@ -445,7 +445,7 @@ s = test_plaid.TestPlaid(
 )
 
 req = shared.AssetReportAuditCopyGetRequest(
-    audit_copy_token='Implementation vacantly Global',
+    audit_copy_token='Bicycle',
 )
 
 res = s.plaid.asset_report_audit_copy_get(req)
@@ -488,7 +488,7 @@ s = test_plaid.TestPlaid(
 )
 
 req = shared.AssetReportAuditCopyRemoveRequest(
-    audit_copy_token='Metal Practical nonconforming',
+    audit_copy_token='Dodge',
 )
 
 res = s.plaid.asset_report_audit_copy_remove(req)
@@ -546,9 +546,11 @@ req = shared.AssetReportCreateRequest(
         products=[
             'matrix',
         ],
-        user={
-            "Electronic": 'leverage',
-        },
+        user=shared.AssetReportUser(
+            additional_properties={
+                "Electronic": 'leverage',
+            },
+        ),
     ),
 )
 
@@ -601,7 +603,7 @@ req = shared.AssetReportFilterRequest(
     account_ids_to_exclude=[
         'extensible',
     ],
-    asset_report_token='agreeable Guyana orange',
+    asset_report_token='male',
 )
 
 res = s.plaid.asset_report_filter(req)
@@ -699,7 +701,7 @@ s = test_plaid.TestPlaid(
 )
 
 req = shared.AssetReportPDFGetRequest(
-    asset_report_token='programming Cambridgeshire Feil',
+    asset_report_token='naturally',
     options=shared.AssetReportPDFGetRequestOptions(),
 )
 
@@ -745,11 +747,13 @@ s = test_plaid.TestPlaid(
 )
 
 req = shared.AssetReportRefreshRequest(
-    asset_report_token='Books Nickel',
+    asset_report_token='override',
     options=shared.AssetReportRefreshRequestOptions(
-        user={
-            "Associate": 'including',
-        },
+        user=shared.AssetReportUser(
+            additional_properties={
+                "Raleigh": 'Generic',
+            },
+        ),
     ),
 )
 
@@ -795,7 +799,7 @@ s = test_plaid.TestPlaid(
 )
 
 req = shared.AssetReportRemoveRequest(
-    asset_report_token='F2M busily South',
+    asset_report_token='male',
 )
 
 res = s.plaid.asset_report_remove(req)
@@ -842,10 +846,10 @@ s = test_plaid.TestPlaid(
 )
 
 req = shared.AuthGetRequest(
-    access_token='Cargo Steel postpone',
+    access_token='wherever',
     options=shared.AuthGetRequestOptions(
         account_ids=[
-            'Southeast',
+            'Bedfordshire',
         ],
     ),
 )
@@ -935,7 +939,7 @@ s = test_plaid.TestPlaid(
 )
 
 req = shared.BankTransferCancelRequest(
-    bank_transfer_id='trans',
+    bank_transfer_id='Rubber',
 )
 
 res = s.plaid.bank_transfer_cancel(req)
@@ -977,21 +981,24 @@ s = test_plaid.TestPlaid(
     ),
 )
 
-req = shared.BankTransferCreateRequest(
-    access_token='Northwest Hampshire thanks',
-    account_id='reassuringly',
-    amount='556.97',
-    description='Universal intermediate workforce',
-    idempotency_key='invoice viral',
-    iso_currency_code='Plastic Phosphorus programming',
+req = shared.BankTransferCreateRequestInput(
+    access_token='Bicycle',
+    account_id='Northwest',
+    amount='132.64',
+    description='Organized zero defect throughput',
+    idempotency_key='beautifully',
+    iso_currency_code='reassuringly',
     metadata={
-        "Kendale": 'Paradigm',
+        "reboot": 'parse',
     },
     network=shared.BankTransferNetwork.SAME_DAY_ACH,
-    type=shared.BankTransferType.CREDIT,
-    user={
-        "Gasoline": 'West',
-    },
+    type=shared.BankTransferType.DEBIT,
+    user=shared.BankTransferUserInput(
+        additional_properties={
+            "elderberry": 'Plastic',
+        },
+        legal_name='Phosphorus',
+    ),
 )
 
 res = s.plaid.bank_transfer_create(req)
@@ -1003,9 +1010,9 @@ if res.bank_transfer_create_response is not None:
 
 ### Parameters
 
-| Parameter                                                                            | Type                                                                                 | Required                                                                             | Description                                                                          |
-| ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ |
-| `request`                                                                            | [shared.BankTransferCreateRequest](../../models/shared/banktransfercreaterequest.md) | :heavy_check_mark:                                                                   | The request object to use for the request.                                           |
+| Parameter                                                                                      | Type                                                                                           | Required                                                                                       | Description                                                                                    |
+| ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
+| `request`                                                                                      | [shared.BankTransferCreateRequestInput](../../models/shared/banktransfercreaterequestinput.md) | :heavy_check_mark:                                                                             | The request object to use for the request.                                                     |
 
 
 ### Response
@@ -1123,7 +1130,7 @@ s = test_plaid.TestPlaid(
 )
 
 req = shared.BankTransferGetRequest(
-    bank_transfer_id='Technician Metal Tennessine',
+    bank_transfer_id='Benz',
 )
 
 res = s.plaid.bank_transfer_get(req)
@@ -1209,9 +1216,9 @@ s = test_plaid.TestPlaid(
 )
 
 req = shared.BankTransferMigrateAccountRequest(
-    account_number='horsewhip',
-    account_type='Israel',
-    routing_number='salmon Interface Buckinghamshire',
+    account_number='Cotton',
+    account_type='atheist',
+    routing_number='bolívar',
 )
 
 res = s.plaid.bank_transfer_migrate_account(req)
@@ -1254,7 +1261,7 @@ s = test_plaid.TestPlaid(
 )
 
 req = shared.BankTransferSweepGetRequest(
-    sweep_id='Principal',
+    sweep_id='Northwest',
 )
 
 res = s.plaid.bank_transfer_sweep_get(req)
@@ -1339,7 +1346,7 @@ s = test_plaid.TestPlaid(
 )
 
 req = shared.BaseReportGetRequest(
-    user_token='mockingly next',
+    user_token='optical',
 )
 
 res = s.plaid.base_report_get(req)
@@ -1386,9 +1393,13 @@ s = test_plaid.TestPlaid(
 
 req = shared.BeaconReportCreateRequest(
     beacon_user_id='becusr_11111111111111',
-    fraud_amount={
-        "Electric": 'Executive',
-    },
+    fraud_amount=shared.FraudAmount(
+        additional_properties={
+            "Electric": 'Executive',
+        },
+        iso_currency_code=shared.ISOCurrencyCode.USD,
+        value=100,
+    ),
     fraud_date=dateutil.parser.parse('1990-05-29').date(),
     type=shared.BeaconReportType.THIRD_PARTY,
 )
@@ -1430,6 +1441,7 @@ When you submit a new user to `/beacon/user/create`, several checks are performe
 
 ```python
 import test_plaid
+import dateutil.parser
 from test_plaid.models import shared
 
 s = test_plaid.TestPlaid(
@@ -1443,12 +1455,54 @@ s = test_plaid.TestPlaid(
 req = shared.BeaconUserCreateRequest(
     client_user_id='your-db-id-3b24110',
     program_id='becprg_11111111111111',
-    report={
-        "Loan": 'qui',
-    },
-    user={
-        "Bespoke": 'Infrastructure',
-    },
+    report=shared.BeaconUserCreateEmbeddedReport(
+        additional_properties={
+            "Loan": 'qui',
+        },
+        fraud_amount=shared.FraudAmountNullable(
+            additional_properties={
+                "Bespoke": 'Infrastructure',
+            },
+            iso_currency_code=shared.ISOCurrencyCode.USD,
+            value=100,
+        ),
+        fraud_date=dateutil.parser.parse('1990-05-29').date(),
+        type=shared.BeaconReportType.FIRST_PARTY,
+    ),
+    user=shared.BeaconUserRequestData(
+        additional_properties={
+            "bah": 'Corporate',
+        },
+        address=shared.BeaconUserRequestAddress(
+            additional_properties={
+                "Books": 'through',
+            },
+            city='Pawnee',
+            country='US',
+            postal_code='46001',
+            region='IN',
+            street='123 Main St.',
+            street2='Unit 42',
+        ),
+        date_of_birth=dateutil.parser.parse('1990-05-29').date(),
+        email_address='user@example.com',
+        id_number=shared.BeaconUserIDNumber(
+            additional_properties={
+                "Producer": 'fully',
+            },
+            type=shared.IDNumberType.US_SSN,
+            value='123456789',
+        ),
+        ip_address='192.0.2.42',
+        name=shared.BeaconUserName(
+            additional_properties={
+                "Tools": 'structure',
+            },
+            family_name='Knope',
+            given_name='Leslie',
+        ),
+        phone_number='+19876543212',
+    ),
 )
 
 res = s.plaid.beacon_user_create(req)
@@ -1625,7 +1679,7 @@ s = test_plaid.TestPlaid(
 )
 
 req = shared.PaymentInitiationPaymentTokenCreateRequest(
-    payment_id='Sedan World',
+    payment_id='Internal',
 )
 
 res = s.plaid.create_payment_token(req)
@@ -1667,9 +1721,12 @@ s = test_plaid.TestPlaid(
     ),
 )
 
-req = {
-    "Sedan": 'payment',
-}
+req = shared.AssetReportFreddieGetRequest(
+    additional_properties={
+        "Sedan": 'payment',
+    },
+    audit_copy_token='Concrete',
+)
 
 res = s.plaid.credit_asset_report_freddie_mac_get(req)
 
@@ -1680,9 +1737,9 @@ if res.asset_report_freddie_get_response is not None:
 
 ### Parameters
 
-| Parameter                                  | Type                                       | Required                                   | Description                                |
-| ------------------------------------------ | ------------------------------------------ | ------------------------------------------ | ------------------------------------------ |
-| `request`                                  | [dict[str, Any]](../../models//.md)        | :heavy_check_mark:                         | The request object to use for the request. |
+| Parameter                                                                                  | Type                                                                                       | Required                                                                                   | Description                                                                                |
+| ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ |
+| `request`                                                                                  | [shared.AssetReportFreddieGetRequest](../../models/shared/assetreportfreddiegetrequest.md) | :heavy_check_mark:                                                                         | The request object to use for the request.                                                 |
 
 
 ### Response
@@ -1758,9 +1815,9 @@ s = test_plaid.TestPlaid(
 )
 
 req = shared.CreditAuditCopyTokenUpdateRequest(
-    audit_copy_token='IP',
+    audit_copy_token='Recycled',
     report_tokens=[
-        'Chair',
+        'Money',
     ],
 )
 
@@ -1804,7 +1861,7 @@ s = test_plaid.TestPlaid(
 )
 
 req = shared.CreditBankEmploymentGetRequest(
-    user_token='West',
+    user_token='implement',
 )
 
 res = s.plaid.credit_bank_employment_get(req)
@@ -1890,7 +1947,7 @@ s = test_plaid.TestPlaid(
 )
 
 req = shared.CreditBankIncomePDFGetRequest(
-    user_token='Maryland female orchid',
+    user_token='considerate',
 )
 
 res = s.plaid.credit_bank_income_pdf_get(req)
@@ -1934,7 +1991,7 @@ s = test_plaid.TestPlaid(
 
 req = shared.CreditBankIncomeRefreshRequest(
     options=shared.CreditBankIncomeRefreshRequestOptions(),
-    user_token='ivory yet Smart',
+    user_token='shoot',
 )
 
 res = s.plaid.credit_bank_income_refresh(req)
@@ -1980,7 +2037,7 @@ s = test_plaid.TestPlaid(
 
 req = shared.CreditBankIncomeWebhookUpdateRequest(
     enable_webhooks=False,
-    user_token='Dakota Southwest',
+    user_token='Central',
 )
 
 res = s.plaid.credit_bank_income_webhook_update(req)
@@ -2023,7 +2080,7 @@ s = test_plaid.TestPlaid(
 )
 
 req = shared.CreditBankStatementsUploadsGetRequest(
-    user_token='secrecy Center Towels',
+    user_token='whose',
 )
 
 res = s.plaid.credit_bank_statements_uploads_get(req)
@@ -2066,7 +2123,7 @@ s = test_plaid.TestPlaid(
 )
 
 req = shared.CreditEmploymentGetRequest(
-    user_token='even',
+    user_token='Southwest',
 )
 
 res = s.plaid.credit_employment_get(req)
@@ -2109,7 +2166,7 @@ s = test_plaid.TestPlaid(
 )
 
 req = shared.CreditFreddieMacReportsGetRequest(
-    audit_copy_token='Interactions male',
+    audit_copy_token='Investor',
 )
 
 res = s.plaid.credit_freddie_mac_reports_get(req)
@@ -2201,9 +2258,11 @@ req = shared.CreditPayrollIncomePrecheckRequest(
         'Plastic',
     ],
     employer=shared.IncomeVerificationPrecheckEmployer(
-        address={
-            "Tantalum": 'triumph',
-        },
+        address=shared.IncomeVerificationPrecheckEmployerAddress(
+            additional_properties={
+                "Tantalum": 'triumph',
+            },
+        ),
     ),
     payroll_institution=shared.IncomeVerificationPrecheckPayrollInstitution(),
     us_military_info=shared.IncomeVerificationPrecheckMilitaryInfo(),
@@ -2254,7 +2313,7 @@ req = shared.CreditPayrollIncomeRefreshRequest(
             'deposit',
         ],
     ),
-    user_token='HTTP',
+    user_token='Carmela',
 )
 
 res = s.plaid.credit_payroll_income_refresh(req)
@@ -2345,7 +2404,7 @@ req = shared.CreditRelayCreateRequest(
     report_tokens=[
         'Account',
     ],
-    secondary_client_id='override',
+    secondary_client_id='Mali',
 )
 
 res = s.plaid.credit_relay_create(req)
@@ -2388,7 +2447,7 @@ s = test_plaid.TestPlaid(
 )
 
 req = shared.CreditRelayGetRequest(
-    relay_token='South blue given',
+    relay_token='boo',
     report_type=shared.ReportType.ASSET,
 )
 
@@ -2438,7 +2497,7 @@ s = test_plaid.TestPlaid(
 )
 
 req = shared.CreditRelayPDFGetRequest(
-    relay_token='yowza 1080p',
+    relay_token='VGA',
     report_type=shared.ReportType.ASSET,
 )
 
@@ -2482,7 +2541,7 @@ s = test_plaid.TestPlaid(
 )
 
 req = shared.CreditRelayRefreshRequest(
-    relay_token='motivating',
+    relay_token='East',
     report_type=shared.ReportType.ASSET,
 )
 
@@ -2526,7 +2585,7 @@ s = test_plaid.TestPlaid(
 )
 
 req = shared.CreditRelayRemoveRequest(
-    relay_token='silver bravely quickly',
+    relay_token='Porsche',
 )
 
 res = s.plaid.credit_relay_remove(req)
@@ -2569,7 +2628,7 @@ s = test_plaid.TestPlaid(
 )
 
 req = shared.CreditAuditCopyTokenRemoveRequest(
-    audit_copy_token='Southwest Architect Music',
+    audit_copy_token='burgeon',
 )
 
 res = s.plaid.credit_report_audit_copy_remove(req)
@@ -2614,7 +2673,7 @@ s = test_plaid.TestPlaid(
 )
 
 req = shared.CreditSessionsGetRequest(
-    user_token='Manganese Diesel Electric',
+    user_token='mmm',
 )
 
 res = s.plaid.credit_sessions_get(req)
@@ -2748,12 +2807,34 @@ req = shared.DepositSwitchAltCreateRequest(
             'Spring',
         ],
     ),
-    target_account={
-        "male": 'SUV',
-    },
-    target_user={
-        "TLS": 'Specialist',
-    },
+    target_account=shared.DepositSwitchTargetAccount(
+        additional_properties={
+            "male": 'SUV',
+        },
+        account_name='TLS',
+        account_number='Specialist',
+        account_subtype=shared.DepositSwitchTargetAccountAccountSubtype.SAVINGS,
+        routing_number='fascia',
+    ),
+    target_user=shared.DepositSwitchTargetUser(
+        additional_properties={
+            "blue": 'Luxurious',
+        },
+        address=shared.DepositSwitchAddressData(
+            additional_properties={
+                "Pizza": 'Diesel',
+            },
+            city='Daly City',
+            country='Gambia',
+            postal_code='57927',
+            region='mad',
+            street='Lesch Union',
+        ),
+        email='Faye.Rice@hotmail.com',
+        family_name='West',
+        given_name='lustrous',
+        phone='1-412-301-9945',
+    ),
 )
 
 res = s.plaid.deposit_switch_alt_create(req)
@@ -2801,8 +2882,8 @@ req = shared.DepositSwitchCreateRequest(
             'likewise',
         ],
     ),
-    target_access_token='ohm',
-    target_account_id='debrief Indium Moldova',
+    target_access_token='Southeast',
+    target_account_id='application',
 )
 
 res = s.plaid.deposit_switch_create(req)
@@ -2845,7 +2926,7 @@ s = test_plaid.TestPlaid(
 )
 
 req = shared.DepositSwitchGetRequest(
-    deposit_switch_id='meter Ireland',
+    deposit_switch_id='Trans',
 )
 
 res = s.plaid.deposit_switch_get(req)
@@ -2889,7 +2970,7 @@ s = test_plaid.TestPlaid(
 )
 
 req = shared.DepositSwitchTokenCreateRequest(
-    deposit_switch_id='Generic facilitate Sports',
+    deposit_switch_id='dissemble',
 )
 
 res = s.plaid.deposit_switch_token_create(req)
@@ -2937,7 +3018,7 @@ req = shared.EmployersSearchRequest(
     products=[
         'Future',
     ],
-    query='Rogers female',
+    query='Rock',
 )
 
 res = s.plaid.employers_search(req)
@@ -2984,7 +3065,7 @@ s = test_plaid.TestPlaid(
 )
 
 req = shared.EmploymentVerificationGetRequest(
-    access_token='migration Northeast',
+    access_token='Research',
 )
 
 res = s.plaid.employment_verification_get(req)
@@ -3029,25 +3110,25 @@ s = test_plaid.TestPlaid(
 
 req = shared.FDXNotification(
     category=shared.FDXNotificationCategory.CONSENT,
-    notification_id='Southeast generate Willms',
+    notification_id='female',
     notification_payload=shared.FDXNotificationPayload(
         custom_fields=[
             shared.FDXFiAttribute(
-                name='Intelligent',
-                value='Dollar Gorgeous',
+                name='Infrastructure',
+                value='panel',
             ),
         ],
     ),
     publisher=shared.FDXParty(
-        name='Livermorium repurpose',
-        type=shared.FDXPartyType.DATA_RECIPIENT,
+        name='wildly',
+        type=shared.FDXPartyType.DATA_ACCESS_PLATFORM,
     ),
     sent_on=dateutil.parser.isoparse('2021-07-15T14:46:41.375Z'),
     subscriber=shared.FDXParty(
-        name='Colorado Cambridgeshire',
+        name='deposit',
         type=shared.FDXPartyType.DATA_PROVIDER,
     ),
-    type=shared.FDXNotificationType.CONSENT_REVOKED,
+    type=shared.FDXNotificationType.CONSENT_UPDATED,
     url=shared.FDXHateoasLink(
         href='https://api.fi.com/fdx/v4/accounts/12345',
         types=[
@@ -3100,10 +3181,10 @@ s = test_plaid.TestPlaid(
 )
 
 req = shared.IdentityGetRequest(
-    access_token='South log Shirt',
+    access_token='meter',
     options=shared.IdentityGetRequestOptions(
         account_ids=[
-            'purple',
+            'Music',
         ],
     ),
 )
@@ -3150,15 +3231,22 @@ s = test_plaid.TestPlaid(
 )
 
 req = shared.IdentityMatchRequest(
-    access_token='Euro Electronics Loan',
+    access_token='drat',
     options=shared.IdentityMatchRequestOptions(
         account_ids=[
-            'above',
+            'Wooden',
         ],
     ),
-    user={
-        "Mission": 'Tala',
-    },
+    user=shared.IdentityMatchUser(
+        additional_properties={
+            "Modern": 'middleman',
+        },
+        address=shared.AddressDataNullableNoRequiredFields(
+            additional_properties={
+                "above": 'Mission',
+            },
+        ),
+    ),
 )
 
 res = s.plaid.identity_match(req)
@@ -3202,7 +3290,7 @@ s = test_plaid.TestPlaid(
 )
 
 req = shared.IdentityRefreshRequest(
-    access_token='female',
+    access_token='Ramp',
 )
 
 res = s.plaid.identity_refresh(req)
@@ -3256,15 +3344,27 @@ req = shared.IdentityVerificationCreateRequest(
     is_shareable=True,
     template_id='idvtmp_4FrXJvfQU3zGUR',
     user=shared.IdentityVerificationCreateRequestUser(
-        address={
-            "impish": 'Hatchback',
-        },
+        address=shared.UserAddress(
+            additional_properties={
+                "impish": 'Hatchback',
+            },
+            city='Pawnee',
+            country='US',
+            postal_code='46001',
+            region='IN',
+            street='123 Main St.',
+            street2='Unit 42',
+        ),
         client_user_id='your-db-id-3b24110',
         date_of_birth=dateutil.parser.parse('1990-05-29').date(),
         email_address='user@example.com',
-        id_number={
-            "Computer": 'North',
-        },
+        id_number=shared.UserIDNumber(
+            additional_properties={
+                "Computer": 'North',
+            },
+            type=shared.IDNumberType.US_SSN,
+            value='123456789',
+        ),
         name=shared.IdentityVerificationRequestUserName(
             family_name='Knope',
             given_name='Leslie',
@@ -3390,6 +3490,7 @@ Allow a customer to retry their identity verification
 
 ```python
 import test_plaid
+import dateutil.parser
 from test_plaid.models import shared
 
 s = test_plaid.TestPlaid(
@@ -3410,9 +3511,36 @@ req = shared.IdentityVerificationRetryRequest(
     ),
     strategy=shared.Strategy.INCOMPLETE,
     template_id='idvtmp_4FrXJvfQU3zGUR',
-    user={
-        "yuck": 'aggregate',
-    },
+    user=shared.IdentityVerificationRequestUser(
+        additional_properties={
+            "yuck": 'aggregate',
+        },
+        address=shared.UserAddress(
+            additional_properties={
+                "innovate": 'female',
+            },
+            city='Pawnee',
+            country='US',
+            postal_code='46001',
+            region='IN',
+            street='123 Main St.',
+            street2='Unit 42',
+        ),
+        date_of_birth=dateutil.parser.parse('1990-05-29').date(),
+        email_address='user@example.com',
+        id_number=shared.UserIDNumber(
+            additional_properties={
+                "Wooden": 'Frozen',
+            },
+            type=shared.IDNumberType.US_SSN,
+            value='123456789',
+        ),
+        name=shared.IdentityVerificationRequestUserName(
+            family_name='Knope',
+            given_name='Leslie',
+        ),
+        phone_number='+19876543212',
+    ),
 )
 
 res = s.plaid.identity_verification_retry(req)
@@ -3462,7 +3590,7 @@ req = shared.IncomeVerificationCreateRequest(
             'wherever',
         ],
     ),
-    webhook='communities Screen',
+    webhook='Lempira',
 )
 
 res = s.plaid.income_verification_create(req)
@@ -3608,9 +3736,11 @@ s = test_plaid.TestPlaid(
 
 req = shared.IncomeVerificationPrecheckRequest(
     employer=shared.IncomeVerificationPrecheckEmployer(
-        address={
-            "rapid": 'warden',
-        },
+        address=shared.IncomeVerificationPrecheckEmployerAddress(
+            additional_properties={
+                "rapid": 'warden',
+            },
+        ),
     ),
     payroll_institution=shared.IncomeVerificationPrecheckPayrollInstitution(),
     transactions_access_tokens=[
@@ -3618,9 +3748,11 @@ req = shared.IncomeVerificationPrecheckRequest(
     ],
     us_military_info=shared.IncomeVerificationPrecheckMilitaryInfo(),
     user=shared.IncomeVerificationPrecheckUser(
-        home_address={
-            "Architect": 'Chief',
-        },
+        home_address=shared.SignalAddressData(
+            additional_properties={
+                "Architect": 'Chief',
+            },
+        ),
     ),
 )
 
@@ -3772,7 +3904,7 @@ req = shared.InstitutionsGetByIDRequest(
     country_codes=[
         shared.CountryCode.NO,
     ],
-    institution_id='Libyan',
+    institution_id='Mouse',
     options=shared.InstitutionsGetByIDRequestOptions(),
 )
 
@@ -3828,7 +3960,7 @@ req = shared.InstitutionsSearchRequest(
     products=[
         shared.Products.DEPOSIT_SWITCH,
     ],
-    query='Wisconsin Producer connecting',
+    query='coolly',
 )
 
 res = s.plaid.institutions_search(req)
@@ -3871,10 +4003,10 @@ s = test_plaid.TestPlaid(
 )
 
 req = shared.InvestmentsAuthGetRequest(
-    access_token='Direct Shilling Reggae',
+    access_token='photodiode',
     options=shared.InvestmentsAuthGetRequestOptions(
         account_ids=[
-            'Optimized',
+            'West',
         ],
     ),
 )
@@ -3919,10 +4051,10 @@ s = test_plaid.TestPlaid(
 )
 
 req = shared.InvestmentsHoldingsGetRequest(
-    access_token='HDD instead',
+    access_token='withdrawal',
     options=shared.InvestmentHoldingsGetRequestOptions(
         account_ids=[
-            'Investment',
+            'iterate',
         ],
     ),
 )
@@ -3968,7 +4100,7 @@ s = test_plaid.TestPlaid(
 )
 
 req = shared.InvestmentsRefreshRequest(
-    access_token='Officer suscipit Nuevo',
+    access_token='Electric',
 )
 
 res = s.plaid.investments_refresh(req)
@@ -4020,14 +4152,14 @@ s = test_plaid.TestPlaid(
 )
 
 req = shared.InvestmentsTransactionsGetRequest(
-    access_token='Gadolinium orange lime',
-    end_date=dateutil.parser.parse('2023-10-16').date(),
+    access_token='shrilly',
+    end_date=dateutil.parser.parse('2022-08-08').date(),
     options=shared.InvestmentsTransactionsGetRequestOptions(
         account_ids=[
-            'Handmade',
+            'orange',
         ],
     ),
-    start_date=dateutil.parser.parse('2021-03-03').date(),
+    start_date=dateutil.parser.parse('2021-07-03').date(),
 )
 
 res = s.plaid.investments_transactions_get(req)
@@ -4073,7 +4205,7 @@ s = test_plaid.TestPlaid(
 )
 
 req = shared.ItemAccessTokenInvalidateRequest(
-    access_token='Electric sky',
+    access_token='Auto',
 )
 
 res = s.plaid.item_access_token_invalidate(req)
@@ -4192,21 +4324,25 @@ s = test_plaid.TestPlaid(
 )
 
 req = shared.ItemApplicationScopesUpdateRequest(
-    access_token='Cambridgeshire Product',
-    application_id='Executive pascal sensor',
+    access_token='withdrawal',
+    application_id='beautiful',
     context=shared.ScopesContext.PORTAL,
     scopes=shared.Scopes(
         accounts=[
             shared.AccountAccess(
-                account_product_access={
-                    "green": 'calculating',
-                },
-                unique_id='Senger extraneous',
+                account_product_access=shared.AccountProductAccessNullable(
+                    additional_properties={
+                        "Product": 'duh',
+                    },
+                ),
+                unique_id='emulation',
             ),
         ],
-        product_access={
-            "Northwest": 'suffocate',
-        },
+        product_access=shared.ProductAccess(
+            additional_properties={
+                "Southwest": 'pascal',
+            },
+        ),
     ),
 )
 
@@ -4256,7 +4392,7 @@ s = test_plaid.TestPlaid(
 )
 
 req = shared.ItemPublicTokenCreateRequest(
-    access_token='Fish Pizza',
+    access_token='ipsum',
 )
 
 res = s.plaid.item_create_public_token(req)
@@ -4299,7 +4435,7 @@ s = test_plaid.TestPlaid(
 )
 
 req = shared.ItemGetRequest(
-    access_token='magnetic',
+    access_token='Bedfordshire',
 )
 
 res = s.plaid.item_get(req)
@@ -4347,8 +4483,8 @@ req = shared.ItemImportRequest(
         shared.Products.PAYMENT_INITIATION,
     ],
     user_auth=shared.ItemImportRequestUserAuth(
-        auth_token='Conner',
-        user_id='depressive Tactics Cotton',
+        auth_token='Avon',
+        user_id='Mouse',
     ),
 )
 
@@ -4394,7 +4530,7 @@ s = test_plaid.TestPlaid(
 )
 
 req = shared.ItemPublicTokenExchangeRequest(
-    public_token='dangerous',
+    public_token='Sunrise',
 )
 
 res = s.plaid.item_public_token_exchange(req)
@@ -4443,7 +4579,7 @@ s = test_plaid.TestPlaid(
 )
 
 req = shared.ItemRemoveRequest(
-    access_token='Diesel',
+    access_token='Southwest',
 )
 
 res = s.plaid.item_remove(req)
@@ -4486,7 +4622,7 @@ s = test_plaid.TestPlaid(
 )
 
 req = shared.ItemWebhookUpdateRequest(
-    access_token='AGP streamline',
+    access_token='JSON',
 )
 
 res = s.plaid.item_webhook_update(req)
@@ -4533,10 +4669,10 @@ s = test_plaid.TestPlaid(
 )
 
 req = shared.LiabilitiesGetRequest(
-    access_token='Car',
+    access_token='Bedfordshire',
     options=shared.LiabilitiesGetRequestOptions(
         account_ids=[
-            'generate',
+            'Mali',
         ],
     ),
 )
@@ -4581,7 +4717,7 @@ s = test_plaid.TestPlaid(
 )
 
 req = shared.LinkDeliveryCreateRequest(
-    link_token='facilis',
+    link_token='Borders',
     options=shared.LinkDeliveryOptions(
         recipient=shared.LinkDeliveryRecipient(
             communication_methods=[
@@ -4631,7 +4767,7 @@ s = test_plaid.TestPlaid(
 )
 
 req = shared.LinkDeliveryGetRequest(
-    link_delivery_session_id='hmph',
+    link_delivery_session_id='Automotive',
 )
 
 res = s.plaid.link_delivery_get(req)
@@ -4675,7 +4811,7 @@ s = test_plaid.TestPlaid(
 )
 
 req = shared.LinkOAuthCorrelationIDExchangeRequest(
-    link_correlation_id='teal Officer framework',
+    link_correlation_id='Director',
 )
 
 res = s.plaid.link_oauth_correlation_id_exchange(req)
@@ -4721,33 +4857,69 @@ s = test_plaid.TestPlaid(
 )
 
 req = shared.LinkTokenCreateRequest(
-    account_filters={
-        "quantifying": 'Account',
-    },
+    account_filters=shared.LinkTokenAccountFilters(
+        additional_properties={
+            "quantifying": 'Account',
+        },
+        credit=shared.CreditFilter(
+            additional_properties={
+                "revolutionary": 'newton',
+            },
+            account_subtypes=[
+                shared.CreditAccountSubtype.CREDIT_CARD,
+            ],
+        ),
+        depository=shared.DepositoryFilter(
+            additional_properties={
+                "man": 'deposit',
+            },
+            account_subtypes=[
+                shared.DepositoryAccountSubtype.EBT,
+            ],
+        ),
+        investment=shared.InvestmentFilter(
+            additional_properties={
+                "green": 'Assistant',
+            },
+            account_subtypes=[
+                shared.InvestmentAccountSubtype.RDSP,
+            ],
+        ),
+        loan=shared.LoanFilter(
+            additional_properties={
+                "psst": 'adipisci',
+            },
+            account_subtypes=[
+                shared.LoanAccountSubtype.LINE_OF_CREDIT,
+            ],
+        ),
+    ),
     additional_consented_products=[
-        shared.Products.INVESTMENTS_AUTH,
+        shared.Products.IDENTITY_VERIFICATION,
     ],
     auth=shared.LinkTokenCreateRequestAuth(),
     base_report=shared.LinkTokenCreateRequestBaseReport(),
-    client_name='newton',
+    client_name='gah',
     country_codes=[
-        shared.CountryCode.GB,
+        shared.CountryCode.DK,
     ],
     deposit_switch=shared.LinkTokenCreateRequestDepositSwitch(
-        deposit_switch_id='cultivate deposit',
+        deposit_switch_id='geez',
     ),
     employment=shared.LinkTokenCreateRequestEmployment(
         bank_employment=shared.LinkTokenCreateRequestEmploymentBankIncome(
-            days_requested=868235,
+            days_requested=634091,
         ),
         employment_source_types=[
-            shared.EmploymentSourceType.BANK,
+            shared.EmploymentSourceType.PAYROLL,
         ],
     ),
     eu_config=shared.LinkTokenEUConfig(),
-    hosted_link={
-        "Palm": 'Assistant',
-    },
+    hosted_link=shared.LinkTokenCreateHostedLink(
+        additional_properties={
+            "Bicycle": 'Berkelium',
+        },
+    ),
     identity_verification=shared.LinkTokenCreateRequestIdentityVerification(
         consent=True,
         gave_consent=True,
@@ -4755,10 +4927,10 @@ req = shared.LinkTokenCreateRequest(
     ),
     income_verification=shared.LinkTokenCreateRequestIncomeVerification(
         access_tokens=[
-            'patent',
+            'Persevering',
         ],
         bank_income=shared.LinkTokenCreateRequestIncomeVerificationBankIncome(
-            days_requested=928675,
+            days_requested=538846,
         ),
         income_source_types=[
             shared.IncomeVerificationSourceType.PAYROLL,
@@ -4768,7 +4940,7 @@ req = shared.LinkTokenCreateRequest(
                 shared.IncomeVerificationPayrollFlowType.PAYROLL_DOCUMENT_INCOME,
             ],
             parsing_config=[
-                shared.IncomeVerificationDocParsingConfig.OCR,
+                shared.IncomeVerificationDocParsingConfig.FRAUD_RISK,
             ],
         ),
         stated_income_sources=[
@@ -4778,25 +4950,37 @@ req = shared.LinkTokenCreateRequest(
     institution_data=shared.LinkTokenCreateInstitutionData(),
     investments=shared.LinkTokenInvestments(),
     investments_auth=shared.LinkTokenInvestmentsAuth(),
-    language='invoice SCSI geez',
+    language='Savings',
     payment_initiation=shared.LinkTokenCreateRequestPaymentInitiation(),
     products=[
-        shared.Products.INCOME_VERIFICATION,
+        shared.Products.INVESTMENTS,
     ],
     required_if_supported_products=[
-        shared.Products.CREDIT_DETAILS,
+        shared.Products.PAYMENT_INITIATION,
     ],
     statements=shared.LinkTokenCreateRequestStatements(),
     transfer=shared.LinkTokenCreateRequestTransfer(),
     update=shared.LinkTokenCreateRequestUpdate(),
     user=shared.LinkTokenCreateRequestUser(
-        address={
-            "Bicycle": 'Berkelium',
-        },
-        client_user_id='Soul male',
-        id_number={
-            "Hyundai": 'yellow',
-        },
+        address=shared.UserAddress(
+            additional_properties={
+                "after": 'Convertible',
+            },
+            city='Pawnee',
+            country='US',
+            postal_code='46001',
+            region='IN',
+            street='123 Main St.',
+            street2='Unit 42',
+        ),
+        client_user_id='orange',
+        id_number=shared.UserIDNumber(
+            additional_properties={
+                "Legacy": 'katal',
+            },
+            type=shared.IDNumberType.US_SSN,
+            value='123456789',
+        ),
         name=shared.IdentityVerificationRequestUserName(
             family_name='Knope',
             given_name='Leslie',
@@ -4845,7 +5029,7 @@ s = test_plaid.TestPlaid(
 )
 
 req = shared.LinkTokenGetRequest(
-    link_token='transmit West',
+    link_token='Optional',
 )
 
 res = s.plaid.link_token_get(req)
@@ -4888,33 +5072,45 @@ s = test_plaid.TestPlaid(
 )
 
 req = shared.PartnerCustomerCreateRequest(
-    address={
-        "wireless": 'algorithm',
-    },
-    application_name='disintermediate utilize',
-    assets_under_management={
-        "Towels": 'following',
-    },
-    billing_contact={
-        "Customer": 'Noblesville',
-    },
-    company_name='Quitzon LLC',
-    customer_support_info={
-        "flexibility": 'protocol',
-    },
+    address=shared.PartnerEndCustomerAddress(
+        additional_properties={
+            "wireless": 'algorithm',
+        },
+    ),
+    application_name='monetize',
+    assets_under_management=shared.PartnerEndCustomerAssetsUnderManagement(
+        additional_properties={
+            "Corvallis": 'parse',
+        },
+        amount=4566.69,
+        iso_currency_code='Customer',
+    ),
+    billing_contact=shared.PartnerEndCustomerBillingContact(
+        additional_properties={
+            "Noblesville": 'Northwest',
+        },
+    ),
+    company_name='Huel - Harris',
+    customer_support_info=shared.PartnerEndCustomerCustomerSupportInfo(
+        additional_properties={
+            "protocol": 'Toys',
+        },
+    ),
     is_bank_addendum_completed=False,
     is_diligence_attested=False,
-    legal_entity_name='Account',
+    legal_entity_name='transmit',
     products=[
-        shared.Products.CREDIT_DETAILS,
+        shared.Products.RECURRING_TRANSACTIONS,
     ],
     redirect_uris=[
-        'fuchsia',
+        'person',
     ],
-    technical_contact={
-        "person": 'Garden',
-    },
-    website='auxiliary Southeast',
+    technical_contact=shared.PartnerEndCustomerTechnicalContact(
+        additional_properties={
+            "Garden": 'Central',
+        },
+    ),
+    website='North',
 )
 
 res = s.plaid.partner_customer_create(req)
@@ -4957,7 +5153,7 @@ s = test_plaid.TestPlaid(
 )
 
 req = shared.PartnerCustomerEnableRequest(
-    end_customer_client_id='coaxingly watchful North',
+    end_customer_client_id='Tesla',
 )
 
 res = s.plaid.partner_customer_enable(req)
@@ -5000,7 +5196,7 @@ s = test_plaid.TestPlaid(
 )
 
 req = shared.PartnerCustomerGetRequest(
-    end_customer_client_id='user Crossroad',
+    end_customer_client_id='navigating',
 )
 
 res = s.plaid.partner_customer_get(req)
@@ -5043,7 +5239,7 @@ s = test_plaid.TestPlaid(
 )
 
 req = shared.PartnerCustomerOAuthInstitutionsGetRequest(
-    end_customer_client_id='Pop',
+    end_customer_client_id='Rubber',
 )
 
 res = s.plaid.partner_customer_oauth_institutions_get(req)
@@ -5086,7 +5282,7 @@ s = test_plaid.TestPlaid(
 )
 
 req = shared.PartnerCustomerRemoveRequest(
-    end_customer_client_id='Apopka',
+    end_customer_client_id='green',
 )
 
 res = s.plaid.partner_customer_remove(req)
@@ -5150,14 +5346,16 @@ req = shared.PaymentInitiationConsentCreateRequest(
         valid_date_time=shared.PaymentConsentValidDateTime(),
     ),
     options=shared.ExternalPaymentInitiationConsentOptions(
-        bacs={
-            "Shore": 'Cotton',
-        },
+        bacs=shared.PaymentInitiationOptionalRestrictionBacs(
+            additional_properties={
+                "Shore": 'Cotton',
+            },
+        ),
     ),
-    recipient_id='to Station',
-    reference='West',
+    recipient_id='methodologies',
+    reference='Convertible',
     scopes=[
-        shared.PaymentInitiationConsentScope.EXTERNAL,
+        shared.PaymentInitiationConsentScope.ME_TO_ME,
     ],
 )
 
@@ -5201,7 +5399,7 @@ s = test_plaid.TestPlaid(
 )
 
 req = shared.PaymentInitiationConsentGetRequest(
-    consent_id='mmm monitor',
+    consent_id='Music',
 )
 
 res = s.plaid.payment_initiation_consent_get(req)
@@ -5248,8 +5446,8 @@ req = shared.PaymentInitiationConsentPaymentExecuteRequest(
         currency=shared.PaymentAmountCurrency.EUR,
         value=2986.44,
     ),
-    consent_id='azure',
-    idempotency_key='Gender Money',
+    consent_id='Islands',
+    idempotency_key='Group',
 )
 
 res = s.plaid.payment_initiation_consent_payment_execute(req)
@@ -5292,7 +5490,7 @@ s = test_plaid.TestPlaid(
 )
 
 req = shared.PaymentInitiationConsentRevokeRequest(
-    consent_id='bleakly',
+    consent_id='South',
 )
 
 res = s.plaid.payment_initiation_consent_revoke(req)
@@ -5328,6 +5526,7 @@ In the Development environment, payments must be below 5 GBP or other chosen [cu
 
 ```python
 import test_plaid
+import dateutil.parser
 from test_plaid.models import shared
 
 s = test_plaid.TestPlaid(
@@ -5344,15 +5543,22 @@ req = shared.PaymentInitiationPaymentCreateRequest(
         value=676.57,
     ),
     options=shared.ExternalPaymentOptions(
-        bacs={
-            "Liaison": 'exalted',
-        },
+        bacs=shared.PaymentInitiationOptionalRestrictionBacs(
+            additional_properties={
+                "Liaison": 'exalted',
+            },
+        ),
     ),
-    recipient_id='West',
-    reference='Electronic Polygender',
-    schedule={
-        "Bicycle": 'enterprise',
-    },
+    recipient_id='Cotton',
+    reference='Soap',
+    schedule=shared.ExternalPaymentScheduleRequest(
+        additional_properties={
+            "Consultant": 'reboot',
+        },
+        interval=shared.PaymentScheduleInterval.WEEKLY,
+        interval_execution_day=766943,
+        start_date=dateutil.parser.parse('2021-02-18').date(),
+    ),
 )
 
 res = s.plaid.payment_initiation_payment_create(req)
@@ -5395,7 +5601,7 @@ s = test_plaid.TestPlaid(
 )
 
 req = shared.PaymentInitiationPaymentGetRequest(
-    payment_id='South zowie',
+    payment_id='Solutions',
 )
 
 res = s.plaid.payment_initiation_payment_get(req)
@@ -5490,12 +5696,16 @@ s = test_plaid.TestPlaid(
 )
 
 req = shared.PaymentInitiationPaymentReverseRequest(
-    amount={
-        "Volkswagen": 'doloremque',
-    },
-    idempotency_key='Fish Northeast',
-    payment_id='Designer',
-    reference='enlightened Northwest',
+    amount=shared.PaymentAmountToRefund(
+        additional_properties={
+            "Volkswagen": 'doloremque',
+        },
+        currency=shared.PaymentAmountCurrency.SEK,
+        value=2096.21,
+    ),
+    idempotency_key='Magnesium',
+    payment_id='Max',
+    reference='enlightened',
 )
 
 res = s.plaid.payment_initiation_payment_reverse(req)
@@ -5543,13 +5753,23 @@ s = test_plaid.TestPlaid(
 )
 
 req = shared.PaymentInitiationRecipientCreateRequest(
-    address={
-        "Jewelery": 'optio',
-    },
-    bacs={
-        "Response": 'revolutionary',
-    },
-    name='Berkshire',
+    address=shared.PaymentInitiationAddress(
+        additional_properties={
+            "Jewelery": 'optio',
+        },
+        city='Hartmannboro',
+        country='Albania',
+        postal_code='20204-8098',
+        street=[
+            'Cyprus',
+        ],
+    ),
+    bacs=shared.RecipientBACSNullable(
+        additional_properties={
+            "metrics": 'Specialist',
+        },
+    ),
+    name='Mali',
 )
 
 res = s.plaid.payment_initiation_recipient_create(req)
@@ -5592,7 +5812,7 @@ s = test_plaid.TestPlaid(
 )
 
 req = shared.PaymentInitiationRecipientGetRequest(
-    recipient_id='generating Protactinium',
+    recipient_id='Denar',
 )
 
 res = s.plaid.payment_initiation_recipient_get(req)
@@ -5719,7 +5939,7 @@ s = test_plaid.TestPlaid(
 )
 
 req = shared.PaymentProfileGetRequest(
-    payment_profile_token='shrill East',
+    payment_profile_token='standardization',
 )
 
 res = s.plaid.payment_profile_get(req)
@@ -5762,7 +5982,7 @@ s = test_plaid.TestPlaid(
 )
 
 req = shared.PaymentProfileRemoveRequest(
-    payment_profile_token='West reiciendis',
+    payment_profile_token='Metal',
 )
 
 res = s.plaid.payment_profile_remove(req)
@@ -5805,8 +6025,8 @@ s = test_plaid.TestPlaid(
 )
 
 req = shared.ProcessorApexProcessorTokenCreateRequest(
-    access_token='York vegetate',
-    account_id='Mouse',
+    access_token='Account',
+    account_id='vegetate',
 )
 
 res = s.plaid.processor_apex_processor_token_create(req)
@@ -5852,7 +6072,7 @@ s = test_plaid.TestPlaid(
 )
 
 req = shared.ProcessorAuthGetRequest(
-    processor_token='eek copy',
+    processor_token='Music',
 )
 
 res = s.plaid.processor_auth_get(req)
@@ -5897,7 +6117,7 @@ s = test_plaid.TestPlaid(
 
 req = shared.ProcessorBalanceGetRequest(
     options=shared.ProcessorBalanceGetRequestOptions(),
-    processor_token='Quality',
+    processor_token='Awesome',
 )
 
 res = s.plaid.processor_balance_get(req)
@@ -5939,20 +6159,23 @@ s = test_plaid.TestPlaid(
     ),
 )
 
-req = shared.ProcessorBankTransferCreateRequest(
+req = shared.ProcessorBankTransferCreateRequestInput(
     amount='44.37',
     description='Open-source grid-enabled customer loyalty',
-    idempotency_key='Baby North trans',
-    iso_currency_code='Van taxicab',
+    idempotency_key='Diesel',
+    iso_currency_code='Lead',
     metadata={
-        "reboot": 'Northwest',
+        "Mozambique": 'seamless',
     },
-    network=shared.BankTransferNetwork.WIRE,
-    processor_token='meh maroon',
+    network=shared.BankTransferNetwork.SAME_DAY_ACH,
+    processor_token='Van',
     type=shared.BankTransferType.CREDIT,
-    user={
-        "lumen": 'indigo',
-    },
+    user=shared.BankTransferUserInput(
+        additional_properties={
+            "only": 'whoa',
+        },
+        legal_name='Loan',
+    ),
 )
 
 res = s.plaid.processor_bank_transfer_create(req)
@@ -5964,9 +6187,9 @@ if res.processor_bank_transfer_create_response is not None:
 
 ### Parameters
 
-| Parameter                                                                                              | Type                                                                                                   | Required                                                                                               | Description                                                                                            |
-| ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ |
-| `request`                                                                                              | [shared.ProcessorBankTransferCreateRequest](../../models/shared/processorbanktransfercreaterequest.md) | :heavy_check_mark:                                                                                     | The request object to use for the request.                                                             |
+| Parameter                                                                                                        | Type                                                                                                             | Required                                                                                                         | Description                                                                                                      |
+| ---------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------- |
+| `request`                                                                                                        | [shared.ProcessorBankTransferCreateRequestInput](../../models/shared/processorbanktransfercreaterequestinput.md) | :heavy_check_mark:                                                                                               | The request object to use for the request.                                                                       |
 
 
 ### Response
@@ -5995,7 +6218,7 @@ s = test_plaid.TestPlaid(
 )
 
 req = shared.ProcessorIdentityGetRequest(
-    processor_token='Agender coulomb',
+    processor_token='Neither',
 )
 
 res = s.plaid.processor_identity_get(req)
@@ -6040,10 +6263,17 @@ s = test_plaid.TestPlaid(
 )
 
 req = shared.ProcessorIdentityMatchRequest(
-    processor_token='Nebraska',
-    user={
-        "ouch": 'yippee',
-    },
+    processor_token='Faso',
+    user=shared.IdentityMatchUser(
+        additional_properties={
+            "ouch": 'yippee',
+        },
+        address=shared.AddressDataNullableNoRequiredFields(
+            additional_properties={
+                "Bronze": 'mint',
+            },
+        ),
+    ),
 )
 
 res = s.plaid.processor_identity_match(req)
@@ -6086,9 +6316,9 @@ s = test_plaid.TestPlaid(
 )
 
 req = shared.ProcessorSignalDecisionReportRequest(
-    client_transaction_id='stir olive',
+    client_transaction_id='Metrics',
     initiated=False,
-    processor_token='well error',
+    processor_token='SUV',
 )
 
 res = s.plaid.processor_signal_decision_report(req)
@@ -6136,13 +6366,15 @@ s = test_plaid.TestPlaid(
 
 req = shared.ProcessorSignalEvaluateRequest(
     amount=2186.98,
-    client_transaction_id='hacking',
+    client_transaction_id='Sleek',
     device=shared.SignalDevice(),
-    processor_token='Grocery',
+    processor_token='deposit',
     user=shared.SignalUser(
-        address={
-            "East": 'override',
-        },
+        address=shared.SignalAddressData(
+            additional_properties={
+                "RAM": 'Baby',
+            },
+        ),
         name=shared.SignalPersonName(),
     ),
 )
@@ -6188,9 +6420,9 @@ s = test_plaid.TestPlaid(
 )
 
 req = shared.ProcessorSignalReturnReportRequest(
-    client_transaction_id='diluted',
-    processor_token='as sticky wiry',
-    return_code='Tandem fooey even',
+    client_transaction_id='Yuma',
+    processor_token='Fresh',
+    return_code='as',
 )
 
 res = s.plaid.processor_signal_return_report(req)
@@ -6238,8 +6470,8 @@ s = test_plaid.TestPlaid(
 )
 
 req = shared.ProcessorStripeBankAccountTokenCreateRequest(
-    access_token='odit up Bicycle',
-    account_id='Berkshire Factors',
+    access_token='notice',
+    account_id='Valleys',
 )
 
 res = s.plaid.processor_stripe_bank_account_token_create(req)
@@ -6282,9 +6514,9 @@ s = test_plaid.TestPlaid(
 )
 
 req = shared.ProcessorTokenCreateRequest(
-    access_token='synthesize',
-    account_id='consequently withdrawal',
-    processor=shared.ProcessorTokenCreateRequestProcessor.ADP_ROLL,
+    access_token='Borders',
+    account_id='male',
+    processor=shared.ProcessorTokenCreateRequestProcessor.FORTRESS_TRUST,
 )
 
 res = s.plaid.processor_token_create(req)
@@ -6327,7 +6559,7 @@ s = test_plaid.TestPlaid(
 )
 
 req = shared.ProcessorTokenPermissionsGetRequest(
-    processor_token='Corporate Architect',
+    processor_token='payment',
 )
 
 res = s.plaid.processor_token_permissions_get(req)
@@ -6370,9 +6602,9 @@ s = test_plaid.TestPlaid(
 )
 
 req = shared.ProcessorTokenPermissionsSetRequest(
-    processor_token='Reggae',
+    processor_token='distributed',
     products=[
-        shared.Products.LIABILITIES,
+        shared.Products.STANDING_ORDERS,
     ],
 )
 
@@ -6416,8 +6648,8 @@ s = test_plaid.TestPlaid(
 )
 
 req = shared.ProcessorTokenWebhookUpdateRequest(
-    processor_token='Bicycle',
-    webhook='Montenegro City Krypton',
+    processor_token='Cheese',
+    webhook='Strategist',
 )
 
 res = s.plaid.processor_token_webhook_update(req)
@@ -6477,8 +6709,8 @@ req = shared.ProcessorTransactionsGetRequest(
             'Account',
         ],
     ),
-    processor_token='brightly Ergonomic miserly',
-    start_date=dateutil.parser.parse('2023-01-09').date(),
+    processor_token='Human',
+    start_date=dateutil.parser.parse('2021-10-26').date(),
 )
 
 res = s.plaid.processor_transactions_get(req)
@@ -6533,7 +6765,7 @@ req = shared.ProcessorTransactionsRecurringGetRequest(
         'Country',
     ],
     options=shared.TransactionsRecurringGetRequestOptions(),
-    processor_token='firewall expedite which',
+    processor_token='Kia',
 )
 
 res = s.plaid.processor_transactions_recurring_get(req)
@@ -6578,7 +6810,7 @@ s = test_plaid.TestPlaid(
 )
 
 req = shared.ProcessorTransactionsRefreshRequest(
-    processor_token='directional Cab enhance',
+    processor_token='concerning',
 )
 
 res = s.plaid.processor_transactions_refresh(req)
@@ -6640,7 +6872,7 @@ s = test_plaid.TestPlaid(
 
 req = shared.ProcessorTransactionsSyncRequest(
     options=shared.TransactionsSyncRequestOptions(),
-    processor_token='Internal aw',
+    processor_token='alarm',
 )
 
 res = s.plaid.processor_transactions_sync(req)
@@ -6685,7 +6917,7 @@ s = test_plaid.TestPlaid(
 req = shared.SandboxBankIncomeFireWebhookRequest(
     webhook_code=shared.SandboxBankIncomeWebhookFireRequestWebhookCode.BANK_INCOME_REFRESH_UPDATE,
     webhook_fields=shared.SandboxBankIncomeWebhookFireRequestWebhookFields(
-        user_id='quantifying exit',
+        user_id='PCI',
     ),
 )
 
@@ -6729,7 +6961,7 @@ s = test_plaid.TestPlaid(
 )
 
 req = shared.SandboxBankTransferFireWebhookRequest(
-    webhook='punctual',
+    webhook='Utah',
 )
 
 res = s.plaid.sandbox_bank_transfer_fire_webhook(req)
@@ -6772,11 +7004,13 @@ s = test_plaid.TestPlaid(
 )
 
 req = shared.SandboxBankTransferSimulateRequest(
-    bank_transfer_id='Antioch barbecue scorn',
-    event_type='near',
-    failure_reason={
-        "Corners": 'joule',
-    },
+    bank_transfer_id='amusing',
+    event_type='Woodland',
+    failure_reason=shared.BankTransferFailure(
+        additional_properties={
+            "Uruguay": 'near',
+        },
+    ),
 )
 
 res = s.plaid.sandbox_bank_transfer_simulate(req)
@@ -6819,9 +7053,9 @@ s = test_plaid.TestPlaid(
 )
 
 req = shared.SandboxIncomeFireWebhookRequest(
-    item_id='Fields Agent partnerships',
+    item_id='criminal',
     verification_status=shared.SandboxIncomeFireWebhookRequestVerificationStatus.VERIFICATION_STATUS_PENDING_APPROVAL,
-    webhook='Scandium bah Keyboard',
+    webhook='Folk',
 )
 
 res = s.plaid.sandbox_income_fire_webhook(req)
@@ -6880,8 +7114,8 @@ s = test_plaid.TestPlaid(
 )
 
 req = shared.SandboxItemFireWebhookRequest(
-    access_token='capacitor',
-    webhook_code=shared.SandboxItemFireWebhookRequestWebhookCode.PRODUCT_READY,
+    access_token='Mansfield',
+    webhook_code=shared.SandboxItemFireWebhookRequestWebhookCode.ERROR,
 )
 
 res = s.plaid.sandbox_item_fire_webhook(req)
@@ -6927,7 +7161,7 @@ s = test_plaid.TestPlaid(
 )
 
 req = shared.SandboxItemResetLoginRequest(
-    access_token='Exclusive',
+    access_token='facilitate',
 )
 
 res = s.plaid.sandbox_item_reset_login(req)
@@ -6974,8 +7208,8 @@ s = test_plaid.TestPlaid(
 )
 
 req = shared.SandboxItemSetVerificationStatusRequest(
-    access_token='Account',
-    account_id='Account Practical Marketing',
+    access_token='Cheese',
+    account_id='Account',
     verification_status=shared.SandboxItemSetVerificationStatusRequestVerificationStatus.AUTOMATICALLY_VERIFIED,
 )
 
@@ -7020,7 +7254,7 @@ req = shared.SandboxOauthSelectAccountsRequest(
     accounts=[
         'Director',
     ],
-    oauth_state_id='Quality',
+    oauth_state_id='Rubber',
 )
 
 res = s.plaid.sandbox_oauth_select_accounts(req)
@@ -7067,7 +7301,7 @@ s = test_plaid.TestPlaid(
 )
 
 req = shared.SandboxPaymentProfileResetLoginRequest(
-    payment_profile_token='Dynamic Applications',
+    payment_profile_token='payment',
 )
 
 res = s.plaid.sandbox_payment_profile_reset_login(req)
@@ -7110,7 +7344,7 @@ s = test_plaid.TestPlaid(
 )
 
 req = shared.SandboxProcessorTokenCreateRequest(
-    institution_id='Bohrium till',
+    institution_id='parallelism',
     options=shared.SandboxProcessorTokenCreateRequestOptions(),
 )
 
@@ -7158,7 +7392,7 @@ req = shared.SandboxPublicTokenCreateRequest(
     initial_products=[
         shared.Products.STANDING_ORDERS,
     ],
-    institution_id='upon',
+    institution_id='Frozen',
     options=shared.SandboxPublicTokenCreateRequestOptions(
         income_verification=shared.SandboxPublicTokenCreateRequestOptionsIncomeVerification(
             bank_income=shared.SandboxPublicTokenCreateRequestIncomeVerificationBankIncome(),
@@ -7210,7 +7444,7 @@ s = test_plaid.TestPlaid(
 )
 
 req = shared.SandboxTransferFireWebhookRequest(
-    webhook='wireless magenta',
+    webhook='Account',
 )
 
 res = s.plaid.sandbox_transfer_fire_webhook(req)
@@ -7294,11 +7528,13 @@ s = test_plaid.TestPlaid(
 )
 
 req = shared.SandboxTransferSimulateRequest(
-    event_type='Dirham',
-    failure_reason={
-        "incentivize": 'integrate',
-    },
-    transfer_id='Corporate',
+    event_type='Irondequoit',
+    failure_reason=shared.TransferFailure(
+        additional_properties={
+            "South": 'incentivize',
+        },
+    ),
+    transfer_id='integrate',
 )
 
 res = s.plaid.sandbox_transfer_simulate(req)
@@ -7392,7 +7628,7 @@ s = test_plaid.TestPlaid(
 
 req = shared.SandboxTransferTestClockAdvanceRequest(
     new_virtual_time=dateutil.parser.isoparse('2021-11-02T16:09:41.486Z'),
-    test_clock_id='Parkway Tala Luxurious',
+    test_clock_id='an',
 )
 
 res = s.plaid.sandbox_transfer_test_clock_advance(req)
@@ -7481,7 +7717,7 @@ s = test_plaid.TestPlaid(
 )
 
 req = shared.SandboxTransferTestClockGetRequest(
-    test_clock_id='Bicycle',
+    test_clock_id='enterprise',
 )
 
 res = s.plaid.sandbox_transfer_test_clock_get(req)
@@ -7566,7 +7802,7 @@ s = test_plaid.TestPlaid(
 )
 
 req = shared.SignalDecisionReportRequest(
-    client_transaction_id='generate extremely Hip',
+    client_transaction_id='since',
     initiated=False,
 )
 
@@ -7614,15 +7850,17 @@ s = test_plaid.TestPlaid(
 )
 
 req = shared.SignalEvaluateRequest(
-    access_token='Officer',
-    account_id='override',
-    amount=7276.16,
-    client_transaction_id='Turkish Northwest Forward',
+    access_token='Plano',
+    account_id='white',
+    amount=5536.95,
+    client_transaction_id='Shoes',
     device=shared.SignalDevice(),
     user=shared.SignalUser(
-        address={
-            "Odessa": 'which',
-        },
+        address=shared.SignalAddressData(
+            additional_properties={
+                "woot": 'Diesel',
+            },
+        ),
         name=shared.SignalPersonName(),
     ),
 )
@@ -7671,7 +7909,7 @@ s = test_plaid.TestPlaid(
 )
 
 req = shared.SignalPrepareRequest(
-    access_token='Automated capacitor capacity',
+    access_token='Director',
 )
 
 res = s.plaid.signal_prepare(req)
@@ -7715,8 +7953,8 @@ s = test_plaid.TestPlaid(
 )
 
 req = shared.SignalReturnReportRequest(
-    client_transaction_id='software Shirt',
-    return_code='extranet optimistically',
+    client_transaction_id='foreground',
+    return_code='Chevrolet',
 )
 
 res = s.plaid.signal_return_report(req)
@@ -7759,8 +7997,8 @@ s = test_plaid.TestPlaid(
 )
 
 req = shared.StatementsDownloadRequest(
-    access_token='Indianapolis',
-    statement_id='Convertible',
+    access_token='integrate',
+    statement_id='Account',
 )
 
 res = s.plaid.statements_download(req)
@@ -7803,7 +8041,7 @@ s = test_plaid.TestPlaid(
 )
 
 req = shared.StatementsListRequest(
-    access_token='collaborative',
+    access_token='Ball',
 )
 
 res = s.plaid.statements_list(req)
@@ -7846,11 +8084,17 @@ s = test_plaid.TestPlaid(
 )
 
 req = shared.TransactionsEnhanceGetRequest(
-    account_type='engine Platinum Nihonium',
+    account_type='hurtful',
     transactions=[
-        {
-            "female": 'calculating',
-        },
+        shared.ClientProvidedRawTransaction(
+            additional_properties={
+                "bah": 'Platinum',
+            },
+            amount=7316.85,
+            description='User-centric next generation access',
+            id='<ID>',
+            iso_currency_code='calculating',
+        ),
     ],
 )
 
@@ -7883,6 +8127,7 @@ The `/transactions/enrich` endpoint enriches raw transaction data generated by y
 
 ```python
 import test_plaid
+import dateutil.parser
 from test_plaid.models import shared
 
 s = test_plaid.TestPlaid(
@@ -7894,12 +8139,24 @@ s = test_plaid.TestPlaid(
 )
 
 req = shared.TransactionsEnrichGetRequest(
-    account_type='THX Cotton generation',
+    account_type='insulation',
     options=shared.TransactionsEnrichRequestOptions(),
     transactions=[
-        {
-            "virtual": '24/7',
-        },
+        shared.ClientProvidedTransaction(
+            additional_properties={
+                "Diesel": 'HTTP',
+            },
+            amount=229.18,
+            description='Synergistic hybrid emulation',
+            direction=shared.EnrichTransactionDirection.INFLOW,
+            id='<ID>',
+            iso_currency_code='Granite',
+            location=shared.ClientProvidedTransactionLocation(
+                additional_properties={
+                    "JBOD": 'partnerships',
+                },
+            ),
+        ),
     ],
 )
 
@@ -7954,14 +8211,14 @@ s = test_plaid.TestPlaid(
 )
 
 req = shared.TransactionsGetRequest(
-    access_token='copying',
-    end_date=dateutil.parser.parse('2022-09-12').date(),
+    access_token='tan',
+    end_date=dateutil.parser.parse('2022-01-31').date(),
     options=shared.TransactionsGetRequestOptions(
         account_ids=[
-            'national',
+            'voluptas',
         ],
     ),
-    start_date=dateutil.parser.parse('2023-06-30').date(),
+    start_date=dateutil.parser.parse('2023-01-16').date(),
 )
 
 res = s.plaid.transactions_get(req)
@@ -8010,9 +8267,9 @@ s = test_plaid.TestPlaid(
 )
 
 req = shared.TransactionsRecurringGetRequest(
-    access_token='COM port',
+    access_token='Investment',
     account_ids=[
-        'up',
+        'port',
     ],
     options=shared.TransactionsRecurringGetRequestOptions(),
 )
@@ -8059,7 +8316,7 @@ s = test_plaid.TestPlaid(
 )
 
 req = shared.TransactionsRefreshRequest(
-    access_token='sexy Kentucky',
+    access_token='copy',
 )
 
 res = s.plaid.transactions_refresh(req)
@@ -8104,12 +8361,12 @@ s = test_plaid.TestPlaid(
 )
 
 req = shared.TransactionsRulesCreateRequest(
-    access_token='successfully sticky',
-    personal_finance_category='Applications BMW',
+    access_token='Human',
+    personal_finance_category='black',
     rule_details=shared.TransactionsRuleDetails(
         field=shared.TransactionsRuleField.TRANSACTION_ID,
-        query='Mazda',
-        type=shared.TransactionsRuleType.SUBSTRING_MATCH,
+        query='motivating',
+        type=shared.TransactionsRuleType.EXACT_MATCH,
     ),
 )
 
@@ -8151,7 +8408,7 @@ s = test_plaid.TestPlaid(
 )
 
 req = shared.TransactionsRulesListRequest(
-    access_token='Electronic',
+    access_token='Northeast',
 )
 
 res = s.plaid.transactions_rules_list(req)
@@ -8192,8 +8449,8 @@ s = test_plaid.TestPlaid(
 )
 
 req = shared.TransactionsRulesRemoveRequest(
-    access_token='payment Pants communities',
-    rule_id='Pants',
+    access_token='judicious',
+    rule_id='Manager',
 )
 
 res = s.plaid.transactions_rules_remove(req)
@@ -8254,7 +8511,7 @@ s = test_plaid.TestPlaid(
 )
 
 req = shared.TransactionsSyncRequest(
-    access_token='bluetooth weber Granite',
+    access_token='volt',
     options=shared.TransactionsSyncRequestOptions(),
 )
 
@@ -8313,14 +8570,16 @@ s = test_plaid.TestPlaid(
 
 req = shared.TransferAuthorizationCreateRequest(
     amount='237.18',
-    device={
-        "monitor": 'South',
-    },
+    device=shared.TransferAuthorizationDevice(
+        additional_properties={
+            "monitor": 'South',
+        },
+    ),
     network=shared.TransferNetwork.SAME_DAY_ACH,
     type=shared.TransferType.DEBIT,
     user=shared.TransferAuthorizationUserInRequest(
         address=shared.TransferUserAddressInRequest(),
-        legal_name='East',
+        legal_name='evolve',
     ),
 )
 
@@ -8405,7 +8664,7 @@ s = test_plaid.TestPlaid(
 )
 
 req = shared.TransferCancelRequest(
-    transfer_id='Mesquite Layton',
+    transfer_id='algorithm',
 )
 
 res = s.plaid.transfer_cancel(req)
@@ -8530,10 +8789,10 @@ s = test_plaid.TestPlaid(
 )
 
 req = shared.TransferCreateRequest(
-    authorization_id='parsing alarm',
-    description='Programmable bi-directional core',
+    authorization_id='incremental',
+    description='User-friendly interactive moderator',
     metadata={
-        "Buckinghamshire": 'Northwest',
+        "Associate": 'Northwest',
     },
 )
 
@@ -8579,7 +8838,7 @@ s = test_plaid.TestPlaid(
 
 req = shared.TransferDiligenceDocumentUploadRequest(
     file='^7k&D6@hF%'.encode(),
-    originator_client_id='indexing',
+    originator_client_id='Montana',
     purpose=shared.TransferDocumentPurpose.DUE_DILIGENCE,
 )
 
@@ -8623,37 +8882,37 @@ s = test_plaid.TestPlaid(
 )
 
 req = shared.TransferDiligenceSubmitRequest(
-    originator_client_id='Account Hybrid Integration',
+    originator_client_id='icy',
     originator_diligence=shared.TransferOriginatorDiligence(
         address=shared.TransferOriginatorAddress(
-            city='East Kevonton',
-            country_code='SY',
-            postal_code='42508',
-            region='female soluta',
-            street='Kirlin Street',
+            city='New Rahul',
+            country_code='VI',
+            postal_code='21150-8342',
+            region='protocol',
+            street='Koss Rapids',
         ),
         credit_usage_configuration=shared.TransferCreditUsageConfiguration(
-            expected_average_amount='rank Rubber Polarised',
-            expected_frequency=shared.OriginatorExpectedTransferFrequency.DAILY,
-            expected_highest_amount='Quality dime Strategist',
-            expected_monthly_amount='tempora Diesel',
+            expected_average_amount='Organized',
+            expected_frequency=shared.OriginatorExpectedTransferFrequency.ONCE_PER_WEEK,
+            expected_highest_amount='failing',
+            expected_monthly_amount='Sedan',
             sec_codes=[
-                shared.CreditACHClass.CCD,
+                shared.CreditACHClass.WEB,
             ],
         ),
-        dba='structure snappy likewise',
+        dba='Engineer',
         debit_usage_configuration=shared.TransferDebitUsageConfiguration(
-            expected_average_amount='concerning',
+            expected_average_amount='Country',
             expected_frequency=shared.OriginatorExpectedTransferFrequency.ONCE_PER_WEEK,
-            expected_highest_amount='Bahamas',
-            expected_monthly_amount='white',
+            expected_highest_amount='Polarised',
+            expected_monthly_amount='test',
             sec_codes=[
                 shared.ACHClass.TEL,
             ],
         ),
-        naics_code='expedite',
-        tax_id='Grocery Kendale Demigender',
-        website='Sports Optional aha',
+        naics_code='Representative',
+        tax_id='Frozen',
+        website='Mouse',
     ),
 )
 
@@ -8786,7 +9045,7 @@ s = test_plaid.TestPlaid(
 )
 
 req = shared.TransferGetRequest(
-    transfer_id='West Colorado',
+    transfer_id='up',
 )
 
 res = s.plaid.transfer_get(req)
@@ -8837,7 +9096,7 @@ req = shared.TransferIntentCreateRequest(
     mode=shared.TransferIntentCreateMode.DISBURSEMENT,
     user=shared.TransferUserInRequest(
         address=shared.TransferUserAddressInRequest(),
-        legal_name='magni line and',
+        legal_name='Land',
     ),
 )
 
@@ -8880,9 +9139,12 @@ s = test_plaid.TestPlaid(
     ),
 )
 
-req = {
-    "ipsa": 'Argentina',
-}
+req = shared.TransferIntentGetRequest(
+    additional_properties={
+        "ipsa": 'Argentina',
+    },
+    transfer_intent_id='invoice',
+)
 
 res = s.plaid.transfer_intent_get(req)
 
@@ -8893,9 +9155,9 @@ if res.transfer_intent_get_response is not None:
 
 ### Parameters
 
-| Parameter                                  | Type                                       | Required                                   | Description                                |
-| ------------------------------------------ | ------------------------------------------ | ------------------------------------------ | ------------------------------------------ |
-| `request`                                  | [dict[str, Any]](../../models//.md)        | :heavy_check_mark:                         | The request object to use for the request. |
+| Parameter                                                                          | Type                                                                               | Required                                                                           | Description                                                                        |
+| ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- |
+| `request`                                                                          | [shared.TransferIntentGetRequest](../../models/shared/transferintentgetrequest.md) | :heavy_check_mark:                                                                 | The request object to use for the request.                                         |
 
 
 ### Response
@@ -9049,9 +9311,9 @@ s = test_plaid.TestPlaid(
 )
 
 req = shared.TransferMigrateAccountRequest(
-    account_number='Islands female morph',
-    account_type='shackle',
-    routing_number='transmit silver Birr',
+    account_number='artistic',
+    account_type='spirituality',
+    routing_number='female',
 )
 
 res = s.plaid.transfer_migrate_account(req)
@@ -9137,7 +9399,7 @@ s = test_plaid.TestPlaid(
 )
 
 req = shared.TransferOriginatorGetRequest(
-    originator_client_id='Kip Rubber',
+    originator_client_id='index',
 )
 
 res = s.plaid.transfer_originator_get_json(req)
@@ -9262,8 +9524,8 @@ s = test_plaid.TestPlaid(
 )
 
 req = shared.TransferQuestionnaireCreateRequest(
-    originator_client_id='perpetrate solid',
-    redirect_uri='Optimization',
+    originator_client_id='repellat',
+    redirect_uri='Intersex',
 )
 
 res = s.plaid.transfer_questionnaire_create(req)
@@ -9306,7 +9568,7 @@ s = test_plaid.TestPlaid(
 )
 
 req = shared.TransferRecurringCancelRequest(
-    recurring_transfer_id='Krona',
+    recurring_transfer_id='Cotton',
 )
 
 res = s.plaid.transfer_recurring_cancel(req)
@@ -9350,25 +9612,29 @@ s = test_plaid.TestPlaid(
 )
 
 req = shared.TransferRecurringCreateRequest(
-    access_token='Cambridgeshire Security Identity',
-    account_id='Credit more',
-    amount='998.36',
-    description='Diverse real-time support',
-    device={
-        "leave": 'RSS',
-    },
-    idempotency_key='Cruiser',
-    network=shared.TransferNetwork.RTP,
+    access_token='blue',
+    account_id='quirkily',
+    amount='81.92',
+    description='Proactive executive knowledge base',
+    device=shared.TransferDevice(
+        additional_properties={
+            "Credit": 'more',
+        },
+        ip_address='255.53.196.232',
+        user_agent='leave',
+    ),
+    idempotency_key='RSS',
+    network=shared.TransferNetwork.ACH,
     schedule=shared.TransferRecurringSchedule(
-        interval_count=425257,
-        interval_execution_day=751549,
-        interval_unit=shared.TransferScheduleIntervalUnit.MONTH,
-        start_date=dateutil.parser.parse('2021-06-19').date(),
+        interval_count=767669,
+        interval_execution_day=191533,
+        interval_unit=shared.TransferScheduleIntervalUnit.WEEK,
+        start_date=dateutil.parser.parse('2023-10-19').date(),
     ),
     type=shared.TransferType.DEBIT,
     user=shared.TransferUserInRequest(
         address=shared.TransferUserAddressInRequest(),
-        legal_name='Hybrid innovative',
+        legal_name='gray',
     ),
     user_present=False,
 )
@@ -9413,7 +9679,7 @@ s = test_plaid.TestPlaid(
 )
 
 req = shared.TransferRecurringGetRequest(
-    recurring_transfer_id='indeed youthfully',
+    recurring_transfer_id='Transgender',
 )
 
 res = s.plaid.transfer_recurring_get(req)
@@ -9499,7 +9765,7 @@ s = test_plaid.TestPlaid(
 )
 
 req = shared.TransferRefundCancelRequest(
-    refund_id='Account',
+    refund_id='Northwest',
 )
 
 res = s.plaid.transfer_refund_cancel(req)
@@ -9545,8 +9811,8 @@ s = test_plaid.TestPlaid(
 
 req = shared.TransferRefundCreateRequest(
     amount='403.07',
-    idempotency_key='Tennessee',
-    transfer_id='Volvo Chair molestiae',
+    idempotency_key='intuitive',
+    transfer_id='Mini',
 )
 
 res = s.plaid.transfer_refund_create(req)
@@ -9589,7 +9855,7 @@ s = test_plaid.TestPlaid(
 )
 
 req = shared.TransferRefundGetRequest(
-    refund_id='Branding generating',
+    refund_id='Loan',
 )
 
 res = s.plaid.transfer_refund_get(req)
@@ -9674,7 +9940,7 @@ s = test_plaid.TestPlaid(
 )
 
 req = shared.TransferRepaymentReturnListRequest(
-    repayment_id='Lead Fiat',
+    repayment_id='Classical',
 )
 
 res = s.plaid.transfer_repayment_return_list(req)
@@ -9717,7 +9983,7 @@ s = test_plaid.TestPlaid(
 )
 
 req = shared.TransferSweepGetRequest(
-    sweep_id='Integration whereas',
+    sweep_id='Web',
 )
 
 res = s.plaid.transfer_sweep_get(req)
@@ -9806,10 +10072,30 @@ s = test_plaid.TestPlaid(
 )
 
 req = shared.UserCreateRequest(
-    client_user_id='male Diesel Soft',
-    consumer_report_user_identity={
-        "Chips": 'Factors',
-    },
+    client_user_id='Mini',
+    consumer_report_user_identity=shared.ConsumerReportUserIdentity(
+        additional_properties={
+            "Forward": 'Incredible',
+        },
+        emails=[
+            'Chevrolet',
+        ],
+        first_name='Weston',
+        last_name='Nicolas',
+        phone_numbers=[
+            'phooey',
+        ],
+        primary_address=shared.AddressData(
+            additional_properties={
+                "North": 'totam',
+            },
+            city='Flostead',
+            country='Chile',
+            postal_code='43161',
+            region='neural',
+            street='Reyes Overpass',
+        ),
+    ),
 )
 
 res = s.plaid.user_create(req)
@@ -9895,7 +10181,7 @@ s = test_plaid.TestPlaid(
 )
 
 req = shared.WalletGetRequest(
-    wallet_id='Zirconium Architect',
+    wallet_id='input',
 )
 
 res = s.plaid.wallet_get(req)
@@ -9970,6 +10256,7 @@ Transactions will settle in seconds to several days, depending on the underlying
 
 ```python
 import test_plaid
+import dateutil.parser
 from test_plaid.models import shared
 
 s = test_plaid.TestPlaid(
@@ -9981,15 +10268,48 @@ s = test_plaid.TestPlaid(
 )
 
 req = shared.WalletTransactionExecuteRequest(
-    amount={
-        "North": 'Web',
-    },
-    counterparty={
-        "Mercedes": 'Diesel',
-    },
-    idempotency_key='abaft Loaf deposit',
-    reference='Tennessee Licensed',
-    wallet_id='iterate',
+    amount=shared.WalletTransactionAmount(
+        additional_properties={
+            "North": 'Web',
+        },
+        iso_currency_code=shared.WalletISOCurrencyCode.EUR,
+        value=6603.67,
+    ),
+    counterparty=shared.WalletTransactionCounterparty(
+        additional_properties={
+            "Southwest": 'Luxurious',
+        },
+        address=shared.PaymentInitiationAddress(
+            additional_properties={
+                "abaft": 'Loaf',
+            },
+            city='Cindyport',
+            country='Bulgaria',
+            postal_code='28100-1398',
+            street=[
+                'North',
+            ],
+        ),
+        name='phew',
+        numbers=shared.WalletTransactionCounterpartyNumbers(
+            additional_properties={
+                "Car": 'North',
+            },
+            bacs=shared.WalletTransactionCounterpartyBACS(
+                additional_properties={
+                    "psst": 'Town',
+                },
+            ),
+            international=shared.WalletTransactionCounterpartyInternational(
+                additional_properties={
+                    "of": 'now',
+                },
+            ),
+        ),
+    ),
+    idempotency_key='definitive',
+    reference='Pennsylvania',
+    wallet_id='times',
 )
 
 res = s.plaid.wallet_transaction_execute(req)
@@ -10032,7 +10352,7 @@ s = test_plaid.TestPlaid(
 )
 
 req = shared.WalletTransactionGetRequest(
-    transaction_id='sky violently',
+    transaction_id='Principal',
 )
 
 res = s.plaid.wallet_transaction_get(req)
@@ -10077,7 +10397,7 @@ s = test_plaid.TestPlaid(
 
 req = shared.WalletTransactionListRequest(
     options=shared.WalletTransactionListRequestOptions(),
-    wallet_id='Intelligent candela understanding',
+    wallet_id='at',
 )
 
 res = s.plaid.wallet_transaction_list(req)
@@ -11056,7 +11376,7 @@ s = test_plaid.TestPlaid(
 )
 
 req = shared.WebhookVerificationKeyGetRequest(
-    key_id='Concrete Cambridgeshire solutions',
+    key_id='Dodge',
 )
 
 res = s.plaid.webhook_verification_key_get(req)

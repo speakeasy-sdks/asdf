@@ -8,7 +8,6 @@ from typing import Optional
 
 
 @dataclass_json(undefined=Undefined.EXCLUDE)
-
 @dataclasses.dataclass
 class BaseReportGetRequest:
     r"""BaseReportGetRequest defines the request schema for `/cra/base_report/get`"""

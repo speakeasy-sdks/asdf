@@ -8,7 +8,6 @@ from typing import Optional
 
 
 @dataclass_json(undefined=Undefined.EXCLUDE)
-
 @dataclasses.dataclass
 class InstitutionsSearchPaymentInitiationOptions:
     r"""Additional options that will be used to filter institutions by various Payment Initiation configurations."""

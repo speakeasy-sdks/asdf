@@ -7,7 +7,6 @@ from test_plaid import utils
 
 
 @dataclass_json(undefined=Undefined.EXCLUDE)
-
 @dataclasses.dataclass
 class TransferOriginatorAddress:
     r"""The originator's address."""

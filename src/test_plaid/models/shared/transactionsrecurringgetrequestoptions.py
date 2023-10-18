@@ -8,7 +8,6 @@ from typing import Optional
 
 
 @dataclass_json(undefined=Undefined.EXCLUDE)
-
 @dataclasses.dataclass
 class TransactionsRecurringGetRequestOptions:
     r"""An optional object to be used with the request. If specified, `options` must not be `null`."""

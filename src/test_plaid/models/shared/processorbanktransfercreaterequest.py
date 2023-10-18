@@ -5,15 +5,15 @@ import dataclasses
 from ..shared import achclass as shared_achclass
 from ..shared import banktransfernetwork as shared_banktransfernetwork
 from ..shared import banktransfertype as shared_banktransfertype
+from ..shared import banktransferuser as shared_banktransferuser
 from dataclasses_json import Undefined, dataclass_json
 from test_plaid import utils
-from typing import Any, Optional
+from typing import Dict, Optional
 
 
 @dataclass_json(undefined=Undefined.EXCLUDE)
-
 @dataclasses.dataclass
-class ProcessorBankTransferCreateRequest:
+class ProcessorBankTransferCreateRequestInput:
     r"""Defines the request schema for `/processor/bank_transfer/create`"""
     amount: str = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('amount') }})
     r"""The amount of the bank transfer (decimal string with two digits of precision e.g. \\"10.00\\")."""
@@ -32,7 +32,7 @@ class ProcessorBankTransferCreateRequest:
     r"""The processor token obtained from the Plaid integration partner. Processor tokens are in the format: `processor-<environment>-<identifier>`"""
     type: shared_banktransfertype.BankTransferType = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('type') }})
     r"""The type of bank transfer. This will be either `debit` or `credit`.  A `debit` indicates a transfer of money into the origination account; a `credit` indicates a transfer of money out of the origination account."""
-    user: dict[str, Any] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('user') }})
+    user: shared_banktransferuser.BankTransferUserInput = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('user') }})
     r"""The legal name and other information for the account holder."""
     ach_class: Optional[shared_achclass.ACHClass] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('ach_class'), 'exclude': lambda f: f is None }})
     r"""Specifies the use case of the transfer. Required for transfers on an ACH network.
@@ -49,7 +49,7 @@ class ProcessorBankTransferCreateRequest:
     r"""Your Plaid API `client_id`. The `client_id` is required and may be provided either in the `PLAID-CLIENT-ID` header or as part of a request body."""
     custom_tag: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('custom_tag') }})
     r"""An arbitrary string provided by the client for storage with the bank transfer. May be up to 100 characters."""
-    metadata: Optional[dict[str, str]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('metadata') }})
+    metadata: Optional[Dict[str, str]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('metadata') }})
     r"""The Metadata object is a mapping of client-provided string fields to any string value. The following limitations apply:
     The JSON values must be Strings (no nested JSON objects allowed)
     Only ASCII characters may be used

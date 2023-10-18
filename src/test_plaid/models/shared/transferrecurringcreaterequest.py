@@ -3,17 +3,17 @@
 from __future__ import annotations
 import dataclasses
 from ..shared import achclass as shared_achclass
+from ..shared import transferdevice as shared_transferdevice
 from ..shared import transfernetwork as shared_transfernetwork
 from ..shared import transferrecurringschedule as shared_transferrecurringschedule
 from ..shared import transfertype as shared_transfertype
 from ..shared import transferuserinrequest as shared_transferuserinrequest
 from dataclasses_json import Undefined, dataclass_json
 from test_plaid import utils
-from typing import Any, Optional
+from typing import Optional
 
 
 @dataclass_json(undefined=Undefined.EXCLUDE)
-
 @dataclasses.dataclass
 class TransferRecurringCreateRequest:
     r"""Defines the request schema for `/transfer/recurring/create`"""
@@ -25,7 +25,7 @@ class TransferRecurringCreateRequest:
     r"""The amount of the transfer (decimal string with two digits of precision e.g. \\"10.00\\")."""
     description: str = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('description') }})
     r"""The description of the recurring transfer."""
-    device: dict[str, Any] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('device') }})
+    device: shared_transferdevice.TransferDevice = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('device') }})
     r"""Information about the device being used to initiate the authorization."""
     idempotency_key: str = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('idempotency_key') }})
     r"""A random key provided by the client, per unique recurring transfer. Maximum of 50 characters.

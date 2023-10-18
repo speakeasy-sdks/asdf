@@ -9,7 +9,6 @@ from typing import Optional
 
 
 @dataclass_json(undefined=Undefined.EXCLUDE)
-
 @dataclasses.dataclass
 class LinkDeliveryOptions:
     r"""Optional metadata related to the Hosted Link session"""

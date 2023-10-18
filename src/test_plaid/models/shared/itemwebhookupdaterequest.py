@@ -8,7 +8,6 @@ from typing import Optional
 
 
 @dataclass_json(undefined=Undefined.EXCLUDE)
-
 @dataclasses.dataclass
 class ItemWebhookUpdateRequest:
     r"""ItemWebhookUpdateRequest defines the request schema for `/item/webhook/update`"""

@@ -6,17 +6,16 @@ from ..shared import countrycode as shared_countrycode
 from ..shared import institutionsgetrequestoptions as shared_institutionsgetrequestoptions
 from dataclasses_json import Undefined, dataclass_json
 from test_plaid import utils
-from typing import Optional
+from typing import List, Optional
 
 
 @dataclass_json(undefined=Undefined.EXCLUDE)
-
 @dataclasses.dataclass
 class InstitutionsGetRequest:
     r"""InstitutionsGetRequest defines the request schema for `/institutions/get`"""
     count: int = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('count') }})
     r"""The total number of Institutions to return."""
-    country_codes: list[shared_countrycode.CountryCode] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('country_codes') }})
+    country_codes: List[shared_countrycode.CountryCode] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('country_codes') }})
     r"""Specify which country or countries to include institutions from, using the ISO-3166-1 alpha-2 country code standard.
 
     In API versions 2019-05-29 and earlier, the `country_codes` parameter is an optional parameter within the `options` object and will default to `[US]` if it is not supplied.

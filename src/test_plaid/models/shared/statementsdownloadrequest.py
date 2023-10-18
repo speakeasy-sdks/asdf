@@ -8,7 +8,6 @@ from typing import Optional
 
 
 @dataclass_json(undefined=Undefined.EXCLUDE)
-
 @dataclasses.dataclass
 class StatementsDownloadRequest:
     r"""StatementsDownloadRequest defines the request schema for `/statements/download`"""

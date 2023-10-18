@@ -8,7 +8,6 @@ from typing import Optional
 
 
 @dataclass_json(undefined=Undefined.EXCLUDE)
-
 @dataclasses.dataclass
 class AssetReportPDFGetRequestOptions:
     r"""An optional object to filter or add data to `/asset_report/get` results. If provided, must be non-`null`."""

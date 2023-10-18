@@ -9,7 +9,6 @@ from typing import Optional
 
 
 @dataclass_json(undefined=Undefined.EXCLUDE)
-
 @dataclasses.dataclass
 class SandboxPublicTokenCreateRequestOptionsTransactions:
     r"""An optional set of parameters corresponding to transactions options."""

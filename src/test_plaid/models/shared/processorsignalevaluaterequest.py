@@ -10,7 +10,6 @@ from typing import Optional
 
 
 @dataclass_json(undefined=Undefined.EXCLUDE)
-
 @dataclasses.dataclass
 class ProcessorSignalEvaluateRequest:
     r"""ProcessorSignalEvaluateRequest defines the request schema for `/processor/signal/evaluate`"""

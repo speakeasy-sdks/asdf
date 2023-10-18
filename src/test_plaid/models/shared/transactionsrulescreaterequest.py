@@ -9,7 +9,6 @@ from typing import Optional
 
 
 @dataclass_json(undefined=Undefined.EXCLUDE)
-
 @dataclasses.dataclass
 class TransactionsRulesCreateRequest:
     r"""TransactionsRulesCreateRequest defines the request schema for `beta/transactions/rules/v1/create`"""

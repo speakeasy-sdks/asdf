@@ -9,7 +9,6 @@ from typing import Optional
 
 
 @dataclass_json(undefined=Undefined.EXCLUDE)
-
 @dataclasses.dataclass
 class UpdateIndividualScreeningRequestSearchTerms:
     r"""Search terms for editing an individual watchlist screening"""

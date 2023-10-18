@@ -8,7 +8,6 @@ from typing import Optional
 
 
 @dataclass_json(undefined=Undefined.EXCLUDE)
-
 @dataclasses.dataclass
 class CraBankIncomeGetRequest:
     r"""CraBankIncomeGetRequest defines the request schema for `/cra/bank_income/get`."""

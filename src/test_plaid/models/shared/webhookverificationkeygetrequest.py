@@ -8,7 +8,6 @@ from typing import Optional
 
 
 @dataclass_json(undefined=Undefined.EXCLUDE)
-
 @dataclasses.dataclass
 class WebhookVerificationKeyGetRequest:
     r"""WebhookVerificationKeyGetRequest defines the request schema for `/webhook_verification_key/get`"""

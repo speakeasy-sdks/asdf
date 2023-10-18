@@ -8,7 +8,6 @@ from typing import Optional
 
 
 @dataclass_json(undefined=Undefined.EXCLUDE)
-
 @dataclasses.dataclass
 class PaymentInitiationPaymentTokenCreateRequest:
     r"""PaymentInitiationPaymentTokenCreateRequest defines the request schema for `/payment_initiation/payment/token/create`"""

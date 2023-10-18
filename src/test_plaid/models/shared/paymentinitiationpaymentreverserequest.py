@@ -2,13 +2,13 @@
 
 from __future__ import annotations
 import dataclasses
+from ..shared import paymentamounttorefund as shared_paymentamounttorefund
 from dataclasses_json import Undefined, dataclass_json
 from test_plaid import utils
-from typing import Any, Optional
+from typing import Optional
 
 
 @dataclass_json(undefined=Undefined.EXCLUDE)
-
 @dataclasses.dataclass
 class PaymentInitiationPaymentReverseRequest:
     r"""PaymentInitiationPaymentReverseRequest defines the request schema for `/payment_initiation/payment/reverse`"""
@@ -21,7 +21,7 @@ class PaymentInitiationPaymentReverseRequest:
     r"""The ID of the payment to reverse"""
     reference: str = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('reference') }})
     r"""A reference for the refund. This must be an alphanumeric string with 6 to 18 characters and must not contain any special characters or spaces."""
-    amount: Optional[dict[str, Any]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('amount') }})
+    amount: Optional[shared_paymentamounttorefund.PaymentAmountToRefund] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('amount') }})
     r"""The amount and currency of a payment"""
     client_id: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('client_id'), 'exclude': lambda f: f is None }})
     r"""Your Plaid API `client_id`. The `client_id` is required and may be provided either in the `PLAID-CLIENT-ID` header or as part of a request body."""

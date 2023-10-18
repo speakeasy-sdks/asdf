@@ -7,4 +7,4 @@ An optional object to filter `/accounts/get` results.
 
 | Field                                                  | Type                                                   | Required                                               | Description                                            |
 | ------------------------------------------------------ | ------------------------------------------------------ | ------------------------------------------------------ | ------------------------------------------------------ |
-| `account_ids`                                          | list[*str*]                                            | :heavy_minus_sign:                                     | An array of `account_ids` to retrieve for the Account. |
+| `account_ids`                                          | List[*str*]                                            | :heavy_minus_sign:                                     | An array of `account_ids` to retrieve for the Account. |

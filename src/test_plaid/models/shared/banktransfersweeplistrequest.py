@@ -10,7 +10,6 @@ from typing import Optional
 
 
 @dataclass_json(undefined=Undefined.EXCLUDE)
-
 @dataclasses.dataclass
 class BankTransferSweepListRequest:
     r"""BankTransferSweepListRequest defines the request schema for `/bank_transfer/sweep/list`"""

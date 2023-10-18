@@ -8,7 +8,6 @@ from typing import Optional
 
 
 @dataclass_json(undefined=Undefined.EXCLUDE)
-
 @dataclasses.dataclass
 class LinkTokenCreateInstitutionData:
     r"""A map containing data used to highlight institutions in Link."""

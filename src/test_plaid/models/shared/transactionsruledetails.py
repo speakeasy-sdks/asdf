@@ -9,7 +9,6 @@ from test_plaid import utils
 
 
 @dataclass_json(undefined=Undefined.EXCLUDE)
-
 @dataclasses.dataclass
 class TransactionsRuleDetails:
     r"""A representation of transactions rule details."""

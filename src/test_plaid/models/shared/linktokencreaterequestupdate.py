@@ -8,7 +8,6 @@ from typing import Optional
 
 
 @dataclass_json(undefined=Undefined.EXCLUDE)
-
 @dataclasses.dataclass
 class LinkTokenCreateRequestUpdate:
     r"""Specifies options for initializing Link for [update mode](https://plaid.com/docs/link/update-mode)."""

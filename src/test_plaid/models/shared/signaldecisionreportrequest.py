@@ -10,7 +10,6 @@ from typing import Optional
 
 
 @dataclass_json(undefined=Undefined.EXCLUDE)
-
 @dataclasses.dataclass
 class SignalDecisionReportRequest:
     r"""SignalDecisionReportRequest defines the request schema for `/signal/decision/report`"""

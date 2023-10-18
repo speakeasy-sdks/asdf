@@ -8,7 +8,6 @@ from typing import Optional
 
 
 @dataclass_json(undefined=Undefined.EXCLUDE)
-
 @dataclasses.dataclass
 class WatchlistScreeningIndividualHitListRequest:
     r"""Request input for listing hits for an individual watchlist screening"""

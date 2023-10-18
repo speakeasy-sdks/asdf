@@ -8,7 +8,6 @@ from typing import Optional
 
 
 @dataclass_json(undefined=Undefined.EXCLUDE)
-
 @dataclasses.dataclass
 class DepositSwitchGetRequest:
     r"""DepositSwitchGetRequest defines the request schema for `/deposit_switch/get`"""

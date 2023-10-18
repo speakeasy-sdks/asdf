@@ -8,7 +8,6 @@ from typing import Optional
 
 
 @dataclass_json(undefined=Undefined.EXCLUDE)
-
 @dataclasses.dataclass
 class InvestmentsRefreshRequest:
     r"""InvestmentsRefreshRequest defines the request schema for `/investments/refresh`"""

@@ -8,7 +8,6 @@ from typing import Optional
 
 
 @dataclass_json(undefined=Undefined.EXCLUDE)
-
 @dataclasses.dataclass
 class TransferRefundCancelRequest:
     r"""Defines the request schema for `/transfer/refund/cancel`"""

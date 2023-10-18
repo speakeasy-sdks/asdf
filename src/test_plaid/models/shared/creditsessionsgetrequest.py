@@ -8,7 +8,6 @@ from typing import Optional
 
 
 @dataclass_json(undefined=Undefined.EXCLUDE)
-
 @dataclasses.dataclass
 class CreditSessionsGetRequest:
     r"""CreditSessionsGetRequest defines the request schema for `/credit/sessions/get`"""

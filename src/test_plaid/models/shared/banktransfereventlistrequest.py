@@ -9,11 +9,10 @@ from ..shared import banktransfereventtype as shared_banktransfereventtype
 from dataclasses_json import Undefined, dataclass_json
 from datetime import datetime
 from test_plaid import utils
-from typing import Optional
+from typing import List, Optional
 
 
 @dataclass_json(undefined=Undefined.EXCLUDE)
-
 @dataclasses.dataclass
 class BankTransferEventListRequest:
     r"""Defines the request schema for `/bank_transfer/event/list`"""
@@ -33,7 +32,7 @@ class BankTransferEventListRequest:
     """
     end_date: Optional[datetime] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('end_date'), 'encoder': utils.datetimeisoformat(True), 'decoder': dateutil.parser.isoparse }})
     r"""The end datetime of bank transfers to list. This should be in RFC 3339 format (i.e. `2019-12-06T22:35:49Z`)"""
-    event_types: Optional[list[shared_banktransfereventtype.BankTransferEventType]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('event_types'), 'exclude': lambda f: f is None }})
+    event_types: Optional[List[shared_banktransfereventtype.BankTransferEventType]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('event_types'), 'exclude': lambda f: f is None }})
     r"""Filter events by event type."""
     offset: Optional[int] = dataclasses.field(default=0, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('offset') }})
     r"""The offset into the list of bank transfer events. When `count`=25 and `offset`=0, the first 25 events will be returned. When `count`=25 and `offset`=25, the next 25 bank transfer events will be returned."""

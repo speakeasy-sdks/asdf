@@ -9,7 +9,6 @@ from typing import Optional
 
 
 @dataclass_json(undefined=Undefined.EXCLUDE)
-
 @dataclasses.dataclass
 class TransactionsSyncRequest:
     r"""TransactionsSyncRequest defines the request schema for `/transactions/sync`"""

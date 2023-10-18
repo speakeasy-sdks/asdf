@@ -2,21 +2,22 @@
 
 from __future__ import annotations
 import dataclasses
+from ..shared import paymentinitiationaddress as shared_paymentinitiationaddress
+from ..shared import recipientbacsnullable as shared_recipientbacsnullable
 from dataclasses_json import Undefined, dataclass_json
 from test_plaid import utils
-from typing import Any, Optional
+from typing import Optional
 
 
 @dataclass_json(undefined=Undefined.EXCLUDE)
-
 @dataclasses.dataclass
 class PaymentInitiationRecipientCreateRequest:
     r"""PaymentInitiationRecipientCreateRequest defines the request schema for `/payment_initiation/recipient/create`"""
     name: str = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('name') }})
     r"""The name of the recipient. We recommend using strings of length 18 or less and avoid special characters to ensure compatibility with all institutions."""
-    address: Optional[dict[str, Any]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('address') }})
+    address: Optional[shared_paymentinitiationaddress.PaymentInitiationAddress] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('address') }})
     r"""The optional address of the payment recipient's bank account. Required by most institutions outside of the UK."""
-    bacs: Optional[dict[str, Any]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('bacs') }})
+    bacs: Optional[shared_recipientbacsnullable.RecipientBACSNullable] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('bacs') }})
     r"""An object containing a BACS account number and sort code. If an IBAN is not provided or if this recipient needs to accept domestic GBP-denominated payments, BACS data is required."""
     client_id: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('client_id'), 'exclude': lambda f: f is None }})
     r"""Your Plaid API `client_id`. The `client_id` is required and may be provided either in the `PLAID-CLIENT-ID` header or as part of a request body."""

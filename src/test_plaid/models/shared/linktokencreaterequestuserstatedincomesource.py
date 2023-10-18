@@ -11,7 +11,6 @@ from typing import Optional
 
 
 @dataclass_json(undefined=Undefined.EXCLUDE)
-
 @dataclasses.dataclass
 class LinkTokenCreateRequestUserStatedIncomeSource:
     r"""Specifies user stated income sources for the Income product"""

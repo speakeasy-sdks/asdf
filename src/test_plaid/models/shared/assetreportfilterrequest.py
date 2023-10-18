@@ -4,15 +4,14 @@ from __future__ import annotations
 import dataclasses
 from dataclasses_json import Undefined, dataclass_json
 from test_plaid import utils
-from typing import Optional
+from typing import List, Optional
 
 
 @dataclass_json(undefined=Undefined.EXCLUDE)
-
 @dataclasses.dataclass
 class AssetReportFilterRequest:
     r"""AssetReportFilterRequest defines the request schema for `/asset_report/filter`"""
-    account_ids_to_exclude: list[str] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('account_ids_to_exclude') }})
+    account_ids_to_exclude: List[str] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('account_ids_to_exclude') }})
     r"""The accounts to exclude from the Asset Report, identified by `account_id`."""
     asset_report_token: str = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('asset_report_token') }})
     r"""A token that can be provided to endpoints such as `/asset_report/get` or `/asset_report/pdf/get` to fetch or update an Asset Report."""

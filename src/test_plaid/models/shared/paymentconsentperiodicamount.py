@@ -10,7 +10,6 @@ from test_plaid import utils
 
 
 @dataclass_json(undefined=Undefined.EXCLUDE)
-
 @dataclasses.dataclass
 class PaymentConsentPeriodicAmount:
     r"""Defines consent payments limitations per period."""

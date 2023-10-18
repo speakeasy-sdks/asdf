@@ -3,8 +3,8 @@
 from __future__ import annotations
 import dataclasses
 import requests as requests_http
-from typing import Any, Optional
-
+from ..shared import sandboxitemresetloginresponse as shared_sandboxitemresetloginresponse
+from typing import Optional
 
 
 @dataclasses.dataclass
@@ -15,7 +15,7 @@ class SandboxItemResetLoginResponse:
     r"""HTTP response status code for this operation"""
     raw_response: Optional[requests_http.Response] = dataclasses.field(default=None)
     r"""Raw HTTP response; suitable for custom response parsing"""
-    sandbox_item_reset_login_response: Optional[dict[str, Any]] = dataclasses.field(default=None)
+    sandbox_item_reset_login_response: Optional[shared_sandboxitemresetloginresponse.SandboxItemResetLoginResponse] = dataclasses.field(default=None)
     r"""OK"""
     
 

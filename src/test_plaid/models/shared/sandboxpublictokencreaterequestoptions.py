@@ -10,7 +10,6 @@ from typing import Optional
 
 
 @dataclass_json(undefined=Undefined.EXCLUDE)
-
 @dataclasses.dataclass
 class SandboxPublicTokenCreateRequestOptions:
     r"""An optional set of options to be used when configuring the Item. If specified, must not be `null`."""

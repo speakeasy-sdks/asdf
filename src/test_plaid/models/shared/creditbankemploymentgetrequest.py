@@ -8,7 +8,6 @@ from typing import Optional
 
 
 @dataclass_json(undefined=Undefined.EXCLUDE)
-
 @dataclasses.dataclass
 class CreditBankEmploymentGetRequest:
     r"""CreditBankEmploymentGetRequest defines the request schema for `/beta/credit/v1/bank_employment/get`."""

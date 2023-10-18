@@ -8,7 +8,6 @@ from typing import Optional
 
 
 @dataclass_json(undefined=Undefined.EXCLUDE)
-
 @dataclasses.dataclass
 class PartnerCustomerOAuthInstitutionsGetRequest:
     r"""Request schema for `/partner/customer/oauth_institutions/get`."""

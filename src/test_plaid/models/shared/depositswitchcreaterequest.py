@@ -15,7 +15,6 @@ class DepositSwitchCreateRequestCountryCode(str, Enum):
 
 
 @dataclass_json(undefined=Undefined.EXCLUDE)
-
 @dataclasses.dataclass
 class DepositSwitchCreateRequest:
     r"""DepositSwitchCreateRequest defines the request schema for `/deposit_switch/create`"""

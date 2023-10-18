@@ -8,7 +8,6 @@ from typing import Optional
 
 
 @dataclass_json(undefined=Undefined.EXCLUDE)
-
 @dataclasses.dataclass
 class PaymentInitiationRecipientListRequest:
     r"""PaymentInitiationRecipientListRequest defines the request schema for `/payment_initiation/recipient/list`"""

@@ -20,7 +20,6 @@ class SandboxItemFireWebhookRequestWebhookCode(str, Enum):
 
 
 @dataclass_json(undefined=Undefined.EXCLUDE)
-
 @dataclasses.dataclass
 class SandboxItemFireWebhookRequest:
     r"""SandboxItemFireWebhookRequest defines the request schema for `/sandbox/item/fire_webhook`"""

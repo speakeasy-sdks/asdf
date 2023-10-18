@@ -8,7 +8,6 @@ from typing import Optional
 
 
 @dataclass_json(undefined=Undefined.EXCLUDE)
-
 @dataclasses.dataclass
 class LinkTokenInvestmentsAuth:
     r"""Configuration parameters for the Investments Auth Product"""

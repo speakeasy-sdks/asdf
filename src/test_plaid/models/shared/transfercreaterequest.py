@@ -6,7 +6,7 @@ from ..shared import transferuserinrequestdeprecated as shared_transferuserinreq
 from dataclasses_json import Undefined, dataclass_json
 from enum import Enum
 from test_plaid import utils
-from typing import Optional
+from typing import Dict, Optional
 
 class TransferCreateRequestACHClass(str, Enum):
     r"""Specifies the use case of the transfer. Required for transfers on an ACH network.
@@ -47,7 +47,6 @@ class TransferCreateRequestTransferType(str, Enum):
 
 
 @dataclass_json(undefined=Undefined.EXCLUDE)
-
 @dataclasses.dataclass
 class TransferCreateRequest:
     r"""Defines the request schema for `/transfer/create`"""
@@ -79,7 +78,7 @@ class TransferCreateRequest:
 
     Deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
     """
-    metadata: Optional[dict[str, str]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('metadata') }})
+    metadata: Optional[Dict[str, str]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('metadata') }})
     r"""The Metadata object is a mapping of client-provided string fields to any string value. The following limitations apply:
     The JSON values must be Strings (no nested JSON objects allowed)
     Only ASCII characters may be used

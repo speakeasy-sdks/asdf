@@ -3,8 +3,8 @@
 from __future__ import annotations
 import dataclasses
 import requests as requests_http
-from typing import Any, Optional
-
+from ..shared import investmentstransactionsgetresponse as shared_investmentstransactionsgetresponse
+from typing import Optional
 
 
 @dataclasses.dataclass
@@ -13,7 +13,7 @@ class InvestmentsTransactionsGetResponse:
     r"""HTTP response content type for this operation"""
     status_code: int = dataclasses.field()
     r"""HTTP response status code for this operation"""
-    investments_transactions_get_response: Optional[dict[str, Any]] = dataclasses.field(default=None)
+    investments_transactions_get_response: Optional[shared_investmentstransactionsgetresponse.InvestmentsTransactionsGetResponse] = dataclasses.field(default=None)
     r"""OK"""
     raw_response: Optional[requests_http.Response] = dataclasses.field(default=None)
     r"""Raw HTTP response; suitable for custom response parsing"""

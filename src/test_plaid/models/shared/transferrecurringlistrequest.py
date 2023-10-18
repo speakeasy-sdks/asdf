@@ -10,7 +10,6 @@ from typing import Optional
 
 
 @dataclass_json(undefined=Undefined.EXCLUDE)
-
 @dataclasses.dataclass
 class TransferRecurringListRequest:
     r"""Defines the request schema for `/transfer/recurring/list`"""

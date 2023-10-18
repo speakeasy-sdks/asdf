@@ -8,7 +8,6 @@ from typing import Optional
 
 
 @dataclass_json(undefined=Undefined.EXCLUDE)
-
 @dataclasses.dataclass
 class ProcessorApexProcessorTokenCreateRequest:
     r"""ProcessorApexProcessorTokenCreateRequest defines the request schema for `/processor/apex/processor_token/create`"""

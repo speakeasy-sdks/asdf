@@ -8,7 +8,6 @@ from typing import Optional
 
 
 @dataclass_json(undefined=Undefined.EXCLUDE)
-
 @dataclasses.dataclass
 class IncomeVerificationDocumentsDownloadRequest:
     r"""IncomeVerificationDocumentsDownloadRequest defines the request schema for `/income/verification/documents/download`."""

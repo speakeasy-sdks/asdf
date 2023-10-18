@@ -3,17 +3,17 @@
 from __future__ import annotations
 import dataclasses
 from ..shared import achclass as shared_achclass
+from ..shared import transferauthorizationdevice as shared_transferauthorizationdevice
 from ..shared import transferauthorizationuserinrequest as shared_transferauthorizationuserinrequest
 from ..shared import transfercreditfundssource as shared_transfercreditfundssource
 from ..shared import transfernetwork as shared_transfernetwork
 from ..shared import transfertype as shared_transfertype
 from dataclasses_json import Undefined, dataclass_json
 from test_plaid import utils
-from typing import Any, Optional
+from typing import Optional
 
 
 @dataclass_json(undefined=Undefined.EXCLUDE)
-
 @dataclasses.dataclass
 class TransferAuthorizationCreateRequest:
     r"""Defines the request schema for `/transfer/authorization/create`"""
@@ -54,7 +54,7 @@ class TransferAuthorizationCreateRequest:
     `prefunded_rtp_credits` - Use your prefunded RTP credit balance with Plaid
     `prefunded_ach_credits` - Use your prefunded ACH credit balance with Plaid
     """
-    device: Optional[dict[str, Any]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('device'), 'exclude': lambda f: f is None }})
+    device: Optional[shared_transferauthorizationdevice.TransferAuthorizationDevice] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('device'), 'exclude': lambda f: f is None }})
     r"""Information about the device being used to initiate the authorization."""
     funding_account_id: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('funding_account_id') }})
     r"""The id of the funding account to use, available in the Plaid Dashboard. This determines which of your business checking accounts will be credited or debited. Defaults to the account configured during onboarding."""

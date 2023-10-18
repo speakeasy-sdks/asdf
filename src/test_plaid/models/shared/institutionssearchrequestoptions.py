@@ -9,7 +9,6 @@ from typing import Optional
 
 
 @dataclass_json(undefined=Undefined.EXCLUDE)
-
 @dataclasses.dataclass
 class InstitutionsSearchRequestOptions:
     r"""An optional object to filter `/institutions/search` results."""

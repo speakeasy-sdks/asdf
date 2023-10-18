@@ -9,7 +9,6 @@ from typing import Optional
 
 
 @dataclass_json(undefined=Undefined.EXCLUDE)
-
 @dataclasses.dataclass
 class AccountsGetRequest:
     r"""AccountsGetRequest defines the request schema for `/accounts/get`"""

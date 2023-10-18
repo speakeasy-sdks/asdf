@@ -7,15 +7,14 @@ from ..shared import itemimportrequestuserauth as shared_itemimportrequestuserau
 from ..shared import products as shared_products
 from dataclasses_json import Undefined, dataclass_json
 from test_plaid import utils
-from typing import Optional
+from typing import List, Optional
 
 
 @dataclass_json(undefined=Undefined.EXCLUDE)
-
 @dataclasses.dataclass
 class ItemImportRequest:
     r"""ItemImportRequest defines the request schema for `/item/import`"""
-    products: list[shared_products.Products] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('products') }})
+    products: List[shared_products.Products] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('products') }})
     r"""Array of product strings"""
     user_auth: shared_itemimportrequestuserauth.ItemImportRequestUserAuth = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('user_auth') }})
     r"""Object of user ID and auth token pair, permitting Plaid to aggregate a user’s accounts"""

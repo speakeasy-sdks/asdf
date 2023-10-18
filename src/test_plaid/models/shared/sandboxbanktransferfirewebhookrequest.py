@@ -8,7 +8,6 @@ from typing import Optional
 
 
 @dataclass_json(undefined=Undefined.EXCLUDE)
-
 @dataclasses.dataclass
 class SandboxBankTransferFireWebhookRequest:
     r"""Defines the request schema for `/sandbox/bank_transfer/fire_webhook`"""

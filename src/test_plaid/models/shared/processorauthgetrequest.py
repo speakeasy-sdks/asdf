@@ -8,7 +8,6 @@ from typing import Optional
 
 
 @dataclass_json(undefined=Undefined.EXCLUDE)
-
 @dataclasses.dataclass
 class ProcessorAuthGetRequest:
     r"""ProcessorAuthGetRequest defines the request schema for `/processor/auth/get`"""

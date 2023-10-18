@@ -6,21 +6,20 @@ from ..shared import incomeverificationdocparsingconfig as shared_incomeverifica
 from ..shared import incomeverificationpayrollflowtype as shared_incomeverificationpayrollflowtype
 from dataclasses_json import Undefined, dataclass_json
 from test_plaid import utils
-from typing import Optional
+from typing import List, Optional
 
 
 @dataclass_json(undefined=Undefined.EXCLUDE)
-
 @dataclasses.dataclass
 class LinkTokenCreateRequestIncomeVerificationPayrollIncome:
     r"""Specifies options for initializing Link for use with Payroll Income (including Document Income). Further customization options for Document Income, such as customizing which document types may be uploaded, are also available via the [Link Customization pane](https://dashboard.plaid.com/link) in the Dashboard. (Requires Production enablement.)"""
-    flow_types: Optional[list[shared_incomeverificationpayrollflowtype.IncomeVerificationPayrollFlowType]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('flow_types') }})
+    flow_types: Optional[List[shared_incomeverificationpayrollflowtype.IncomeVerificationPayrollFlowType]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('flow_types') }})
     r"""The types of payroll income verification to enable for the Link session. If none are specified, then users will see both document and digital payroll income."""
     is_update_mode: Optional[bool] = dataclasses.field(default=False, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('is_update_mode'), 'exclude': lambda f: f is None }})
     r"""An identifier to indicate whether the income verification Link token will be used for update mode. This field is only relevant for participants in the Payroll Income Refresh beta."""
     item_id_to_update: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('item_id_to_update') }})
     r"""Uniquely identify a payroll income Item to update with.  This field is only relevant for participants in the Payroll Income Refresh beta."""
-    parsing_config: Optional[list[shared_incomeverificationdocparsingconfig.IncomeVerificationDocParsingConfig]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('parsing_config') }})
+    parsing_config: Optional[List[shared_incomeverificationdocparsingconfig.IncomeVerificationDocParsingConfig]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('parsing_config') }})
     r"""The types of analysis to enable for document uploads. If none are specified, then docs will undergo OCR parsing only. This field is only relevant to participants in the Document Fraud beta."""
     
 

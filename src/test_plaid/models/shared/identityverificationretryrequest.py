@@ -2,15 +2,15 @@
 
 from __future__ import annotations
 import dataclasses
+from ..shared import identityverificationrequestuser as shared_identityverificationrequestuser
 from ..shared import identityverificationretryrequeststepsobject as shared_identityverificationretryrequeststepsobject
 from ..shared import strategy as shared_strategy
 from dataclasses_json import Undefined, dataclass_json
 from test_plaid import utils
-from typing import Any, Optional
+from typing import Optional
 
 
 @dataclass_json(undefined=Undefined.EXCLUDE)
-
 @dataclasses.dataclass
 class IdentityVerificationRetryRequest:
     r"""Request input for retrying an identity verification attempt"""
@@ -53,7 +53,7 @@ class IdentityVerificationRetryRequest:
 
     The `selfie_check` step is currently not supported on the sandbox server. Sandbox requests will silently disable the `selfie_check` step when provided.
     """
-    user: Optional[dict[str, Any]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('user') }})
+    user: Optional[shared_identityverificationrequestuser.IdentityVerificationRequestUser] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('user') }})
     r"""User information collected outside of Link, most likely via your own onboarding process.
 
     Each of the following identity fields are optional:

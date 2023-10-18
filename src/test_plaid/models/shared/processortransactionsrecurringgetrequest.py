@@ -5,15 +5,14 @@ import dataclasses
 from ..shared import transactionsrecurringgetrequestoptions as shared_transactionsrecurringgetrequestoptions
 from dataclasses_json import Undefined, dataclass_json
 from test_plaid import utils
-from typing import Optional
+from typing import List, Optional
 
 
 @dataclass_json(undefined=Undefined.EXCLUDE)
-
 @dataclasses.dataclass
 class ProcessorTransactionsRecurringGetRequest:
     r"""ProcessorTransactionsRecurringGetRequest defines the request schema for `/processor/transactions/recurring/get`"""
-    account_ids: list[str] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('account_ids') }})
+    account_ids: List[str] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('account_ids') }})
     r"""A list of `account_ids` to retrieve for the Item
 
     Note: An error will be returned if a provided `account_id` is not associated with the Item.

@@ -17,7 +17,6 @@ from typing import Optional
 
 
 @dataclass_json(undefined=Undefined.EXCLUDE)
-
 @dataclasses.dataclass
 class FDXNotification:
     r"""Provides the base fields of a notification. Clients will read the `type` property to determine the expected notification payload"""

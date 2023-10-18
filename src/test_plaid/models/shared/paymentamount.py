@@ -8,7 +8,6 @@ from test_plaid import utils
 
 
 @dataclass_json(undefined=Undefined.EXCLUDE)
-
 @dataclasses.dataclass
 class PaymentAmount:
     r"""The amount and currency of a payment"""

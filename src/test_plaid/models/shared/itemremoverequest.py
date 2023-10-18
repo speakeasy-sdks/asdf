@@ -8,7 +8,6 @@ from typing import Optional
 
 
 @dataclass_json(undefined=Undefined.EXCLUDE)
-
 @dataclasses.dataclass
 class ItemRemoveRequest:
     r"""ItemRemoveRequest defines the request schema for `/item/remove`"""

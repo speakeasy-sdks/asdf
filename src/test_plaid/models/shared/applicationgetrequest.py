@@ -7,7 +7,6 @@ from test_plaid import utils
 
 
 @dataclass_json(undefined=Undefined.EXCLUDE)
-
 @dataclasses.dataclass
 class ApplicationGetRequest:
     r"""ApplicationGetRequest defines the schema for `/application/get`"""

@@ -9,7 +9,6 @@ from typing import Optional
 
 
 @dataclass_json(undefined=Undefined.EXCLUDE)
-
 @dataclasses.dataclass
 class IdentityGetRequest:
     r"""IdentityGetRequest defines the request schema for `/identity/get`"""

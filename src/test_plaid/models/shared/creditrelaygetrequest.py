@@ -9,7 +9,6 @@ from typing import Optional
 
 
 @dataclass_json(undefined=Undefined.EXCLUDE)
-
 @dataclasses.dataclass
 class CreditRelayGetRequest:
     r"""CreditRelayGetRequest defines the request schema for `/credit/relay/get`"""

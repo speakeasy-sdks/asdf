@@ -10,7 +10,6 @@ from typing import Optional
 
 
 @dataclass_json(undefined=Undefined.EXCLUDE)
-
 @dataclasses.dataclass
 class FDXParty:
     r"""FDX Participant - an entity or person that is a part of a FDX API transaction"""

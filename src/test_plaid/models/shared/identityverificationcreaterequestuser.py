@@ -3,14 +3,15 @@
 from __future__ import annotations
 import dataclasses
 from ..shared import identityverificationrequestusername as shared_identityverificationrequestusername
+from ..shared import useraddress as shared_useraddress
+from ..shared import useridnumber as shared_useridnumber
 from dataclasses_json import Undefined, dataclass_json
 from datetime import date
 from test_plaid import utils
-from typing import Any, Optional
+from typing import Optional
 
 
 @dataclass_json(undefined=Undefined.EXCLUDE)
-
 @dataclasses.dataclass
 class IdentityVerificationCreateRequestUser:
     r"""User information collected outside of Link, most likely via your own onboarding process.
@@ -33,7 +34,7 @@ class IdentityVerificationCreateRequestUser:
     Providing these fields via the API will result in Link skipping the data collection process for the associated user. All verification steps enabled in the associated Identity Verification Template will still be run. Verification steps will either be run immediately, or once the user completes the `accept_tos` step, depending on the value provided to the `gave_consent` field.
     If you are not using the shareable URL feature, you can optionally provide these fields via `/link/token/create` instead; both `/identity_verification/create` and `/link/token/create` are valid ways to provide this information. Note that if you provide a non-`null` user data object via `/identity_verification/create`, any user data fields entered via `/link/token/create` for the same `client_user_id` will be ignored when prefilling Link.
     """
-    address: Optional[dict[str, Any]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('address') }})
+    address: Optional[shared_useraddress.UserAddress] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('address') }})
     r"""Home address for the user. For more context on this field, see [Input Validation by Country](https://plaid.com/docs/identity-verification/hybrid-input-validation/#input-validation-by-country)."""
     client_user_id: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('client_user_id') }})
     r"""Specifying `user.client_user_id` is deprecated. Please provide `client_user_id` at the root level instead.
@@ -44,7 +45,7 @@ class IdentityVerificationCreateRequestUser:
     r"""A date in the format YYYY-MM-DD (RFC 3339 Section 5.6)."""
     email_address: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('email_address'), 'exclude': lambda f: f is None }})
     r"""A valid email address."""
-    id_number: Optional[dict[str, Any]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('id_number') }})
+    id_number: Optional[shared_useridnumber.UserIDNumber] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('id_number') }})
     r"""ID number submitted by the user, currently used only for the Identity Verification product. If the user has not submitted this data yet, this field will be `null`. Otherwise, both fields are guaranteed to be filled."""
     name: Optional[shared_identityverificationrequestusername.IdentityVerificationRequestUserName] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('name') }})
     r"""You can use this field to pre-populate the user's legal name; if it is provided here, they will not be prompted to enter their name in the identity verification attempt."""

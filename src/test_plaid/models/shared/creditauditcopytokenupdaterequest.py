@@ -4,17 +4,16 @@ from __future__ import annotations
 import dataclasses
 from dataclasses_json import Undefined, dataclass_json
 from test_plaid import utils
-from typing import Optional
+from typing import List, Optional
 
 
 @dataclass_json(undefined=Undefined.EXCLUDE)
-
 @dataclasses.dataclass
 class CreditAuditCopyTokenUpdateRequest:
     r"""CreditAuditCopyTokenUpdateRequest defines the request schema for `/credit/audit_copy_token/update`"""
     audit_copy_token: str = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('audit_copy_token') }})
     r"""The `audit_copy_token` you would like to update."""
-    report_tokens: list[str] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('report_tokens') }})
+    report_tokens: List[str] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('report_tokens') }})
     r"""Array of tokens which the specified Audit Copy Token will be updated with. The types of token supported are asset report token and employment report token. There can be at most 1 of each token type in the array."""
     client_id: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('client_id'), 'exclude': lambda f: f is None }})
     r"""Your Plaid API `client_id`. The `client_id` is required and may be provided either in the `PLAID-CLIENT-ID` header or as part of a request body."""

@@ -52,7 +52,6 @@ class ProcessorTokenCreateRequestProcessor(str, Enum):
 
 
 @dataclass_json(undefined=Undefined.EXCLUDE)
-
 @dataclasses.dataclass
 class ProcessorTokenCreateRequest:
     r"""ProcessorTokenCreateRequest defines the request schema for `/processor/token/create`"""

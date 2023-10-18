@@ -3,8 +3,8 @@
 from __future__ import annotations
 import dataclasses
 import requests as requests_http
-from typing import Any, Optional
-
+from ..shared import processoridentitymatchresponse as shared_processoridentitymatchresponse
+from typing import Optional
 
 
 @dataclasses.dataclass
@@ -13,7 +13,7 @@ class ProcessorIdentityMatchResponse:
     r"""HTTP response content type for this operation"""
     status_code: int = dataclasses.field()
     r"""HTTP response status code for this operation"""
-    processor_identity_match_response: Optional[dict[str, Any]] = dataclasses.field(default=None)
+    processor_identity_match_response: Optional[shared_processoridentitymatchresponse.ProcessorIdentityMatchResponse] = dataclasses.field(default=None)
     r"""OK"""
     raw_response: Optional[requests_http.Response] = dataclasses.field(default=None)
     r"""Raw HTTP response; suitable for custom response parsing"""

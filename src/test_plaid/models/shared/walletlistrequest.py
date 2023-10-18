@@ -9,7 +9,6 @@ from typing import Optional
 
 
 @dataclass_json(undefined=Undefined.EXCLUDE)
-
 @dataclasses.dataclass
 class WalletListRequest:
     r"""WalletListRequest defines the request schema for `/wallet/list`"""

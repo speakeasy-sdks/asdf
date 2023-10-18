@@ -8,7 +8,6 @@ from typing import Optional
 
 
 @dataclass_json(undefined=Undefined.EXCLUDE)
-
 @dataclasses.dataclass
 class CreditBankIncomeWebhookUpdateRequest:
     r"""CreditBankIncomeWebhookUpdateRequest defines the request schema for `/credit/bank_income/webhook/update`."""

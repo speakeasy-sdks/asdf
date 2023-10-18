@@ -8,7 +8,6 @@ from typing import Optional
 
 
 @dataclass_json(undefined=Undefined.EXCLUDE)
-
 @dataclasses.dataclass
 class BeaconUserGetRequest:
     r"""Request input for fetching a Beacon User"""

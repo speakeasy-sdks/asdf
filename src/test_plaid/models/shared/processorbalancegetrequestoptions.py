@@ -10,7 +10,6 @@ from typing import Optional
 
 
 @dataclass_json(undefined=Undefined.EXCLUDE)
-
 @dataclasses.dataclass
 class ProcessorBalanceGetRequestOptions:
     r"""An optional object to filter `/processor/balance/get` results."""

@@ -2,18 +2,18 @@
 
 from __future__ import annotations
 import dataclasses
+from ..shared import signaladdressdata as shared_signaladdressdata
 from ..shared import signalpersonname as shared_signalpersonname
 from dataclasses_json import Undefined, dataclass_json
 from test_plaid import utils
-from typing import Any, Optional
+from typing import Optional
 
 
 @dataclass_json(undefined=Undefined.EXCLUDE)
-
 @dataclasses.dataclass
 class SignalUser:
     r"""Details about the end user initiating the transaction (i.e., the account holder)."""
-    address: Optional[dict[str, Any]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('address') }})
+    address: Optional[shared_signaladdressdata.SignalAddressData] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('address') }})
     r"""Data about the components comprising an address."""
     email_address: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('email_address') }})
     r"""The user's email address."""

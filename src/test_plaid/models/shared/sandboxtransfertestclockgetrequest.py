@@ -8,7 +8,6 @@ from typing import Optional
 
 
 @dataclass_json(undefined=Undefined.EXCLUDE)
-
 @dataclasses.dataclass
 class SandboxTransferTestClockGetRequest:
     r"""Defines the request schema for `/sandbox/transfer/test_clock/get`"""

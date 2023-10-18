@@ -8,7 +8,6 @@ from typing import Optional
 
 
 @dataclass_json(undefined=Undefined.EXCLUDE)
-
 @dataclasses.dataclass
 class AssetReportAuditCopyCreateRequest:
     r"""AssetReportAuditCopyCreateRequest defines the request schema for `/asset_report/audit_copy/get`"""

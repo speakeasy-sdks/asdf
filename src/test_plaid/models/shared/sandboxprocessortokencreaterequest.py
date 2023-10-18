@@ -9,7 +9,6 @@ from typing import Optional
 
 
 @dataclass_json(undefined=Undefined.EXCLUDE)
-
 @dataclasses.dataclass
 class SandboxProcessorTokenCreateRequest:
     r"""SandboxProcessorTokenCreateRequest defines the request schema for `/sandbox/processor_token/create`"""

@@ -3,8 +3,8 @@
 from __future__ import annotations
 import dataclasses
 import requests as requests_http
-from typing import Any, Optional
-
+from ..shared import itempublictokenexchangeresponse as shared_itempublictokenexchangeresponse
+from typing import Optional
 
 
 @dataclasses.dataclass
@@ -13,7 +13,7 @@ class ItemPublicTokenExchangeResponse:
     r"""HTTP response content type for this operation"""
     status_code: int = dataclasses.field()
     r"""HTTP response status code for this operation"""
-    item_public_token_exchange_response: Optional[dict[str, Any]] = dataclasses.field(default=None)
+    item_public_token_exchange_response: Optional[shared_itempublictokenexchangeresponse.ItemPublicTokenExchangeResponse] = dataclasses.field(default=None)
     r"""OK"""
     raw_response: Optional[requests_http.Response] = dataclasses.field(default=None)
     r"""Raw HTTP response; suitable for custom response parsing"""

@@ -20,7 +20,6 @@ class SandboxIncomeFireWebhookRequestVerificationStatus(str, Enum):
 
 
 @dataclass_json(undefined=Undefined.EXCLUDE)
-
 @dataclasses.dataclass
 class SandboxIncomeFireWebhookRequest:
     r"""SandboxIncomeFireWebhookRequest defines the request schema for `/sandbox/income/fire_webhook`"""

@@ -8,7 +8,6 @@ from typing import Optional
 
 
 @dataclass_json(undefined=Undefined.EXCLUDE)
-
 @dataclasses.dataclass
 class TransferQuestionnaireCreateRequest:
     r"""Defines the request schema for `/transfer/questionnaire/create`"""

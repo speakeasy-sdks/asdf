@@ -3,14 +3,14 @@
 from __future__ import annotations
 import dataclasses
 from ..shared import beaconreporttype as shared_beaconreporttype
+from ..shared import fraudamount as shared_fraudamount
 from dataclasses_json import Undefined, dataclass_json
 from datetime import date
 from test_plaid import utils
-from typing import Any, Optional
+from typing import Optional
 
 
 @dataclass_json(undefined=Undefined.EXCLUDE)
-
 @dataclasses.dataclass
 class BeaconReportCreateRequest:
     r"""Request input for creating a Beacon Report"""
@@ -33,7 +33,7 @@ class BeaconReportCreateRequest:
     """
     client_id: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('client_id'), 'exclude': lambda f: f is None }})
     r"""Your Plaid API `client_id`. The `client_id` is required and may be provided either in the `PLAID-CLIENT-ID` header or as part of a request body."""
-    fraud_amount: Optional[dict[str, Any]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('fraud_amount'), 'exclude': lambda f: f is None }})
+    fraud_amount: Optional[shared_fraudamount.FraudAmount] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('fraud_amount'), 'exclude': lambda f: f is None }})
     r"""The amount and currency of the fraud or attempted fraud.
     `fraud_amount` should be omitted to indicate an unknown fraud amount.
     """

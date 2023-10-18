@@ -3,10 +3,12 @@
 from __future__ import annotations
 import dataclasses
 from ..shared import depositswitchcreaterequestoptions as shared_depositswitchcreaterequestoptions
+from ..shared import depositswitchtargetaccount as shared_depositswitchtargetaccount
+from ..shared import depositswitchtargetuser as shared_depositswitchtargetuser
 from dataclasses_json import Undefined, dataclass_json
 from enum import Enum
 from test_plaid import utils
-from typing import Any, Optional
+from typing import Optional
 
 class DepositSwitchAltCreateRequestCountryCode(str, Enum):
     r"""ISO-3166-1 alpha-2 country code standard."""
@@ -15,13 +17,12 @@ class DepositSwitchAltCreateRequestCountryCode(str, Enum):
 
 
 @dataclass_json(undefined=Undefined.EXCLUDE)
-
 @dataclasses.dataclass
 class DepositSwitchAltCreateRequest:
     r"""DepositSwitchAltCreateRequest defines the request schema for `/deposit_switch/alt/create`"""
-    target_account: dict[str, Any] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('target_account') }})
+    target_account: shared_depositswitchtargetaccount.DepositSwitchTargetAccount = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('target_account') }})
     r"""The deposit switch destination account"""
-    target_user: dict[str, Any] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('target_user') }})
+    target_user: shared_depositswitchtargetuser.DepositSwitchTargetUser = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('target_user') }})
     r"""The deposit switch target user"""
     client_id: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('client_id'), 'exclude': lambda f: f is None }})
     r"""Your Plaid API `client_id`. The `client_id` is required and may be provided either in the `PLAID-CLIENT-ID` header or as part of a request body."""

@@ -7,5 +7,5 @@ Defines the request schema for `sandbox/oauth/select_accounts`
 
 | Field              | Type               | Required           | Description        |
 | ------------------ | ------------------ | ------------------ | ------------------ |
-| `accounts`         | list[*str*]        | :heavy_check_mark: | N/A                |
+| `accounts`         | List[*str*]        | :heavy_check_mark: | N/A                |
 | `oauth_state_id`   | *str*              | :heavy_check_mark: | N/A                |

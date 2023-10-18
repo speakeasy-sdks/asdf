@@ -6,15 +6,14 @@ from ..shared import products as shared_products
 from ..shared import sandboxpublictokencreaterequestoptions as shared_sandboxpublictokencreaterequestoptions
 from dataclasses_json import Undefined, dataclass_json
 from test_plaid import utils
-from typing import Optional
+from typing import List, Optional
 
 
 @dataclass_json(undefined=Undefined.EXCLUDE)
-
 @dataclasses.dataclass
 class SandboxPublicTokenCreateRequest:
     r"""SandboxPublicTokenCreateRequest defines the request schema for `/sandbox/public_token/create`"""
-    initial_products: list[shared_products.Products] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('initial_products') }})
+    initial_products: List[shared_products.Products] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('initial_products') }})
     r"""The products to initially pull for the Item. May be any products that the specified `institution_id`  supports. This array may not be empty."""
     institution_id: str = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('institution_id') }})
     r"""The ID of the institution the Item will be associated with"""

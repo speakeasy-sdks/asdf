@@ -30,10 +30,10 @@ s = test_plaid.TestPlaid(
 )
 
 req = shared.AccountsBalanceGetRequest(
-    access_token='Alafaya Loan',
+    access_token='AGP',
     options=shared.AccountsBalanceGetRequestOptions(
         account_ids=[
-            'Conroe',
+            'East',
         ],
     ),
 )

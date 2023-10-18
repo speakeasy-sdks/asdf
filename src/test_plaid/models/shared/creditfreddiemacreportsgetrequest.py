@@ -8,7 +8,6 @@ from typing import Optional
 
 
 @dataclass_json(undefined=Undefined.EXCLUDE)
-
 @dataclasses.dataclass
 class CreditFreddieMacReportsGetRequest:
     r"""CreditFreddieMacReportsGetRequest defines the request schema for `credit/asset_report/freddie_mac/get`"""

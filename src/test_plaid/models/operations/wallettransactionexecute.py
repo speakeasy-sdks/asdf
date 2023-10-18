@@ -3,8 +3,8 @@
 from __future__ import annotations
 import dataclasses
 import requests as requests_http
-from typing import Any, Optional
-
+from ..shared import wallettransactionexecuteresponse as shared_wallettransactionexecuteresponse
+from typing import Optional
 
 
 @dataclasses.dataclass
@@ -15,7 +15,7 @@ class WalletTransactionExecuteResponse:
     r"""HTTP response status code for this operation"""
     raw_response: Optional[requests_http.Response] = dataclasses.field(default=None)
     r"""Raw HTTP response; suitable for custom response parsing"""
-    wallet_transaction_execute_response: Optional[dict[str, Any]] = dataclasses.field(default=None)
+    wallet_transaction_execute_response: Optional[shared_wallettransactionexecuteresponse.WalletTransactionExecuteResponse] = dataclasses.field(default=None)
     r"""OK"""
     
 

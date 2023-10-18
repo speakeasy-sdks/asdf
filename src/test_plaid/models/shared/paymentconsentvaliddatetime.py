@@ -10,7 +10,6 @@ from typing import Optional
 
 
 @dataclass_json(undefined=Undefined.EXCLUDE)
-
 @dataclasses.dataclass
 class PaymentConsentValidDateTime:
     r"""Life span for the payment consent. After the `to` date the payment consent expires and can no longer be used for payment initiation."""
