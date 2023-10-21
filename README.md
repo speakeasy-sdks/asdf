@@ -30,10 +30,10 @@ s = test_plaid.TestPlaid(
 )
 
 req = shared.AccountsBalanceGetRequest(
-    access_token='AGP',
+    access_token='string',
     options=shared.AccountsBalanceGetRequestOptions(
         account_ids=[
-            'East',
+            'string',
         ],
     ),
 )
