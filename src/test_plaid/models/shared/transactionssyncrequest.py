@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 import dataclasses
-from ..shared import transactionssyncrequestoptions as shared_transactionssyncrequestoptions
+from .transactionssyncrequestoptions import TransactionsSyncRequestOptions
 from dataclasses_json import Undefined, dataclass_json
 from test_plaid import utils
 from typing import Optional
@@ -24,7 +24,7 @@ class TransactionsSyncRequest:
 
     The upper-bound length of this cursor is 256 characters of base64.
     """
-    options: Optional[shared_transactionssyncrequestoptions.TransactionsSyncRequestOptions] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('options'), 'exclude': lambda f: f is None }})
+    options: Optional[TransactionsSyncRequestOptions] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('options'), 'exclude': lambda f: f is None }})
     r"""An optional object to be used with the request. If specified, `options` must not be `null`."""
     secret: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('secret'), 'exclude': lambda f: f is None }})
     r"""Your Plaid API `secret`. The `secret` is required and may be provided either in the `PLAID-SECRET` header or as part of a request body."""

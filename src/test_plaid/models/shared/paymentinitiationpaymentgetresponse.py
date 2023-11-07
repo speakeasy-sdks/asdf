@@ -3,13 +3,13 @@
 from __future__ import annotations
 import dataclasses
 import dateutil.parser
-from ..shared import externalpaymentrefunddetails as shared_externalpaymentrefunddetails
-from ..shared import externalpaymentscheduleget as shared_externalpaymentscheduleget
-from ..shared import paymentamount as shared_paymentamount
-from ..shared import paymentamountrefunded as shared_paymentamountrefunded
-from ..shared import paymentinitiationpaymentstatus as shared_paymentinitiationpaymentstatus
-from ..shared import paymentscheme as shared_paymentscheme
-from ..shared import senderbacsnullable as shared_senderbacsnullable
+from .externalpaymentrefunddetails import ExternalPaymentRefundDetails
+from .externalpaymentscheduleget import ExternalPaymentScheduleGet
+from .paymentamount import PaymentAmount
+from .paymentamountrefunded import PaymentAmountRefunded
+from .paymentinitiationpaymentstatus import PaymentInitiationPaymentStatus
+from .paymentscheme import PaymentScheme
+from .senderbacsnullable import SenderBACSNullable
 from dataclasses_json import Undefined, dataclass_json
 from datetime import datetime
 from test_plaid import utils
@@ -20,9 +20,9 @@ from typing import Any, Dict, List, Optional
 @dataclasses.dataclass
 class PaymentInitiationPaymentGetResponse:
     r"""PaymentInitiationPayment defines a payment initiation payment"""
-    amount: shared_paymentamount.PaymentAmount = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('amount') }})
+    amount: PaymentAmount = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('amount') }})
     r"""The amount and currency of a payment"""
-    bacs: Optional[shared_senderbacsnullable.SenderBACSNullable] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('bacs') }})
+    bacs: Optional[SenderBACSNullable] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('bacs') }})
     r"""An object containing a BACS account number and sort code. If an IBAN is not provided or if this recipient needs to accept domestic GBP-denominated payments, BACS data is required."""
     iban: Optional[str] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('iban') }})
     r"""The International Bank Account Number (IBAN) for the sender, if specified in the `/payment_initiation/payment/create` call."""
@@ -36,7 +36,7 @@ class PaymentInitiationPaymentGetResponse:
     r"""A reference for the payment."""
     request_id: str = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('request_id') }})
     r"""A unique identifier for the request, which can be used for troubleshooting. This identifier, like all Plaid identifiers, is case sensitive."""
-    status: shared_paymentinitiationpaymentstatus.PaymentInitiationPaymentStatus = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('status') }})
+    status: PaymentInitiationPaymentStatus = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('status') }})
     r"""The status of the payment.
 
     `PAYMENT_STATUS_INPUT_NEEDED`: This is the initial state of all payments. It indicates that the payment is waiting on user input to continue processing. A payment may re-enter this state later on if further input is needed.
@@ -73,7 +73,7 @@ class PaymentInitiationPaymentGetResponse:
     additional_properties: Optional[Dict[str, Any]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'exclude': lambda f: f is None }})
     adjusted_reference: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('adjusted_reference') }})
     r"""The value of the reference sent to the bank after adjustment to pass bank validation rules."""
-    adjusted_scheme: Optional[shared_paymentscheme.PaymentScheme] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('adjusted_scheme') }})
+    adjusted_scheme: Optional[PaymentScheme] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('adjusted_scheme') }})
     r"""Payment scheme. If not specified - the default in the region will be used (e.g. `SEPA_CREDIT_TRANSFER` for EU). Using unsupported values will result in a failed payment.
 
     `LOCAL_DEFAULT`: The default payment scheme for the selected market and currency will be used.
@@ -84,17 +84,17 @@ class PaymentInitiationPaymentGetResponse:
 
     `SEPA_CREDIT_TRANSFER_INSTANT`: Instant payment within the SEPA area. May involve additional fees and may not be available at some banks.
     """
-    amount_refunded: Optional[shared_paymentamountrefunded.PaymentAmountRefunded] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('amount_refunded') }})
+    amount_refunded: Optional[PaymentAmountRefunded] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('amount_refunded') }})
     r"""The amount and currency of a payment"""
     consent_id: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('consent_id') }})
     r"""The payment consent ID that this payment was initiated with. Is present only when payment was initiated using the payment consent."""
-    refund_details: Optional[shared_externalpaymentrefunddetails.ExternalPaymentRefundDetails] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('refund_details') }})
+    refund_details: Optional[ExternalPaymentRefundDetails] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('refund_details') }})
     r"""Details about external payment refund"""
     refund_ids: Optional[List[str]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('refund_ids') }})
     r"""Refund IDs associated with the payment."""
-    schedule: Optional[shared_externalpaymentscheduleget.ExternalPaymentScheduleGet] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('schedule') }})
+    schedule: Optional[ExternalPaymentScheduleGet] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('schedule') }})
     r"""The schedule that the payment will be executed on. If a schedule is provided, the payment is automatically set up as a standing order. If no schedule is specified, the payment will be executed only once."""
-    scheme: Optional[shared_paymentscheme.PaymentScheme] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('scheme') }})
+    scheme: Optional[PaymentScheme] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('scheme') }})
     r"""Payment scheme. If not specified - the default in the region will be used (e.g. `SEPA_CREDIT_TRANSFER` for EU). Using unsupported values will result in a failed payment.
 
     `LOCAL_DEFAULT`: The default payment scheme for the selected market and currency will be used.

@@ -2,12 +2,12 @@
 
 from __future__ import annotations
 import dataclasses
-from ..shared import partnerendcustomeraddress as shared_partnerendcustomeraddress
-from ..shared import partnerendcustomerassetsundermanagement as shared_partnerendcustomerassetsundermanagement
-from ..shared import partnerendcustomerbillingcontact as shared_partnerendcustomerbillingcontact
-from ..shared import partnerendcustomercustomersupportinfo as shared_partnerendcustomercustomersupportinfo
-from ..shared import partnerendcustomertechnicalcontact as shared_partnerendcustomertechnicalcontact
-from ..shared import products as shared_products
+from .partnerendcustomeraddress import PartnerEndCustomerAddress
+from .partnerendcustomerassetsundermanagement import PartnerEndCustomerAssetsUnderManagement
+from .partnerendcustomerbillingcontact import PartnerEndCustomerBillingContact
+from .partnerendcustomercustomersupportinfo import PartnerEndCustomerCustomerSupportInfo
+from .partnerendcustomertechnicalcontact import PartnerEndCustomerTechnicalContact
+from .products import Products
 from dataclasses_json import Undefined, dataclass_json
 from test_plaid import utils
 from typing import List, Optional
@@ -17,7 +17,7 @@ from typing import List, Optional
 @dataclasses.dataclass
 class PartnerCustomerCreateRequest:
     r"""Request schema for `/partner/customer/create`."""
-    address: shared_partnerendcustomeraddress.PartnerEndCustomerAddress = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('address') }})
+    address: PartnerEndCustomerAddress = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('address') }})
     r"""The end customer's address."""
     application_name: str = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('application_name') }})
     r"""The name of the end customer's application. This will be shown to end users when they go through the Plaid Link flow."""
@@ -29,19 +29,19 @@ class PartnerCustomerCreateRequest:
     r"""Denotes whether or not the partner has completed attestation of diligence for the end customer to be created."""
     legal_entity_name: str = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('legal_entity_name') }})
     r"""The end customer's legal name. This will be shared with financial institutions as part of the OAuth registration process. It will not be shown to end users."""
-    products: List[shared_products.Products] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('products') }})
+    products: List[Products] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('products') }})
     r"""The products to be enabled for the end customer."""
     website: str = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('website') }})
     r"""The end customer's website."""
-    assets_under_management: Optional[shared_partnerendcustomerassetsundermanagement.PartnerEndCustomerAssetsUnderManagement] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('assets_under_management'), 'exclude': lambda f: f is None }})
+    assets_under_management: Optional[PartnerEndCustomerAssetsUnderManagement] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('assets_under_management'), 'exclude': lambda f: f is None }})
     r"""Assets under management for the given end customer. Required for end customers with monthly service commitments."""
-    billing_contact: Optional[shared_partnerendcustomerbillingcontact.PartnerEndCustomerBillingContact] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('billing_contact'), 'exclude': lambda f: f is None }})
+    billing_contact: Optional[PartnerEndCustomerBillingContact] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('billing_contact'), 'exclude': lambda f: f is None }})
     r"""The billing contact for the end customer. Defaults to partner's billing contact if omitted."""
     client_id: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('client_id'), 'exclude': lambda f: f is None }})
     r"""Your Plaid API `client_id`. The `client_id` is required and may be provided either in the `PLAID-CLIENT-ID` header or as part of a request body."""
     create_link_customization: Optional[bool] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('create_link_customization'), 'exclude': lambda f: f is None }})
     r"""If `true`, the end customer's default Link customization will be set to match the partner's. You can always change the end customer's Link customization in the Plaid Dashboard. See the [Link Customization docs](https://plaid.com/docs/link/customization/) for more information."""
-    customer_support_info: Optional[shared_partnerendcustomercustomersupportinfo.PartnerEndCustomerCustomerSupportInfo] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('customer_support_info'), 'exclude': lambda f: f is None }})
+    customer_support_info: Optional[PartnerEndCustomerCustomerSupportInfo] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('customer_support_info'), 'exclude': lambda f: f is None }})
     r"""This information is public. Users of your app will see this information when managing connections between your app and their bank accounts in Plaid Portal. Defaults to partner's customer support info if omitted."""
     logo: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('logo'), 'exclude': lambda f: f is None }})
     r"""Base64-encoded representation of the end customer's logo. Must be a PNG of size 1024x1024 under 4MB. The logo will be shared with financial institutions and shown to the end user during Link flows. A logo is required if `create_link_customization` is `true`. If `create_link_customization` is `false` and the logo is omitted, a stock logo will be used."""
@@ -49,7 +49,7 @@ class PartnerCustomerCreateRequest:
     r"""A list of URIs indicating the destination(s) where a user can be forwarded after completing the Link flow; used to support OAuth authentication flows when launching Link in the browser or via a webview. URIs should not contain any query parameters. When used in Production or Development, URIs must use https. To specify any subdomain, use `*` as a wildcard character, e.g. `https://*.example.com/oauth.html`. To modify redirect URIs for an end customer after creating them, go to the end customer's [API page](https://dashboard.plaid.com/team/api) in the Dashboard."""
     secret: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('secret'), 'exclude': lambda f: f is None }})
     r"""Your Plaid API `secret`. The `secret` is required and may be provided either in the `PLAID-SECRET` header or as part of a request body."""
-    technical_contact: Optional[shared_partnerendcustomertechnicalcontact.PartnerEndCustomerTechnicalContact] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('technical_contact'), 'exclude': lambda f: f is None }})
+    technical_contact: Optional[PartnerEndCustomerTechnicalContact] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('technical_contact'), 'exclude': lambda f: f is None }})
     r"""The technical contact for the end customer. Defaults to partner's technical contact if omitted."""
     
 

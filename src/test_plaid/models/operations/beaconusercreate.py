@@ -3,7 +3,7 @@
 from __future__ import annotations
 import dataclasses
 import requests as requests_http
-from ..shared import beaconusercreateresponse as shared_beaconusercreateresponse
+from ...models.shared import beaconusercreateresponse as shared_beaconusercreateresponse
 from typing import Optional
 
 

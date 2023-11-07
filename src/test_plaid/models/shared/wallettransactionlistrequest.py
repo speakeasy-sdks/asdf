@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 import dataclasses
-from ..shared import wallettransactionlistrequestoptions as shared_wallettransactionlistrequestoptions
+from .wallettransactionlistrequestoptions import WalletTransactionListRequestOptions
 from dataclasses_json import Undefined, dataclass_json
 from test_plaid import utils
 from typing import Optional
@@ -20,7 +20,7 @@ class WalletTransactionListRequest:
     r"""The number of transactions to fetch"""
     cursor: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('cursor'), 'exclude': lambda f: f is None }})
     r"""A base64 value representing the latest transaction that has already been requested. Set this to `next_cursor` received from the previous `/wallet/transaction/list` request. If provided, the response will only contain transactions created before that transaction. If omitted, the response will contain transactions starting from the most recent, and in descending order by the `created_at` time."""
-    options: Optional[shared_wallettransactionlistrequestoptions.WalletTransactionListRequestOptions] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('options') }})
+    options: Optional[WalletTransactionListRequestOptions] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('options') }})
     r"""Additional wallet transaction options"""
     secret: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('secret'), 'exclude': lambda f: f is None }})
     r"""Your Plaid API `secret`. The `secret` is required and may be provided either in the `PLAID-SECRET` header or as part of a request body."""

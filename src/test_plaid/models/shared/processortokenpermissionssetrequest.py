@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 import dataclasses
-from ..shared import products as shared_products
+from .products import Products
 from dataclasses_json import Undefined, dataclass_json
 from test_plaid import utils
 from typing import List, Optional
@@ -14,7 +14,7 @@ class ProcessorTokenPermissionsSetRequest:
     r"""ProcessorTokenPermissionsSetRequest defines the request schema for `/processor/token/permissions/set`"""
     processor_token: str = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('processor_token') }})
     r"""The processor token obtained from the Plaid integration partner. Processor tokens are in the format: `processor-<environment>-<identifier>`"""
-    products: List[shared_products.Products] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('products') }})
+    products: List[Products] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('products') }})
     r"""A list of products the processor token should have access to. An empty list will grant access to all products."""
     client_id: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('client_id'), 'exclude': lambda f: f is None }})
     r"""Your Plaid API `client_id`. The `client_id` is required and may be provided either in the `PLAID-CLIENT-ID` header or as part of a request body."""

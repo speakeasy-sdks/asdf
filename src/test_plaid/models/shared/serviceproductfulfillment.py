@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 import dataclasses
-from ..shared import serviceproductfulfillmentdetail as shared_serviceproductfulfillmentdetail
+from .serviceproductfulfillmentdetail import ServiceProductFulfillmentDetail
 from dataclasses_json import Undefined, dataclass_json
 from test_plaid import utils
 from typing import Any, Dict, Optional
@@ -12,7 +12,7 @@ from typing import Any, Dict, Optional
 @dataclasses.dataclass
 class ServiceProductFulfillment:
     r"""A collection of details related to a fulfillment service or product in terms of request, process and result."""
-    service_product_fulfillment_detail: shared_serviceproductfulfillmentdetail.ServiceProductFulfillmentDetail = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('SERVICE_PRODUCT_FULFILLMENT_DETAIL') }})
+    service_product_fulfillment_detail: ServiceProductFulfillmentDetail = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('SERVICE_PRODUCT_FULFILLMENT_DETAIL') }})
     r"""Documentation not found in the MISMO model viewer and not provided by Freddie Mac."""
     additional_properties: Optional[Dict[str, Any]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'exclude': lambda f: f is None }})
     

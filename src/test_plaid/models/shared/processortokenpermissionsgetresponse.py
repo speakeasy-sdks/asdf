@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 import dataclasses
-from ..shared import products as shared_products
+from .products import Products
 from dataclasses_json import Undefined, dataclass_json
 from test_plaid import utils
 from typing import Any, Dict, List, Optional
@@ -12,7 +12,7 @@ from typing import Any, Dict, List, Optional
 @dataclasses.dataclass
 class ProcessorTokenPermissionsGetResponse:
     r"""ProcessorTokenPermissionsGetResponse defines the response schema for `/processor/token/permissions/get`"""
-    products: List[shared_products.Products] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('products') }})
+    products: List[Products] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('products') }})
     r"""A list of products the processor token should have access to. An empty list means that the processor has access to all available products, including future products."""
     request_id: str = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('request_id') }})
     r"""A unique identifier for the request, which can be used for troubleshooting. This identifier, like all Plaid identifiers, is case sensitive."""

@@ -2,9 +2,9 @@
 
 from __future__ import annotations
 import dataclasses
-from ..shared import linksessionsuccessmetadataaccount as shared_linksessionsuccessmetadataaccount
-from ..shared import linksessionsuccessmetadatainstitution as shared_linksessionsuccessmetadatainstitution
-from ..shared import linksessionsuccessmetadatatransferstatus as shared_linksessionsuccessmetadatatransferstatus
+from .linksessionsuccessmetadataaccount import LinkSessionSuccessMetadataAccount
+from .linksessionsuccessmetadatainstitution import LinkSessionSuccessMetadataInstitution
+from .linksessionsuccessmetadatatransferstatus import LinkSessionSuccessMetadataTransferStatus
 from dataclasses_json import Undefined, dataclass_json
 from test_plaid import utils
 from typing import List, Optional
@@ -14,13 +14,13 @@ from typing import List, Optional
 @dataclasses.dataclass
 class LinkSessionSuccessMetadata:
     r"""Displayed once a user has successfully linked their Item."""
-    accounts: Optional[List[shared_linksessionsuccessmetadataaccount.LinkSessionSuccessMetadataAccount]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('accounts'), 'exclude': lambda f: f is None }})
+    accounts: Optional[List[LinkSessionSuccessMetadataAccount]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('accounts'), 'exclude': lambda f: f is None }})
     r"""A list of accounts attached to the connected Item. If Account Select is enabled via the developer dashboard, `accounts` will only include selected accounts."""
-    institution: Optional[shared_linksessionsuccessmetadatainstitution.LinkSessionSuccessMetadataInstitution] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('institution') }})
+    institution: Optional[LinkSessionSuccessMetadataInstitution] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('institution') }})
     r"""An institution object. If the Item was created via Same-Day micro-deposit verification, will be `null`."""
     link_session_id: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('link_session_id'), 'exclude': lambda f: f is None }})
     r"""A unique identifier associated with a user's actions and events through the Link flow. Include this identifier when opening a support ticket for faster turnaround."""
-    transfer_status: Optional[shared_linksessionsuccessmetadatatransferstatus.LinkSessionSuccessMetadataTransferStatus] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('transfer_status') }})
+    transfer_status: Optional[LinkSessionSuccessMetadataTransferStatus] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('transfer_status') }})
     r"""The status of a transfer. Returned only when [Transfer UI](/docs/transfer/using-transfer-ui) is implemented.
 
     - `COMPLETE` – The transfer was completed.

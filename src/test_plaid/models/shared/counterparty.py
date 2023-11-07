@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 import dataclasses
-from ..shared import counterpartytype as shared_counterpartytype
+from .counterpartytype import CounterpartyType
 from dataclasses_json import Undefined, dataclass_json
 from test_plaid import utils
 from typing import Any, Dict, Optional
@@ -16,7 +16,7 @@ class Counterparty:
     r"""The URL of a logo associated with the counterparty, if available. The logo is formatted as a 100x100 pixel PNG file."""
     name: str = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('name') }})
     r"""The name of the counterparty, such as the merchant or the financial institution, as extracted by Plaid from the raw description."""
-    type: shared_counterpartytype.CounterpartyType = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('type') }})
+    type: CounterpartyType = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('type') }})
     r"""The counterparty type.
 
     `merchant`: a provider of goods or services for purchase

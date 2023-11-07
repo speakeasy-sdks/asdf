@@ -2,8 +2,8 @@
 
 from __future__ import annotations
 import dataclasses
-from ..shared import creditfreddiemacverificationofassets_voa_2_4 as shared_creditfreddiemacverificationofassets_voa_2_4
-from ..shared import creditfreddieverificationofemployment_voe_2_5 as shared_creditfreddieverificationofemployment_voe_2_5
+from .creditfreddiemacverificationofassets_voa_2_4 import CreditFreddieMacVerificationOfAssetsVOA24
+from .creditfreddieverificationofemployment_voe_2_5 import CreditFreddieVerificationOfEmploymentVOE25
 from dataclasses_json import Undefined, dataclass_json
 from test_plaid import utils
 from typing import Any, Dict, Optional
@@ -16,9 +16,9 @@ class CreditFreddieMacReportsGetResponse:
     request_id: str = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('request_id') }})
     r"""A unique identifier for the request, which can be used for troubleshooting. This identifier, like all Plaid identifiers, is case sensitive."""
     additional_properties: Optional[Dict[str, Any]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'exclude': lambda f: f is None }})
-    voa: Optional[shared_creditfreddiemacverificationofassets_voa_2_4.CreditFreddieMacVerificationOfAssetsVOA24] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('VOA') }})
+    voa: Optional[CreditFreddieMacVerificationOfAssetsVOA24] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('VOA') }})
     r"""Verification of Assets Report"""
-    voe: Optional[shared_creditfreddieverificationofemployment_voe_2_5.CreditFreddieVerificationOfEmploymentVOE25] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('VOE') }})
+    voe: Optional[CreditFreddieVerificationOfEmploymentVOE25] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('VOE') }})
     r"""Verification of Employment Report"""
     
 

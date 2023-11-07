@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 import dataclasses
-from ..shared import entitywatchlistscreeninghit as shared_entitywatchlistscreeninghit
+from .entitywatchlistscreeninghit import EntityWatchlistScreeningHit
 from dataclasses_json import Undefined, dataclass_json
 from test_plaid import utils
 from typing import Any, Dict, List, Optional
@@ -12,7 +12,7 @@ from typing import Any, Dict, List, Optional
 @dataclasses.dataclass
 class WatchlistScreeningEntityHitListResponse:
     r"""Paginated list of entity watchlist screening hits"""
-    entity_watchlist_screening_hits: List[shared_entitywatchlistscreeninghit.EntityWatchlistScreeningHit] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('entity_watchlist_screening_hits') }})
+    entity_watchlist_screening_hits: List[EntityWatchlistScreeningHit] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('entity_watchlist_screening_hits') }})
     r"""List of entity watchlist screening hits"""
     next_cursor: Optional[str] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('next_cursor') }})
     r"""An identifier that determines which page of results you receive."""

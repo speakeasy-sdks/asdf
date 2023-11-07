@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 import dataclasses
-from ..shared import institution as shared_institution
+from .institution import Institution
 from dataclasses_json import Undefined, dataclass_json
 from test_plaid import utils
 from typing import Any, Dict, Optional
@@ -12,7 +12,7 @@ from typing import Any, Dict, Optional
 @dataclasses.dataclass
 class InstitutionsGetByIDResponse:
     r"""InstitutionsGetByIdResponse defines the response schema for `/institutions/get_by_id`"""
-    institution: shared_institution.Institution = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('institution') }})
+    institution: Institution = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('institution') }})
     r"""Details relating to a specific financial institution"""
     request_id: str = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('request_id') }})
     r"""A unique identifier for the request, which can be used for troubleshooting. This identifier, like all Plaid identifiers, is case sensitive."""

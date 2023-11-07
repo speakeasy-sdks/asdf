@@ -2,9 +2,9 @@
 
 from __future__ import annotations
 import dataclasses
-from ..shared import addresspurposelabel as shared_addresspurposelabel
-from ..shared import matchsummarycode as shared_matchsummarycode
-from ..shared import poboxstatus as shared_poboxstatus
+from .addresspurposelabel import AddressPurposeLabel
+from .matchsummarycode import MatchSummaryCode
+from .poboxstatus import POBoxStatus
 from dataclasses_json import Undefined, dataclass_json
 from test_plaid import utils
 from typing import Any, Dict, Optional
@@ -14,9 +14,9 @@ from typing import Any, Dict, Optional
 @dataclasses.dataclass
 class KYCCheckAddressSummary:
     r"""Result summary object specifying how the `address` field matched."""
-    po_box: shared_poboxstatus.POBoxStatus = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('po_box') }})
+    po_box: POBoxStatus = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('po_box') }})
     r"""Field describing whether the associated address is a post office box. Will be `yes` when a P.O. box is detected, `no` when Plaid confirmed the address is not a P.O. box, and `no_data` when Plaid was not able to determine if the address is a P.O. box."""
-    summary: shared_matchsummarycode.MatchSummaryCode = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('summary') }})
+    summary: MatchSummaryCode = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('summary') }})
     r"""An enum indicating the match type between data provided by user and data checked against an external data source.
 
 
@@ -30,7 +30,7 @@ class KYCCheckAddressSummary:
 
     `no_input` indicates that Plaid was unable to perform a check because no information was provided for this field by the end user.
     """
-    type: shared_addresspurposelabel.AddressPurposeLabel = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('type') }})
+    type: AddressPurposeLabel = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('type') }})
     r"""Field describing whether the associated address is being used for commercial or residential purposes.
 
     Note: This value will be `no_data` when Plaid does not have sufficient data to determine the address's use.

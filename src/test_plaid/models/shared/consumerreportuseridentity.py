@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 import dataclasses
-from ..shared import addressdata as shared_addressdata
+from .addressdata import AddressData
 from dataclasses_json import Undefined, dataclass_json
 from test_plaid import utils
 from typing import Any, Dict, List, Optional
@@ -20,7 +20,7 @@ class ConsumerReportUserIdentity:
     r"""The user's last name"""
     phone_numbers: List[str] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('phone_numbers') }})
     r"""The user's phone numbers"""
-    primary_address: shared_addressdata.AddressData = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('primary_address') }})
+    primary_address: AddressData = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('primary_address') }})
     r"""Data about the components comprising an address."""
     additional_properties: Optional[Dict[str, Any]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'exclude': lambda f: f is None }})
     

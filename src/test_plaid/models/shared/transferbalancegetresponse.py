@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 import dataclasses
-from ..shared import transferbalance as shared_transferbalance
+from .transferbalance import TransferBalance
 from dataclasses_json import Undefined, dataclass_json
 from test_plaid import utils
 from typing import Any, Dict, Optional
@@ -12,7 +12,7 @@ from typing import Any, Dict, Optional
 @dataclasses.dataclass
 class TransferBalanceGetResponse:
     r"""Defines the response schema for `/transfer/balance/get`"""
-    balance: shared_transferbalance.TransferBalance = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('balance') }})
+    balance: TransferBalance = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('balance') }})
     r"""Information about the balance held with Plaid."""
     request_id: str = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('request_id') }})
     r"""A unique identifier for the request, which can be used for troubleshooting. This identifier, like all Plaid identifiers, is case sensitive."""

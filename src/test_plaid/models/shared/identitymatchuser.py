@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 import dataclasses
-from ..shared import addressdatanullablenorequiredfields as shared_addressdatanullablenorequiredfields
+from .addressdatanullablenorequiredfields import AddressDataNullableNoRequiredFields
 from dataclasses_json import Undefined, dataclass_json
 from test_plaid import utils
 from typing import Any, Dict, Optional
@@ -13,7 +13,7 @@ from typing import Any, Dict, Optional
 class IdentityMatchUser:
     r"""The user's legal name, phone number, email address and address used to perform fuzzy match. If Financial Account Matching is enabled in the Identity Verification product, leave this field empty to automatically match against PII collected from the Identity Verification checks."""
     additional_properties: Optional[Dict[str, Any]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'exclude': lambda f: f is None }})
-    address: Optional[shared_addressdatanullablenorequiredfields.AddressDataNullableNoRequiredFields] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('address') }})
+    address: Optional[AddressDataNullableNoRequiredFields] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('address') }})
     r"""Data about the components comprising an address."""
     email_address: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('email_address') }})
     r"""The user's email address."""

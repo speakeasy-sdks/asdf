@@ -2,9 +2,9 @@
 
 from __future__ import annotations
 import dataclasses
-from ..shared import documentauthenticitymatchcode as shared_documentauthenticitymatchcode
-from ..shared import imagequality as shared_imagequality
-from ..shared import physicaldocumentextracteddataanalysis as shared_physicaldocumentextracteddataanalysis
+from .documentauthenticitymatchcode import DocumentAuthenticityMatchCode
+from .imagequality import ImageQuality
+from .physicaldocumentextracteddataanalysis import PhysicalDocumentExtractedDataAnalysis
 from dataclasses_json import Undefined, dataclass_json
 from test_plaid import utils
 from typing import Any, Dict, Optional
@@ -14,7 +14,7 @@ from typing import Any, Dict, Optional
 @dataclasses.dataclass
 class DocumentAnalysis:
     r"""High level descriptions of how the associated document was processed. If a document fails verification, the details in the `analysis` object should help clarify why the document was rejected."""
-    authenticity: shared_documentauthenticitymatchcode.DocumentAuthenticityMatchCode = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('authenticity') }})
+    authenticity: DocumentAuthenticityMatchCode = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('authenticity') }})
     r"""High level summary of whether the document in the provided image matches the formatting rules and security checks for the associated jurisdiction.
 
     For example, most identity documents have formatting rules like the following:
@@ -33,9 +33,9 @@ class DocumentAnalysis:
 
     So a `match` status for this field indicates that the document in the provided image seems to conform to the various formatting and security rules associated with the detected document.
     """
-    extracted_data: Optional[shared_physicaldocumentextracteddataanalysis.PhysicalDocumentExtractedDataAnalysis] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('extracted_data') }})
+    extracted_data: Optional[PhysicalDocumentExtractedDataAnalysis] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('extracted_data') }})
     r"""Analysis of the data extracted from the submitted document."""
-    image_quality: shared_imagequality.ImageQuality = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('image_quality') }})
+    image_quality: ImageQuality = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('image_quality') }})
     r"""A high level description of the quality of the image the user submitted.
 
     For example, an image that is blurry, distorted by glare from a nearby light source, or improperly framed might be marked as low or medium quality. Poor quality images are more likely to fail OCR and/or template conformity checks.

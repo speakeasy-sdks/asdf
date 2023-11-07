@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 import dataclasses
-from ..shared import plaiderrortype as shared_plaiderrortype
+from .plaiderrortype import PlaidErrorType
 from dataclasses_json import Undefined, dataclass_json
 from test_plaid import utils
 from typing import Any, Dict, List, Optional
@@ -21,7 +21,7 @@ class PlaidError:
     r"""The particular error code. Safe for programmatic use."""
     error_message: str = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('error_message') }})
     r"""A developer-friendly representation of the error code. This may change over time and is not safe for programmatic use."""
-    error_type: shared_plaiderrortype.PlaidErrorType = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('error_type') }})
+    error_type: PlaidErrorType = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('error_type') }})
     r"""A broad categorization of the error. Safe for programmatic use."""
     additional_properties: Optional[Dict[str, Any]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'exclude': lambda f: f is None }})
     causes: Optional[List[Any]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('causes'), 'exclude': lambda f: f is None }})

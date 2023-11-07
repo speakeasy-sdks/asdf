@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 import dataclasses
-from ..shared import transferuseraddressinrequest as shared_transferuseraddressinrequest
+from .transferuseraddressinrequest import TransferUserAddressInRequest
 from dataclasses_json import Undefined, dataclass_json
 from test_plaid import utils
 from typing import Optional
@@ -15,7 +15,7 @@ class TransferUserInRequestDeprecated:
 
     Deprecated class: This will be removed in a future release, please migrate away from it as soon as possible.
     """
-    address: Optional[shared_transferuseraddressinrequest.TransferUserAddressInRequest] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('address'), 'exclude': lambda f: f is None }})
+    address: Optional[TransferUserAddressInRequest] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('address'), 'exclude': lambda f: f is None }})
     r"""The address associated with the account holder. Providing this data will improve the likelihood that Plaid will be able to guarantee the transfer, if applicable."""
     email_address: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('email_address'), 'exclude': lambda f: f is None }})
     r"""The user's email address."""

@@ -2,8 +2,8 @@
 
 from __future__ import annotations
 import dataclasses
-from ..shared import crabankincometransaction as shared_crabankincometransaction
-from ..shared import creditamountwithcurrency as shared_creditamountwithcurrency
+from .crabankincometransaction import CraBankIncomeTransaction
+from .creditamountwithcurrency import CreditAmountWithCurrency
 from dataclasses_json import Undefined, dataclass_json
 from datetime import date
 from test_plaid import utils
@@ -25,10 +25,10 @@ class CraBankIncomeHistoricalSummary:
     This date will be the first day of the month, unless the month being covered is a partial month because it is the first month included in the summary and the date range being requested does not begin with the first day of the month.
     The date will be returned in an ISO 8601 format (YYYY-MM-DD).
     """
-    total_amounts: Optional[List[shared_creditamountwithcurrency.CreditAmountWithCurrency]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('total_amounts'), 'exclude': lambda f: f is None }})
+    total_amounts: Optional[List[CreditAmountWithCurrency]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('total_amounts'), 'exclude': lambda f: f is None }})
     r"""Total amount of earnings for the income source(s) of the user for the month in the summary.
     This can contain multiple amounts, with each amount denominated in one unique currency.
     """
-    transactions: Optional[List[shared_crabankincometransaction.CraBankIncomeTransaction]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('transactions'), 'exclude': lambda f: f is None }})
+    transactions: Optional[List[CraBankIncomeTransaction]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('transactions'), 'exclude': lambda f: f is None }})
     
 

@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 import dataclasses
-from ..shared import identityverificationcreaterequestuser as shared_identityverificationcreaterequestuser
+from .identityverificationcreaterequestuser import IdentityVerificationCreateRequestUser
 from dataclasses_json import Undefined, dataclass_json
 from test_plaid import utils
 from typing import Optional
@@ -31,7 +31,7 @@ class IdentityVerificationCreateRequest:
     """
     secret: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('secret'), 'exclude': lambda f: f is None }})
     r"""Your Plaid API `secret`. The `secret` is required and may be provided either in the `PLAID-SECRET` header or as part of a request body."""
-    user: Optional[shared_identityverificationcreaterequestuser.IdentityVerificationCreateRequestUser] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('user') }})
+    user: Optional[IdentityVerificationCreateRequestUser] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('user') }})
     r"""User information collected outside of Link, most likely via your own onboarding process.
 
     Each of the following identity fields are optional:

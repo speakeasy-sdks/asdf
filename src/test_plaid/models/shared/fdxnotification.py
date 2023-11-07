@@ -3,13 +3,13 @@
 from __future__ import annotations
 import dataclasses
 import dateutil.parser
-from ..shared import fdxhateoaslink as shared_fdxhateoaslink
-from ..shared import fdxnotificationcategory as shared_fdxnotificationcategory
-from ..shared import fdxnotificationpayload as shared_fdxnotificationpayload
-from ..shared import fdxnotificationpriority as shared_fdxnotificationpriority
-from ..shared import fdxnotificationseverity as shared_fdxnotificationseverity
-from ..shared import fdxnotificationtype as shared_fdxnotificationtype
-from ..shared import fdxparty as shared_fdxparty
+from .fdxhateoaslink import FDXHateoasLink
+from .fdxnotificationcategory import FDXNotificationCategory
+from .fdxnotificationpayload import FDXNotificationPayload
+from .fdxnotificationpriority import FDXNotificationPriority
+from .fdxnotificationseverity import FDXNotificationSeverity
+from .fdxnotificationtype import FDXNotificationType
+from .fdxparty import FDXParty
 from dataclasses_json import Undefined, dataclass_json
 from datetime import datetime
 from test_plaid import utils
@@ -20,25 +20,25 @@ from typing import Optional
 @dataclasses.dataclass
 class FDXNotification:
     r"""Provides the base fields of a notification. Clients will read the `type` property to determine the expected notification payload"""
-    category: shared_fdxnotificationcategory.FDXNotificationCategory = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('category') }})
+    category: FDXNotificationCategory = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('category') }})
     r"""Category of Notification"""
     notification_id: str = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('notificationId') }})
     r"""Id of notification"""
-    notification_payload: shared_fdxnotificationpayload.FDXNotificationPayload = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('notificationPayload') }})
+    notification_payload: FDXNotificationPayload = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('notificationPayload') }})
     r"""Custom key-value pairs payload for a notification"""
-    publisher: shared_fdxparty.FDXParty = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('publisher') }})
+    publisher: FDXParty = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('publisher') }})
     r"""FDX Participant - an entity or person that is a part of a FDX API transaction"""
     sent_on: datetime = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('sentOn'), 'encoder': utils.datetimeisoformat(False), 'decoder': dateutil.parser.isoparse }})
     r"""ISO 8601 date-time in format 'YYYY-MM-DDThh:mm:ss.nnn[Z|[+|-]hh:mm]' according to [IETF RFC3339](https://xml2rfc.tools.ietf.org/public/rfc/html/rfc3339.html#anchor14)"""
-    type: shared_fdxnotificationtype.FDXNotificationType = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('type') }})
+    type: FDXNotificationType = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('type') }})
     r"""Type of Notification"""
-    priority: Optional[shared_fdxnotificationpriority.FDXNotificationPriority] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('priority'), 'exclude': lambda f: f is None }})
+    priority: Optional[FDXNotificationPriority] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('priority'), 'exclude': lambda f: f is None }})
     r"""Priority of notification"""
-    severity: Optional[shared_fdxnotificationseverity.FDXNotificationSeverity] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('severity'), 'exclude': lambda f: f is None }})
+    severity: Optional[FDXNotificationSeverity] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('severity'), 'exclude': lambda f: f is None }})
     r"""Severity level of notification"""
-    subscriber: Optional[shared_fdxparty.FDXParty] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('subscriber'), 'exclude': lambda f: f is None }})
+    subscriber: Optional[FDXParty] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('subscriber'), 'exclude': lambda f: f is None }})
     r"""FDX Participant - an entity or person that is a part of a FDX API transaction"""
-    url: Optional[shared_fdxhateoaslink.FDXHateoasLink] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('url'), 'exclude': lambda f: f is None }})
+    url: Optional[FDXHateoasLink] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('url'), 'exclude': lambda f: f is None }})
     r"""REST application constraint (Hypermedia As The Engine Of Application State)"""
     
 

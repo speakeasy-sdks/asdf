@@ -3,7 +3,7 @@
 from __future__ import annotations
 import dataclasses
 import requests as requests_http
-from ..shared import assetreportfilterresponse as shared_assetreportfilterresponse
+from ...models.shared import assetreportfilterresponse as shared_assetreportfilterresponse
 from typing import Optional
 
 

@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 import dataclasses
-from ..shared import creditfreddiemacservice_voe_2_5 as shared_creditfreddiemacservice_voe_2_5
+from .creditfreddiemacservice_voe_2_5 import CreditFreddieMacServiceVOE25
 from dataclasses_json import Undefined, dataclass_json
 from test_plaid import utils
 from typing import Any, Dict, Optional
@@ -12,7 +12,7 @@ from typing import Any, Dict, Optional
 @dataclasses.dataclass
 class CreditFreddieMacServicesVOE25:
     r"""A collection of objects that describe requests and responses for services."""
-    service: shared_creditfreddiemacservice_voe_2_5.CreditFreddieMacServiceVOE25 = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('SERVICE') }})
+    service: CreditFreddieMacServiceVOE25 = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('SERVICE') }})
     r"""A collection of details related to a fulfillment service or product in terms of request, process and result."""
     additional_properties: Optional[Dict[str, Any]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'exclude': lambda f: f is None }})
     

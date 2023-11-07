@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 import dataclasses
-from ..shared import transactionsruledetails as shared_transactionsruledetails
+from .transactionsruledetails import TransactionsRuleDetails
 from dataclasses_json import Undefined, dataclass_json
 from test_plaid import utils
 from typing import Optional
@@ -21,7 +21,7 @@ class TransactionsRulesCreateRequest:
 
     See the [`taxonomy csv file`](https://plaid.com/documents/transactions-personal-finance-category-taxonomy.csv) for a full list of personal finance categories.
     """
-    rule_details: shared_transactionsruledetails.TransactionsRuleDetails = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('rule_details') }})
+    rule_details: TransactionsRuleDetails = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('rule_details') }})
     r"""A representation of transactions rule details."""
     client_id: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('client_id'), 'exclude': lambda f: f is None }})
     r"""Your Plaid API `client_id`. The `client_id` is required and may be provided either in the `PLAID-CLIENT-ID` header or as part of a request body."""

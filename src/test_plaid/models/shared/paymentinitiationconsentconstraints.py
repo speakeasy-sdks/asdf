@@ -2,9 +2,9 @@
 
 from __future__ import annotations
 import dataclasses
-from ..shared import paymentamount as shared_paymentamount
-from ..shared import paymentconsentperiodicamount as shared_paymentconsentperiodicamount
-from ..shared import paymentconsentvaliddatetime as shared_paymentconsentvaliddatetime
+from .paymentamount import PaymentAmount
+from .paymentconsentperiodicamount import PaymentConsentPeriodicAmount
+from .paymentconsentvaliddatetime import PaymentConsentValidDateTime
 from dataclasses_json import Undefined, dataclass_json
 from test_plaid import utils
 from typing import List, Optional
@@ -14,11 +14,11 @@ from typing import List, Optional
 @dataclasses.dataclass
 class PaymentInitiationConsentConstraints:
     r"""Limitations that will be applied to payments initiated using the payment consent."""
-    max_payment_amount: shared_paymentamount.PaymentAmount = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('max_payment_amount') }})
+    max_payment_amount: PaymentAmount = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('max_payment_amount') }})
     r"""Maximum amount of a single payment initiated using the payment consent."""
-    periodic_amounts: List[shared_paymentconsentperiodicamount.PaymentConsentPeriodicAmount] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('periodic_amounts') }})
+    periodic_amounts: List[PaymentConsentPeriodicAmount] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('periodic_amounts') }})
     r"""A list of amount limitations per period of time."""
-    valid_date_time: Optional[shared_paymentconsentvaliddatetime.PaymentConsentValidDateTime] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('valid_date_time') }})
+    valid_date_time: Optional[PaymentConsentValidDateTime] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('valid_date_time') }})
     r"""Life span for the payment consent. After the `to` date the payment consent expires and can no longer be used for payment initiation."""
     
 

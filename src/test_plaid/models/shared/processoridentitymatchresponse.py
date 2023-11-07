@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 import dataclasses
-from ..shared import accountidentitymatchscore as shared_accountidentitymatchscore
+from .accountidentitymatchscore import AccountIdentityMatchScore
 from dataclasses_json import Undefined, dataclass_json
 from test_plaid import utils
 from typing import Any, Dict, Optional
@@ -12,7 +12,7 @@ from typing import Any, Dict, Optional
 @dataclasses.dataclass
 class ProcessorIdentityMatchResponse:
     r"""ProcessorIdentityMatchResponse defines the response schema for `/processor/identity/match`"""
-    account: shared_accountidentitymatchscore.AccountIdentityMatchScore = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('account') }})
+    account: AccountIdentityMatchScore = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('account') }})
     r"""Identity match scores for an account"""
     request_id: str = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('request_id') }})
     r"""A unique identifier for the request, which can be used for troubleshooting. This identifier, like all Plaid identifiers, is case sensitive."""

@@ -2,8 +2,8 @@
 
 from __future__ import annotations
 import dataclasses
-from ..shared import mortgageinterestrate as shared_mortgageinterestrate
-from ..shared import mortgagepropertyaddress as shared_mortgagepropertyaddress
+from .mortgageinterestrate import MortgageInterestRate
+from .mortgagepropertyaddress import MortgagePropertyAddress
 from dataclasses_json import Undefined, dataclass_json
 from datetime import date
 from test_plaid import utils
@@ -26,7 +26,7 @@ class MortgageLiability:
     r"""Indicates whether the borrower has private mortgage insurance in effect."""
     has_prepayment_penalty: Optional[bool] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('has_prepayment_penalty') }})
     r"""Indicates whether the borrower will pay a penalty for early payoff of mortgage."""
-    interest_rate: shared_mortgageinterestrate.MortgageInterestRate = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('interest_rate') }})
+    interest_rate: MortgageInterestRate = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('interest_rate') }})
     r"""Object containing metadata about the interest rate for the mortgage."""
     last_payment_amount: Optional[float] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('last_payment_amount') }})
     r"""The amount of the last payment."""
@@ -48,7 +48,7 @@ class MortgageLiability:
     r"""The original principal balance of the mortgage."""
     past_due_amount: Optional[float] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('past_due_amount') }})
     r"""Amount of loan (principal + interest) past due for payment."""
-    property_address: shared_mortgagepropertyaddress.MortgagePropertyAddress = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('property_address') }})
+    property_address: MortgagePropertyAddress = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('property_address') }})
     r"""Object containing fields describing property address."""
     ytd_interest_paid: Optional[float] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('ytd_interest_paid') }})
     r"""The year to date (YTD) interest paid."""

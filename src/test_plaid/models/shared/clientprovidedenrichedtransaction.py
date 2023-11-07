@@ -2,8 +2,8 @@
 
 from __future__ import annotations
 import dataclasses
-from ..shared import enrichments as shared_enrichments
-from ..shared import enrichtransactiondirection as shared_enrichtransactiondirection
+from .enrichments import Enrichments
+from .enrichtransactiondirection import EnrichTransactionDirection
 from dataclasses_json import Undefined, dataclass_json
 from test_plaid import utils
 from typing import Any, Dict, Optional
@@ -17,7 +17,7 @@ class ClientProvidedEnrichedTransaction:
     r"""The absolute value of the transaction (>= 0)"""
     description: str = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('description') }})
     r"""The raw description of the transaction."""
-    enrichments: shared_enrichments.Enrichments = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('enrichments') }})
+    enrichments: Enrichments = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('enrichments') }})
     r"""A grouping of the Plaid produced transaction enrichment fields."""
     id: str = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('id') }})
     r"""The unique ID for the transaction as provided by you in the request."""
@@ -32,7 +32,7 @@ class ClientProvidedEnrichedTransaction:
     r"""A unique account id used to group transactions for a given account, as a unique identifier from your application. Personally identifiable information, such as an email address or phone number, should not be used in the client_account_id."""
     client_user_id: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('client_user_id'), 'exclude': lambda f: f is None }})
     r"""A unique user id used to group transactions for a given user, as a unique identifier from your application. Personally identifiable information, such as an email address or phone number, should not be used in the client_user_id."""
-    direction: Optional[shared_enrichtransactiondirection.EnrichTransactionDirection] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('direction'), 'exclude': lambda f: f is None }})
+    direction: Optional[EnrichTransactionDirection] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('direction'), 'exclude': lambda f: f is None }})
     r"""The direction of the transaction from the perspective of the account holder:
 
     `OUTFLOW` - Includes outgoing transfers, purchases, and fees. (Typically represented as a negative value on checking accounts and debit cards and a positive value on credit cards.)

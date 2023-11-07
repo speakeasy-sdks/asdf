@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 import dataclasses
-from ..shared import isocurrencycode as shared_isocurrencycode
+from .isocurrencycode import ISOCurrencyCode
 from dataclasses_json import Undefined, dataclass_json
 from test_plaid import utils
 from typing import Any, Dict, Optional
@@ -14,7 +14,7 @@ class FraudAmountNullable:
     r"""The amount and currency of the fraud or attempted fraud.
     `fraud_amount` should be omitted to indicate an unknown fraud amount.
     """
-    iso_currency_code: shared_isocurrencycode.ISOCurrencyCode = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('iso_currency_code') }})
+    iso_currency_code: ISOCurrencyCode = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('iso_currency_code') }})
     r"""An ISO-4217 currency code."""
     value: float = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('value') }})
     r"""The amount value.

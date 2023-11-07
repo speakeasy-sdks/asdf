@@ -3,10 +3,10 @@
 from __future__ import annotations
 import dataclasses
 import dateutil.parser
-from ..shared import banktransferdirection as shared_banktransferdirection
-from ..shared import banktransfereventtype as shared_banktransfereventtype
-from ..shared import banktransferfailure as shared_banktransferfailure
-from ..shared import banktransfertype as shared_banktransfertype
+from .banktransferdirection import BankTransferDirection
+from .banktransfereventtype import BankTransferEventType
+from .banktransferfailure import BankTransferFailure
+from .banktransfertype import BankTransferType
 from dataclasses_json import Undefined, dataclass_json
 from datetime import datetime
 from test_plaid import utils
@@ -25,13 +25,13 @@ class BankTransferEvent:
     r"""Plaid’s unique identifier for a bank transfer."""
     bank_transfer_iso_currency_code: str = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('bank_transfer_iso_currency_code') }})
     r"""The currency of the bank transfer amount."""
-    bank_transfer_type: shared_banktransfertype.BankTransferType = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('bank_transfer_type') }})
+    bank_transfer_type: BankTransferType = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('bank_transfer_type') }})
     r"""The type of bank transfer. This will be either `debit` or `credit`.  A `debit` indicates a transfer of money into the origination account; a `credit` indicates a transfer of money out of the origination account."""
-    direction: Optional[shared_banktransferdirection.BankTransferDirection] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('direction') }})
+    direction: Optional[BankTransferDirection] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('direction') }})
     r"""Indicates the direction of the transfer: `outbound` for API-initiated transfers, or `inbound` for payments received by the FBO account."""
     event_id: int = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('event_id') }})
     r"""Plaid’s unique identifier for this event. IDs are sequential unsigned 64-bit integers."""
-    event_type: shared_banktransfereventtype.BankTransferEventType = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('event_type') }})
+    event_type: BankTransferEventType = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('event_type') }})
     r"""The type of event that this bank transfer represents.
 
     `pending`: A new transfer was created; it is in the pending state.
@@ -44,7 +44,7 @@ class BankTransferEvent:
 
     `reversed`: A posted transfer was reversed.
     """
-    failure_reason: Optional[shared_banktransferfailure.BankTransferFailure] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('failure_reason') }})
+    failure_reason: Optional[BankTransferFailure] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('failure_reason') }})
     r"""The failure reason if the type of this transfer is `\\"failed\\"` or `\\"reversed\\"`. Null value otherwise."""
     origination_account_id: Optional[str] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('origination_account_id') }})
     r"""The ID of the origination account that this balance belongs to."""

@@ -1,4 +1,4 @@
-# ItemUpdateType
+# UpdateType
 
 Indicates whether an Item requires user interaction to be updated, which can be the case for Items with some forms of two-factor authentication.
 

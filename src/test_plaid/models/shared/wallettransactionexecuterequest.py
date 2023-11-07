@@ -2,8 +2,8 @@
 
 from __future__ import annotations
 import dataclasses
-from ..shared import wallettransactionamount as shared_wallettransactionamount
-from ..shared import wallettransactioncounterparty as shared_wallettransactioncounterparty
+from .wallettransactionamount import WalletTransactionAmount
+from .wallettransactioncounterparty import WalletTransactionCounterparty
 from dataclasses_json import Undefined, dataclass_json
 from test_plaid import utils
 from typing import Optional
@@ -13,9 +13,9 @@ from typing import Optional
 @dataclasses.dataclass
 class WalletTransactionExecuteRequest:
     r"""WalletTransactionExecuteRequest defines the request schema for `/wallet/transaction/execute`"""
-    amount: shared_wallettransactionamount.WalletTransactionAmount = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('amount') }})
+    amount: WalletTransactionAmount = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('amount') }})
     r"""The amount and currency of a transaction"""
-    counterparty: shared_wallettransactioncounterparty.WalletTransactionCounterparty = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('counterparty') }})
+    counterparty: WalletTransactionCounterparty = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('counterparty') }})
     r"""An object representing the e-wallet transaction's counterparty"""
     idempotency_key: str = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('idempotency_key') }})
     r"""A random key provided by the client, per unique wallet transaction. Maximum of 128 characters.

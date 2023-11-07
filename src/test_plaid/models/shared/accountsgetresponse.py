@@ -2,8 +2,8 @@
 
 from __future__ import annotations
 import dataclasses
-from ..shared import accountbase as shared_accountbase
-from ..shared import item as shared_item
+from .accountbase import AccountBase
+from .item import Item
 from dataclasses_json import Undefined, dataclass_json
 from test_plaid import utils
 from typing import Any, Dict, List, Optional
@@ -13,11 +13,11 @@ from typing import Any, Dict, List, Optional
 @dataclasses.dataclass
 class AccountsGetResponse:
     r"""AccountsGetResponse defines the response schema for `/accounts/get` and `/accounts/balance/get`."""
-    accounts: List[shared_accountbase.AccountBase] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('accounts') }})
+    accounts: List[AccountBase] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('accounts') }})
     r"""An array of financial institution accounts associated with the Item.
     If `/accounts/balance/get` was called, each account will include real-time balance information.
     """
-    item: shared_item.Item = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('item') }})
+    item: Item = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('item') }})
     r"""Metadata about the Item."""
     request_id: str = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('request_id') }})
     r"""A unique identifier for the request, which can be used for troubleshooting. This identifier, like all Plaid identifiers, is case sensitive."""

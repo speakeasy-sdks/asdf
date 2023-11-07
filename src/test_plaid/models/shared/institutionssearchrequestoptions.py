@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 import dataclasses
-from ..shared import institutionssearchpaymentinitiationoptions as shared_institutionssearchpaymentinitiationoptions
+from .institutionssearchpaymentinitiationoptions import InstitutionsSearchPaymentInitiationOptions
 from dataclasses_json import Undefined, dataclass_json
 from test_plaid import utils
 from typing import Optional
@@ -20,7 +20,7 @@ class InstitutionsSearchRequestOptions:
     r"""When `true`, returns metadata related to the Payment Initiation product indicating which payment configurations are supported."""
     oauth: Optional[bool] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('oauth') }})
     r"""Limit results to institutions with or without OAuth login flows. Note that institutions will have `oauth` set to `true` if some Items associated with that institution are required to use OAuth flows; institutions in a state of migration to OAuth will have the `oauth` attribute set to `true`."""
-    payment_initiation: Optional[shared_institutionssearchpaymentinitiationoptions.InstitutionsSearchPaymentInitiationOptions] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('payment_initiation') }})
+    payment_initiation: Optional[InstitutionsSearchPaymentInitiationOptions] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('payment_initiation') }})
     r"""Additional options that will be used to filter institutions by various Payment Initiation configurations."""
     
 

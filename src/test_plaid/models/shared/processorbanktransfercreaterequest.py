@@ -2,10 +2,10 @@
 
 from __future__ import annotations
 import dataclasses
-from ..shared import achclass as shared_achclass
-from ..shared import banktransfernetwork as shared_banktransfernetwork
-from ..shared import banktransfertype as shared_banktransfertype
-from ..shared import banktransferuser as shared_banktransferuser
+from .achclass import ACHClass
+from .banktransfernetwork import BankTransferNetwork
+from .banktransfertype import BankTransferType
+from .banktransferuser import BankTransferUserInput
 from dataclasses_json import Undefined, dataclass_json
 from test_plaid import utils
 from typing import Dict, Optional
@@ -13,7 +13,7 @@ from typing import Dict, Optional
 
 @dataclass_json(undefined=Undefined.EXCLUDE)
 @dataclasses.dataclass
-class ProcessorBankTransferCreateRequestInput:
+class ProcessorBankTransferCreateRequest:
     r"""Defines the request schema for `/processor/bank_transfer/create`"""
     amount: str = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('amount') }})
     r"""The amount of the bank transfer (decimal string with two digits of precision e.g. \\"10.00\\")."""
@@ -26,15 +26,15 @@ class ProcessorBankTransferCreateRequestInput:
     """
     iso_currency_code: str = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('iso_currency_code') }})
     r"""The currency of the transfer amount – should be set to \\"USD\\"."""
-    network: shared_banktransfernetwork.BankTransferNetwork = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('network') }})
+    network: BankTransferNetwork = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('network') }})
     r"""The network or rails used for the transfer. Valid options are `ach`, `same-day-ach`, or `wire`."""
     processor_token: str = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('processor_token') }})
     r"""The processor token obtained from the Plaid integration partner. Processor tokens are in the format: `processor-<environment>-<identifier>`"""
-    type: shared_banktransfertype.BankTransferType = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('type') }})
+    type: BankTransferType = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('type') }})
     r"""The type of bank transfer. This will be either `debit` or `credit`.  A `debit` indicates a transfer of money into the origination account; a `credit` indicates a transfer of money out of the origination account."""
-    user: shared_banktransferuser.BankTransferUserInput = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('user') }})
+    user: BankTransferUserInput = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('user') }})
     r"""The legal name and other information for the account holder."""
-    ach_class: Optional[shared_achclass.ACHClass] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('ach_class'), 'exclude': lambda f: f is None }})
+    ach_class: Optional[ACHClass] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('ach_class'), 'exclude': lambda f: f is None }})
     r"""Specifies the use case of the transfer. Required for transfers on an ACH network.
 
     `\"ccd\"` - Corporate Credit or Debit - fund transfer between two corporate bank accounts

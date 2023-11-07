@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 import dataclasses
-from ..shared import watchlistscreeningreview as shared_watchlistscreeningreview
+from .watchlistscreeningreview import WatchlistScreeningReview
 from dataclasses_json import Undefined, dataclass_json
 from test_plaid import utils
 from typing import Any, Dict, List, Optional
@@ -16,7 +16,7 @@ class WatchlistScreeningIndividualReviewListResponse:
     r"""An identifier that determines which page of results you receive."""
     request_id: str = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('request_id') }})
     r"""A unique identifier for the request, which can be used for troubleshooting. This identifier, like all Plaid identifiers, is case sensitive."""
-    watchlist_screening_reviews: List[shared_watchlistscreeningreview.WatchlistScreeningReview] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('watchlist_screening_reviews') }})
+    watchlist_screening_reviews: List[WatchlistScreeningReview] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('watchlist_screening_reviews') }})
     r"""List of screening reviews"""
     additional_properties: Optional[Dict[str, Any]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'exclude': lambda f: f is None }})
     

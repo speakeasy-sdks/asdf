@@ -1,4 +1,4 @@
-# ~~LinkTokenCreateRequestAuthFlowType~~
+# ~~FlowType~~
 
 This field has been deprecated in favor of `auth_type_select_enabled`.
 

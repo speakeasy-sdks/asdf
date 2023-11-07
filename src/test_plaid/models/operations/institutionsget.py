@@ -3,8 +3,8 @@
 from __future__ import annotations
 import dataclasses
 import requests as requests_http
-from ..shared import institutionsgetresponse as shared_institutionsgetresponse
-from ..shared import plaiderror as shared_plaiderror
+from ...models.shared import institutionsgetresponse as shared_institutionsgetresponse
+from ...models.shared import plaiderror as shared_plaiderror
 from typing import Optional
 
 

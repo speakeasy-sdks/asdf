@@ -2,8 +2,8 @@
 
 from __future__ import annotations
 import dataclasses
-from ..shared import paymentinitiationaddress as shared_paymentinitiationaddress
-from ..shared import recipientbacsnullable as shared_recipientbacsnullable
+from .paymentinitiationaddress import PaymentInitiationAddress
+from .recipientbacsnullable import RecipientBACSNullable
 from dataclasses_json import Undefined, dataclass_json
 from test_plaid import utils
 from typing import Any, Dict, Optional
@@ -18,9 +18,9 @@ class PaymentInitiationRecipient:
     recipient_id: str = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('recipient_id') }})
     r"""The ID of the recipient."""
     additional_properties: Optional[Dict[str, Any]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'exclude': lambda f: f is None }})
-    address: Optional[shared_paymentinitiationaddress.PaymentInitiationAddress] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('address') }})
+    address: Optional[PaymentInitiationAddress] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('address') }})
     r"""The optional address of the payment recipient's bank account. Required by most institutions outside of the UK."""
-    bacs: Optional[shared_recipientbacsnullable.RecipientBACSNullable] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('bacs') }})
+    bacs: Optional[RecipientBACSNullable] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('bacs') }})
     r"""An object containing a BACS account number and sort code. If an IBAN is not provided or if this recipient needs to accept domestic GBP-denominated payments, BACS data is required."""
     iban: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('iban') }})
     r"""The International Bank Account Number (IBAN) for the recipient."""

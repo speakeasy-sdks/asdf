@@ -3,7 +3,7 @@
 from __future__ import annotations
 import dataclasses
 import requests as requests_http
-from ..shared import investmentsauthgetresponse as shared_investmentsauthgetresponse
+from ...models.shared import investmentsauthgetresponse as shared_investmentsauthgetresponse
 from typing import Optional
 
 

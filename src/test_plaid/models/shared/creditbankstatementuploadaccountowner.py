@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 import dataclasses
-from ..shared import creditbankstatementuploadaccountowneraddress as shared_creditbankstatementuploadaccountowneraddress
+from .creditbankstatementuploadaccountowneraddress import CreditBankStatementUploadAccountOwnerAddress
 from dataclasses_json import Undefined, dataclass_json
 from test_plaid import utils
 from typing import Any, Dict, Optional
@@ -12,7 +12,7 @@ from typing import Any, Dict, Optional
 @dataclasses.dataclass
 class CreditBankStatementUploadAccountOwner:
     r"""An object containing data about the owner of the bank account for the uploaded bank statement."""
-    address: shared_creditbankstatementuploadaccountowneraddress.CreditBankStatementUploadAccountOwnerAddress = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('address') }})
+    address: CreditBankStatementUploadAccountOwnerAddress = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('address') }})
     r"""Address on the uploaded bank statement"""
     name: Optional[str] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('name') }})
     r"""The name of the account owner"""

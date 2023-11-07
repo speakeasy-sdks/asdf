@@ -3,11 +3,11 @@
 from __future__ import annotations
 import dataclasses
 import dateutil.parser
-from ..shared import achclass as shared_achclass
-from ..shared import transferintentcreatemode as shared_transferintentcreatemode
-from ..shared import transferintentcreatenetwork as shared_transferintentcreatenetwork
-from ..shared import transferintentstatus as shared_transferintentstatus
-from ..shared import transferuserinresponse as shared_transferuserinresponse
+from .achclass import ACHClass
+from .transferintentcreatemode import TransferIntentCreateMode
+from .transferintentcreatenetwork import TransferIntentCreateNetwork
+from .transferintentstatus import TransferIntentStatus
+from .transferuserinresponse import TransferUserInResponse
 from dataclasses_json import Undefined, dataclass_json
 from datetime import datetime
 from test_plaid import utils
@@ -30,7 +30,7 @@ class TransferIntentCreate:
     r"""Plaid's unique identifier for the transfer intent object."""
     iso_currency_code: str = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('iso_currency_code') }})
     r"""The currency of the transfer amount, e.g. \\"USD\\" """
-    mode: shared_transferintentcreatemode.TransferIntentCreateMode = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('mode') }})
+    mode: TransferIntentCreateMode = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('mode') }})
     r"""The direction of the flow of transfer funds.
 
     `PAYMENT`: Transfers funds from an end user's account to your business account.
@@ -42,18 +42,18 @@ class TransferIntentCreate:
 
     Deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
     """
-    status: shared_transferintentstatus.TransferIntentStatus = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('status') }})
+    status: TransferIntentStatus = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('status') }})
     r"""The status of the transfer intent.
 
     `PENDING`: The transfer intent is pending.
     `SUCCEEDED`: The transfer intent was successfully created.
     `FAILED`: The transfer intent was unable to be created.
     """
-    user: shared_transferuserinresponse.TransferUserInResponse = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('user') }})
+    user: TransferUserInResponse = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('user') }})
     r"""The legal name and other information for the account holder."""
     account_id: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('account_id') }})
     r"""The Plaid `account_id` corresponding to the end-user account that will be debited or credited. Returned only if `account_id` was set on intent creation."""
-    ach_class: Optional[shared_achclass.ACHClass] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('ach_class'), 'exclude': lambda f: f is None }})
+    ach_class: Optional[ACHClass] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('ach_class'), 'exclude': lambda f: f is None }})
     r"""Specifies the use case of the transfer. Required for transfers on an ACH network.
 
     `\"ccd\"` - Corporate Credit or Debit - fund transfer between two corporate bank accounts
@@ -73,7 +73,7 @@ class TransferIntentCreate:
     Maximum key length of 40 characters
     Maximum value length of 500 characters
     """
-    network: Optional[shared_transferintentcreatenetwork.TransferIntentCreateNetwork] = dataclasses.field(default=shared_transferintentcreatenetwork.TransferIntentCreateNetwork.SAME_DAY_ACH, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('network'), 'exclude': lambda f: f is None }})
+    network: Optional[TransferIntentCreateNetwork] = dataclasses.field(default=TransferIntentCreateNetwork.SAME_DAY_ACH, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('network'), 'exclude': lambda f: f is None }})
     r"""The network or rails used for the transfer. Defaults to `same-day-ach`.
 
     For transfers submitted as either `ach` or `same-day-ach` the cutoff for same-day is 3:30 PM Eastern Time and the cutoff for next-day transfers is 5:30 PM Eastern Time. It is recommended to submit a transfer at least 15 minutes before the cutoff time in order to ensure that it will be processed before the cutoff. Any transfer that is indicated as `same-day-ach` and that misses the same-day cutoff, but is submitted in time for the next-day cutoff, will be sent over next-day rails and will not incur same-day charges. Note that both legs of the transfer will be downgraded if applicable.

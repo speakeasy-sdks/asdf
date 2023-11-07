@@ -2,10 +2,10 @@
 
 from __future__ import annotations
 import dataclasses
-from ..shared import accountbalance as shared_accountbalance
-from ..shared import accountsubtype as shared_accountsubtype
-from ..shared import accounttype as shared_accounttype
-from ..shared import owner as shared_owner
+from .accountbalance import AccountBalance
+from .accountsubtype import AccountSubtype
+from .accounttype import AccountType
+from .owner import Owner
 from dataclasses_json import Undefined, dataclass_json
 from enum import Enum
 from test_plaid import utils
@@ -47,7 +47,7 @@ class AccountIdentity:
 
     Like all Plaid identifiers, the `account_id` is case sensitive.
     """
-    balances: shared_accountbalance.AccountBalance = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('balances') }})
+    balances: AccountBalance = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('balances') }})
     r"""A set of fields describing the balance for an account. Balance information may be cached unless the balance object was returned by `/accounts/balance/get`."""
     mask: Optional[str] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('mask') }})
     r"""The last 2-4 alphanumeric characters of an account's official account number. Note that the mask may be non-unique between an Item's accounts, and it may also not match the mask that the bank displays to the user."""
@@ -55,11 +55,11 @@ class AccountIdentity:
     r"""The name of the account, either assigned by the user or by the financial institution itself"""
     official_name: Optional[str] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('official_name') }})
     r"""The official name of the account as given by the financial institution"""
-    owners: List[shared_owner.Owner] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('owners') }})
+    owners: List[Owner] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('owners') }})
     r"""Data returned by the financial institution about the account owner or owners. Only returned by Identity or Assets endpoints. For business accounts, the name reported may be either the name of the individual or the name of the business, depending on the institution. Multiple owners on a single account will be represented in the same `owner` object, not in multiple owner objects within the array. In API versions 2018-05-22 and earlier, the `owners` object is not returned, and instead identity information is returned in the top level `identity` object. For more details, see [Plaid API versioning](https://plaid.com/docs/api/versioning/#version-2019-05-29)"""
-    subtype: Optional[shared_accountsubtype.AccountSubtype] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('subtype') }})
+    subtype: Optional[AccountSubtype] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('subtype') }})
     r"""See the [Account type schema](https://plaid.com/docs/api/accounts/#account-type-schema) for a full listing of account types and corresponding subtypes."""
-    type: shared_accounttype.AccountType = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('type') }})
+    type: AccountType = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('type') }})
     r"""`investment:` Investment account. In API versions 2018-05-22 and earlier, this type is called `brokerage` instead.
 
     `credit:` Credit card

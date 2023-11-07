@@ -2,8 +2,8 @@
 
 from __future__ import annotations
 import dataclasses
-from ..shared import wallettransactioncounterpartybacs as shared_wallettransactioncounterpartybacs
-from ..shared import wallettransactioncounterpartyinternational as shared_wallettransactioncounterpartyinternational
+from .wallettransactioncounterpartybacs import WalletTransactionCounterpartyBACS
+from .wallettransactioncounterpartyinternational import WalletTransactionCounterpartyInternational
 from dataclasses_json import Undefined, dataclass_json
 from test_plaid import utils
 from typing import Any, Dict, Optional
@@ -14,9 +14,9 @@ from typing import Any, Dict, Optional
 class WalletTransactionCounterpartyNumbers:
     r"""The counterparty's bank account numbers. Exactly one of IBAN or BACS data is required."""
     additional_properties: Optional[Dict[str, Any]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'exclude': lambda f: f is None }})
-    bacs: Optional[shared_wallettransactioncounterpartybacs.WalletTransactionCounterpartyBACS] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('bacs') }})
+    bacs: Optional[WalletTransactionCounterpartyBACS] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('bacs') }})
     r"""The account number and sort code of the counterparty's account"""
-    international: Optional[shared_wallettransactioncounterpartyinternational.WalletTransactionCounterpartyInternational] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('international') }})
+    international: Optional[WalletTransactionCounterpartyInternational] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('international') }})
     r"""International Bank Account Number for a Wallet Transaction"""
     
 

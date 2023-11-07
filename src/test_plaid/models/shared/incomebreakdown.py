@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 import dataclasses
-from ..shared import incomebreakdowntype as shared_incomebreakdowntype
+from .incomebreakdowntype import IncomeBreakdownType
 from dataclasses_json import Undefined, dataclass_json
 from test_plaid import utils
 from typing import Any, Dict, Optional
@@ -21,7 +21,7 @@ class IncomeBreakdown:
     r"""The hourly rate at which the income is paid."""
     total: Optional[float] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('total') }})
     r"""The total pay for this pay period."""
-    type: Optional[shared_incomebreakdowntype.IncomeBreakdownType] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('type') }})
+    type: Optional[IncomeBreakdownType] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('type') }})
     r"""The type of income. Possible values include:
       `\"regular\"`: regular income
       `\"overtime\"`: overtime income

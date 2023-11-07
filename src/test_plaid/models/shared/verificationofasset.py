@@ -2,9 +2,9 @@
 
 from __future__ import annotations
 import dataclasses
-from ..shared import reportinginformation as shared_reportinginformation
-from ..shared import serviceproductfulfillment as shared_serviceproductfulfillment
-from ..shared import verificationofassetresponse as shared_verificationofassetresponse
+from .reportinginformation import ReportingInformation
+from .serviceproductfulfillment import ServiceProductFulfillment
+from .verificationofassetresponse import VerificationOfAssetResponse
 from dataclasses_json import Undefined, dataclass_json
 from test_plaid import utils
 from typing import Any, Dict, Optional
@@ -14,11 +14,11 @@ from typing import Any, Dict, Optional
 @dataclasses.dataclass
 class VerificationOfAsset:
     r"""Documentation not found in the MISMO model viewer and not provided by Freddie Mac."""
-    reporting_information: shared_reportinginformation.ReportingInformation = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('REPORTING_INFORMATION') }})
+    reporting_information: ReportingInformation = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('REPORTING_INFORMATION') }})
     r"""Information about an report identifier and a report name."""
-    service_product_fulfillment: shared_serviceproductfulfillment.ServiceProductFulfillment = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('SERVICE_PRODUCT_FULFILLMENT') }})
+    service_product_fulfillment: ServiceProductFulfillment = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('SERVICE_PRODUCT_FULFILLMENT') }})
     r"""A collection of details related to a fulfillment service or product in terms of request, process and result."""
-    verification_of_asset_response: shared_verificationofassetresponse.VerificationOfAssetResponse = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('VERIFICATION_OF_ASSET_RESPONSE') }})
+    verification_of_asset_response: VerificationOfAssetResponse = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('VERIFICATION_OF_ASSET_RESPONSE') }})
     r"""Documentation not found in the MISMO model viewer and not provided by Freddie Mac."""
     additional_properties: Optional[Dict[str, Any]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'exclude': lambda f: f is None }})
     

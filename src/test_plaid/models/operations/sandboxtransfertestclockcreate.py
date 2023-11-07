@@ -3,8 +3,8 @@
 from __future__ import annotations
 import dataclasses
 import requests as requests_http
-from ..shared import plaiderror as shared_plaiderror
-from ..shared import sandboxtransfertestclockcreateresponse as shared_sandboxtransfertestclockcreateresponse
+from ...models.shared import plaiderror as shared_plaiderror
+from ...models.shared import sandboxtransfertestclockcreateresponse as shared_sandboxtransfertestclockcreateresponse
 from typing import Optional
 
 

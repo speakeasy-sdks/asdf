@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 import dataclasses
-from ..shared import creditamountwithcurrency as shared_creditamountwithcurrency
+from .creditamountwithcurrency import CreditAmountWithCurrency
 from dataclasses_json import Undefined, dataclass_json
 from test_plaid import utils
 from typing import Any, Dict, Optional
@@ -21,7 +21,7 @@ class BaseReportAverageFlowInsights:
     r"""The start date of this time period.
     The date will be returned in an ISO 8601 format (YYYY-MM-DD).
     """
-    total_amount: Optional[shared_creditamountwithcurrency.CreditAmountWithCurrency] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('total_amount'), 'exclude': lambda f: f is None }})
+    total_amount: Optional[CreditAmountWithCurrency] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('total_amount'), 'exclude': lambda f: f is None }})
     r"""This contains an amount, denominated in the currency specified by either `iso_currency_code` or `unofficial_currency_code`"""
     
 

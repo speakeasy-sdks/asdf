@@ -2,8 +2,8 @@
 
 from __future__ import annotations
 import dataclasses
-from ..shared import numbersinternationaliban as shared_numbersinternationaliban
-from ..shared import recipientbacs as shared_recipientbacs
+from .numbersinternationaliban import NumbersInternationalIBAN
+from .recipientbacs import RecipientBACS
 from dataclasses_json import Undefined, dataclass_json
 from test_plaid import utils
 from typing import Any, Dict, Optional
@@ -14,9 +14,9 @@ from typing import Any, Dict, Optional
 class WalletNumbers:
     r"""An object representing the e-wallet account numbers"""
     additional_properties: Optional[Dict[str, Any]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'exclude': lambda f: f is None }})
-    bacs: Optional[shared_recipientbacs.RecipientBACS] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('bacs') }})
+    bacs: Optional[RecipientBACS] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('bacs') }})
     r"""An object containing a BACS account number and sort code. If an IBAN is not provided or if you need to accept domestic GBP-denominated payments, BACS data is required."""
-    international: Optional[shared_numbersinternationaliban.NumbersInternationalIBAN] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('international') }})
+    international: Optional[NumbersInternationalIBAN] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('international') }})
     r"""Account numbers using the International Bank Account Number and BIC/SWIFT code format."""
     
 

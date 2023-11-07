@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 import dataclasses
-from ..shared import recurringfrequency as shared_recurringfrequency
+from .recurringfrequency import RecurringFrequency
 from dataclasses_json import Undefined, dataclass_json
 from test_plaid import utils
 from typing import Any, Dict, Optional
@@ -18,7 +18,7 @@ class Recurrence:
     This is a beta field, available to all users.
     """
     additional_properties: Optional[Dict[str, Any]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'exclude': lambda f: f is None }})
-    frequency: Optional[shared_recurringfrequency.RecurringFrequency] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('frequency') }})
+    frequency: Optional[RecurringFrequency] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('frequency') }})
     r"""Describes the frequency of the transaction stream.
 
     `WEEKLY`: Assigned to a transaction stream that occurs approximately every week.

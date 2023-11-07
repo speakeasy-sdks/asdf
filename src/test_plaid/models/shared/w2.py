@@ -2,10 +2,10 @@
 
 from __future__ import annotations
 import dataclasses
-from ..shared import employee as shared_employee
-from ..shared import paystubemployer as shared_paystubemployer
-from ..shared import w2box12 as shared_w2box12
-from ..shared import w2stateandlocalwages as shared_w2stateandlocalwages
+from .employee import Employee
+from .paystubemployer import PaystubEmployer
+from .w2box12 import W2Box12
+from .w2stateandlocalwages import W2StateAndLocalWages
 from dataclasses_json import Undefined, dataclass_json
 from test_plaid import utils
 from typing import Any, Dict, List, Optional
@@ -18,14 +18,14 @@ class W2:
     additional_properties: Optional[Dict[str, Any]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'exclude': lambda f: f is None }})
     allocated_tips: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('allocated_tips') }})
     r"""Allocated tips."""
-    box_12: Optional[List[shared_w2box12.W2Box12]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('box_12'), 'exclude': lambda f: f is None }})
+    box_12: Optional[List[W2Box12]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('box_12'), 'exclude': lambda f: f is None }})
     box_9: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('box_9') }})
     r"""Contents from box 9 on the W2."""
     dependent_care_benefits: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('dependent_care_benefits') }})
     r"""Dependent care benefits."""
-    employee: Optional[shared_employee.Employee] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('employee'), 'exclude': lambda f: f is None }})
+    employee: Optional[Employee] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('employee'), 'exclude': lambda f: f is None }})
     r"""Data about the employee."""
-    employer: Optional[shared_paystubemployer.PaystubEmployer] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('employer'), 'exclude': lambda f: f is None }})
+    employer: Optional[PaystubEmployer] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('employer'), 'exclude': lambda f: f is None }})
     r"""Information about the employer on the paystub"""
     employer_id_number: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('employer_id_number') }})
     r"""An employee identification number or EIN."""
@@ -47,7 +47,7 @@ class W2:
     r"""Tips from social security."""
     social_security_wages: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('social_security_wages') }})
     r"""Wages from social security."""
-    state_and_local_wages: Optional[List[shared_w2stateandlocalwages.W2StateAndLocalWages]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('state_and_local_wages'), 'exclude': lambda f: f is None }})
+    state_and_local_wages: Optional[List[W2StateAndLocalWages]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('state_and_local_wages'), 'exclude': lambda f: f is None }})
     statutory_employee: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('statutory_employee') }})
     r"""Statutory employee."""
     tax_year: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('tax_year') }})

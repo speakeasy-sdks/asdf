@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 import dataclasses
-from ..shared import assettype as shared_assettype
+from .assettype import AssetType
 from dataclasses_json import Undefined, dataclass_json
 from test_plaid import utils
 from typing import Any, Dict, Optional
@@ -22,7 +22,7 @@ class CreditFreddieMacAssetDetailVOE25:
     r"""A text description that further defines the Asset. This could be used to describe the shares associated with the stocks, bonds or mutual funds, retirement funds or business owned that the borrower has disclosed (named) as an asset."""
     asset_ownership_type: Optional[str] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('AssetOwnershipType') }})
     r"""Ownership type of the asset account."""
-    asset_type: shared_assettype.AssetType = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('AssetType') }})
+    asset_type: AssetType = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('AssetType') }})
     r"""A value from a MISMO prescribed list that specifies financial assets in a mortgage loan transaction. Assets may be either liquid or fixed and are associated with a corresponding asset amount."""
     asset_type_additional_description: Optional[str] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('AssetTypeAdditionalDescription') }})
     r"""Additional Asset Decription some examples are Investment Tax-Deferred , Loan, 401K, 403B, Checking, Money Market, Credit Card,ROTH,529,Biller,ROLLOVER,CD,Savings,Investment Taxable, IRA, Mortgage, Line Of Credit."""

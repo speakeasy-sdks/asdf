@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 import dataclasses
-from ..shared import partnerendcustomeroauthinstitutionapplicationstatus as shared_partnerendcustomeroauthinstitutionapplicationstatus
+from .partnerendcustomeroauthinstitutionapplicationstatus import PartnerEndCustomerOAuthInstitutionApplicationStatus
 from dataclasses_json import Undefined, dataclass_json
 from test_plaid import utils
 from typing import Any, Dict, Optional
@@ -13,9 +13,9 @@ from typing import Any, Dict, Optional
 class PartnerEndCustomerOAuthInstitutionEnvironments:
     r"""Registration statuses by environment."""
     additional_properties: Optional[Dict[str, Any]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'exclude': lambda f: f is None }})
-    development: Optional[shared_partnerendcustomeroauthinstitutionapplicationstatus.PartnerEndCustomerOAuthInstitutionApplicationStatus] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('development'), 'exclude': lambda f: f is None }})
+    development: Optional[PartnerEndCustomerOAuthInstitutionApplicationStatus] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('development'), 'exclude': lambda f: f is None }})
     r"""The registration status for the end customer's application."""
-    production: Optional[shared_partnerendcustomeroauthinstitutionapplicationstatus.PartnerEndCustomerOAuthInstitutionApplicationStatus] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('production'), 'exclude': lambda f: f is None }})
+    production: Optional[PartnerEndCustomerOAuthInstitutionApplicationStatus] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('production'), 'exclude': lambda f: f is None }})
     r"""The registration status for the end customer's application."""
     
 

@@ -2,12 +2,12 @@
 
 
 ```python
-import test_plaid
 import dateutil.parser
+import test_plaid
 from test_plaid.models import shared
 
 s = test_plaid.TestPlaid(
-    security=shared.Security(
+    security=shared.Security1(
         client_id="",
         plaid_version="",
         secret="",

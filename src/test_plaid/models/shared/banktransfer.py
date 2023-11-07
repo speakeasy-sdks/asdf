@@ -3,13 +3,13 @@
 from __future__ import annotations
 import dataclasses
 import dateutil.parser
-from ..shared import achclass as shared_achclass
-from ..shared import banktransferdirection as shared_banktransferdirection
-from ..shared import banktransferfailure as shared_banktransferfailure
-from ..shared import banktransfernetwork as shared_banktransfernetwork
-from ..shared import banktransferstatus as shared_banktransferstatus
-from ..shared import banktransfertype as shared_banktransfertype
-from ..shared import banktransferuser as shared_banktransferuser
+from .achclass import ACHClass
+from .banktransferdirection import BankTransferDirection
+from .banktransferfailure import BankTransferFailure
+from .banktransfernetwork import BankTransferNetwork
+from .banktransferstatus import BankTransferStatus
+from .banktransfertype import BankTransferType
+from .banktransferuser import BankTransferUser
 from dataclasses_json import Undefined, dataclass_json
 from datetime import datetime
 from test_plaid import utils
@@ -22,7 +22,7 @@ class BankTransfer:
     r"""Represents a bank transfer within the Bank Transfers API."""
     account_id: str = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('account_id') }})
     r"""The account ID that should be credited/debited for this bank transfer."""
-    ach_class: shared_achclass.ACHClass = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('ach_class') }})
+    ach_class: ACHClass = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('ach_class') }})
     r"""Specifies the use case of the transfer. Required for transfers on an ACH network.
 
     `\"ccd\"` - Corporate Credit or Debit - fund transfer between two corporate bank accounts
@@ -43,9 +43,9 @@ class BankTransfer:
     r"""A string containing the custom tag provided by the client in the create request. Will be null if not provided."""
     description: str = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('description') }})
     r"""The description of the transfer."""
-    direction: Optional[shared_banktransferdirection.BankTransferDirection] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('direction') }})
+    direction: Optional[BankTransferDirection] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('direction') }})
     r"""Indicates the direction of the transfer: `outbound` for API-initiated transfers, or `inbound` for payments received by the FBO account."""
-    failure_reason: Optional[shared_banktransferfailure.BankTransferFailure] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('failure_reason') }})
+    failure_reason: Optional[BankTransferFailure] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('failure_reason') }})
     r"""The failure reason if the type of this transfer is `\\"failed\\"` or `\\"reversed\\"`. Null value otherwise."""
     id: str = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('id') }})
     r"""Plaid’s unique identifier for a bank transfer."""
@@ -59,15 +59,15 @@ class BankTransfer:
     Maximum key length of 40 characters
     Maximum value length of 500 characters
     """
-    network: shared_banktransfernetwork.BankTransferNetwork = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('network') }})
+    network: BankTransferNetwork = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('network') }})
     r"""The network or rails used for the transfer. Valid options are `ach`, `same-day-ach`, or `wire`."""
     origination_account_id: str = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('origination_account_id') }})
     r"""Plaid’s unique identifier for the origination account that was used for this transfer."""
-    status: shared_banktransferstatus.BankTransferStatus = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('status') }})
+    status: BankTransferStatus = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('status') }})
     r"""The status of the transfer."""
-    type: shared_banktransfertype.BankTransferType = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('type') }})
+    type: BankTransferType = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('type') }})
     r"""The type of bank transfer. This will be either `debit` or `credit`.  A `debit` indicates a transfer of money into the origination account; a `credit` indicates a transfer of money out of the origination account."""
-    user: shared_banktransferuser.BankTransferUser = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('user') }})
+    user: BankTransferUser = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('user') }})
     r"""The legal name and other information for the account holder."""
     additional_properties: Optional[Dict[str, Any]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'exclude': lambda f: f is None }})
     

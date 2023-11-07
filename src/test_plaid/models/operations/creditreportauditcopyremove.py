@@ -3,7 +3,7 @@
 from __future__ import annotations
 import dataclasses
 import requests as requests_http
-from ..shared import creditauditcopytokenremoveresponse as shared_creditauditcopytokenremoveresponse
+from ...models.shared import creditauditcopytokenremoveresponse as shared_creditauditcopytokenremoveresponse
 from typing import Optional
 
 

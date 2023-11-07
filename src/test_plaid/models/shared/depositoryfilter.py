@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 import dataclasses
-from ..shared import depositoryaccountsubtype as shared_depositoryaccountsubtype
+from .depositoryaccountsubtype import DepositoryAccountSubtype
 from dataclasses_json import Undefined, dataclass_json
 from test_plaid import utils
 from typing import Any, Dict, List, Optional
@@ -12,7 +12,7 @@ from typing import Any, Dict, List, Optional
 @dataclasses.dataclass
 class DepositoryFilter:
     r"""A filter to apply to `depository`-type accounts"""
-    account_subtypes: List[shared_depositoryaccountsubtype.DepositoryAccountSubtype] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('account_subtypes') }})
+    account_subtypes: List[DepositoryAccountSubtype] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('account_subtypes') }})
     r"""An array of account subtypes to display in Link. If not specified, all account subtypes will be shown. For a full list of valid types and subtypes, see the [Account schema](https://plaid.com/docs/api/accounts#account-type-schema)."""
     additional_properties: Optional[Dict[str, Any]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'exclude': lambda f: f is None }})
     

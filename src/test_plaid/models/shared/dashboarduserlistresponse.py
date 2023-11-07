@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 import dataclasses
-from ..shared import dashboarduser as shared_dashboarduser
+from .dashboarduser import DashboardUser
 from dataclasses_json import Undefined, dataclass_json
 from test_plaid import utils
 from typing import Any, Dict, List, Optional
@@ -12,7 +12,7 @@ from typing import Any, Dict, List, Optional
 @dataclasses.dataclass
 class DashboardUserListResponse:
     r"""Paginated list of dashboard users"""
-    dashboard_users: List[shared_dashboarduser.DashboardUser] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('dashboard_users') }})
+    dashboard_users: List[DashboardUser] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('dashboard_users') }})
     r"""List of dashboard users"""
     next_cursor: Optional[str] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('next_cursor') }})
     r"""An identifier that determines which page of results you receive."""

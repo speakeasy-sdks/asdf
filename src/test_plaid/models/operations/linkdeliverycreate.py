@@ -3,8 +3,8 @@
 from __future__ import annotations
 import dataclasses
 import requests as requests_http
-from ..shared import linkdeliverycreateresponse as shared_linkdeliverycreateresponse
-from ..shared import plaiderror as shared_plaiderror
+from ...models.shared import linkdeliverycreateresponse as shared_linkdeliverycreateresponse
+from ...models.shared import plaiderror as shared_plaiderror
 from typing import Optional
 
 

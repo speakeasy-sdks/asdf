@@ -2,9 +2,9 @@
 
 from __future__ import annotations
 import dataclasses
-from ..shared import walletbalance as shared_walletbalance
-from ..shared import walletnumbers as shared_walletnumbers
-from ..shared import walletstatus as shared_walletstatus
+from .walletbalance import WalletBalance
+from .walletnumbers import WalletNumbers
+from .walletstatus import WalletStatus
 from dataclasses_json import Undefined, dataclass_json
 from test_plaid import utils
 from typing import Any, Dict, Optional
@@ -14,11 +14,11 @@ from typing import Any, Dict, Optional
 @dataclasses.dataclass
 class Wallet:
     r"""An object representing the e-wallet"""
-    balance: shared_walletbalance.WalletBalance = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('balance') }})
+    balance: WalletBalance = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('balance') }})
     r"""An object representing the e-wallet balance"""
-    numbers: shared_walletnumbers.WalletNumbers = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('numbers') }})
+    numbers: WalletNumbers = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('numbers') }})
     r"""An object representing the e-wallet account numbers"""
-    status: shared_walletstatus.WalletStatus = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('status') }})
+    status: WalletStatus = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('status') }})
     r"""The status of the wallet.
 
     `UNKNOWN`: The wallet status is unknown.

@@ -3,7 +3,7 @@
 from __future__ import annotations
 import dataclasses
 import requests as requests_http
-from ..shared import processoridentitygetresponse as shared_processoridentitygetresponse
+from ...models.shared import processoridentitygetresponse as shared_processoridentitygetresponse
 from typing import Optional
 
 

@@ -2,12 +2,12 @@
 
 from __future__ import annotations
 import dataclasses
-from ..shared import identityverificationstepstatus as shared_identityverificationstepstatus
-from ..shared import riskcheckbehavior as shared_riskcheckbehavior
-from ..shared import riskcheckdevice as shared_riskcheckdevice
-from ..shared import riskcheckemail as shared_riskcheckemail
-from ..shared import riskcheckidentityabusesignals as shared_riskcheckidentityabusesignals
-from ..shared import riskcheckphone as shared_riskcheckphone
+from .identityverificationstepstatus import IdentityVerificationStepStatus
+from .riskcheckbehavior import RiskCheckBehavior
+from .riskcheckdevice import RiskCheckDevice
+from .riskcheckemail import RiskCheckEmail
+from .riskcheckidentityabusesignals import RiskCheckIdentityAbuseSignals
+from .riskcheckphone import RiskCheckPhone
 from dataclasses_json import Undefined, dataclass_json
 from test_plaid import utils
 from typing import Any, Dict, List, Optional
@@ -17,17 +17,17 @@ from typing import Any, Dict, List, Optional
 @dataclasses.dataclass
 class RiskCheckDetails:
     r"""Additional information for the `risk_check` step."""
-    behavior: Optional[shared_riskcheckbehavior.RiskCheckBehavior] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('behavior') }})
+    behavior: Optional[RiskCheckBehavior] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('behavior') }})
     r"""Result summary object specifying values for `behavior` attributes of risk check, when available."""
-    devices: List[shared_riskcheckdevice.RiskCheckDevice] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('devices') }})
+    devices: List[RiskCheckDevice] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('devices') }})
     r"""Array of result summary objects specifying values for `device` attributes of risk check."""
-    email: Optional[shared_riskcheckemail.RiskCheckEmail] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('email') }})
+    email: Optional[RiskCheckEmail] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('email') }})
     r"""Result summary object specifying values for `email` attributes of risk check."""
-    identity_abuse_signals: Optional[shared_riskcheckidentityabusesignals.RiskCheckIdentityAbuseSignals] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('identity_abuse_signals') }})
+    identity_abuse_signals: Optional[RiskCheckIdentityAbuseSignals] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('identity_abuse_signals') }})
     r"""Result summary object capturing abuse signals related to `identity abuse`, e.g. stolen and synthetic identity fraud."""
-    phone: Optional[shared_riskcheckphone.RiskCheckPhone] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('phone') }})
+    phone: Optional[RiskCheckPhone] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('phone') }})
     r"""Result summary object specifying values for `phone` attributes of risk check."""
-    status: shared_identityverificationstepstatus.IdentityVerificationStepStatus = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('status') }})
+    status: IdentityVerificationStepStatus = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('status') }})
     r"""The status of a step in the identity verification process."""
     additional_properties: Optional[Dict[str, Any]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'exclude': lambda f: f is None }})
     

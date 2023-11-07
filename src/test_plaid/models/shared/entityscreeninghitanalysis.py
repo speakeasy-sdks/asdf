@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 import dataclasses
-from ..shared import matchsummarycode as shared_matchsummarycode
+from .matchsummarycode import MatchSummaryCode
 from dataclasses_json import Undefined, dataclass_json
 from test_plaid import utils
 from typing import Any, Dict, Optional
@@ -15,7 +15,7 @@ class EntityScreeningHitAnalysis:
     search_terms_version: int = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('search_terms_version') }})
     r"""The version of the entity screening's `search_terms` that were compared when the entity screening hit was added. entity screening hits are immutable once they have been reviewed. If changes are detected due to updates to the entity screening's `search_terms`, the associated entity program, or the list's source data prior to review, the entity screening hit will be updated to reflect those changes."""
     additional_properties: Optional[Dict[str, Any]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'exclude': lambda f: f is None }})
-    documents: Optional[shared_matchsummarycode.MatchSummaryCode] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('documents'), 'exclude': lambda f: f is None }})
+    documents: Optional[MatchSummaryCode] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('documents'), 'exclude': lambda f: f is None }})
     r"""An enum indicating the match type between data provided by user and data checked against an external data source.
 
 
@@ -29,7 +29,7 @@ class EntityScreeningHitAnalysis:
 
     `no_input` indicates that Plaid was unable to perform a check because no information was provided for this field by the end user.
     """
-    email_addresses: Optional[shared_matchsummarycode.MatchSummaryCode] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('email_addresses'), 'exclude': lambda f: f is None }})
+    email_addresses: Optional[MatchSummaryCode] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('email_addresses'), 'exclude': lambda f: f is None }})
     r"""An enum indicating the match type between data provided by user and data checked against an external data source.
 
 
@@ -43,7 +43,7 @@ class EntityScreeningHitAnalysis:
 
     `no_input` indicates that Plaid was unable to perform a check because no information was provided for this field by the end user.
     """
-    locations: Optional[shared_matchsummarycode.MatchSummaryCode] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('locations'), 'exclude': lambda f: f is None }})
+    locations: Optional[MatchSummaryCode] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('locations'), 'exclude': lambda f: f is None }})
     r"""An enum indicating the match type between data provided by user and data checked against an external data source.
 
 
@@ -57,7 +57,7 @@ class EntityScreeningHitAnalysis:
 
     `no_input` indicates that Plaid was unable to perform a check because no information was provided for this field by the end user.
     """
-    names: Optional[shared_matchsummarycode.MatchSummaryCode] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('names'), 'exclude': lambda f: f is None }})
+    names: Optional[MatchSummaryCode] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('names'), 'exclude': lambda f: f is None }})
     r"""An enum indicating the match type between data provided by user and data checked against an external data source.
 
 
@@ -71,7 +71,7 @@ class EntityScreeningHitAnalysis:
 
     `no_input` indicates that Plaid was unable to perform a check because no information was provided for this field by the end user.
     """
-    phone_numbers: Optional[shared_matchsummarycode.MatchSummaryCode] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('phone_numbers'), 'exclude': lambda f: f is None }})
+    phone_numbers: Optional[MatchSummaryCode] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('phone_numbers'), 'exclude': lambda f: f is None }})
     r"""An enum indicating the match type between data provided by user and data checked against an external data source.
 
 
@@ -85,7 +85,7 @@ class EntityScreeningHitAnalysis:
 
     `no_input` indicates that Plaid was unable to perform a check because no information was provided for this field by the end user.
     """
-    urls: Optional[shared_matchsummarycode.MatchSummaryCode] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('urls'), 'exclude': lambda f: f is None }})
+    urls: Optional[MatchSummaryCode] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('urls'), 'exclude': lambda f: f is None }})
     r"""An enum indicating the match type between data provided by user and data checked against an external data source.
 
 

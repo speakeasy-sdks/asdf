@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 import dataclasses
-from ..shared import detailedoriginator as shared_detailedoriginator
+from .detailedoriginator import DetailedOriginator
 from dataclasses_json import Undefined, dataclass_json
 from test_plaid import utils
 from typing import Any, Dict, Optional
@@ -12,7 +12,7 @@ from typing import Any, Dict, Optional
 @dataclasses.dataclass
 class TransferOriginatorGetResponse:
     r"""Defines the response schema for `/transfer/originator/get`"""
-    originator: shared_detailedoriginator.DetailedOriginator = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('originator') }})
+    originator: DetailedOriginator = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('originator') }})
     r"""Originator and their status."""
     request_id: str = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('request_id') }})
     r"""A unique identifier for the request, which can be used for troubleshooting. This identifier, like all Plaid identifiers, is case sensitive."""

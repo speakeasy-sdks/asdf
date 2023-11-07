@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 import dataclasses
-from ..shared import clientprovidedenrichedtransaction as shared_clientprovidedenrichedtransaction
+from .clientprovidedenrichedtransaction import ClientProvidedEnrichedTransaction
 from dataclasses_json import Undefined, dataclass_json
 from test_plaid import utils
 from typing import Any, Dict, List, Optional
@@ -12,7 +12,7 @@ from typing import Any, Dict, List, Optional
 @dataclasses.dataclass
 class TransactionsEnrichGetResponse:
     r"""TransactionsEnrichGetResponse defines the response schema for `/transactions/enrich`."""
-    enriched_transactions: List[shared_clientprovidedenrichedtransaction.ClientProvidedEnrichedTransaction] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('enriched_transactions') }})
+    enriched_transactions: List[ClientProvidedEnrichedTransaction] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('enriched_transactions') }})
     r"""A list of enriched transactions."""
     additional_properties: Optional[Dict[str, Any]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'exclude': lambda f: f is None }})
     request_id: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('request_id'), 'exclude': lambda f: f is None }})

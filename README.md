@@ -17,12 +17,12 @@ pip install git+https://github.com/speakeasy-sdks/asdf.git
 ## SDK Example Usage
 <!-- Start SDK Example Usage -->
 ```python
-import test_plaid
 import dateutil.parser
+import test_plaid
 from test_plaid.models import shared
 
 s = test_plaid.TestPlaid(
-    security=shared.Security(
+    security=shared.Security1(
         client_id="",
         plaid_version="",
         secret="",
@@ -50,7 +50,7 @@ if res.accounts_get_response is not None:
 ## Available Resources and Operations
 
 
-### [plaid](docs/sdks/plaid/README.md)
+### [.plaid](docs/sdks/plaid/README.md)
 
 * [accounts_balance_get](docs/sdks/plaid/README.md#accounts_balance_get) - Retrieve real-time balance data
 * [accounts_get](docs/sdks/plaid/README.md#accounts_get) - Retrieve accounts
@@ -306,8 +306,6 @@ Here's an example of one such pagination call:
 # Error Handling
 
 Handling errors in your SDK should largely match your expectations.  All operations return a response object or raise an error.  If Error objects are specified in your OpenAPI Spec, the SDK will raise the appropriate Error type.
-
-
 <!-- End Error Handling -->
 
 
@@ -327,19 +325,18 @@ You can override the default server globally by passing a server index to the `s
 
 For example:
 
-
 ```python
-import test_plaid
 import dateutil.parser
+import test_plaid
 from test_plaid.models import shared
 
 s = test_plaid.TestPlaid(
-    security=shared.Security(
+    server_idx=2,
+    security=shared.Security1(
         client_id="",
         plaid_version="",
         secret="",
     ),
-    server_idx=2
 )
 
 req = shared.AccountsBalanceGetRequest(
@@ -363,19 +360,18 @@ if res.accounts_get_response is not None:
 
 The default server can also be overridden globally by passing a URL to the `server_url: str` optional parameter when initializing the SDK client instance. For example:
 
-
 ```python
-import test_plaid
 import dateutil.parser
+import test_plaid
 from test_plaid.models import shared
 
 s = test_plaid.TestPlaid(
-    security=shared.Security(
+    server_url="https://production.plaid.com",
+    security=shared.Security1(
         client_id="",
         plaid_version="",
         secret="",
     ),
-    server_url="https://production.plaid.com"
 )
 
 req = shared.AccountsBalanceGetRequest(
@@ -413,9 +409,55 @@ http_client = requests.Session()
 http_client.headers.update({'x-custom-header': 'someValue'})
 s = test_plaid.TestPlaid(client: http_client)
 ```
-
-
 <!-- End Custom HTTP Client -->
+
+
+
+<!-- Start Authentication -->
+
+# Authentication
+
+## Per-Client Security Schemes
+
+Your SDK supports the following security schemes globally:
+
+| Name            | Type            | Scheme          |
+| --------------- | --------------- | --------------- |
+| `client_id`     | apiKey          | API key         |
+| `plaid_version` | apiKey          | API key         |
+| `secret`        | apiKey          | API key         |
+
+You can set the security parameters through the `security` optional parameter when initializing the SDK client instance. The selected scheme will be used by default to authenticate with the API for all operations that support it. For example:
+
+```python
+import dateutil.parser
+import test_plaid
+from test_plaid.models import shared
+
+s = test_plaid.TestPlaid(
+    security=shared.Security1(
+        client_id="",
+        plaid_version="",
+        secret="",
+    ),
+)
+
+req = shared.AccountsBalanceGetRequest(
+    access_token='string',
+    options=shared.AccountsBalanceGetRequestOptions(
+        account_ids=[
+            'string',
+        ],
+    ),
+)
+
+res = s.plaid.accounts_balance_get(req)
+
+if res.accounts_get_response is not None:
+    # handle response
+    pass
+```
+<!-- End Authentication -->
 
 <!-- Placeholder for Future Speakeasy SDK Sections -->
 

@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 import dataclasses
-from ..shared import identityverificationstepstatus as shared_identityverificationstepstatus
+from .identityverificationstepstatus import IdentityVerificationStepStatus
 from dataclasses_json import Undefined, dataclass_json
 from test_plaid import utils
 from typing import Any, Dict, Optional
@@ -36,19 +36,19 @@ class IdentityVerificationStepSummary:
 
     `manually_rejected` - The step was manually overridden to fail by a team member in the dashboard.
     """
-    accept_tos: shared_identityverificationstepstatus.IdentityVerificationStepStatus = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('accept_tos') }})
+    accept_tos: IdentityVerificationStepStatus = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('accept_tos') }})
     r"""The status of a step in the identity verification process."""
-    documentary_verification: shared_identityverificationstepstatus.IdentityVerificationStepStatus = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('documentary_verification') }})
+    documentary_verification: IdentityVerificationStepStatus = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('documentary_verification') }})
     r"""The status of a step in the identity verification process."""
-    kyc_check: shared_identityverificationstepstatus.IdentityVerificationStepStatus = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('kyc_check') }})
+    kyc_check: IdentityVerificationStepStatus = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('kyc_check') }})
     r"""The status of a step in the identity verification process."""
-    risk_check: shared_identityverificationstepstatus.IdentityVerificationStepStatus = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('risk_check') }})
+    risk_check: IdentityVerificationStepStatus = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('risk_check') }})
     r"""The status of a step in the identity verification process."""
-    selfie_check: shared_identityverificationstepstatus.IdentityVerificationStepStatus = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('selfie_check') }})
+    selfie_check: IdentityVerificationStepStatus = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('selfie_check') }})
     r"""The status of a step in the identity verification process."""
-    verify_sms: shared_identityverificationstepstatus.IdentityVerificationStepStatus = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('verify_sms') }})
+    verify_sms: IdentityVerificationStepStatus = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('verify_sms') }})
     r"""The status of a step in the identity verification process."""
-    watchlist_screening: shared_identityverificationstepstatus.IdentityVerificationStepStatus = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('watchlist_screening') }})
+    watchlist_screening: IdentityVerificationStepStatus = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('watchlist_screening') }})
     r"""The status of a step in the identity verification process."""
     additional_properties: Optional[Dict[str, Any]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'exclude': lambda f: f is None }})
     

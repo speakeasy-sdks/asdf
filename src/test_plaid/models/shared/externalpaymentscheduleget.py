@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 import dataclasses
-from ..shared import paymentscheduleinterval as shared_paymentscheduleinterval
+from .paymentscheduleinterval import PaymentScheduleInterval
 from dataclasses_json import Undefined, dataclass_json
 from datetime import date
 from test_plaid import utils
@@ -19,7 +19,7 @@ class ExternalPaymentScheduleGet:
     r"""A date in [ISO 8601](https://wikipedia.org/wiki/ISO_8601) format (YYYY-MM-DD). Standing order payments will end on the last `interval_execution_day` on or before the `end_date`.
     If the only `interval_execution_day` between the start date and the end date (inclusive) is also the same day that `/payment_initiation/payment/create` was called, the bank *may* make a payment on that day, but it is not guaranteed to do so.
     """
-    interval: shared_paymentscheduleinterval.PaymentScheduleInterval = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('interval') }})
+    interval: PaymentScheduleInterval = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('interval') }})
     r"""The frequency interval of the payment."""
     interval_execution_day: int = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('interval_execution_day') }})
     r"""The day of the interval on which to schedule the payment.

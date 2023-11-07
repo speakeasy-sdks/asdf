@@ -2,8 +2,8 @@
 
 from __future__ import annotations
 import dataclasses
-from ..shared import assetreport as shared_assetreport
-from ..shared import warning as shared_warning
+from .assetreport import AssetReport
+from .warning import WarningT
 from dataclasses_json import Undefined, dataclass_json
 from test_plaid import utils
 from typing import Any, Dict, List, Optional
@@ -13,11 +13,11 @@ from typing import Any, Dict, List, Optional
 @dataclasses.dataclass
 class AssetReportGetResponse:
     r"""AssetReportGetResponse defines the response schema for `/asset_report/get`"""
-    report: shared_assetreport.AssetReport = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('report') }})
+    report: AssetReport = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('report') }})
     r"""An object representing an Asset Report"""
     request_id: str = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('request_id') }})
     r"""A unique identifier for the request, which can be used for troubleshooting. This identifier, like all Plaid identifiers, is case sensitive."""
-    warnings: List[shared_warning.WarningT] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('warnings') }})
+    warnings: List[WarningT] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('warnings') }})
     r"""If the Asset Report generation was successful but identity information cannot be returned, this array will contain information about the errors causing identity information to be missing"""
     additional_properties: Optional[Dict[str, Any]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'exclude': lambda f: f is None }})
     

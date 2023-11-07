@@ -3,7 +3,7 @@
 from __future__ import annotations
 import dataclasses
 import requests as requests_http
-from ..shared import processorstripebankaccounttokencreateresponse as shared_processorstripebankaccounttokencreateresponse
+from ...models.shared import processorstripebankaccounttokencreateresponse as shared_processorstripebankaccounttokencreateresponse
 from typing import Optional
 
 

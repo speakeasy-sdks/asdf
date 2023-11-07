@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 import dataclasses
-from ..shared import creditbankincomeerrortype as shared_creditbankincomeerrortype
+from .creditbankincomeerrortype import CreditBankIncomeErrorType
 from dataclasses_json import Undefined, dataclass_json
 from test_plaid import utils
 
@@ -19,7 +19,7 @@ class CraBankIncomeCause:
     r"""We use standard HTTP response codes for success and failure notifications, and our errors are further classified by `error_type`. In general, 200 HTTP codes correspond to success, 40X codes are for developer- or user-related failures, and 50X codes are for Plaid-related issues. Error fields will be `null` if no error has occurred."""
     error_message: str = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('error_message') }})
     r"""A developer-friendly representation of the error code. This may change over time and is not safe for programmatic use."""
-    error_type: shared_creditbankincomeerrortype.CreditBankIncomeErrorType = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('error_type') }})
+    error_type: CreditBankIncomeErrorType = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('error_type') }})
     r"""A broad categorization of the error. Safe for programmatic use."""
     
 

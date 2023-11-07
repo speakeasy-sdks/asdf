@@ -5,7 +5,7 @@ A collection of objects that define specific parties to a deal. This includes th
 
 ## Fields
 
-| Field                                       | Type                                        | Required                                    | Description                                 |
-| ------------------------------------------- | ------------------------------------------- | ------------------------------------------- | ------------------------------------------- |
-| `additional_properties`                     | Dict[str, *Any*]                            | :heavy_minus_sign:                          | N/A                                         |
-| `party`                                     | List[[Party](../../models/shared/party.md)] | :heavy_check_mark:                          | N/A                                         |
+| Field                                              | Type                                               | Required                                           | Description                                        |
+| -------------------------------------------------- | -------------------------------------------------- | -------------------------------------------------- | -------------------------------------------------- |
+| `additional_properties`                            | Dict[str, *Any*]                                   | :heavy_minus_sign:                                 | N/A                                                |
+| `party`                                            | List[[shared.Party](../../models/shared/party.md)] | :heavy_check_mark:                                 | N/A                                                |

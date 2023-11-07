@@ -2,10 +2,10 @@
 
 from __future__ import annotations
 import dataclasses
-from ..shared import crabankincomeemployer as shared_crabankincomeemployer
-from ..shared import crabankincomehistoricalsummary as shared_crabankincomehistoricalsummary
-from ..shared import creditbankincomecategory as shared_creditbankincomecategory
-from ..shared import creditbankincomepayfrequency as shared_creditbankincomepayfrequency
+from .crabankincomeemployer import CraBankIncomeEmployer
+from .crabankincomehistoricalsummary import CraBankIncomeHistoricalSummary
+from .creditbankincomecategory import CreditBankIncomeCategory
+from .creditbankincomepayfrequency import CreditBankIncomePayFrequency
 from dataclasses_json import Undefined, dataclass_json
 from datetime import date
 from test_plaid import utils
@@ -16,7 +16,7 @@ from typing import List, Optional
 @dataclasses.dataclass
 class CraBankIncomeSource:
     r"""Detailed information for the income source."""
-    employer: Optional[shared_crabankincomeemployer.CraBankIncomeEmployer] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('employer'), 'exclude': lambda f: f is None }})
+    employer: Optional[CraBankIncomeEmployer] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('employer'), 'exclude': lambda f: f is None }})
     r"""The object containing employer data."""
     end_date: Optional[date] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('end_date'), 'encoder': utils.dateisoformat(True), 'decoder': utils.datefromisoformat, 'exclude': lambda f: f is None }})
     r"""Maximum of all dates within the specific income sources in the user’s bank account for days requested by the client.
@@ -28,8 +28,8 @@ class CraBankIncomeSource:
     r"""An estimate of the average gross monthly income based on the historical net amount and income category for the income source(s)."""
     historical_average_monthly_income: Optional[float] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('historical_average_monthly_income') }})
     r"""The average monthly net income amount estimated based on the historical data for the income source(s)."""
-    historical_summary: Optional[List[shared_crabankincomehistoricalsummary.CraBankIncomeHistoricalSummary]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('historical_summary'), 'exclude': lambda f: f is None }})
-    income_category: Optional[shared_creditbankincomecategory.CreditBankIncomeCategory] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('income_category'), 'exclude': lambda f: f is None }})
+    historical_summary: Optional[List[CraBankIncomeHistoricalSummary]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('historical_summary'), 'exclude': lambda f: f is None }})
+    income_category: Optional[CreditBankIncomeCategory] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('income_category'), 'exclude': lambda f: f is None }})
     r"""The income category. Note that the `CASH` value has been deprecated and is used only for existing legacy implementations. It has been replaced by the new categories `CASH_DEPOSIT` (representing cash or check deposits) and `TRANSFER_FROM_APPLICATION` (representing cash transfers originating from apps, such as Zelle or Venmo)."""
     income_description: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('income_description'), 'exclude': lambda f: f is None }})
     r"""The most common name or original description for the underlying income transactions."""
@@ -41,7 +41,7 @@ class CraBankIncomeSource:
     r"""The expected date of the end user’s next paycheck for the income source.
     The date will be returned in an ISO 8601 format (YYYY-MM-DD).
     """
-    pay_frequency: Optional[shared_creditbankincomepayfrequency.CreditBankIncomePayFrequency] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('pay_frequency'), 'exclude': lambda f: f is None }})
+    pay_frequency: Optional[CreditBankIncomePayFrequency] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('pay_frequency'), 'exclude': lambda f: f is None }})
     r"""The income pay frequency."""
     start_date: Optional[date] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('start_date'), 'encoder': utils.dateisoformat(True), 'decoder': utils.datefromisoformat, 'exclude': lambda f: f is None }})
     r"""Minimum of all dates within the specific income sources in the user's bank account for days requested by the client.

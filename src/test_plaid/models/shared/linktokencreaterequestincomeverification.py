@@ -2,10 +2,10 @@
 
 from __future__ import annotations
 import dataclasses
-from ..shared import incomeverificationsourcetype as shared_incomeverificationsourcetype
-from ..shared import linktokencreaterequestincomeverificationbankincome as shared_linktokencreaterequestincomeverificationbankincome
-from ..shared import linktokencreaterequestincomeverificationpayrollincome as shared_linktokencreaterequestincomeverificationpayrollincome
-from ..shared import linktokencreaterequestuserstatedincomesource as shared_linktokencreaterequestuserstatedincomesource
+from .incomeverificationsourcetype import IncomeVerificationSourceType
+from .linktokencreaterequestincomeverificationbankincome import LinkTokenCreateRequestIncomeVerificationBankIncome
+from .linktokencreaterequestincomeverificationpayrollincome import LinkTokenCreateRequestIncomeVerificationPayrollIncome
+from .linktokencreaterequestuserstatedincomesource import LinkTokenCreateRequestUserStatedIncomeSource
 from dataclasses_json import Undefined, dataclass_json
 from test_plaid import utils
 from typing import List, Optional
@@ -22,20 +22,20 @@ class LinkTokenCreateRequestIncomeVerification:
     """
     asset_report_id: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('asset_report_id'), 'exclude': lambda f: f is None }})
     r"""The `asset_report_id` of an asset report associated with the user, as provided by `/asset_report/create`. Providing an `asset_report_id` is optional and can be used to verify the user through a streamlined flow. If provided, the bank linking flow will be skipped."""
-    bank_income: Optional[shared_linktokencreaterequestincomeverificationbankincome.LinkTokenCreateRequestIncomeVerificationBankIncome] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('bank_income'), 'exclude': lambda f: f is None }})
+    bank_income: Optional[LinkTokenCreateRequestIncomeVerificationBankIncome] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('bank_income'), 'exclude': lambda f: f is None }})
     r"""Specifies options for initializing Link for use with Bank Income. This field is required if `income_verification` is included in the `products` array and `bank` is specified in `income_source_types`."""
-    income_source_types: Optional[List[shared_incomeverificationsourcetype.IncomeVerificationSourceType]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('income_source_types'), 'exclude': lambda f: f is None }})
+    income_source_types: Optional[List[IncomeVerificationSourceType]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('income_source_types'), 'exclude': lambda f: f is None }})
     r"""The types of source income data that users will be permitted to share. Options include `bank` and `payroll`. Currently you can only specify one of these options."""
     income_verification_id: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('income_verification_id'), 'exclude': lambda f: f is None }})
     r"""The `income_verification_id` of the verification instance, as provided by `/income/verification/create`.
 
     Deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
     """
-    payroll_income: Optional[shared_linktokencreaterequestincomeverificationpayrollincome.LinkTokenCreateRequestIncomeVerificationPayrollIncome] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('payroll_income'), 'exclude': lambda f: f is None }})
+    payroll_income: Optional[LinkTokenCreateRequestIncomeVerificationPayrollIncome] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('payroll_income'), 'exclude': lambda f: f is None }})
     r"""Specifies options for initializing Link for use with Payroll Income (including Document Income). Further customization options for Document Income, such as customizing which document types may be uploaded, are also available via the [Link Customization pane](https://dashboard.plaid.com/link) in the Dashboard. (Requires Production enablement.)"""
     precheck_id: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('precheck_id'), 'exclude': lambda f: f is None }})
     r"""The ID of a precheck created with `/income/verification/precheck`. Will be used to improve conversion of the income verification flow by streamlining the Link interface presented to the end user."""
-    stated_income_sources: Optional[List[shared_linktokencreaterequestuserstatedincomesource.LinkTokenCreateRequestUserStatedIncomeSource]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('stated_income_sources'), 'exclude': lambda f: f is None }})
+    stated_income_sources: Optional[List[LinkTokenCreateRequestUserStatedIncomeSource]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('stated_income_sources'), 'exclude': lambda f: f is None }})
     r"""A list of user stated income sources"""
     
 

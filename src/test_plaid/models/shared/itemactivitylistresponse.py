@@ -2,8 +2,8 @@
 
 from __future__ import annotations
 import dataclasses
-from ..shared import activity as shared_activity
-from ..shared import lastdataaccesstimes as shared_lastdataaccesstimes
+from .activity import Activity
+from .lastdataaccesstimes import LastDataAccessTimes
 from dataclasses_json import Undefined, dataclass_json
 from test_plaid import utils
 from typing import Any, Dict, List, Optional
@@ -13,9 +13,9 @@ from typing import Any, Dict, List, Optional
 @dataclasses.dataclass
 class ItemActivityListResponse:
     r"""Describes a historical log of user consent events."""
-    activities: List[shared_activity.Activity] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('activities') }})
+    activities: List[Activity] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('activities') }})
     r"""A list of activities."""
-    last_data_access_times: List[shared_lastdataaccesstimes.LastDataAccessTimes] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('last_data_access_times') }})
+    last_data_access_times: List[LastDataAccessTimes] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('last_data_access_times') }})
     r"""An array of objects containing timestamps for the last time each data type was accessed per application."""
     request_id: str = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('request_id') }})
     r"""A unique identifier for the request, which can be used for troubleshooting. This identifier, like all Plaid identifiers, is case sensitive."""

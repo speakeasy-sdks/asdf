@@ -3,8 +3,8 @@
 from __future__ import annotations
 import dataclasses
 import dateutil.parser
-from ..shared import creditbankstatementuploadobject as shared_creditbankstatementuploadobject
-from ..shared import payrollitemstatus as shared_payrollitemstatus
+from .creditbankstatementuploadobject import CreditBankStatementUploadObject
+from .payrollitemstatus import PayrollItemStatus
 from dataclasses_json import Undefined, dataclass_json
 from datetime import datetime
 from test_plaid import utils
@@ -15,10 +15,10 @@ from typing import List, Optional
 @dataclasses.dataclass
 class CreditBankStatementUploadItem:
     r"""An object containing information about the bank statement upload Item."""
-    bank_statements: List[shared_creditbankstatementuploadobject.CreditBankStatementUploadObject] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('bank_statements') }})
+    bank_statements: List[CreditBankStatementUploadObject] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('bank_statements') }})
     item_id: str = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('item_id') }})
     r"""The `item_id` of the Item associated with this webhook, warning, or error"""
-    status: Optional[shared_payrollitemstatus.PayrollItemStatus] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('status') }})
+    status: Optional[PayrollItemStatus] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('status') }})
     r"""Details about the status of the payroll item."""
     updated_at: Optional[datetime] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('updated_at'), 'encoder': utils.datetimeisoformat(False), 'decoder': dateutil.parser.isoparse }})
     r"""Timestamp in [ISO 8601](https://wikipedia.org/wiki/ISO_8601) format (YYYY-MM-DDTHH:mm:ssZ) indicating the last time that the Item was updated."""

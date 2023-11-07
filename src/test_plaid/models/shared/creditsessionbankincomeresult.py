@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 import dataclasses
-from ..shared import creditsessionbankincomestatus as shared_creditsessionbankincomestatus
+from .creditsessionbankincomestatus import CreditSessionBankIncomeStatus
 from dataclasses_json import Undefined, dataclass_json
 from test_plaid import utils
 from typing import Optional
@@ -16,7 +16,7 @@ class CreditSessionBankIncomeResult:
     r"""The Plaid Institution ID associated with the Item."""
     item_id: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('item_id'), 'exclude': lambda f: f is None }})
     r"""The Plaid Item ID. The `item_id` is always unique; linking the same account at the same institution twice will result in two Items with different `item_id` values. Like all Plaid identifiers, the `item_id` is case-sensitive."""
-    status: Optional[shared_creditsessionbankincomestatus.CreditSessionBankIncomeStatus] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('status'), 'exclude': lambda f: f is None }})
+    status: Optional[CreditSessionBankIncomeStatus] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('status'), 'exclude': lambda f: f is None }})
     r"""Status of the Bank Income Link session.
 
     `APPROVED`: User has approved and verified their income

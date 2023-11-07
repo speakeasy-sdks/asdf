@@ -3,7 +3,7 @@
 from __future__ import annotations
 import dataclasses
 import requests as requests_http
-from ..shared import processortokenpermissionssetresponse as shared_processortokenpermissionssetresponse
+from ...models.shared import processortokenpermissionssetresponse as shared_processortokenpermissionssetresponse
 from typing import Optional
 
 

@@ -2,9 +2,9 @@
 
 from __future__ import annotations
 import dataclasses
-from ..shared import externalpaymentinitiationconsentoptions as shared_externalpaymentinitiationconsentoptions
-from ..shared import paymentinitiationconsentconstraints as shared_paymentinitiationconsentconstraints
-from ..shared import paymentinitiationconsentscope as shared_paymentinitiationconsentscope
+from .externalpaymentinitiationconsentoptions import ExternalPaymentInitiationConsentOptions
+from .paymentinitiationconsentconstraints import PaymentInitiationConsentConstraints
+from .paymentinitiationconsentscope import PaymentInitiationConsentScope
 from dataclasses_json import Undefined, dataclass_json
 from test_plaid import utils
 from typing import List, Optional
@@ -14,17 +14,17 @@ from typing import List, Optional
 @dataclasses.dataclass
 class PaymentInitiationConsentCreateRequest:
     r"""PaymentInitiationConsentCreateRequest defines the request schema for `/payment_initiation/consent/create`"""
-    constraints: shared_paymentinitiationconsentconstraints.PaymentInitiationConsentConstraints = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('constraints') }})
+    constraints: PaymentInitiationConsentConstraints = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('constraints') }})
     r"""Limitations that will be applied to payments initiated using the payment consent."""
     recipient_id: str = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('recipient_id') }})
     r"""The ID of the recipient the payment consent is for. The created consent can be used to transfer funds to this recipient only."""
     reference: str = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('reference') }})
     r"""A reference for the payment consent. This must be an alphanumeric string with at most 18 characters and must not contain any special characters."""
-    scopes: List[shared_paymentinitiationconsentscope.PaymentInitiationConsentScope] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('scopes') }})
+    scopes: List[PaymentInitiationConsentScope] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('scopes') }})
     r"""An array of payment consent scopes."""
     client_id: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('client_id'), 'exclude': lambda f: f is None }})
     r"""Your Plaid API `client_id`. The `client_id` is required and may be provided either in the `PLAID-CLIENT-ID` header or as part of a request body."""
-    options: Optional[shared_externalpaymentinitiationconsentoptions.ExternalPaymentInitiationConsentOptions] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('options') }})
+    options: Optional[ExternalPaymentInitiationConsentOptions] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('options') }})
     r"""Additional payment consent options"""
     secret: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('secret'), 'exclude': lambda f: f is None }})
     r"""Your Plaid API `secret`. The `secret` is required and may be provided either in the `PLAID-SECRET` header or as part of a request body."""

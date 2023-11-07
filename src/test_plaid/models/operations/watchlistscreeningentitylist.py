@@ -3,7 +3,7 @@
 from __future__ import annotations
 import dataclasses
 import requests as requests_http
-from ..shared import watchlistscreeningentitylistresponse as shared_watchlistscreeningentitylistresponse
+from ...models.shared import watchlistscreeningentitylistresponse as shared_watchlistscreeningentitylistresponse
 from typing import Optional
 
 

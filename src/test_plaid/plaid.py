@@ -620,7 +620,7 @@ class Plaid:
         return res
 
     
-    def bank_transfer_create(self, request: shared.BankTransferCreateRequestInput) -> operations.BankTransferCreateResponse:
+    def bank_transfer_create(self, request: shared.BankTransferCreateRequest) -> operations.BankTransferCreateResponse:
         r"""Create a bank transfer
         Use the `/bank_transfer/create` endpoint to initiate a new bank transfer.
         /bank-transfers/reference#bank_transfercreate
@@ -2728,7 +2728,7 @@ class Plaid:
         
         if http_res.status_code == 200:
             if utils.match_content_type(content_type, 'application/zip'):
-                res.income_verification_documents_download_200_application_zip_binary_string = http_res
+                res.stream = http_res
             else:
                 raise errors.SDKError(f'unknown content-type received: {content_type}', http_res.status_code, http_res.text, http_res)
         elif http_res.status_code >= 400 and http_res.status_code < 500 or http_res.status_code >= 500 and http_res.status_code < 600:
@@ -4659,7 +4659,7 @@ class Plaid:
         return res
 
     
-    def processor_bank_transfer_create(self, request: shared.ProcessorBankTransferCreateRequestInput) -> operations.ProcessorBankTransferCreateResponse:
+    def processor_bank_transfer_create(self, request: shared.ProcessorBankTransferCreateRequest) -> operations.ProcessorBankTransferCreateResponse:
         r"""Create a bank transfer as a processor
         Use the `/processor/bank_transfer/create` endpoint to initiate a new bank transfer as a processor
         /api/processors/#bank_transfercreate

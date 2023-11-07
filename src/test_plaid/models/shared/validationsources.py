@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 import dataclasses
-from ..shared import validationsource as shared_validationsource
+from .validationsource import ValidationSource
 from dataclasses_json import Undefined, dataclass_json
 from test_plaid import utils
 from typing import Any, Dict, List, Optional
@@ -12,7 +12,7 @@ from typing import Any, Dict, List, Optional
 @dataclasses.dataclass
 class ValidationSources:
     r"""Documentation not found in the MISMO model viewer and not provided by Freddie Mac."""
-    validation_source: List[shared_validationsource.ValidationSource] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('VALIDATION_SOURCE') }})
+    validation_source: List[ValidationSource] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('VALIDATION_SOURCE') }})
     r"""Documentation not found in the MISMO model viewer and not provided by Freddie Mac."""
     additional_properties: Optional[Dict[str, Any]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'exclude': lambda f: f is None }})
     

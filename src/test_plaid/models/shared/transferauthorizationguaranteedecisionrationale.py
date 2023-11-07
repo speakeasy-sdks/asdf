@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 import dataclasses
-from ..shared import transferauthorizationguaranteedecisionrationalecode as shared_transferauthorizationguaranteedecisionrationalecode
+from .transferauthorizationguaranteedecisionrationalecode import TransferAuthorizationGuaranteeDecisionRationaleCode
 from dataclasses_json import Undefined, dataclass_json
 from test_plaid import utils
 from typing import Any, Dict, Optional
@@ -12,7 +12,7 @@ from typing import Any, Dict, Optional
 @dataclasses.dataclass
 class TransferAuthorizationGuaranteeDecisionRationale:
     r"""The rationale for Plaid's decision to not guarantee a transfer. Will be `null` unless `guarantee_decision` is `NOT_GUARANTEED`."""
-    code: shared_transferauthorizationguaranteedecisionrationalecode.TransferAuthorizationGuaranteeDecisionRationaleCode = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('code') }})
+    code: TransferAuthorizationGuaranteeDecisionRationaleCode = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('code') }})
     r"""A code representing the reason Plaid declined to guarantee this transfer:
 
     `RETURN_BANK`: The risk of a bank-initiated return (for example, an R01/NSF) is too high to guarantee this transfer.

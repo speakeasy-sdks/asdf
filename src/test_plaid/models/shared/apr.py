@@ -7,7 +7,7 @@ from enum import Enum
 from test_plaid import utils
 from typing import Any, Dict, Optional
 
-class APRAPRType(str, Enum):
+class AprType(str, Enum):
     r"""The type of balance to which the APR applies."""
     BALANCE_TRANSFER_APR = 'balance_transfer_apr'
     CASH_APR = 'cash_apr'
@@ -21,7 +21,7 @@ class Apr:
     r"""Information about the APR on the account."""
     apr_percentage: float = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('apr_percentage') }})
     r"""Annual Percentage Rate applied."""
-    apr_type: APRAPRType = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('apr_type') }})
+    apr_type: AprType = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('apr_type') }})
     r"""The type of balance to which the APR applies."""
     balance_subject_to_apr: Optional[float] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('balance_subject_to_apr') }})
     r"""Amount of money that is subjected to the APR if a balance was carried beyond payment due date. How it is calculated can vary by card issuer. It is often calculated as an average daily balance."""

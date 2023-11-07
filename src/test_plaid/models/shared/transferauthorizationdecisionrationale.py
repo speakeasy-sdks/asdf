@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 import dataclasses
-from ..shared import transferauthorizationdecisionrationalecode as shared_transferauthorizationdecisionrationalecode
+from .transferauthorizationdecisionrationalecode import TransferAuthorizationDecisionRationaleCode
 from dataclasses_json import Undefined, dataclass_json
 from test_plaid import utils
 from typing import Any, Dict, Optional
@@ -12,7 +12,7 @@ from typing import Any, Dict, Optional
 @dataclasses.dataclass
 class TransferAuthorizationDecisionRationale:
     r"""The rationale for Plaid's decision regarding a proposed transfer. It is always set for `declined` decisions, and may or may not be null for `approved` decisions."""
-    code: shared_transferauthorizationdecisionrationalecode.TransferAuthorizationDecisionRationaleCode = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('code') }})
+    code: TransferAuthorizationDecisionRationaleCode = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('code') }})
     r"""A code representing the rationale for approving or declining the proposed transfer. Possible values are:
 
     `MANUALLY_VERIFIED_ITEM` – Item created via same-day micro deposits, limited information available. Plaid will offer `approved` as a transaction decision.

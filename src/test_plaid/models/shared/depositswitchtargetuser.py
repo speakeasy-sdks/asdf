@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 import dataclasses
-from ..shared import depositswitchaddressdata as shared_depositswitchaddressdata
+from .depositswitchaddressdata import DepositSwitchAddressData
 from dataclasses_json import Undefined, dataclass_json
 from test_plaid import utils
 from typing import Any, Dict, Optional
@@ -21,7 +21,7 @@ class DepositSwitchTargetUser:
     phone: str = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('phone') }})
     r"""The phone number of the user. The endpoint can accept a variety of phone number formats, including E.164."""
     additional_properties: Optional[Dict[str, Any]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'exclude': lambda f: f is None }})
-    address: Optional[shared_depositswitchaddressdata.DepositSwitchAddressData] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('address'), 'exclude': lambda f: f is None }})
+    address: Optional[DepositSwitchAddressData] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('address'), 'exclude': lambda f: f is None }})
     r"""The user's address."""
     tax_payer_id: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('tax_payer_id'), 'exclude': lambda f: f is None }})
     r"""The taxpayer ID of the user, generally their SSN, EIN, or TIN."""

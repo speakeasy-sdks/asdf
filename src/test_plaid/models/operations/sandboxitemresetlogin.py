@@ -3,7 +3,7 @@
 from __future__ import annotations
 import dataclasses
 import requests as requests_http
-from ..shared import sandboxitemresetloginresponse as shared_sandboxitemresetloginresponse
+from ...models.shared import sandboxitemresetloginresponse as shared_sandboxitemresetloginresponse
 from typing import Optional
 
 

@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 import dataclasses
-from ..shared import watchlistscreeningaudittrail as shared_watchlistscreeningaudittrail
+from .watchlistscreeningaudittrail import WatchlistScreeningAuditTrail
 from dataclasses_json import Undefined, dataclass_json
 from test_plaid import utils
 from typing import Any, Dict, List, Optional
@@ -14,7 +14,7 @@ class WatchlistScreeningEntityReviewCreateResponse:
     r"""A review submitted by a team member for an entity watchlist screening. A review can be either a comment on the current screening state, actions taken
     against hits attached to the watchlist screening, or both.
     """
-    audit_trail: shared_watchlistscreeningaudittrail.WatchlistScreeningAuditTrail = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('audit_trail') }})
+    audit_trail: WatchlistScreeningAuditTrail = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('audit_trail') }})
     r"""Information about the last change made to the parent object specifying what caused the change as well as when it occurred."""
     comment: Optional[str] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('comment') }})
     r"""A comment submitted by a team member as part of reviewing a watchlist screening."""

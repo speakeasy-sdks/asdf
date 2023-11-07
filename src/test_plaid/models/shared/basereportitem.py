@@ -3,7 +3,7 @@
 from __future__ import annotations
 import dataclasses
 import dateutil.parser
-from ..shared import basereportaccount as shared_basereportaccount
+from .basereportaccount import BaseReportAccount
 from dataclasses_json import Undefined, dataclass_json
 from datetime import datetime
 from test_plaid import utils
@@ -14,7 +14,7 @@ from typing import Any, Dict, List, Optional
 @dataclasses.dataclass
 class BaseReportItem:
     r"""A representation of an Item within a Base Report."""
-    accounts: List[shared_basereportaccount.BaseReportAccount] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('accounts') }})
+    accounts: List[BaseReportAccount] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('accounts') }})
     r"""Data about each of the accounts open on the Item."""
     date_last_updated: datetime = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('date_last_updated'), 'encoder': utils.datetimeisoformat(False), 'decoder': dateutil.parser.isoparse }})
     r"""The date and time when this Item’s data was last retrieved from the financial institution, in [ISO 8601](https://wikipedia.org/wiki/ISO_8601) format."""

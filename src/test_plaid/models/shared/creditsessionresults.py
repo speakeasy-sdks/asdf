@@ -2,11 +2,11 @@
 
 from __future__ import annotations
 import dataclasses
-from ..shared import creditsessionbankemploymentresult as shared_creditsessionbankemploymentresult
-from ..shared import creditsessionbankincomeresult as shared_creditsessionbankincomeresult
-from ..shared import creditsessiondocumentincomeresult as shared_creditsessiondocumentincomeresult
-from ..shared import creditsessionitemaddresult as shared_creditsessionitemaddresult
-from ..shared import creditsessionpayrollincomeresult as shared_creditsessionpayrollincomeresult
+from .creditsessionbankemploymentresult import CreditSessionBankEmploymentResult
+from .creditsessionbankincomeresult import CreditSessionBankIncomeResult
+from .creditsessiondocumentincomeresult import CreditSessionDocumentIncomeResult
+from .creditsessionitemaddresult import CreditSessionItemAddResult
+from .creditsessionpayrollincomeresult import CreditSessionPayrollIncomeResult
 from dataclasses_json import Undefined, dataclass_json
 from test_plaid import utils
 from typing import List, Optional
@@ -16,15 +16,15 @@ from typing import List, Optional
 @dataclasses.dataclass
 class CreditSessionResults:
     r"""The set of results for a Link session."""
-    bank_employment_results: Optional[List[shared_creditsessionbankemploymentresult.CreditSessionBankEmploymentResult]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('bank_employment_results'), 'exclude': lambda f: f is None }})
+    bank_employment_results: Optional[List[CreditSessionBankEmploymentResult]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('bank_employment_results'), 'exclude': lambda f: f is None }})
     r"""The set of bank employment verifications for the Link session."""
-    bank_income_results: Optional[List[shared_creditsessionbankincomeresult.CreditSessionBankIncomeResult]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('bank_income_results'), 'exclude': lambda f: f is None }})
+    bank_income_results: Optional[List[CreditSessionBankIncomeResult]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('bank_income_results'), 'exclude': lambda f: f is None }})
     r"""The set of bank income verifications for the Link session."""
-    document_income_results: Optional[shared_creditsessiondocumentincomeresult.CreditSessionDocumentIncomeResult] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('document_income_results') }})
+    document_income_results: Optional[CreditSessionDocumentIncomeResult] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('document_income_results') }})
     r"""The details of a document income verification in Link"""
-    item_add_results: Optional[List[shared_creditsessionitemaddresult.CreditSessionItemAddResult]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('item_add_results'), 'exclude': lambda f: f is None }})
+    item_add_results: Optional[List[CreditSessionItemAddResult]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('item_add_results'), 'exclude': lambda f: f is None }})
     r"""The set of Item adds for the Link session."""
-    payroll_income_results: Optional[List[shared_creditsessionpayrollincomeresult.CreditSessionPayrollIncomeResult]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('payroll_income_results'), 'exclude': lambda f: f is None }})
+    payroll_income_results: Optional[List[CreditSessionPayrollIncomeResult]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('payroll_income_results'), 'exclude': lambda f: f is None }})
     r"""The set of payroll income verifications for the Link session."""
     
 

@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 import dataclasses
-from ..shared import paymentinitiationrecipient as shared_paymentinitiationrecipient
+from .paymentinitiationrecipient import PaymentInitiationRecipient
 from dataclasses_json import Undefined, dataclass_json
 from test_plaid import utils
 from typing import Any, Dict, List, Optional
@@ -12,7 +12,7 @@ from typing import Any, Dict, List, Optional
 @dataclasses.dataclass
 class PaymentInitiationRecipientListResponse:
     r"""PaymentInitiationRecipientListResponse defines the response schema for `/payment_initiation/recipient/list`"""
-    recipients: List[shared_paymentinitiationrecipient.PaymentInitiationRecipient] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('recipients') }})
+    recipients: List[PaymentInitiationRecipient] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('recipients') }})
     r"""An array of payment recipients created for Payment Initiation"""
     request_id: str = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('request_id') }})
     r"""A unique identifier for the request, which can be used for troubleshooting. This identifier, like all Plaid identifiers, is case sensitive."""

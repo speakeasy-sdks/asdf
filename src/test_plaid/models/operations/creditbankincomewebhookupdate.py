@@ -3,7 +3,7 @@
 from __future__ import annotations
 import dataclasses
 import requests as requests_http
-from ..shared import creditbankincomewebhookupdateresponse as shared_creditbankincomewebhookupdateresponse
+from ...models.shared import creditbankincomewebhookupdateresponse as shared_creditbankincomewebhookupdateresponse
 from typing import Optional
 
 

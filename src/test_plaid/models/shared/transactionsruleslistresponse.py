@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 import dataclasses
-from ..shared import transactionscategoryrule as shared_transactionscategoryrule
+from .transactionscategoryrule import TransactionsCategoryRule
 from dataclasses_json import Undefined, dataclass_json
 from test_plaid import utils
 from typing import Any, Dict, List, Optional
@@ -14,7 +14,7 @@ class TransactionsRulesListResponse:
     r"""TransactionsRulesListResponse defines the response schema for `/beta/transactions/rules/v1/list`"""
     request_id: str = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('request_id') }})
     r"""A unique identifier for the request, which can be used for troubleshooting. This identifier, like all Plaid identifiers, is case sensitive."""
-    rules: List[shared_transactionscategoryrule.TransactionsCategoryRule] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('rules') }})
+    rules: List[TransactionsCategoryRule] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('rules') }})
     r"""A list of the Item's transaction rules"""
     additional_properties: Optional[Dict[str, Any]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'exclude': lambda f: f is None }})
     

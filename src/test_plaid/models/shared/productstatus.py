@@ -3,7 +3,7 @@
 from __future__ import annotations
 import dataclasses
 import dateutil.parser
-from ..shared import productstatusbreakdown as shared_productstatusbreakdown
+from .productstatusbreakdown import ProductStatusBreakdown
 from dataclasses_json import Undefined, dataclass_json
 from datetime import datetime
 from enum import Enum
@@ -28,7 +28,7 @@ class ProductStatusStatus(str, Enum):
 @dataclasses.dataclass
 class ProductStatus:
     r"""A representation of the status health of a request type. Auth requests, Balance requests, Identity requests, Investments requests, Liabilities requests, Transactions updates, Investments updates, Liabilities updates, and Item logins each have their own status object."""
-    breakdown: shared_productstatusbreakdown.ProductStatusBreakdown = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('breakdown') }})
+    breakdown: ProductStatusBreakdown = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('breakdown') }})
     r"""A detailed breakdown of the institution's performance for a request type. The values for `success`, `error_plaid`, and `error_institution` sum to 1. The time range used for calculating the breakdown may range from the most recent few minutes to the past six hours. In general, smaller institutions will show status that was calculated over a longer period of time. For Investment updates, which are refreshed less frequently, the period assessed may be 24 hours or more. For more details, see [Institution status details](https://plaid.com/docs/account/activity/#institution-status-details)."""
     last_status_change: datetime = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('last_status_change'), 'encoder': utils.datetimeisoformat(False), 'decoder': dateutil.parser.isoparse }})
     r"""[ISO 8601](https://wikipedia.org/wiki/ISO_8601) formatted timestamp of the last status change for the institution."""

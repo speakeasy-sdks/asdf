@@ -3,7 +3,7 @@
 from __future__ import annotations
 import dataclasses
 import requests as requests_http
-from ..shared import paymentinitiationconsentgetresponse as shared_paymentinitiationconsentgetresponse
+from ...models.shared import paymentinitiationconsentgetresponse as shared_paymentinitiationconsentgetresponse
 from typing import Optional
 
 

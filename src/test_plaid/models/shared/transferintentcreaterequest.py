@@ -2,10 +2,10 @@
 
 from __future__ import annotations
 import dataclasses
-from ..shared import achclass as shared_achclass
-from ..shared import transferintentcreatemode as shared_transferintentcreatemode
-from ..shared import transferintentcreatenetwork as shared_transferintentcreatenetwork
-from ..shared import transferuserinrequest as shared_transferuserinrequest
+from .achclass import ACHClass
+from .transferintentcreatemode import TransferIntentCreateMode
+from .transferintentcreatenetwork import TransferIntentCreateNetwork
+from .transferuserinrequest import TransferUserInRequest
 from dataclasses_json import Undefined, dataclass_json
 from test_plaid import utils
 from typing import Dict, Optional
@@ -19,18 +19,18 @@ class TransferIntentCreateRequest:
     r"""The amount of the transfer (decimal string with two digits of precision e.g. \\"10.00\\")."""
     description: str = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('description') }})
     r"""A description for the underlying transfer. Maximum of 8 characters."""
-    mode: shared_transferintentcreatemode.TransferIntentCreateMode = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('mode') }})
+    mode: TransferIntentCreateMode = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('mode') }})
     r"""The direction of the flow of transfer funds.
 
     `PAYMENT`: Transfers funds from an end user's account to your business account.
 
     `DISBURSEMENT`: Transfers funds from your business account to an end user's account.
     """
-    user: shared_transferuserinrequest.TransferUserInRequest = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('user') }})
+    user: TransferUserInRequest = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('user') }})
     r"""The legal name and other information for the account holder."""
     account_id: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('account_id') }})
     r"""The Plaid `account_id` corresponding to the end-user account that will be debited or credited."""
-    ach_class: Optional[shared_achclass.ACHClass] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('ach_class'), 'exclude': lambda f: f is None }})
+    ach_class: Optional[ACHClass] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('ach_class'), 'exclude': lambda f: f is None }})
     r"""Specifies the use case of the transfer. Required for transfers on an ACH network.
 
     `\"ccd\"` - Corporate Credit or Debit - fund transfer between two corporate bank accounts
@@ -55,7 +55,7 @@ class TransferIntentCreateRequest:
     Maximum key length of 40 characters
     Maximum value length of 500 characters
     """
-    network: Optional[shared_transferintentcreatenetwork.TransferIntentCreateNetwork] = dataclasses.field(default=shared_transferintentcreatenetwork.TransferIntentCreateNetwork.SAME_DAY_ACH, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('network'), 'exclude': lambda f: f is None }})
+    network: Optional[TransferIntentCreateNetwork] = dataclasses.field(default=TransferIntentCreateNetwork.SAME_DAY_ACH, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('network'), 'exclude': lambda f: f is None }})
     r"""The network or rails used for the transfer. Defaults to `same-day-ach`.
 
     For transfers submitted as either `ach` or `same-day-ach` the cutoff for same-day is 3:30 PM Eastern Time and the cutoff for next-day transfers is 5:30 PM Eastern Time. It is recommended to submit a transfer at least 15 minutes before the cutoff time in order to ensure that it will be processed before the cutoff. Any transfer that is indicated as `same-day-ach` and that misses the same-day cutoff, but is submitted in time for the next-day cutoff, will be sent over next-day rails and will not incur same-day charges. Note that both legs of the transfer will be downgraded if applicable.

@@ -2,8 +2,8 @@
 
 from __future__ import annotations
 import dataclasses
-from ..shared import assetreportaddons as shared_assetreportaddons
-from ..shared import assetreportuser as shared_assetreportuser
+from .assetreportaddons import AssetReportAddOns
+from .assetreportuser import AssetReportUser
 from dataclasses_json import Undefined, dataclass_json
 from test_plaid import utils
 from typing import List, Optional
@@ -13,7 +13,7 @@ from typing import List, Optional
 @dataclasses.dataclass
 class AssetReportCreateRequestOptions:
     r"""An optional object to filter `/asset_report/create` results. If provided, must be non-`null`. The optional `user` object is required for the report to be eligible for Fannie Mae's Day 1 Certainty program."""
-    add_ons: Optional[List[shared_assetreportaddons.AssetReportAddOns]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('add_ons'), 'exclude': lambda f: f is None }})
+    add_ons: Optional[List[AssetReportAddOns]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('add_ons'), 'exclude': lambda f: f is None }})
     r"""Use this field to request a `fast_asset` report. When Fast Assets is requested, Plaid will create two versions of the Asset Report: first, the Fast Asset Report, which will contain only current identity and balance information, and later, the Full Asset Report, which will also contain historical balance information and transaction data. A `PRODUCT_READY` webhook will be fired for each Asset Report when it is ready, and the `report_type` field will indicate whether the webhook is firing for the `full` or `fast` Asset Report. To retrieve the Fast Asset Report, call `/asset_report/get` with `fast_report` set to `true`. There is no additional charge for using Fast Assets."""
     client_report_id: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('client_report_id') }})
     r"""Client-generated identifier, which can be used by lenders to track loan applications."""
@@ -27,7 +27,7 @@ class AssetReportCreateRequestOptions:
 
     Deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
     """
-    user: Optional[shared_assetreportuser.AssetReportUser] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('user'), 'exclude': lambda f: f is None }})
+    user: Optional[AssetReportUser] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('user'), 'exclude': lambda f: f is None }})
     r"""The user object allows you to provide additional information about the user to be appended to the Asset Report. All fields are optional. The `first_name`, `last_name`, and `ssn` fields are required if you would like the Report to be eligible for Fannie Mae’s Day 1 Certainty™ program."""
     webhook: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('webhook') }})
     r"""URL to which Plaid will send Assets webhooks, for example when the requested Asset Report is ready."""

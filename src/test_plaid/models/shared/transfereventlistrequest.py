@@ -3,8 +3,8 @@
 from __future__ import annotations
 import dataclasses
 import dateutil.parser
-from ..shared import transfereventlisttransfertype as shared_transfereventlisttransfertype
-from ..shared import transfereventtype as shared_transfereventtype
+from .transfereventlisttransfertype import TransferEventListTransferType
+from .transfereventtype import TransferEventType
 from dataclasses_json import Undefined, dataclass_json
 from datetime import datetime
 from test_plaid import utils
@@ -23,7 +23,7 @@ class TransferEventListRequest:
     r"""The maximum number of transfer events to return. If the number of events matching the above parameters is greater than `count`, the most recent events will be returned."""
     end_date: Optional[datetime] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('end_date'), 'encoder': utils.datetimeisoformat(True), 'decoder': dateutil.parser.isoparse }})
     r"""The end datetime of transfers to list. This should be in RFC 3339 format (i.e. `2019-12-06T22:35:49Z`)"""
-    event_types: Optional[List[shared_transfereventtype.TransferEventType]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('event_types'), 'exclude': lambda f: f is None }})
+    event_types: Optional[List[TransferEventType]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('event_types'), 'exclude': lambda f: f is None }})
     r"""Filter events by event type."""
     funding_account_id: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('funding_account_id') }})
     r"""Filter transfer events to only those with the specified `funding_account_id`."""
@@ -44,7 +44,7 @@ class TransferEventListRequest:
     r"""Plaid’s unique identifier for a sweep."""
     transfer_id: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('transfer_id') }})
     r"""Plaid’s unique identifier for a transfer."""
-    transfer_type: Optional[shared_transfereventlisttransfertype.TransferEventListTransferType] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('transfer_type') }})
+    transfer_type: Optional[TransferEventListTransferType] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('transfer_type') }})
     r"""The type of transfer. This will be either `debit` or `credit`.  A `debit` indicates a transfer of money into your origination account; a `credit` indicates a transfer of money out of your origination account."""
     
 

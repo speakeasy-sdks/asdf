@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 import dataclasses
-from ..shared import payrollincomerateofpay as shared_payrollincomerateofpay
+from .payrollincomerateofpay import PayrollIncomeRateOfPay
 from dataclasses_json import Undefined, dataclass_json
 from test_plaid import utils
 from typing import Any, Dict, Optional
@@ -16,7 +16,7 @@ class PayrollIncomeAccountData:
     r"""ID of the payroll provider account."""
     pay_frequency: Optional[str] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('pay_frequency') }})
     r"""The frequency at which an individual is paid."""
-    rate_of_pay: shared_payrollincomerateofpay.PayrollIncomeRateOfPay = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('rate_of_pay') }})
+    rate_of_pay: PayrollIncomeRateOfPay = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('rate_of_pay') }})
     r"""An object representing the rate at which an individual is paid."""
     additional_properties: Optional[Dict[str, Any]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'exclude': lambda f: f is None }})
     

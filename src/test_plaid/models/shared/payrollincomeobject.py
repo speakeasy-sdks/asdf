@@ -2,9 +2,9 @@
 
 from __future__ import annotations
 import dataclasses
-from ..shared import credit1099 as shared_credit1099
-from ..shared import creditpaystub as shared_creditpaystub
-from ..shared import creditw2 as shared_creditw2
+from .credit1099 import Credit1099
+from .creditpaystub import CreditPayStub
+from .creditw2 import CreditW2
 from dataclasses_json import Undefined, dataclass_json
 from test_plaid import utils
 from typing import Any, Dict, List, Optional
@@ -16,11 +16,11 @@ class PayrollIncomeObject:
     r"""An object representing payroll data."""
     account_id: Optional[str] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('account_id') }})
     r"""ID of the payroll provider account."""
-    form1099s: List[shared_credit1099.Credit1099] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('form1099s') }})
+    form1099s: List[Credit1099] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('form1099s') }})
     r"""Array of tax form 1099s."""
-    pay_stubs: List[shared_creditpaystub.CreditPayStub] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('pay_stubs') }})
+    pay_stubs: List[CreditPayStub] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('pay_stubs') }})
     r"""Array of pay stubs for the user."""
-    w2s: List[shared_creditw2.CreditW2] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('w2s') }})
+    w2s: List[CreditW2] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('w2s') }})
     r"""Array of tax form W-2s."""
     additional_properties: Optional[Dict[str, Any]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'exclude': lambda f: f is None }})
     

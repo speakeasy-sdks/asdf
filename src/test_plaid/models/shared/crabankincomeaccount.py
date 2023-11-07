@@ -2,9 +2,9 @@
 
 from __future__ import annotations
 import dataclasses
-from ..shared import creditbankincomeaccounttype as shared_creditbankincomeaccounttype
-from ..shared import depositoryaccountsubtype as shared_depositoryaccountsubtype
-from ..shared import owner as shared_owner
+from .creditbankincomeaccounttype import CreditBankIncomeAccountType
+from .depositoryaccountsubtype import DepositoryAccountSubtype
+from .owner import Owner
 from dataclasses_json import Undefined, dataclass_json
 from test_plaid import utils
 from typing import List, Optional
@@ -22,11 +22,11 @@ class CraBankIncomeAccount:
     r"""The name of the bank account."""
     official_name: Optional[str] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('official_name') }})
     r"""The official name of the bank account."""
-    owners: List[shared_owner.Owner] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('owners') }})
+    owners: List[Owner] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('owners') }})
     r"""Data returned by the financial institution about the account owner or owners. Identity information is optional, so field may return an empty array."""
-    subtype: shared_depositoryaccountsubtype.DepositoryAccountSubtype = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('subtype') }})
+    subtype: DepositoryAccountSubtype = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('subtype') }})
     r"""Valid account subtypes for depository accounts. For a list containing descriptions of each subtype, see [Account schemas](https://plaid.com/docs/api/accounts/#StandaloneAccountType-depository)."""
-    type: shared_creditbankincomeaccounttype.CreditBankIncomeAccountType = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('type') }})
+    type: CreditBankIncomeAccountType = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('type') }})
     r"""The account type. This will always be `depository`."""
     
 

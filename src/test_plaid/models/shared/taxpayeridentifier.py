@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 import dataclasses
-from ..shared import taxpayeridentifiertype as shared_taxpayeridentifiertype
+from .taxpayeridentifiertype import TaxpayerIdentifierType
 from dataclasses_json import Undefined, dataclass_json
 from test_plaid import utils
 from typing import Any, Dict, Optional
@@ -12,7 +12,7 @@ from typing import Any, Dict, Optional
 @dataclasses.dataclass
 class TaxpayerIdentifier:
     r"""Information about the Taxpayer identification values assigned to the individual or legal entity.Information about the Taxpayer identification values assigned to the individual or legal entity."""
-    taxpayer_identifier_type: Optional[shared_taxpayeridentifiertype.TaxpayerIdentifierType] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('TaxpayerIdentifierType') }})
+    taxpayer_identifier_type: Optional[TaxpayerIdentifierType] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('TaxpayerIdentifierType') }})
     r"""A value from a MISMO prescribed list that classifies identification numbers used by the Internal Revenue Service (IRS) in the administration of tax laws. A Social Security number (SSN) is issued by the SSA; all other taxpayer identification numbers are issued by the IRS."""
     taxpayer_identifier_value: Optional[str] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('TaxpayerIdentifierValue') }})
     r"""The value of the taxpayer identifier as assigned by the IRS to the individual or legal entity."""

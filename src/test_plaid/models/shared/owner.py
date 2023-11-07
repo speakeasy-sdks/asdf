@@ -2,9 +2,9 @@
 
 from __future__ import annotations
 import dataclasses
-from ..shared import address as shared_address
-from ..shared import email as shared_email
-from ..shared import phonenumber as shared_phonenumber
+from .address import Address
+from .email import Email
+from .phonenumber import PhoneNumber
 from dataclasses_json import Undefined, dataclass_json
 from test_plaid import utils
 from typing import Any, Dict, List, Optional
@@ -14,16 +14,16 @@ from typing import Any, Dict, List, Optional
 @dataclasses.dataclass
 class Owner:
     r"""Data returned from the financial institution about the owner or owners of an account. Only the `names` array must be non-empty."""
-    addresses: List[shared_address.Address] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('addresses') }})
+    addresses: List[Address] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('addresses') }})
     r"""Data about the various addresses associated with the account by the financial institution. May be an empty array if no relevant information is returned from the financial institution."""
-    emails: List[shared_email.Email] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('emails') }})
+    emails: List[Email] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('emails') }})
     r"""A list of email addresses associated with the account by the financial institution. May be an empty array if no relevant information is returned from the financial institution."""
     names: List[str] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('names') }})
     r"""A list of names associated with the account by the financial institution. In the case of a joint account, Plaid will make a best effort to report the names of all account holders.
 
     If an Item contains multiple accounts with different owner names, some institutions will report all names associated with the Item in each account's `names` array.
     """
-    phone_numbers: List[shared_phonenumber.PhoneNumber] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('phone_numbers') }})
+    phone_numbers: List[PhoneNumber] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('phone_numbers') }})
     r"""A list of phone numbers associated with the account by the financial institution. May be an empty array if no relevant information is returned from the financial institution."""
     additional_properties: Optional[Dict[str, Any]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'exclude': lambda f: f is None }})
     

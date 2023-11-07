@@ -3,7 +3,7 @@
 from __future__ import annotations
 import dataclasses
 import dateutil.parser
-from ..shared import incidentupdate as shared_incidentupdate
+from .incidentupdate import IncidentUpdate
 from dataclasses_json import Undefined, dataclass_json
 from datetime import datetime
 from test_plaid import utils
@@ -14,7 +14,7 @@ from typing import Any, Dict, List, Optional
 @dataclasses.dataclass
 class HealthIncident:
     r"""A status health incident"""
-    incident_updates: List[shared_incidentupdate.IncidentUpdate] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('incident_updates') }})
+    incident_updates: List[IncidentUpdate] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('incident_updates') }})
     r"""Updates on the health incident."""
     start_date: datetime = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('start_date'), 'encoder': utils.datetimeisoformat(False), 'decoder': dateutil.parser.isoparse }})
     r"""The start date of the incident, in [ISO 8601](https://wikipedia.org/wiki/ISO_8601) format, e.g. `\\"2020-10-30T15:26:48Z\\"`."""

@@ -2,8 +2,8 @@
 
 from __future__ import annotations
 import dataclasses
-from ..shared import numbersacats as shared_numbersacats
-from ..shared import numbersaton as shared_numbersaton
+from .numbersacats import NumbersACATS
+from .numbersaton import NumbersATON
 from dataclasses_json import Undefined, dataclass_json
 from test_plaid import utils
 from typing import Any, Dict, List, Optional
@@ -13,8 +13,8 @@ from typing import Any, Dict, List, Optional
 @dataclasses.dataclass
 class InvestmentsAuthGetNumbers:
     r"""Identifying information for transferring holdings to an investments account."""
-    acats: Optional[List[shared_numbersacats.NumbersACATS]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('acats'), 'exclude': lambda f: f is None }})
+    acats: Optional[List[NumbersACATS]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('acats'), 'exclude': lambda f: f is None }})
     additional_properties: Optional[Dict[str, Any]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'exclude': lambda f: f is None }})
-    aton: Optional[List[shared_numbersaton.NumbersATON]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('aton'), 'exclude': lambda f: f is None }})
+    aton: Optional[List[NumbersATON]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('aton'), 'exclude': lambda f: f is None }})
     
 

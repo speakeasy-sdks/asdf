@@ -2,8 +2,8 @@
 
 from __future__ import annotations
 import dataclasses
-from ..shared import creditbankstatementuploadaccountowner as shared_creditbankstatementuploadaccountowner
-from ..shared import creditbankstatementuploadbankaccountperiod as shared_creditbankstatementuploadbankaccountperiod
+from .creditbankstatementuploadaccountowner import CreditBankStatementUploadAccountOwner
+from .creditbankstatementuploadbankaccountperiod import CreditBankStatementUploadBankAccountPeriod
 from dataclasses_json import Undefined, dataclass_json
 from test_plaid import utils
 from typing import Any, Dict, List, Optional
@@ -23,9 +23,9 @@ class CreditBankStatementUploadBankAccount:
     r"""The name of the bank institution."""
     name: Optional[str] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('name') }})
     r"""The name of the bank account"""
-    owner: shared_creditbankstatementuploadaccountowner.CreditBankStatementUploadAccountOwner = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('owner') }})
+    owner: CreditBankStatementUploadAccountOwner = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('owner') }})
     r"""An object containing data about the owner of the bank account for the uploaded bank statement."""
-    periods: List[shared_creditbankstatementuploadbankaccountperiod.CreditBankStatementUploadBankAccountPeriod] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('periods') }})
+    periods: List[CreditBankStatementUploadBankAccountPeriod] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('periods') }})
     r"""An array of period objects, containing more data on the overall period of the statement."""
     additional_properties: Optional[Dict[str, Any]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'exclude': lambda f: f is None }})
     

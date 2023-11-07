@@ -2,8 +2,8 @@
 
 from __future__ import annotations
 import dataclasses
-from ..shared import paymentinitiationoptionalrestrictionbacs as shared_paymentinitiationoptionalrestrictionbacs
-from ..shared import paymentscheme as shared_paymentscheme
+from .paymentinitiationoptionalrestrictionbacs import PaymentInitiationOptionalRestrictionBacs
+from .paymentscheme import PaymentScheme
 from dataclasses_json import Undefined, dataclass_json
 from test_plaid import utils
 from typing import Optional
@@ -13,13 +13,13 @@ from typing import Optional
 @dataclasses.dataclass
 class ExternalPaymentOptions:
     r"""Additional payment options"""
-    bacs: Optional[shared_paymentinitiationoptionalrestrictionbacs.PaymentInitiationOptionalRestrictionBacs] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('bacs') }})
+    bacs: Optional[PaymentInitiationOptionalRestrictionBacs] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('bacs') }})
     r"""An optional object used to restrict the accounts used for payments. If provided, the end user will be able to send payments only from the specified bank account."""
     iban: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('iban') }})
     r"""The International Bank Account Number (IBAN) for the payer's account. Where possible, the end user will be able to send payments only from the specified bank account if provided."""
     request_refund_details: Optional[bool] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('request_refund_details') }})
     r"""When `true`, Plaid will attempt to request refund details from the payee's financial institution.  Support varies between financial institutions and will not always be available.  If refund details could be retrieved, they will be available in the `/payment_initiation/payment/get` response."""
-    scheme: Optional[shared_paymentscheme.PaymentScheme] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('scheme') }})
+    scheme: Optional[PaymentScheme] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('scheme') }})
     r"""Payment scheme. If not specified - the default in the region will be used (e.g. `SEPA_CREDIT_TRANSFER` for EU). Using unsupported values will result in a failed payment.
 
     `LOCAL_DEFAULT`: The default payment scheme for the selected market and currency will be used.

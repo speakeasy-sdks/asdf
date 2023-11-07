@@ -2,9 +2,9 @@
 
 from __future__ import annotations
 import dataclasses
-from ..shared import beaconuseraddress as shared_beaconuseraddress
-from ..shared import beaconuseridnumber as shared_beaconuseridnumber
-from ..shared import beaconusername as shared_beaconusername
+from .beaconuseraddress import BeaconUserAddress
+from .beaconuseridnumber import BeaconUserIDNumber
+from .beaconusername import BeaconUserName
 from dataclasses_json import Undefined, dataclass_json
 from datetime import date
 from test_plaid import utils
@@ -15,7 +15,7 @@ from typing import Any, Dict, Optional
 @dataclasses.dataclass
 class BeaconUserData:
     r"""A Beacon User's data and resulting analysis when checked against duplicate records and the Beacon Fraud Network."""
-    address: shared_beaconuseraddress.BeaconUserAddress = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('address') }})
+    address: BeaconUserAddress = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('address') }})
     r"""Even if an address has been collected, some fields may be null depending on the region's addressing system. For example:
 
 
@@ -28,11 +28,11 @@ class BeaconUserData:
     r"""A date in the format YYYY-MM-DD (RFC 3339 Section 5.6)."""
     email_address: Optional[str] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('email_address') }})
     r"""A valid email address."""
-    id_number: shared_beaconuseridnumber.BeaconUserIDNumber = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('id_number') }})
+    id_number: BeaconUserIDNumber = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('id_number') }})
     r"""The ID number associated with a Beacon User."""
     ip_address: Optional[str] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('ip_address') }})
     r"""An IPv4 or IPV6 address."""
-    name: shared_beaconusername.BeaconUserName = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('name') }})
+    name: BeaconUserName = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('name') }})
     r"""The full name for a given Beacon User."""
     phone_number: Optional[str] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('phone_number') }})
     r"""A phone number in E.164 format."""

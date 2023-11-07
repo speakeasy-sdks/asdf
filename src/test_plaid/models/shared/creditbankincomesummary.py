@@ -2,8 +2,8 @@
 
 from __future__ import annotations
 import dataclasses
-from ..shared import creditamountwithcurrency as shared_creditamountwithcurrency
-from ..shared import creditbankincomehistoricalsummary as shared_creditbankincomehistoricalsummary
+from .creditamountwithcurrency import CreditAmountWithCurrency
+from .creditbankincomehistoricalsummary import CreditBankIncomeHistoricalSummary
 from dataclasses_json import Undefined, dataclass_json
 from datetime import date
 from test_plaid import utils
@@ -19,7 +19,7 @@ class CreditBankIncomeSummary:
     r"""The latest date in which all income sources identified by Plaid appear in the user's account.
     The date will be returned in an ISO 8601 format (YYYY-MM-DD).
     """
-    historical_summary: Optional[List[shared_creditbankincomehistoricalsummary.CreditBankIncomeHistoricalSummary]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('historical_summary'), 'exclude': lambda f: f is None }})
+    historical_summary: Optional[List[CreditBankIncomeHistoricalSummary]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('historical_summary'), 'exclude': lambda f: f is None }})
     income_categories_count: Optional[int] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('income_categories_count'), 'exclude': lambda f: f is None }})
     r"""Number of income categories per end user."""
     income_sources_count: Optional[int] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('income_sources_count'), 'exclude': lambda f: f is None }})
@@ -43,7 +43,7 @@ class CreditBankIncomeSummary:
 
     Deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
     """
-    total_amounts: Optional[List[shared_creditamountwithcurrency.CreditAmountWithCurrency]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('total_amounts'), 'exclude': lambda f: f is None }})
+    total_amounts: Optional[List[CreditAmountWithCurrency]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('total_amounts'), 'exclude': lambda f: f is None }})
     r"""Total amount of earnings across all the income sources in the end user's Items for the days requested by the client.
     This can contain multiple amounts, with each amount denominated in one unique currency.
     """

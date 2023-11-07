@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 import dataclasses
-from ..shared import pay as shared_pay
+from .pay import Pay
 from dataclasses_json import Undefined, dataclass_json
 from test_plaid import utils
 from typing import Any, Dict, Optional
@@ -15,7 +15,7 @@ class EarningsTotal:
     additional_properties: Optional[Dict[str, Any]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'exclude': lambda f: f is None }})
     current_amount: Optional[float] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('current_amount') }})
     r"""Total amount of the earnings for this pay period"""
-    current_pay: Optional[shared_pay.Pay] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('current_pay'), 'exclude': lambda f: f is None }})
+    current_pay: Optional[Pay] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('current_pay'), 'exclude': lambda f: f is None }})
     r"""An object representing a monetary amount.
 
     Deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
@@ -31,7 +31,7 @@ class EarningsTotal:
     """
     ytd_amount: Optional[float] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('ytd_amount') }})
     r"""The total year-to-date amount of the earnings"""
-    ytd_pay: Optional[shared_pay.Pay] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('ytd_pay'), 'exclude': lambda f: f is None }})
+    ytd_pay: Optional[Pay] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('ytd_pay'), 'exclude': lambda f: f is None }})
     r"""An object representing a monetary amount.
 
     Deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.

@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 import dataclasses
-from ..shared import beaconaudittrailsource as shared_beaconaudittrailsource
+from .beaconaudittrailsource import BeaconAuditTrailSource
 from dataclasses_json import Undefined, dataclass_json
 from test_plaid import utils
 from typing import Any, Dict, Optional
@@ -14,7 +14,7 @@ class BeaconAuditTrail:
     r"""Information about the last change made to the parent object specifying what caused the change as well as when it occurred."""
     dashboard_user_id: Optional[str] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('dashboard_user_id') }})
     r"""ID of the associated user."""
-    source: shared_beaconaudittrailsource.BeaconAuditTrailSource = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('source') }})
+    source: BeaconAuditTrailSource = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('source') }})
     r"""A type indicating what caused a resource to be changed or updated.
 
 

@@ -2,8 +2,8 @@
 
 from __future__ import annotations
 import dataclasses
-from ..shared import assettransactioncategorytype as shared_assettransactioncategorytype
-from ..shared import assettransactiontype as shared_assettransactiontype
+from .assettransactioncategorytype import AssetTransactionCategoryType
+from .assettransactiontype import AssetTransactionType
 from dataclasses_json import Undefined, dataclass_json
 from datetime import date
 from test_plaid import utils
@@ -14,7 +14,7 @@ from typing import Any, Dict, Optional
 @dataclasses.dataclass
 class CreditFreddieMacAssetTransactionDetailVOE25:
     r"""Documentation not found in the MISMO model viewer and not provided by Freddie Mac."""
-    asset_transaction_category_type: Optional[shared_assettransactioncategorytype.AssetTransactionCategoryType] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('AssetTransactionCategoryType') }})
+    asset_transaction_category_type: Optional[AssetTransactionCategoryType] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('AssetTransactionCategoryType') }})
     r"""Asset Transaction Category Type Enumerated derived by Vendor."""
     asset_transaction_date: date = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('AssetTransactionDate'), 'encoder': utils.dateisoformat(False), 'decoder': utils.datefromisoformat }})
     r"""Asset Transaction Date."""
@@ -24,7 +24,7 @@ class CreditFreddieMacAssetTransactionDetailVOE25:
     r"""Populate with for whom the transaction is done."""
     asset_transaction_post_date: date = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('AssetTransactionPostDate'), 'encoder': utils.dateisoformat(False), 'decoder': utils.datefromisoformat }})
     r"""Asset Transaction Post Date."""
-    asset_transaction_type: shared_assettransactiontype.AssetTransactionType = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('AssetTransactionType') }})
+    asset_transaction_type: AssetTransactionType = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('AssetTransactionType') }})
     r"""Asset Transaction Type."""
     asset_transaction_type_additional_description: Optional[str] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('AssetTransactionTypeAdditionalDescription') }})
     r"""FI Provided - examples are atm, cash, check, credit, debit, deposit, directDebit, directDeposit, dividend, fee, interest, other, payment, pointOfSale, repeatPayment, serviceCharge, transfer."""

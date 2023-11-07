@@ -7,7 +7,7 @@ from enum import Enum
 from test_plaid import utils
 from typing import Optional
 
-class ProcessorTokenCreateRequestProcessor(str, Enum):
+class Processor(str, Enum):
     r"""The processor you are integrating with."""
     DWOLLA = 'dwolla'
     GALILEO = 'galileo'
@@ -59,7 +59,7 @@ class ProcessorTokenCreateRequest:
     r"""The access token associated with the Item data is being requested for."""
     account_id: str = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('account_id') }})
     r"""The `account_id` value obtained from the `onSuccess` callback in Link"""
-    processor: ProcessorTokenCreateRequestProcessor = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('processor') }})
+    processor: Processor = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('processor') }})
     r"""The processor you are integrating with."""
     client_id: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('client_id'), 'exclude': lambda f: f is None }})
     r"""Your Plaid API `client_id`. The `client_id` is required and may be provided either in the `PLAID-CLIENT-ID` header or as part of a request body."""

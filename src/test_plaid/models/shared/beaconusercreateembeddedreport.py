@@ -2,8 +2,8 @@
 
 from __future__ import annotations
 import dataclasses
-from ..shared import beaconreporttype as shared_beaconreporttype
-from ..shared import fraudamountnullable as shared_fraudamountnullable
+from .beaconreporttype import BeaconReportType
+from .fraudamountnullable import FraudAmountNullable
 from dataclasses_json import Undefined, dataclass_json
 from datetime import date
 from test_plaid import utils
@@ -16,7 +16,7 @@ class BeaconUserCreateEmbeddedReport:
     r"""Data for creating a Beacon Report as part of an initial Beacon User creation. Providing a fraud report as part of an initial Beacon User creation will omit the Beacon User from any billing charges."""
     fraud_date: date = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('fraud_date'), 'encoder': utils.dateisoformat(False), 'decoder': utils.datefromisoformat }})
     r"""A date in the format YYYY-MM-DD (RFC 3339 Section 5.6)."""
-    type: shared_beaconreporttype.BeaconReportType = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('type') }})
+    type: BeaconReportType = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('type') }})
     r"""The type of Beacon Report.
 
     `first_party`: If this is the same individual as the one who submitted the KYC.
@@ -30,7 +30,7 @@ class BeaconUserCreateEmbeddedReport:
     `unknown`: If you aren't sure who committed the fraud.
     """
     additional_properties: Optional[Dict[str, Any]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'exclude': lambda f: f is None }})
-    fraud_amount: Optional[shared_fraudamountnullable.FraudAmountNullable] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('fraud_amount') }})
+    fraud_amount: Optional[FraudAmountNullable] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('fraud_amount') }})
     r"""The amount and currency of the fraud or attempted fraud.
     `fraud_amount` should be omitted to indicate an unknown fraud amount.
     """

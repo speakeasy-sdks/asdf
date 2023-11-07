@@ -2,9 +2,9 @@
 
 from __future__ import annotations
 import dataclasses
-from ..shared import loans as shared_loans
-from ..shared import parties as shared_parties
-from ..shared import services as shared_services
+from .loans import Loans
+from .parties import Parties
+from .services import Services
 from dataclasses_json import Undefined, dataclass_json
 from test_plaid import utils
 from typing import Any, Dict, Optional
@@ -14,11 +14,11 @@ from typing import Any, Dict, Optional
 @dataclasses.dataclass
 class AssetReportFreddie:
     r"""An object representing an Asset Report with Freddie Mac schema."""
-    loans: shared_loans.Loans = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('LOANS') }})
+    loans: Loans = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('LOANS') }})
     r"""A collection of loans that are part of a single deal."""
-    parties: shared_parties.Parties = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('PARTIES') }})
+    parties: Parties = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('PARTIES') }})
     r"""A collection of objects that define specific parties to a deal. This includes the direct participating parties, such as borrower and seller and the indirect parties such as the credit report provider."""
-    services: shared_services.Services = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('SERVICES') }})
+    services: Services = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('SERVICES') }})
     r"""A collection of objects that describe requests and responses for services."""
     additional_properties: Optional[Dict[str, Any]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'exclude': lambda f: f is None }})
     

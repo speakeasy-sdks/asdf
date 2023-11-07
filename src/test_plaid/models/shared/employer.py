@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 import dataclasses
-from ..shared import addressdatanullable as shared_addressdatanullable
+from .addressdatanullable import AddressDataNullable
 from dataclasses_json import Undefined, dataclass_json
 from test_plaid import utils
 from typing import Any, Dict, Optional
@@ -12,7 +12,7 @@ from typing import Any, Dict, Optional
 @dataclasses.dataclass
 class Employer:
     r"""Data about the employer."""
-    address: Optional[shared_addressdatanullable.AddressDataNullable] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('address') }})
+    address: Optional[AddressDataNullable] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('address') }})
     r"""Data about the components comprising an address."""
     confidence_score: float = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('confidence_score') }})
     r"""A number from 0 to 1 indicating Plaid's level of confidence in the pairing between the employer and the institution (not yet implemented)."""

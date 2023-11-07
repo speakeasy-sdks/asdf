@@ -2,8 +2,8 @@
 
 from __future__ import annotations
 import dataclasses
-from ..shared import transactionsrulefield as shared_transactionsrulefield
-from ..shared import transactionsruletype as shared_transactionsruletype
+from .transactionsrulefield import TransactionsRuleField
+from .transactionsruletype import TransactionsRuleType
 from dataclasses_json import Undefined, dataclass_json
 from test_plaid import utils
 
@@ -12,11 +12,11 @@ from test_plaid import utils
 @dataclasses.dataclass
 class TransactionsRuleDetails:
     r"""A representation of transactions rule details."""
-    field: shared_transactionsrulefield.TransactionsRuleField = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('field') }})
+    field: TransactionsRuleField = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('field') }})
     r"""Transaction field for which the rule is defined."""
     query: str = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('query') }})
     r"""For TRANSACTION_ID field, provide transaction_id. For NAME field, provide a string pattern."""
-    type: shared_transactionsruletype.TransactionsRuleType = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('type') }})
+    type: TransactionsRuleType = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('type') }})
     r"""Transaction rule's match type. For TRANSACTION_ID field, EXACT_MATCH is available.
     Matches are case sensitive.
     """

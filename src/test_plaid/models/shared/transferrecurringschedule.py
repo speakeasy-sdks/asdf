@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 import dataclasses
-from ..shared import transferscheduleintervalunit as shared_transferscheduleintervalunit
+from .transferscheduleintervalunit import TransferScheduleIntervalUnit
 from dataclasses_json import Undefined, dataclass_json
 from datetime import date
 from test_plaid import utils
@@ -26,7 +26,7 @@ class TransferRecurringSchedule:
 
     The transfer will be originated on next available banking day if the designated day is a non banking day.
     """
-    interval_unit: shared_transferscheduleintervalunit.TransferScheduleIntervalUnit = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('interval_unit') }})
+    interval_unit: TransferScheduleIntervalUnit = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('interval_unit') }})
     r"""The unit of the recurring interval."""
     start_date: date = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('start_date'), 'encoder': utils.dateisoformat(False), 'decoder': utils.datefromisoformat }})
     r"""A date in [ISO 8601](https://wikipedia.org/wiki/ISO_8601) format (YYYY-MM-DD). The recurring transfer will begin on the first `interval_execution_day` on or after the `start_date`.

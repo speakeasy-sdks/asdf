@@ -2,12 +2,12 @@
 
 from __future__ import annotations
 import dataclasses
-from ..shared import entityscreeninghitdocumentsitems as shared_entityscreeninghitdocumentsitems
-from ..shared import entityscreeninghitemailsitems as shared_entityscreeninghitemailsitems
-from ..shared import entityscreeninghitnamesitems as shared_entityscreeninghitnamesitems
-from ..shared import entityscreeninghitsphonenumberitems as shared_entityscreeninghitsphonenumberitems
-from ..shared import entityscreeninghiturlsitems as shared_entityscreeninghiturlsitems
-from ..shared import genericscreeninghitlocationitems as shared_genericscreeninghitlocationitems
+from .entityscreeninghitdocumentsitems import EntityScreeningHitDocumentsItems
+from .entityscreeninghitemailsitems import EntityScreeningHitEmailsItems
+from .entityscreeninghitnamesitems import EntityScreeningHitNamesItems
+from .entityscreeninghitsphonenumberitems import EntityScreeningHitsPhoneNumberItems
+from .entityscreeninghiturlsitems import EntityScreeningHitUrlsItems
+from .genericscreeninghitlocationitems import GenericScreeningHitLocationItems
 from dataclasses_json import Undefined, dataclass_json
 from test_plaid import utils
 from typing import Any, Dict, List, Optional
@@ -18,17 +18,17 @@ from typing import Any, Dict, List, Optional
 class EntityScreeningHitData:
     r"""Information associated with the entity watchlist hit"""
     additional_properties: Optional[Dict[str, Any]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'exclude': lambda f: f is None }})
-    documents: Optional[List[shared_entityscreeninghitdocumentsitems.EntityScreeningHitDocumentsItems]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('documents'), 'exclude': lambda f: f is None }})
+    documents: Optional[List[EntityScreeningHitDocumentsItems]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('documents'), 'exclude': lambda f: f is None }})
     r"""Documents associated with the watchlist hit"""
-    email_addresses: Optional[List[shared_entityscreeninghitemailsitems.EntityScreeningHitEmailsItems]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('email_addresses'), 'exclude': lambda f: f is None }})
+    email_addresses: Optional[List[EntityScreeningHitEmailsItems]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('email_addresses'), 'exclude': lambda f: f is None }})
     r"""Email addresses associated with the watchlist hit"""
-    locations: Optional[List[shared_genericscreeninghitlocationitems.GenericScreeningHitLocationItems]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('locations'), 'exclude': lambda f: f is None }})
+    locations: Optional[List[GenericScreeningHitLocationItems]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('locations'), 'exclude': lambda f: f is None }})
     r"""Locations associated with the watchlist hit"""
-    names: Optional[List[shared_entityscreeninghitnamesitems.EntityScreeningHitNamesItems]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('names'), 'exclude': lambda f: f is None }})
+    names: Optional[List[EntityScreeningHitNamesItems]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('names'), 'exclude': lambda f: f is None }})
     r"""Names associated with the watchlist hit"""
-    phone_numbers: Optional[List[shared_entityscreeninghitsphonenumberitems.EntityScreeningHitsPhoneNumberItems]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('phone_numbers'), 'exclude': lambda f: f is None }})
+    phone_numbers: Optional[List[EntityScreeningHitsPhoneNumberItems]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('phone_numbers'), 'exclude': lambda f: f is None }})
     r"""Phone numbers associated with the watchlist hit"""
-    urls: Optional[List[shared_entityscreeninghiturlsitems.EntityScreeningHitUrlsItems]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('urls'), 'exclude': lambda f: f is None }})
+    urls: Optional[List[EntityScreeningHitUrlsItems]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('urls'), 'exclude': lambda f: f is None }})
     r"""URLs associated with the watchlist hit"""
     
 

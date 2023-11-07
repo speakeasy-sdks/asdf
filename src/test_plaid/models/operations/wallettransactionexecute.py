@@ -3,7 +3,7 @@
 from __future__ import annotations
 import dataclasses
 import requests as requests_http
-from ..shared import wallettransactionexecuteresponse as shared_wallettransactionexecuteresponse
+from ...models.shared import wallettransactionexecuteresponse as shared_wallettransactionexecuteresponse
 from typing import Optional
 
 

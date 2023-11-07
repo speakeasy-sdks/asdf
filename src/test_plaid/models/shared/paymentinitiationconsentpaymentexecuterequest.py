@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 import dataclasses
-from ..shared import paymentamount as shared_paymentamount
+from .paymentamount import PaymentAmount
 from dataclasses_json import Undefined, dataclass_json
 from test_plaid import utils
 from typing import Optional
@@ -12,7 +12,7 @@ from typing import Optional
 @dataclasses.dataclass
 class PaymentInitiationConsentPaymentExecuteRequest:
     r"""PaymentInitiationConsentPaymentExecuteRequest defines the request schema for `/payment_initiation/consent/payment/execute`"""
-    amount: shared_paymentamount.PaymentAmount = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('amount') }})
+    amount: PaymentAmount = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('amount') }})
     r"""The amount and currency of a payment"""
     consent_id: str = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('consent_id') }})
     r"""The consent ID."""

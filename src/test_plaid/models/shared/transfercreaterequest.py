@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 import dataclasses
-from ..shared import transferuserinrequestdeprecated as shared_transferuserinrequestdeprecated
+from .transferuserinrequestdeprecated import TransferUserInRequestDeprecated
 from dataclasses_json import Undefined, dataclass_json
 from enum import Enum
 from test_plaid import utils
@@ -101,7 +101,7 @@ class TransferCreateRequest:
     r"""Plaid’s unique identifier for a test clock. This field may only be used when using `sandbox` environment. If provided, the `transfer` is created at the `virtual_time` on the provided `test_clock`."""
     type: Optional[TransferCreateRequestTransferType] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('type'), 'exclude': lambda f: f is None }})
     r"""Deprecated field: This will be removed in a future release, please migrate away from it as soon as possible."""
-    user: Optional[shared_transferuserinrequestdeprecated.TransferUserInRequestDeprecated] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('user') }})
+    user: Optional[TransferUserInRequestDeprecated] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('user') }})
     r"""The legal name and other information for the account holder.
 
     Deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.

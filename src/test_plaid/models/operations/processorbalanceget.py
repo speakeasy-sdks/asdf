@@ -3,7 +3,7 @@
 from __future__ import annotations
 import dataclasses
 import requests as requests_http
-from ..shared import processorbalancegetresponse as shared_processorbalancegetresponse
+from ...models.shared import processorbalancegetresponse as shared_processorbalancegetresponse
 from typing import Optional
 
 

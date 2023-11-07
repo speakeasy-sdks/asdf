@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 import dataclasses
-from ..shared import creditfreddieverificationofemploymentdeal_voe_2_5 as shared_creditfreddieverificationofemploymentdeal_voe_2_5
+from .creditfreddieverificationofemploymentdeal_voe_2_5 import CreditFreddieVerificationOfEmploymentDealVOE25
 from dataclasses_json import Undefined, dataclass_json
 from test_plaid import utils
 from typing import Any, Dict, Optional
@@ -12,7 +12,7 @@ from typing import Any, Dict, Optional
 @dataclasses.dataclass
 class CreditFreddieVerificationOfEmploymentVOE25:
     r"""Verification of Employment Report"""
-    deal: shared_creditfreddieverificationofemploymentdeal_voe_2_5.CreditFreddieVerificationOfEmploymentDealVOE25 = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('DEAL') }})
+    deal: CreditFreddieVerificationOfEmploymentDealVOE25 = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('DEAL') }})
     r"""An object representing a Verification of Employment report."""
     schema_version: float = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('SchemaVersion') }})
     r"""The Verification Of Employment (VOE) schema version."""

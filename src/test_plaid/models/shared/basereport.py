@@ -3,7 +3,7 @@
 from __future__ import annotations
 import dataclasses
 import dateutil.parser
-from ..shared import basereportitem as shared_basereportitem
+from .basereportitem import BaseReportItem
 from dataclasses_json import Undefined, dataclass_json
 from datetime import datetime
 from test_plaid import utils
@@ -18,7 +18,7 @@ class BaseReport:
     r"""The date and time when the Base Report was created, in [ISO 8601](https://wikipedia.org/wiki/ISO_8601) format (e.g. \\"2018-04-12T03:32:11Z\\")."""
     days_requested: float = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('days_requested') }})
     r"""The number of days of transaction history requested."""
-    items: List[shared_basereportitem.BaseReportItem] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('items') }})
+    items: List[BaseReportItem] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('items') }})
     r"""Data returned by Plaid about each of the Items included in the Base Report."""
     report_id: str = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('report_id') }})
     r"""A unique ID identifying an Base Report. Like all Plaid identifiers, this ID is case sensitive."""

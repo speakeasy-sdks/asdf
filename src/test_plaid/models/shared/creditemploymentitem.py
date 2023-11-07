@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 import dataclasses
-from ..shared import creditemploymentverification as shared_creditemploymentverification
+from .creditemploymentverification import CreditEmploymentVerification
 from dataclasses_json import Undefined, dataclass_json
 from test_plaid import utils
 from typing import Any, Dict, List, Optional
@@ -12,7 +12,7 @@ from typing import Any, Dict, List, Optional
 @dataclasses.dataclass
 class CreditEmploymentItem:
     r"""The object containing employment items."""
-    employments: List[shared_creditemploymentverification.CreditEmploymentVerification] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('employments') }})
+    employments: List[CreditEmploymentVerification] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('employments') }})
     item_id: str = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('item_id') }})
     r"""The `item_id` of the Item associated with this webhook, warning, or error"""
     additional_properties: Optional[Dict[str, Any]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'exclude': lambda f: f is None }})

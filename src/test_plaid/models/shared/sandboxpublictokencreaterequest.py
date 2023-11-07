@@ -2,8 +2,8 @@
 
 from __future__ import annotations
 import dataclasses
-from ..shared import products as shared_products
-from ..shared import sandboxpublictokencreaterequestoptions as shared_sandboxpublictokencreaterequestoptions
+from .products import Products
+from .sandboxpublictokencreaterequestoptions import SandboxPublicTokenCreateRequestOptions
 from dataclasses_json import Undefined, dataclass_json
 from test_plaid import utils
 from typing import List, Optional
@@ -13,13 +13,13 @@ from typing import List, Optional
 @dataclasses.dataclass
 class SandboxPublicTokenCreateRequest:
     r"""SandboxPublicTokenCreateRequest defines the request schema for `/sandbox/public_token/create`"""
-    initial_products: List[shared_products.Products] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('initial_products') }})
+    initial_products: List[Products] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('initial_products') }})
     r"""The products to initially pull for the Item. May be any products that the specified `institution_id`  supports. This array may not be empty."""
     institution_id: str = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('institution_id') }})
     r"""The ID of the institution the Item will be associated with"""
     client_id: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('client_id'), 'exclude': lambda f: f is None }})
     r"""Your Plaid API `client_id`. The `client_id` is required and may be provided either in the `PLAID-CLIENT-ID` header or as part of a request body."""
-    options: Optional[shared_sandboxpublictokencreaterequestoptions.SandboxPublicTokenCreateRequestOptions] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('options'), 'exclude': lambda f: f is None }})
+    options: Optional[SandboxPublicTokenCreateRequestOptions] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('options'), 'exclude': lambda f: f is None }})
     r"""An optional set of options to be used when configuring the Item. If specified, must not be `null`."""
     secret: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('secret'), 'exclude': lambda f: f is None }})
     r"""Your Plaid API `secret`. The `secret` is required and may be provided either in the `PLAID-SECRET` header or as part of a request body."""

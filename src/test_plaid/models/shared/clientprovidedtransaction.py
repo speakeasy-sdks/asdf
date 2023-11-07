@@ -2,8 +2,8 @@
 
 from __future__ import annotations
 import dataclasses
-from ..shared import clientprovidedtransactionlocation as shared_clientprovidedtransactionlocation
-from ..shared import enrichtransactiondirection as shared_enrichtransactiondirection
+from .clientprovidedtransactionlocation import ClientProvidedTransactionLocation
+from .enrichtransactiondirection import EnrichTransactionDirection
 from dataclasses_json import Undefined, dataclass_json
 from datetime import date
 from test_plaid import utils
@@ -18,7 +18,7 @@ class ClientProvidedTransaction:
     r"""The absolute value of the transaction (>= 0). When testing Enrich, note that `amount` data should be realistic. Unrealistic or inaccurate `amount` data may result in reduced quality output."""
     description: str = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('description') }})
     r"""The raw description of the transaction. If you have location data in available an unstructured format, it may be appended to the `description` field."""
-    direction: shared_enrichtransactiondirection.EnrichTransactionDirection = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('direction') }})
+    direction: EnrichTransactionDirection = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('direction') }})
     r"""The direction of the transaction from the perspective of the account holder:
 
     `OUTFLOW` - Includes outgoing transfers, purchases, and fees. (Typically represented as a negative value on checking accounts and debit cards and a positive value on credit cards.)
@@ -40,7 +40,7 @@ class ClientProvidedTransaction:
     r"""A unique user id used to group transactions for a given user, as a unique identifier from your application. Personally identifiable information, such as an email address or phone number, should not be used in the client_user_id."""
     date_posted: Optional[date] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('date_posted'), 'encoder': utils.dateisoformat(True), 'decoder': utils.datefromisoformat, 'exclude': lambda f: f is None }})
     r"""The date the transaction posted, in [ISO 8601](https://wikipedia.org/wiki/ISO_8601) (YYYY-MM-DD) format."""
-    location: Optional[shared_clientprovidedtransactionlocation.ClientProvidedTransactionLocation] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('location'), 'exclude': lambda f: f is None }})
+    location: Optional[ClientProvidedTransactionLocation] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('location'), 'exclude': lambda f: f is None }})
     r"""A representation of where a transaction took place.
 
     Use this field to pass in structured location information you may have about your transactions. Providing location data is optional but can increase result quality. If you have unstructured location information, it may be appended to the `description` field.

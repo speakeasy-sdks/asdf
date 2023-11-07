@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 import dataclasses
-from ..shared import total as shared_total
+from .total import Total
 from dataclasses_json import Undefined, dataclass_json
 from test_plaid import utils
 from typing import Any, Dict, Optional
@@ -19,7 +19,7 @@ class NetPay:
     r"""Description of the net pay"""
     iso_currency_code: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('iso_currency_code') }})
     r"""The ISO-4217 currency code of the net pay. Always `null` if `unofficial_currency_code` is non-null."""
-    total: Optional[shared_total.Total] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('total'), 'exclude': lambda f: f is None }})
+    total: Optional[Total] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('total'), 'exclude': lambda f: f is None }})
     r"""An object representing both the current pay period and year to date amount for a category.
 
     Deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.

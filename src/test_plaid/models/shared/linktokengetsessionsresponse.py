@@ -3,8 +3,8 @@
 from __future__ import annotations
 import dataclasses
 import dateutil.parser
-from ..shared import linksessionexit as shared_linksessionexit
-from ..shared import linksessionsuccess as shared_linksessionsuccess
+from .linksessionexit import LinkSessionExit
+from .linksessionsuccess import LinkSessionSuccess
 from dataclasses_json import Undefined, dataclass_json
 from datetime import datetime
 from test_plaid import utils
@@ -20,9 +20,9 @@ class LinkTokenGetSessionsResponse:
     additional_properties: Optional[Dict[str, Any]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'exclude': lambda f: f is None }})
     finished_at: Optional[datetime] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('finished_at'), 'encoder': utils.datetimeisoformat(True), 'decoder': dateutil.parser.isoparse }})
     r"""The timestamp at which the link session was finished, if available, in [ISO 8601](https://wikipedia.org/wiki/ISO_8601) format."""
-    on_exit: Optional[shared_linksessionexit.LinkSessionExit] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('on_exit') }})
+    on_exit: Optional[LinkSessionExit] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('on_exit') }})
     r"""An object representing an [onExit](https://plaid.com/docs/link/web/#onexit) callback from Link."""
-    on_success: Optional[shared_linksessionsuccess.LinkSessionSuccess] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('on_success') }})
+    on_success: Optional[LinkSessionSuccess] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('on_success') }})
     r"""An object representing an [onSuccess](https://plaid.com/docs/link/web/#onsuccess) callback from Link."""
     started_at: Optional[datetime] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('started_at'), 'encoder': utils.datetimeisoformat(True), 'decoder': dateutil.parser.isoparse, 'exclude': lambda f: f is None }})
     r"""The timestamp at which the link session was first started, in [ISO 8601](https://wikipedia.org/wiki/ISO_8601) format."""

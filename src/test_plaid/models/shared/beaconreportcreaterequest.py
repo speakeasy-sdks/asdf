@@ -2,8 +2,8 @@
 
 from __future__ import annotations
 import dataclasses
-from ..shared import beaconreporttype as shared_beaconreporttype
-from ..shared import fraudamount as shared_fraudamount
+from .beaconreporttype import BeaconReportType
+from .fraudamount import FraudAmount
 from dataclasses_json import Undefined, dataclass_json
 from datetime import date
 from test_plaid import utils
@@ -18,7 +18,7 @@ class BeaconReportCreateRequest:
     r"""ID of the associated Beacon User."""
     fraud_date: date = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('fraud_date'), 'encoder': utils.dateisoformat(False), 'decoder': utils.datefromisoformat }})
     r"""A date in the format YYYY-MM-DD (RFC 3339 Section 5.6)."""
-    type: shared_beaconreporttype.BeaconReportType = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('type') }})
+    type: BeaconReportType = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('type') }})
     r"""The type of Beacon Report.
 
     `first_party`: If this is the same individual as the one who submitted the KYC.
@@ -33,7 +33,7 @@ class BeaconReportCreateRequest:
     """
     client_id: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('client_id'), 'exclude': lambda f: f is None }})
     r"""Your Plaid API `client_id`. The `client_id` is required and may be provided either in the `PLAID-CLIENT-ID` header or as part of a request body."""
-    fraud_amount: Optional[shared_fraudamount.FraudAmount] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('fraud_amount'), 'exclude': lambda f: f is None }})
+    fraud_amount: Optional[FraudAmount] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('fraud_amount'), 'exclude': lambda f: f is None }})
     r"""The amount and currency of the fraud or attempted fraud.
     `fraud_amount` should be omitted to indicate an unknown fraud amount.
     """

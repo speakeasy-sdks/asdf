@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 import dataclasses
-from ..shared import matchsummarycode as shared_matchsummarycode
+from .matchsummarycode import MatchSummaryCode
 from dataclasses_json import Undefined, dataclass_json
 from test_plaid import utils
 from typing import Any, Dict, Optional
@@ -12,7 +12,7 @@ from typing import Any, Dict, Optional
 @dataclasses.dataclass
 class KYCCheckPhoneSummary:
     r"""Result summary object specifying how the `phone` field matched."""
-    area_code: shared_matchsummarycode.MatchSummaryCode = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('area_code') }})
+    area_code: MatchSummaryCode = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('area_code') }})
     r"""An enum indicating the match type between data provided by user and data checked against an external data source.
 
 
@@ -26,7 +26,7 @@ class KYCCheckPhoneSummary:
 
     `no_input` indicates that Plaid was unable to perform a check because no information was provided for this field by the end user.
     """
-    summary: shared_matchsummarycode.MatchSummaryCode = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('summary') }})
+    summary: MatchSummaryCode = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('summary') }})
     r"""An enum indicating the match type between data provided by user and data checked against an external data source.
 
 

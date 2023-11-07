@@ -2,9 +2,9 @@
 
 from __future__ import annotations
 import dataclasses
-from ..shared import creditcardliability as shared_creditcardliability
-from ..shared import mortgageliability as shared_mortgageliability
-from ..shared import studentloan as shared_studentloan
+from .creditcardliability import CreditCardLiability
+from .mortgageliability import MortgageLiability
+from .studentloan import StudentLoan
 from dataclasses_json import Undefined, dataclass_json
 from test_plaid import utils
 from typing import Any, Dict, List, Optional
@@ -14,11 +14,11 @@ from typing import Any, Dict, List, Optional
 @dataclasses.dataclass
 class LiabilitiesObject:
     r"""An object containing liability accounts"""
-    credit: Optional[List[shared_creditcardliability.CreditCardLiability]] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('credit') }})
+    credit: Optional[List[CreditCardLiability]] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('credit') }})
     r"""The credit accounts returned."""
-    mortgage: Optional[List[shared_mortgageliability.MortgageLiability]] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('mortgage') }})
+    mortgage: Optional[List[MortgageLiability]] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('mortgage') }})
     r"""The mortgage accounts returned."""
-    student: Optional[List[shared_studentloan.StudentLoan]] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('student') }})
+    student: Optional[List[StudentLoan]] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('student') }})
     r"""The student loan accounts returned."""
     additional_properties: Optional[Dict[str, Any]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'exclude': lambda f: f is None }})
     

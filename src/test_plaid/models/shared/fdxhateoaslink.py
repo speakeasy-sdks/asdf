@@ -2,8 +2,8 @@
 
 from __future__ import annotations
 import dataclasses
-from ..shared import fdxcontenttypes as shared_fdxcontenttypes
-from ..shared import fdxhateoaslinkaction as shared_fdxhateoaslinkaction
+from .fdxcontenttypes import FDXContentTypes
+from .fdxhateoaslinkaction import FDXHateoasLinkAction
 from dataclasses_json import Undefined, dataclass_json
 from test_plaid import utils
 from typing import List, Optional
@@ -15,11 +15,11 @@ class FDXHateoasLink:
     r"""REST application constraint (Hypermedia As The Engine Of Application State)"""
     href: str = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('href') }})
     r"""URL to invoke the action on the resource"""
-    action: Optional[shared_fdxhateoaslinkaction.FDXHateoasLinkAction] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('action'), 'exclude': lambda f: f is None }})
+    action: Optional[FDXHateoasLinkAction] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('action'), 'exclude': lambda f: f is None }})
     r"""HTTP Method to use for the request"""
     rel: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('rel'), 'exclude': lambda f: f is None }})
     r"""Relation of this link to its containing entity, as defined by and with many example relation values at [IETF RFC5988](https://datatracker.ietf.org/doc/html/rfc5988)"""
-    types: Optional[List[shared_fdxcontenttypes.FDXContentTypes]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('types'), 'exclude': lambda f: f is None }})
+    types: Optional[List[FDXContentTypes]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('types'), 'exclude': lambda f: f is None }})
     r"""Content-types that can be used in the Accept header"""
     
 

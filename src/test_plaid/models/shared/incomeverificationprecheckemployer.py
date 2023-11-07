@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 import dataclasses
-from ..shared import incomeverificationprecheckemployeraddress as shared_incomeverificationprecheckemployeraddress
+from .incomeverificationprecheckemployeraddress import IncomeVerificationPrecheckEmployerAddress
 from dataclasses_json import Undefined, dataclass_json
 from test_plaid import utils
 from typing import Optional
@@ -12,7 +12,7 @@ from typing import Optional
 @dataclasses.dataclass
 class IncomeVerificationPrecheckEmployer:
     r"""Information about the end user's employer"""
-    address: Optional[shared_incomeverificationprecheckemployeraddress.IncomeVerificationPrecheckEmployerAddress] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('address') }})
+    address: Optional[IncomeVerificationPrecheckEmployerAddress] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('address') }})
     r"""The address of the employer"""
     name: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('name') }})
     r"""The employer's name"""

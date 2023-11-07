@@ -3,8 +3,8 @@
 from __future__ import annotations
 import dataclasses
 import dateutil.parser
-from ..shared import creditbankemployment as shared_creditbankemployment
-from ..shared import creditbankincomeaccount as shared_creditbankincomeaccount
+from .creditbankemployment import CreditBankEmployment
+from .creditbankincomeaccount import CreditBankIncomeAccount
 from dataclasses_json import Undefined, dataclass_json
 from datetime import datetime
 from test_plaid import utils
@@ -15,9 +15,9 @@ from typing import List
 @dataclasses.dataclass
 class CreditBankEmploymentItem:
     r"""The details and metadata for an end user's Item."""
-    bank_employment_accounts: List[shared_creditbankincomeaccount.CreditBankIncomeAccount] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('bank_employment_accounts') }})
+    bank_employment_accounts: List[CreditBankIncomeAccount] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('bank_employment_accounts') }})
     r"""The Item's accounts that have Bank Employment data."""
-    bank_employments: List[shared_creditbankemployment.CreditBankEmployment] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('bank_employments') }})
+    bank_employments: List[CreditBankEmployment] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('bank_employments') }})
     r"""The bank employment information for this Item. Each entry in the array is a different employer found."""
     institution_id: str = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('institution_id') }})
     r"""The unique identifier of the institution associated with the Item."""

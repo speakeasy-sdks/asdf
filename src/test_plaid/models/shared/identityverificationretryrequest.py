@@ -2,9 +2,9 @@
 
 from __future__ import annotations
 import dataclasses
-from ..shared import identityverificationrequestuser as shared_identityverificationrequestuser
-from ..shared import identityverificationretryrequeststepsobject as shared_identityverificationretryrequeststepsobject
-from ..shared import strategy as shared_strategy
+from .identityverificationrequestuser import IdentityVerificationRequestUser
+from .identityverificationretryrequeststepsobject import IdentityVerificationRetryRequestStepsObject
+from .strategy import Strategy
 from dataclasses_json import Undefined, dataclass_json
 from test_plaid import utils
 from typing import Optional
@@ -16,7 +16,7 @@ class IdentityVerificationRetryRequest:
     r"""Request input for retrying an identity verification attempt"""
     client_user_id: str = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('client_user_id') }})
     r"""A unique ID that identifies the end user in your system. This ID can also be used to associate user-specific data from other Plaid products. Financial Account Matching requires this field and the `/link/token/create` `client_user_id` to be consistent. Personally identifiable information, such as an email address or phone number, should not be used in the `client_user_id`."""
-    strategy: shared_strategy.Strategy = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('strategy') }})
+    strategy: Strategy = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('strategy') }})
     r"""An instruction specifying what steps the new Identity Verification attempt should require the user to complete:
 
 
@@ -40,7 +40,7 @@ class IdentityVerificationRetryRequest:
     r"""Your Plaid API `client_id`. The `client_id` is required and may be provided either in the `PLAID-CLIENT-ID` header or as part of a request body."""
     secret: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('secret'), 'exclude': lambda f: f is None }})
     r"""Your Plaid API `secret`. The `secret` is required and may be provided either in the `PLAID-SECRET` header or as part of a request body."""
-    steps: Optional[shared_identityverificationretryrequeststepsobject.IdentityVerificationRetryRequestStepsObject] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('steps') }})
+    steps: Optional[IdentityVerificationRetryRequestStepsObject] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('steps') }})
     r"""Instructions for the `custom` retry strategy specifying which steps should be required or skipped.
 
 
@@ -53,7 +53,7 @@ class IdentityVerificationRetryRequest:
 
     The `selfie_check` step is currently not supported on the sandbox server. Sandbox requests will silently disable the `selfie_check` step when provided.
     """
-    user: Optional[shared_identityverificationrequestuser.IdentityVerificationRequestUser] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('user') }})
+    user: Optional[IdentityVerificationRequestUser] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('user') }})
     r"""User information collected outside of Link, most likely via your own onboarding process.
 
     Each of the following identity fields are optional:

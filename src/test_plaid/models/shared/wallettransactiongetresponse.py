@@ -3,11 +3,11 @@
 from __future__ import annotations
 import dataclasses
 import dateutil.parser
-from ..shared import walletpaymentscheme as shared_walletpaymentscheme
-from ..shared import wallettransactionamount as shared_wallettransactionamount
-from ..shared import wallettransactioncounterparty as shared_wallettransactioncounterparty
-from ..shared import wallettransactionfailurereason as shared_wallettransactionfailurereason
-from ..shared import wallettransactionstatus as shared_wallettransactionstatus
+from .walletpaymentscheme import WalletPaymentScheme
+from .wallettransactionamount import WalletTransactionAmount
+from .wallettransactioncounterparty import WalletTransactionCounterparty
+from .wallettransactionfailurereason import WalletTransactionFailureReason
+from .wallettransactionstatus import WalletTransactionStatus
 from dataclasses_json import Undefined, dataclass_json
 from datetime import datetime
 from enum import Enum
@@ -37,9 +37,9 @@ class WalletTransactionGetResponseType(str, Enum):
 @dataclasses.dataclass
 class WalletTransactionGetResponse:
     r"""The transaction details"""
-    amount: shared_wallettransactionamount.WalletTransactionAmount = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('amount') }})
+    amount: WalletTransactionAmount = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('amount') }})
     r"""The amount and currency of a transaction"""
-    counterparty: shared_wallettransactioncounterparty.WalletTransactionCounterparty = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('counterparty') }})
+    counterparty: WalletTransactionCounterparty = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('counterparty') }})
     r"""An object representing the e-wallet transaction's counterparty"""
     created_at: datetime = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('created_at'), 'encoder': utils.datetimeisoformat(False), 'decoder': dateutil.parser.isoparse }})
     r"""Timestamp when the transaction was created, in [ISO 8601](https://wikipedia.org/wiki/ISO_8601) format."""
@@ -49,7 +49,7 @@ class WalletTransactionGetResponse:
     r"""A reference for the transaction"""
     request_id: str = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('request_id') }})
     r"""A unique identifier for the request, which can be used for troubleshooting. This identifier, like all Plaid identifiers, is case sensitive."""
-    status: shared_wallettransactionstatus.WalletTransactionStatus = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('status') }})
+    status: WalletTransactionStatus = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('status') }})
     r"""The status of the transaction.
 
     `AUTHORISING`: The transaction is being processed for validation and compliance.
@@ -81,7 +81,7 @@ class WalletTransactionGetResponse:
     wallet_id: str = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('wallet_id') }})
     r"""The EMI (E-Money Institution) wallet that this payment is associated with, if any. This wallet is used as an intermediary account to enable Plaid to reconcile the settlement of funds for Payment Initiation requests."""
     additional_properties: Optional[Dict[str, Any]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'exclude': lambda f: f is None }})
-    failure_reason: Optional[shared_wallettransactionfailurereason.WalletTransactionFailureReason] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('failure_reason') }})
+    failure_reason: Optional[WalletTransactionFailureReason] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('failure_reason') }})
     r"""The error code of a failed transaction. Error codes include:
     `EXTERNAL_SYSTEM`: The transaction was declined by an external system.
     `EXPIRED`: The transaction request has expired.
@@ -91,7 +91,7 @@ class WalletTransactionGetResponse:
     """
     payment_id: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('payment_id') }})
     r"""The payment id that this transaction is associated with, if any. This is present only for transaction types `PIS_PAY_IN` and `REFUND`."""
-    scheme: Optional[shared_walletpaymentscheme.WalletPaymentScheme] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('scheme') }})
+    scheme: Optional[WalletPaymentScheme] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('scheme') }})
     r"""The payment scheme used to execute this transaction. This is present only for transaction types `PAYOUT` and `REFUND`.
 
     `FASTER_PAYMENTS`: The standard payment scheme within the UK.

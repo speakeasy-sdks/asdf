@@ -1,4 +1,4 @@
-# AccountAssetsVerificationStatus
+# VerificationStatus
 
 The current verification status of an Auth Item initiated through Automated or Manual micro-deposits.  Returned for Auth Items only.
 

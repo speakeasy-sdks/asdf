@@ -7,7 +7,7 @@ from enum import Enum
 from test_plaid import utils
 from typing import Any, Dict, Optional
 
-class ProductStatusBreakdownRefreshInterval(str, Enum):
+class RefreshInterval(str, Enum):
     r"""The `refresh_interval` may be `DELAYED` or `STOPPED` even when the success rate is high. This value is only returned for Transactions status breakdowns."""
     NORMAL = 'NORMAL'
     DELAYED = 'DELAYED'
@@ -25,7 +25,7 @@ class ProductStatusBreakdown:
     success: float = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('success') }})
     r"""The percentage of login attempts that are successful, expressed as a decimal."""
     additional_properties: Optional[Dict[str, Any]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'exclude': lambda f: f is None }})
-    refresh_interval: Optional[ProductStatusBreakdownRefreshInterval] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('refresh_interval'), 'exclude': lambda f: f is None }})
+    refresh_interval: Optional[RefreshInterval] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('refresh_interval'), 'exclude': lambda f: f is None }})
     r"""The `refresh_interval` may be `DELAYED` or `STOPPED` even when the success rate is high. This value is only returned for Transactions status breakdowns."""
     
 

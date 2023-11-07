@@ -3,10 +3,10 @@
 from __future__ import annotations
 import dataclasses
 import dateutil.parser
-from ..shared import individualwatchlistcode as shared_individualwatchlistcode
-from ..shared import screeninghitanalysis as shared_screeninghitanalysis
-from ..shared import screeninghitdata as shared_screeninghitdata
-from ..shared import watchlistscreeninghitstatus as shared_watchlistscreeninghitstatus
+from .individualwatchlistcode import IndividualWatchlistCode
+from .screeninghitanalysis import ScreeningHitAnalysis
+from .screeninghitdata import ScreeningHitData
+from .watchlistscreeninghitstatus import WatchlistScreeningHitStatus
 from dataclasses_json import Undefined, dataclass_json
 from datetime import datetime
 from test_plaid import utils
@@ -25,7 +25,7 @@ class WatchlistScreeningHit:
     r"""ID of the associated screening hit."""
     inactive_since: Optional[datetime] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('inactive_since'), 'encoder': utils.datetimeisoformat(False), 'decoder': dateutil.parser.isoparse }})
     r"""An ISO8601 formatted timestamp."""
-    list_code: shared_individualwatchlistcode.IndividualWatchlistCode = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('list_code') }})
+    list_code: IndividualWatchlistCode = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('list_code') }})
     r"""Shorthand identifier for a specific screening list for individuals.
      `AU_CON`: Australia Department of Foreign Affairs and Trade Consolidated List
      `CA_CON`: Government of Canada Consolidated List of Sanctions
@@ -53,14 +53,14 @@ class WatchlistScreeningHit:
     """
     plaid_uid: str = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('plaid_uid') }})
     r"""A universal identifier for a watchlist individual that is stable across searches and updates."""
-    review_status: shared_watchlistscreeninghitstatus.WatchlistScreeningHitStatus = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('review_status') }})
+    review_status: WatchlistScreeningHitStatus = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('review_status') }})
     r"""The current state of review. All watchlist screening hits begin in a `pending_review` state but can be changed by creating a review. When a hit is in the `pending_review` state, it will always show the latest version of the watchlist data Plaid has available and be compared against the latest customer information saved in the watchlist screening. Once a hit has been marked as `confirmed` or `dismissed` it will no longer be updated so that the state is as it was when the review was first conducted."""
     source_uid: Optional[str] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('source_uid') }})
     r"""The identifier provided by the source sanction or watchlist. When one is not provided by the source, this is `null`."""
     additional_properties: Optional[Dict[str, Any]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'exclude': lambda f: f is None }})
-    analysis: Optional[shared_screeninghitanalysis.ScreeningHitAnalysis] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('analysis'), 'exclude': lambda f: f is None }})
+    analysis: Optional[ScreeningHitAnalysis] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('analysis'), 'exclude': lambda f: f is None }})
     r"""Analysis information describing why a screening hit matched the provided user information"""
-    data: Optional[shared_screeninghitdata.ScreeningHitData] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('data'), 'exclude': lambda f: f is None }})
+    data: Optional[ScreeningHitData] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('data'), 'exclude': lambda f: f is None }})
     r"""Information associated with the watchlist hit"""
     
 

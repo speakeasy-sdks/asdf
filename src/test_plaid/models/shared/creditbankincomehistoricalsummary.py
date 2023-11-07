@@ -2,8 +2,8 @@
 
 from __future__ import annotations
 import dataclasses
-from ..shared import creditamountwithcurrency as shared_creditamountwithcurrency
-from ..shared import creditbankincometransaction as shared_creditbankincometransaction
+from .creditamountwithcurrency import CreditAmountWithCurrency
+from .creditbankincometransaction import CreditBankIncomeTransaction
 from dataclasses_json import Undefined, dataclass_json
 from datetime import date
 from test_plaid import utils
@@ -38,11 +38,11 @@ class CreditBankIncomeHistoricalSummary:
 
     Deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
     """
-    total_amounts: Optional[List[shared_creditamountwithcurrency.CreditAmountWithCurrency]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('total_amounts'), 'exclude': lambda f: f is None }})
+    total_amounts: Optional[List[CreditAmountWithCurrency]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('total_amounts'), 'exclude': lambda f: f is None }})
     r"""Total amount of earnings for the income source(s) of the user for the month in the summary.
     This can contain multiple amounts, with each amount denominated in one unique currency.
     """
-    transactions: Optional[List[shared_creditbankincometransaction.CreditBankIncomeTransaction]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('transactions'), 'exclude': lambda f: f is None }})
+    transactions: Optional[List[CreditBankIncomeTransaction]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('transactions'), 'exclude': lambda f: f is None }})
     unofficial_currency_code: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('unofficial_currency_code') }})
     r"""The unofficial currency code associated with the amount or balance. Always `null` if `iso_currency_code` is non-null.
     Unofficial currency codes are used for currencies that do not have official ISO currency codes, such as cryptocurrencies and the currencies of certain countries.

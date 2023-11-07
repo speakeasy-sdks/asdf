@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 import dataclasses
-from ..shared import proxytype as shared_proxytype
+from .proxytype import ProxyType
 from dataclasses_json import Undefined, dataclass_json
 from test_plaid import utils
 from typing import Any, Dict, Optional
@@ -12,7 +12,7 @@ from typing import Any, Dict, Optional
 @dataclasses.dataclass
 class RiskCheckDevice:
     r"""Result summary object specifying values for `device` attributes of risk check."""
-    ip_proxy_type: Optional[shared_proxytype.ProxyType] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('ip_proxy_type') }})
+    ip_proxy_type: Optional[ProxyType] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('ip_proxy_type') }})
     r"""An enum indicating whether a network proxy is present and if so what type it is.
 
     `none_detected` indicates the user is not on a detectable proxy network.

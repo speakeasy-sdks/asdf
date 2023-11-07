@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 import dataclasses
-from ..shared import riskchecklinkedservice as shared_riskchecklinkedservice
+from .riskchecklinkedservice import RiskCheckLinkedService
 from dataclasses_json import Undefined, dataclass_json
 from test_plaid import utils
 from typing import Any, Dict, List, Optional
@@ -12,7 +12,7 @@ from typing import Any, Dict, List, Optional
 @dataclasses.dataclass
 class RiskCheckPhone:
     r"""Result summary object specifying values for `phone` attributes of risk check."""
-    linked_services: List[shared_riskchecklinkedservice.RiskCheckLinkedService] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('linked_services') }})
+    linked_services: List[RiskCheckLinkedService] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('linked_services') }})
     r"""A list of online services where this phone number has been detected to have accounts or other activity."""
     additional_properties: Optional[Dict[str, Any]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'exclude': lambda f: f is None }})
     

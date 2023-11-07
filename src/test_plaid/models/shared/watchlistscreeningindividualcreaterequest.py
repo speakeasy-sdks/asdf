@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 import dataclasses
-from ..shared import watchlistscreeningrequestsearchterms as shared_watchlistscreeningrequestsearchterms
+from .watchlistscreeningrequestsearchterms import WatchlistScreeningRequestSearchTerms
 from dataclasses_json import Undefined, dataclass_json
 from test_plaid import utils
 from typing import Optional
@@ -12,7 +12,7 @@ from typing import Optional
 @dataclasses.dataclass
 class WatchlistScreeningIndividualCreateRequest:
     r"""Request input for creating an individual watchlist screening"""
-    search_terms: shared_watchlistscreeningrequestsearchterms.WatchlistScreeningRequestSearchTerms = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('search_terms') }})
+    search_terms: WatchlistScreeningRequestSearchTerms = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('search_terms') }})
     r"""Search inputs for creating a watchlist screening"""
     client_id: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('client_id'), 'exclude': lambda f: f is None }})
     r"""Your Plaid API `client_id`. The `client_id` is required and may be provided either in the `PLAID-CLIENT-ID` header or as part of a request body."""

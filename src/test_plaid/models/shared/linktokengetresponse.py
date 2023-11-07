@@ -3,8 +3,8 @@
 from __future__ import annotations
 import dataclasses
 import dateutil.parser
-from ..shared import linktokengetmetadataresponse as shared_linktokengetmetadataresponse
-from ..shared import linktokengetsessionsresponse as shared_linktokengetsessionsresponse
+from .linktokengetmetadataresponse import LinkTokenGetMetadataResponse
+from .linktokengetsessionsresponse import LinkTokenGetSessionsResponse
 from dataclasses_json import Undefined, dataclass_json
 from datetime import datetime
 from test_plaid import utils
@@ -21,12 +21,12 @@ class LinkTokenGetResponse:
     r"""The expiration timestamp for the `link_token`, in [ISO 8601](https://wikipedia.org/wiki/ISO_8601) format."""
     link_token: str = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('link_token') }})
     r"""A `link_token`, which can be supplied to Link in order to initialize it and receive a `public_token`, which can be exchanged for an `access_token`."""
-    metadata: shared_linktokengetmetadataresponse.LinkTokenGetMetadataResponse = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('metadata') }})
+    metadata: LinkTokenGetMetadataResponse = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('metadata') }})
     r"""An object specifying the arguments originally provided to the `/link/token/create` call."""
     request_id: str = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('request_id') }})
     r"""A unique identifier for the request, which can be used for troubleshooting. This identifier, like all Plaid identifiers, is case sensitive."""
     additional_properties: Optional[Dict[str, Any]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'exclude': lambda f: f is None }})
-    link_sessions: Optional[List[shared_linktokengetsessionsresponse.LinkTokenGetSessionsResponse]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('link_sessions'), 'exclude': lambda f: f is None }})
+    link_sessions: Optional[List[LinkTokenGetSessionsResponse]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('link_sessions'), 'exclude': lambda f: f is None }})
     r"""Information about link sessions created using this `link_token`."""
     
 

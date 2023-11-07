@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 import dataclasses
-from ..shared import weakaliasdetermination as shared_weakaliasdetermination
+from .weakaliasdetermination import WeakAliasDetermination
 from dataclasses_json import Undefined, dataclass_json
 from test_plaid import utils
 from typing import Any, Dict, Optional
@@ -16,7 +16,7 @@ class EntityScreeningHitNames:
     r"""The full name of the entity."""
     is_primary: bool = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('is_primary') }})
     r"""Primary names are those most commonly used to refer to this entity. Only one name will ever be marked as primary."""
-    weak_alias_determination: shared_weakaliasdetermination.WeakAliasDetermination = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('weak_alias_determination') }})
+    weak_alias_determination: WeakAliasDetermination = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('weak_alias_determination') }})
     r"""Names that are explicitly marked as low quality either by their `source` list, or by `plaid` by a series of additional checks done by Plaid. Plaid does not ever surface a hit as a result of a weak name alone. If a name has no quality issues, this value will be `none`."""
     additional_properties: Optional[Dict[str, Any]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'exclude': lambda f: f is None }})
     

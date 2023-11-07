@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 import dataclasses
-from ..shared import partyroletype as shared_partyroletype
+from .partyroletype import PartyRoleType
 from dataclasses_json import Undefined, dataclass_json
 from test_plaid import utils
 from typing import Any, Dict, Optional
@@ -12,7 +12,7 @@ from typing import Any, Dict, Optional
 @dataclasses.dataclass
 class RoleDetail:
     r"""Documentation not found in the MISMO model viewer and not provided by Freddie Mac."""
-    party_role_type: shared_partyroletype.PartyRoleType = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('PartyRoleType') }})
+    party_role_type: PartyRoleType = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('PartyRoleType') }})
     r"""A value from a MISMO defined list that identifies the role that the party plays in the transaction. Parties may be either a person or legal entity. A party may play multiple roles in a transaction.A value from a MISMO defined list that identifies the role that the party plays in the transaction. Parties may be either a person or legal entity. A party may play multiple roles in a transaction."""
     additional_properties: Optional[Dict[str, Any]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'exclude': lambda f: f is None }})
     

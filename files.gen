@@ -4,11 +4,10 @@ src/test_plaid/sdk.py
 pylintrc
 setup.py
 src/test_plaid/__init__.py
-src/test_plaid/models/__init__.py
-src/test_plaid/models/errors/sdkerror.py
 src/test_plaid/utils/__init__.py
 src/test_plaid/utils/retries.py
 src/test_plaid/utils/utils.py
+src/test_plaid/models/errors/sdkerror.py
 src/test_plaid/models/operations/accountsbalanceget.py
 src/test_plaid/models/operations/accountsget.py
 src/test_plaid/models/operations/applicationget.py
@@ -237,7 +236,6 @@ src/test_plaid/models/operations/watchlistscreeningindividualreviewcreate.py
 src/test_plaid/models/operations/watchlistscreeningindividualreviewlist.py
 src/test_plaid/models/operations/watchlistscreeningindividualupdate.py
 src/test_plaid/models/operations/webhookverificationkeyget.py
-src/test_plaid/models/operations/__init__.py
 src/test_plaid/models/shared/accountsgetresponse.py
 src/test_plaid/models/shared/item.py
 src/test_plaid/models/shared/products.py
@@ -1404,8 +1402,10 @@ src/test_plaid/models/shared/watchlistscreeningindividualupdaterequestresettable
 src/test_plaid/models/shared/webhookverificationkeygetresponse.py
 src/test_plaid/models/shared/jwkpublickey.py
 src/test_plaid/models/shared/webhookverificationkeygetrequest.py
-src/test_plaid/models/shared/__init__.py
+src/test_plaid/models/__init__.py
 src/test_plaid/models/errors/__init__.py
+src/test_plaid/models/operations/__init__.py
+src/test_plaid/models/shared/__init__.py
 USAGE.md
 docs/models/operations/accountsbalancegetresponse.md
 docs/models/operations/accountsgetresponse.md
@@ -1636,7 +1636,7 @@ docs/models/operations/watchlistscreeningindividualreviewlistresponse.md
 docs/models/operations/watchlistscreeningindividualupdateresponse.md
 docs/models/operations/webhookverificationkeygetresponse.md
 docs/models/shared/accountsgetresponse.md
-docs/models/shared/itemupdatetype.md
+docs/models/shared/updatetype.md
 docs/models/shared/item.md
 docs/models/shared/products.md
 docs/models/shared/plaiderror.md
@@ -1656,13 +1656,13 @@ docs/models/shared/applicationgetrequest.md
 docs/models/shared/assetreportauditcopycreateresponse.md
 docs/models/shared/assetreportauditcopycreaterequest.md
 docs/models/shared/assetreportgetresponse.md
-docs/models/shared/warningwarningcode.md
+docs/models/shared/warningcode.md
 docs/models/shared/warningt.md
 docs/models/shared/cause.md
 docs/models/shared/assetreport.md
 docs/models/shared/assetreportuser.md
 docs/models/shared/assetreportitem.md
-docs/models/shared/accountassetsverificationstatus.md
+docs/models/shared/verificationstatus.md
 docs/models/shared/accountassets.md
 docs/models/shared/assetreporttransaction.md
 docs/models/shared/assetreporttransactiontype.md
@@ -1673,7 +1673,7 @@ docs/models/shared/ownershiptype.md
 docs/models/shared/owner.md
 docs/models/shared/phonenumbertype.md
 docs/models/shared/phonenumber.md
-docs/models/shared/emailtype.md
+docs/models/shared/type.md
 docs/models/shared/email.md
 docs/models/shared/address.md
 docs/models/shared/addressdata.md
@@ -1719,7 +1719,7 @@ docs/models/shared/banktransfernetwork.md
 docs/models/shared/banktransferfailure.md
 docs/models/shared/banktransferdirection.md
 docs/models/shared/achclass.md
-docs/models/shared/banktransfercreaterequestinput.md
+docs/models/shared/banktransfercreaterequest.md
 docs/models/shared/banktransfereventlistresponse.md
 docs/models/shared/banktransferevent.md
 docs/models/shared/banktransfereventtype.md
@@ -2010,8 +2010,8 @@ docs/models/shared/depositswitchcreaterequestoptions.md
 docs/models/shared/depositswitchcreateresponse.md
 docs/models/shared/depositswitchcreaterequestcountrycode.md
 docs/models/shared/depositswitchcreaterequest.md
-docs/models/shared/depositswitchgetresponsestate.md
-docs/models/shared/depositswitchgetresponseswitchmethod.md
+docs/models/shared/state.md
+docs/models/shared/switchmethod.md
 docs/models/shared/depositswitchgetresponse.md
 docs/models/shared/depositswitchgetrequest.md
 docs/models/shared/depositswitchtokencreateresponse.md
@@ -2139,7 +2139,7 @@ docs/models/shared/paystub.md
 docs/models/shared/paystubytddetails.md
 docs/models/shared/paystubdetails.md
 docs/models/shared/paystubpayfrequency.md
-docs/models/shared/payperioddetailspayfrequency.md
+docs/models/shared/payfrequency.md
 docs/models/shared/payperioddetails.md
 docs/models/shared/distributionbreakdown.md
 docs/models/shared/pay.md
@@ -2176,7 +2176,7 @@ docs/models/shared/institution.md
 docs/models/shared/institutionstatus.md
 docs/models/shared/productstatusstatus.md
 docs/models/shared/productstatus.md
-docs/models/shared/productstatusbreakdownrefreshinterval.md
+docs/models/shared/refreshinterval.md
 docs/models/shared/productstatusbreakdown.md
 docs/models/shared/healthincident.md
 docs/models/shared/incidentupdatestatus.md
@@ -2266,7 +2266,7 @@ docs/models/shared/mortgageliability.md
 docs/models/shared/mortgagepropertyaddress.md
 docs/models/shared/mortgageinterestrate.md
 docs/models/shared/creditcardliability.md
-docs/models/shared/apraprtype.md
+docs/models/shared/aprtype.md
 docs/models/shared/apr.md
 docs/models/shared/liabilitiesgetrequest.md
 docs/models/shared/liabilitiesgetrequestoptions.md
@@ -2311,8 +2311,8 @@ docs/models/shared/linktokencreaterequestemploymentbankincome.md
 docs/models/shared/linktokencreaterequestdepositswitch.md
 docs/models/shared/consumerreportpermissiblepurpose.md
 docs/models/shared/linktokencreaterequestbasereport.md
-docs/models/shared/linktokencreaterequestauthflowtype.md
-docs/models/shared/linktokencreaterequestauthreroutetocredentials.md
+docs/models/shared/flowtype.md
+docs/models/shared/reroutetocredentials.md
 docs/models/shared/linktokencreaterequestauth.md
 docs/models/shared/linktokenaccountfilters.md
 docs/models/shared/loanfilter.md
@@ -2427,7 +2427,7 @@ docs/models/shared/processorbalancegetresponse.md
 docs/models/shared/processorbalancegetrequest.md
 docs/models/shared/processorbalancegetrequestoptions.md
 docs/models/shared/processorbanktransfercreateresponse.md
-docs/models/shared/processorbanktransfercreaterequestinput.md
+docs/models/shared/processorbanktransfercreaterequest.md
 docs/models/shared/processoridentitygetresponse.md
 docs/models/shared/processoridentitygetrequest.md
 docs/models/shared/processoridentitymatchresponse.md
@@ -2450,7 +2450,7 @@ docs/models/shared/processorsignalreturnreportresponse.md
 docs/models/shared/processorsignalreturnreportrequest.md
 docs/models/shared/processorstripebankaccounttokencreateresponse.md
 docs/models/shared/processorstripebankaccounttokencreaterequest.md
-docs/models/shared/processortokencreaterequestprocessor.md
+docs/models/shared/processor.md
 docs/models/shared/processortokencreaterequest.md
 docs/models/shared/processortokenpermissionsgetresponse.md
 docs/models/shared/processortokenpermissionsgetrequest.md
@@ -2460,7 +2460,7 @@ docs/models/shared/processortokenwebhookupdateresponse.md
 docs/models/shared/processortokenwebhookupdaterequest.md
 docs/models/shared/processortransactionsgetresponse.md
 docs/models/shared/transactionpaymentchannel.md
-docs/models/shared/transactiontransactiontype.md
+docs/models/shared/transactiontype.md
 docs/models/shared/transaction.md
 docs/models/shared/transactioncode.md
 docs/models/shared/personalfinancecategory.md
@@ -2494,7 +2494,7 @@ docs/models/shared/sandboxincomefirewebhookresponse.md
 docs/models/shared/sandboxincomefirewebhookrequestverificationstatus.md
 docs/models/shared/sandboxincomefirewebhookrequest.md
 docs/models/shared/sandboxitemfirewebhookresponse.md
-docs/models/shared/sandboxitemfirewebhookrequestwebhookcode.md
+docs/models/shared/webhookcode.md
 docs/models/shared/sandboxitemfirewebhookrequest.md
 docs/models/shared/webhooktype.md
 docs/models/shared/sandboxitemresetloginresponse.md

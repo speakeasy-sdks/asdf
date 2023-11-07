@@ -2,11 +2,11 @@
 
 from __future__ import annotations
 import dataclasses
-from ..shared import counterparty as shared_counterparty
-from ..shared import location as shared_location
-from ..shared import paymentchannel as shared_paymentchannel
-from ..shared import personalfinancecategory as shared_personalfinancecategory
-from ..shared import recurrence as shared_recurrence
+from .counterparty import Counterparty
+from .location import Location
+from .paymentchannel import PaymentChannel
+from .personalfinancecategory import PersonalFinanceCategory
+from .recurrence import Recurrence
 from dataclasses_json import Undefined, dataclass_json
 from test_plaid import utils
 from typing import Any, Dict, List, Optional
@@ -16,15 +16,15 @@ from typing import Any, Dict, List, Optional
 @dataclasses.dataclass
 class Enrichments:
     r"""A grouping of the Plaid produced transaction enrichment fields."""
-    counterparties: List[shared_counterparty.Counterparty] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('counterparties') }})
+    counterparties: List[Counterparty] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('counterparties') }})
     r"""The counterparties present in the transaction. Counterparties, such as the merchant or the financial institution, are extracted by Plaid from the raw description."""
-    location: shared_location.Location = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('location') }})
+    location: Location = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('location') }})
     r"""A representation of where a transaction took place"""
     logo_url: Optional[str] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('logo_url') }})
     r"""The URL of a logo associated with this transaction, if available. The logo is formatted as a 100x100 pixel PNG file."""
     merchant_name: Optional[str] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('merchant_name') }})
     r"""The name of the primary counterparty, such as the merchant or the financial institution, as extracted by Plaid from the raw description."""
-    payment_channel: shared_paymentchannel.PaymentChannel = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('payment_channel') }})
+    payment_channel: PaymentChannel = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('payment_channel') }})
     r"""The channel used to make a payment.
     `online:` transactions that took place online.
 
@@ -32,7 +32,7 @@ class Enrichments:
 
     `other:` transactions that relate to banks, e.g. fees or deposits.
     """
-    personal_finance_category: Optional[shared_personalfinancecategory.PersonalFinanceCategory] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('personal_finance_category') }})
+    personal_finance_category: Optional[PersonalFinanceCategory] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('personal_finance_category') }})
     r"""Information describing the intent of the transaction. Most relevant for personal finance use cases, but not limited to such use cases.
 
     See the [`taxonomy csv file`](https://plaid.com/documents/transactions-personal-finance-category-taxonomy.csv) for a full list of personal finance categories.
@@ -60,7 +60,7 @@ class Enrichments:
 
     Deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
     """
-    recurrence: Optional[shared_recurrence.Recurrence] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('recurrence') }})
+    recurrence: Optional[Recurrence] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('recurrence') }})
     r"""Insights relating to expenses and deposits that are predicted to occur on a scheduled basis, such as biweekly, monthly, or annually.
 
     Common examples include loan payments, bill payments, subscriptions, and payroll income.

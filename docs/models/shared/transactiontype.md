@@ -1,4 +1,4 @@
-# ~~TransactionTransactionType~~
+# ~~TransactionType~~
 
 Please use the `payment_channel` field, `transaction_type` will be deprecated in the future.
 

@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 import dataclasses
-from ..shared import creditfreddiemacloanidentifiers_voa_2_4 as shared_creditfreddiemacloanidentifiers_voa_2_4
+from .creditfreddiemacloanidentifiers_voa_2_4 import CreditFreddieMacLoanIdentifiersVOA24
 from dataclasses_json import Undefined, dataclass_json
 from test_plaid import utils
 from typing import Any, Dict, Optional
@@ -12,7 +12,7 @@ from typing import Any, Dict, Optional
 @dataclasses.dataclass
 class CreditFreddieMacLoanVOA24:
     r"""Information specific to a mortgage loan agreement between one or more borrowers and a mortgage lender."""
-    loan_identifiers: shared_creditfreddiemacloanidentifiers_voa_2_4.CreditFreddieMacLoanIdentifiersVOA24 = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('LOAN_IDENTIFIERS') }})
+    loan_identifiers: CreditFreddieMacLoanIdentifiersVOA24 = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('LOAN_IDENTIFIERS') }})
     r"""Collection of current and previous identifiers for this loan."""
     loan_role_type: str = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('LoanRoleType') }})
     r"""Type of loan. The value can only be \\"SubjectLoan\\" """

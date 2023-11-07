@@ -3,7 +3,7 @@
 from __future__ import annotations
 import dataclasses
 import requests as requests_http
-from ..shared import linkoauthcorrelationidexchangeresponse as shared_linkoauthcorrelationidexchangeresponse
+from ...models.shared import linkoauthcorrelationidexchangeresponse as shared_linkoauthcorrelationidexchangeresponse
 from typing import Optional
 
 

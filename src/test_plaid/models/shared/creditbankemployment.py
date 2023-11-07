@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 import dataclasses
-from ..shared import creditbankemployer as shared_creditbankemployer
+from .creditbankemployer import CreditBankEmployer
 from dataclasses_json import Undefined, dataclass_json
 from datetime import date
 from test_plaid import utils
@@ -18,7 +18,7 @@ class CreditBankEmployment:
     r"""A unique identifier for the bank employment."""
     earliest_deposit_date: date = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('earliest_deposit_date'), 'encoder': utils.dateisoformat(False), 'decoder': utils.datefromisoformat }})
     r"""The date of the earliest deposit from this employer from within the period of the days requested."""
-    employer: shared_creditbankemployer.CreditBankEmployer = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('employer') }})
+    employer: CreditBankEmployer = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('employer') }})
     r"""Object containing employer data."""
     latest_deposit_date: date = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('latest_deposit_date'), 'encoder': utils.dateisoformat(False), 'decoder': utils.datefromisoformat }})
     r"""The date of the most recent deposit from this employer."""

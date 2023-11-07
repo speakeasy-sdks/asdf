@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 import dataclasses
-from ..shared import walletisocurrencycode as shared_walletisocurrencycode
+from .walletisocurrencycode import WalletISOCurrencyCode
 from dataclasses_json import Undefined, dataclass_json
 from test_plaid import utils
 from typing import Any, Dict, Optional
@@ -12,7 +12,7 @@ from typing import Any, Dict, Optional
 @dataclasses.dataclass
 class WalletTransactionAmount:
     r"""The amount and currency of a transaction"""
-    iso_currency_code: shared_walletisocurrencycode.WalletISOCurrencyCode = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('iso_currency_code') }})
+    iso_currency_code: WalletISOCurrencyCode = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('iso_currency_code') }})
     r"""An ISO-4217 currency code, used with e-wallets and transactions."""
     value: float = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('value') }})
     r"""The amount of the transaction. Must contain at most two digits of precision e.g. `1.23`."""

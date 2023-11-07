@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 import dataclasses
-from ..shared import watchlistscreeningdocumenttype as shared_watchlistscreeningdocumenttype
+from .watchlistscreeningdocumenttype import WatchlistScreeningDocumentType
 from dataclasses_json import Undefined, dataclass_json
 from test_plaid import utils
 from typing import Any, Dict, Optional
@@ -14,7 +14,7 @@ class WatchlistScreeningDocument:
     r"""An official document, usually issued by a governing body or institution, with an associated identifier."""
     number: str = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('number') }})
     r"""The numeric or alphanumeric identifier associated with this document."""
-    type: shared_watchlistscreeningdocumenttype.WatchlistScreeningDocumentType = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('type') }})
+    type: WatchlistScreeningDocumentType = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('type') }})
     r"""The kind of official document represented by this object.
 
     `birth_certificate` - A certificate of birth

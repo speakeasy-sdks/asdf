@@ -3,14 +3,14 @@
 from __future__ import annotations
 import dataclasses
 import dateutil.parser
-from ..shared import documentaryverification as shared_documentaryverification
-from ..shared import identityverificationstatus as shared_identityverificationstatus
-from ..shared import identityverificationstepsummary as shared_identityverificationstepsummary
-from ..shared import identityverificationtemplatereference as shared_identityverificationtemplatereference
-from ..shared import identityverificationuserdata as shared_identityverificationuserdata
-from ..shared import kyccheckdetails as shared_kyccheckdetails
-from ..shared import riskcheckdetails as shared_riskcheckdetails
-from ..shared import selfiecheck as shared_selfiecheck
+from .documentaryverification import DocumentaryVerification
+from .identityverificationstatus import IdentityVerificationStatus
+from .identityverificationstepsummary import IdentityVerificationStepSummary
+from .identityverificationtemplatereference import IdentityVerificationTemplateReference
+from .identityverificationuserdata import IdentityVerificationUserData
+from .kyccheckdetails import KYCCheckDetails
+from .riskcheckdetails import RiskCheckDetails
+from .selfiecheck import SelfieCheck
 from dataclasses_json import Undefined, dataclass_json
 from datetime import datetime
 from test_plaid import utils
@@ -27,23 +27,23 @@ class IdentityVerification:
     r"""An ISO8601 formatted timestamp."""
     created_at: datetime = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('created_at'), 'encoder': utils.datetimeisoformat(False), 'decoder': dateutil.parser.isoparse }})
     r"""An ISO8601 formatted timestamp."""
-    documentary_verification: Optional[shared_documentaryverification.DocumentaryVerification] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('documentary_verification') }})
+    documentary_verification: Optional[DocumentaryVerification] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('documentary_verification') }})
     r"""Data, images, analysis, and results from the `documentary_verification` step. This field will be `null` unless `steps.documentary_verification` has reached a terminal state of either `success` or `failed`."""
     id: str = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('id') }})
     r"""ID of the associated Identity Verification attempt."""
-    kyc_check: Optional[shared_kyccheckdetails.KYCCheckDetails] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('kyc_check') }})
+    kyc_check: Optional[KYCCheckDetails] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('kyc_check') }})
     r"""Additional information for the `kyc_check` step. This field will be `null` unless `steps.kyc_check` has reached a terminal state of either `success` or `failed`."""
     previous_attempt_id: Optional[str] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('previous_attempt_id') }})
     r"""The ID for the Identity Verification preceding this session. This field will only be filled if the current Identity Verification is a retry of a previous attempt."""
     redacted_at: Optional[datetime] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('redacted_at'), 'encoder': utils.datetimeisoformat(False), 'decoder': dateutil.parser.isoparse }})
     r"""An ISO8601 formatted timestamp."""
-    risk_check: Optional[shared_riskcheckdetails.RiskCheckDetails] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('risk_check') }})
+    risk_check: Optional[RiskCheckDetails] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('risk_check') }})
     r"""Additional information for the `risk_check` step."""
-    selfie_check: Optional[shared_selfiecheck.SelfieCheck] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('selfie_check') }})
+    selfie_check: Optional[SelfieCheck] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('selfie_check') }})
     r"""Additional information for the `selfie_check` step. This field will be `null` unless `steps.selfie_check` has reached a terminal state of either `success` or `failed`."""
     shareable_url: Optional[str] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('shareable_url') }})
     r"""A shareable URL that can be sent directly to the user to complete verification"""
-    status: shared_identityverificationstatus.IdentityVerificationStatus = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('status') }})
+    status: IdentityVerificationStatus = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('status') }})
     r"""The status of this Identity Verification attempt.
 
 
@@ -59,7 +59,7 @@ class IdentityVerification:
 
     `pending_review` - The Identity Verification attempt template was configured to perform a screening that had one or more hits needing review.
     """
-    steps: shared_identityverificationstepsummary.IdentityVerificationStepSummary = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('steps') }})
+    steps: IdentityVerificationStepSummary = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('steps') }})
     r"""Each step will be one of the following values:
 
 
@@ -85,9 +85,9 @@ class IdentityVerification:
 
     `manually_rejected` - The step was manually overridden to fail by a team member in the dashboard.
     """
-    template: shared_identityverificationtemplatereference.IdentityVerificationTemplateReference = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('template') }})
+    template: IdentityVerificationTemplateReference = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('template') }})
     r"""The resource ID and version number of the template configuring the behavior of a given identity verification."""
-    user: shared_identityverificationuserdata.IdentityVerificationUserData = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('user') }})
+    user: IdentityVerificationUserData = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('user') }})
     r"""The identity data that was either collected from the user or provided via API in order to perform an identity verification."""
     watchlist_screening_id: Optional[str] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('watchlist_screening_id') }})
     r"""ID of the associated screening."""

@@ -12,9 +12,9 @@ class IncomeVerificationDocumentsDownloadResponse:
     r"""HTTP response content type for this operation"""
     status_code: int = dataclasses.field()
     r"""HTTP response status code for this operation"""
-    income_verification_documents_download_200_application_zip_binary_string: Optional[requests_http.Response] = dataclasses.field(default=None)
-    r"""A ZIP file containing source documents(s) used as the basis for income verification."""
     raw_response: Optional[requests_http.Response] = dataclasses.field(default=None)
     r"""Raw HTTP response; suitable for custom response parsing"""
+    stream: Optional[requests_http.Response] = dataclasses.field(default=None)
+    r"""A ZIP file containing source documents(s) used as the basis for income verification."""
     
 

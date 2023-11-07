@@ -3,7 +3,7 @@
 from __future__ import annotations
 import dataclasses
 import requests as requests_http
-from ..shared import webhookverificationkeygetresponse as shared_webhookverificationkeygetresponse
+from ...models.shared import webhookverificationkeygetresponse as shared_webhookverificationkeygetresponse
 from typing import Optional
 
 

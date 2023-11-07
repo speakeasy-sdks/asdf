@@ -2,10 +2,10 @@
 
 from __future__ import annotations
 import dataclasses
-from ..shared import pslfstatus as shared_pslfstatus
-from ..shared import serviceraddressdata as shared_serviceraddressdata
-from ..shared import studentloanstatus as shared_studentloanstatus
-from ..shared import studentrepaymentplan as shared_studentrepaymentplan
+from .pslfstatus import PSLFStatus
+from .serviceraddressdata import ServicerAddressData
+from .studentloanstatus import StudentLoanStatus
+from .studentrepaymentplan import StudentRepaymentPlan
 from dataclasses_json import Undefined, dataclass_json
 from datetime import date
 from test_plaid import utils
@@ -38,7 +38,7 @@ class StudentLoan:
     r"""The date of the last statement. Dates are returned in an [ISO 8601](https://wikipedia.org/wiki/ISO_8601) format (YYYY-MM-DD)."""
     loan_name: Optional[str] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('loan_name') }})
     r"""The type of loan, e.g., \\"Consolidation Loans\\"."""
-    loan_status: shared_studentloanstatus.StudentLoanStatus = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('loan_status') }})
+    loan_status: StudentLoanStatus = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('loan_status') }})
     r"""An object representing the status of the student loan"""
     minimum_payment_amount: Optional[float] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('minimum_payment_amount') }})
     r"""The minimum payment due for the next billing cycle. There are some exceptions:
@@ -55,13 +55,13 @@ class StudentLoan:
     r"""The total dollar amount of the accrued interest balance. For Sallie Mae ( `ins_116944`), this amount is included in the current balance of the loan, so this field will return as `null`."""
     payment_reference_number: Optional[str] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('payment_reference_number') }})
     r"""The relevant account number that should be used to reference this loan for payments. In the majority of cases, `payment_reference_number` will match `account_number,` but in some institutions, such as Great Lakes (`ins_116861`), it will be different."""
-    pslf_status: shared_pslfstatus.PSLFStatus = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('pslf_status') }})
+    pslf_status: PSLFStatus = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('pslf_status') }})
     r"""Information about the student's eligibility in the Public Service Loan Forgiveness program. This is only returned if the institution is FedLoan (`ins_116527`)."""
-    repayment_plan: shared_studentrepaymentplan.StudentRepaymentPlan = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('repayment_plan') }})
+    repayment_plan: StudentRepaymentPlan = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('repayment_plan') }})
     r"""An object representing the repayment plan for the student loan"""
     sequence_number: Optional[str] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('sequence_number') }})
     r"""The sequence number of the student loan. Heartland ECSI (`ins_116948`) does not make this field available."""
-    servicer_address: shared_serviceraddressdata.ServicerAddressData = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('servicer_address') }})
+    servicer_address: ServicerAddressData = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('servicer_address') }})
     r"""The address of the student loan servicer. This is generally the remittance address to which payments should be sent."""
     ytd_interest_paid: Optional[float] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('ytd_interest_paid') }})
     r"""The year to date (YTD) interest paid. Availability for this field is limited."""

@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 import dataclasses
-from ..shared import risksignaldocumentstatus as shared_risksignaldocumentstatus
+from .risksignaldocumentstatus import RiskSignalDocumentStatus
 from dataclasses_json import Undefined, dataclass_json
 from test_plaid import utils
 from typing import Any, Dict, Optional
@@ -17,7 +17,7 @@ class RiskSignalDocumentReference:
     r"""An identifier of the document referenced by the document metadata."""
     document_name: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('document_name'), 'exclude': lambda f: f is None }})
     r"""The name of the document"""
-    status: Optional[shared_risksignaldocumentstatus.RiskSignalDocumentStatus] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('status'), 'exclude': lambda f: f is None }})
+    status: Optional[RiskSignalDocumentStatus] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('status'), 'exclude': lambda f: f is None }})
     r"""Status of a document for risk signal analysis"""
     
 

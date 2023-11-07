@@ -2,19 +2,19 @@
 
 from __future__ import annotations
 import dataclasses
-from ..shared import accountbalance as shared_accountbalance
-from ..shared import accountsubtype as shared_accountsubtype
-from ..shared import accounttype as shared_accounttype
-from ..shared import assetreporttransaction as shared_assetreporttransaction
-from ..shared import historicalbalance as shared_historicalbalance
-from ..shared import owner as shared_owner
-from ..shared import ownershiptype as shared_ownershiptype
+from .accountbalance import AccountBalance
+from .accountsubtype import AccountSubtype
+from .accounttype import AccountType
+from .assetreporttransaction import AssetReportTransaction
+from .historicalbalance import HistoricalBalance
+from .owner import Owner
+from .ownershiptype import OwnershipType
 from dataclasses_json import Undefined, dataclass_json
 from enum import Enum
 from test_plaid import utils
 from typing import Any, Dict, List, Optional
 
-class AccountAssetsVerificationStatus(str, Enum):
+class VerificationStatus(str, Enum):
     r"""The current verification status of an Auth Item initiated through Automated or Manual micro-deposits.  Returned for Auth Items only.
 
     `pending_automatic_verification`: The Item is pending automatic verification
@@ -50,11 +50,11 @@ class AccountAssets:
 
     Like all Plaid identifiers, the `account_id` is case sensitive.
     """
-    balances: shared_accountbalance.AccountBalance = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('balances') }})
+    balances: AccountBalance = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('balances') }})
     r"""A set of fields describing the balance for an account. Balance information may be cached unless the balance object was returned by `/accounts/balance/get`."""
     days_available: float = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('days_available') }})
     r"""The duration of transaction history available for this Item, typically defined as the time since the date of the earliest transaction in that account."""
-    historical_balances: List[shared_historicalbalance.HistoricalBalance] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('historical_balances') }})
+    historical_balances: List[HistoricalBalance] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('historical_balances') }})
     r"""Calculated data about the historical balances on the account."""
     mask: Optional[str] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('mask') }})
     r"""The last 2-4 alphanumeric characters of an account's official account number. Note that the mask may be non-unique between an Item's accounts, and it may also not match the mask that the bank displays to the user."""
@@ -62,13 +62,13 @@ class AccountAssets:
     r"""The name of the account, either assigned by the user or by the financial institution itself"""
     official_name: Optional[str] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('official_name') }})
     r"""The official name of the account as given by the financial institution"""
-    owners: List[shared_owner.Owner] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('owners') }})
+    owners: List[Owner] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('owners') }})
     r"""Data returned by the financial institution about the account owner or owners.For business accounts, the name reported may be either the name of the individual or the name of the business, depending on the institution. Multiple owners on a single account will be represented in the same `owner` object, not in multiple owner objects within the array. In API versions 2018-05-22 and earlier, the `owners` object is not returned, and instead identity information is returned in the top level `identity` object. For more details, see [Plaid API versioning](https://plaid.com/docs/api/versioning/#version-2019-05-29)"""
-    subtype: Optional[shared_accountsubtype.AccountSubtype] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('subtype') }})
+    subtype: Optional[AccountSubtype] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('subtype') }})
     r"""See the [Account type schema](https://plaid.com/docs/api/accounts/#account-type-schema) for a full listing of account types and corresponding subtypes."""
-    transactions: List[shared_assetreporttransaction.AssetReportTransaction] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('transactions') }})
+    transactions: List[AssetReportTransaction] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('transactions') }})
     r"""Transaction history associated with the account."""
-    type: shared_accounttype.AccountType = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('type') }})
+    type: AccountType = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('type') }})
     r"""`investment:` Investment account. In API versions 2018-05-22 and earlier, this type is called `brokerage` instead.
 
     `credit:` Credit card
@@ -82,7 +82,7 @@ class AccountAssets:
     See the [Account type schema](https://plaid.com/docs/api/accounts#account-type-schema) for a full listing of account types and corresponding subtypes.
     """
     additional_properties: Optional[Dict[str, Any]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'exclude': lambda f: f is None }})
-    ownership_type: Optional[shared_ownershiptype.OwnershipType] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('ownership_type') }})
+    ownership_type: Optional[OwnershipType] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('ownership_type') }})
     r"""How an asset is owned.
 
     `association`: Ownership by a corporation, partnership, or unincorporated association, including for-profit and not-for-profit organizations.
@@ -92,7 +92,7 @@ class AccountAssets:
     """
     persistent_account_id: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('persistent_account_id'), 'exclude': lambda f: f is None }})
     r"""A unique and persistent identifier for accounts that can be used to trace multiple instances of the same account across different Items for depository accounts. This is currently an opt-in field and only supported for Chase Items."""
-    verification_status: Optional[AccountAssetsVerificationStatus] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('verification_status'), 'exclude': lambda f: f is None }})
+    verification_status: Optional[VerificationStatus] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('verification_status'), 'exclude': lambda f: f is None }})
     r"""The current verification status of an Auth Item initiated through Automated or Manual micro-deposits.  Returned for Auth Items only.
 
     `pending_automatic_verification`: The Item is pending automatic verification

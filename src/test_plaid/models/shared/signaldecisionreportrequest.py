@@ -2,8 +2,8 @@
 
 from __future__ import annotations
 import dataclasses
-from ..shared import signaldecisionoutcome as shared_signaldecisionoutcome
-from ..shared import signalpaymentmethod as shared_signalpaymentmethod
+from .signaldecisionoutcome import SignalDecisionOutcome
+from .signalpaymentmethod import SignalPaymentMethod
 from dataclasses_json import Undefined, dataclass_json
 from test_plaid import utils
 from typing import Optional
@@ -29,7 +29,7 @@ class SignalDecisionReportRequest:
 
     For example, use 0 if you make funds available to your customers instantly or the same day following the debit transaction, or 1 if you make funds available the next day following the debit initialization.
     """
-    decision_outcome: Optional[shared_signaldecisionoutcome.SignalDecisionOutcome] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('decision_outcome') }})
+    decision_outcome: Optional[SignalDecisionOutcome] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('decision_outcome') }})
     r"""The payment decision from the risk assessment.
 
     `APPROVE`: approve the transaction without requiring further actions from your customers. For example, use this field if you are placing a standard hold for all the approved transactions before making funds available to your customers. You should also use this field if you decide to accelerate the fund availability for your customers.
@@ -44,7 +44,7 @@ class SignalDecisionReportRequest:
 
     Possible values:  `APPROVE`, `REVIEW`, `REJECT`, `TAKE_OTHER_RISK_MEASURES`, `NOT_EVALUATED`
     """
-    payment_method: Optional[shared_signalpaymentmethod.SignalPaymentMethod] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('payment_method') }})
+    payment_method: Optional[SignalPaymentMethod] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('payment_method') }})
     r"""The payment method to complete the transaction after the risk assessment. It may be different from the default payment method.
 
     `SAME_DAY_ACH`: Same Day ACH by NACHA. The debit transaction is processed and settled on the same day

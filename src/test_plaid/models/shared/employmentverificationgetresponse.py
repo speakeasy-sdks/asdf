@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 import dataclasses
-from ..shared import employmentverification as shared_employmentverification
+from .employmentverification import EmploymentVerification
 from dataclasses_json import Undefined, dataclass_json
 from test_plaid import utils
 from typing import Any, Dict, List, Optional
@@ -12,7 +12,7 @@ from typing import Any, Dict, List, Optional
 @dataclasses.dataclass
 class EmploymentVerificationGetResponse:
     r"""EmploymentVerificationGetResponse defines the response schema for `/employment/verification/get`."""
-    employments: List[shared_employmentverification.EmploymentVerification] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('employments') }})
+    employments: List[EmploymentVerification] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('employments') }})
     r"""A list of employment verification summaries."""
     request_id: str = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('request_id') }})
     r"""A unique identifier for the request, which can be used for troubleshooting. This identifier, like all Plaid identifiers, is case sensitive."""

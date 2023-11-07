@@ -2,11 +2,11 @@
 
 from __future__ import annotations
 import dataclasses
-from ..shared import credit1099filer as shared_credit1099filer
-from ..shared import credit1099payer as shared_credit1099payer
-from ..shared import credit1099recipient as shared_credit1099recipient
-from ..shared import creditdocumentmetadata as shared_creditdocumentmetadata
-from ..shared import form1099type as shared_form1099type
+from .credit1099filer import Credit1099Filer
+from .credit1099payer import Credit1099Payer
+from .credit1099recipient import Credit1099Recipient
+from .creditdocumentmetadata import CreditDocumentMetadata
+from .form1099type import Form1099Type
 from dataclasses_json import Undefined, dataclass_json
 from test_plaid import utils
 from typing import Any, Dict, Optional
@@ -29,7 +29,7 @@ class Credit1099:
     r"""Amount of crop insurance proceeds."""
     december_amount: Optional[float] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('december_amount') }})
     r"""Amount reported for December."""
-    document_metadata: Optional[shared_creditdocumentmetadata.CreditDocumentMetadata] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('document_metadata'), 'exclude': lambda f: f is None }})
+    document_metadata: Optional[CreditDocumentMetadata] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('document_metadata'), 'exclude': lambda f: f is None }})
     r"""Object representing metadata pertaining to the document."""
     excess_golden_parachute_payments: Optional[float] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('excess_golden_parachute_payments') }})
     r"""Amount of golden parachute payments made by payer."""
@@ -37,11 +37,11 @@ class Credit1099:
     r"""Amount reported for February."""
     federal_income_tax_withheld: Optional[float] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('federal_income_tax_withheld') }})
     r"""Amount of federal income tax withheld from payer."""
-    filer: Optional[shared_credit1099filer.Credit1099Filer] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('filer'), 'exclude': lambda f: f is None }})
+    filer: Optional[Credit1099Filer] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('filer'), 'exclude': lambda f: f is None }})
     r"""An object representing a filer used by 1099-K tax documents."""
     fishing_boat_proceeds: Optional[float] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('fishing_boat_proceeds') }})
     r"""Amount of fishing boat proceeds from payer."""
-    form_1099_type: Optional[shared_form1099type.Form1099Type] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('form_1099_type'), 'exclude': lambda f: f is None }})
+    form_1099_type: Optional[Form1099Type] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('form_1099_type'), 'exclude': lambda f: f is None }})
     r"""Form 1099 Type"""
     gross_amount: Optional[float] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('gross_amount') }})
     r"""Gross amount reported."""
@@ -71,7 +71,7 @@ class Credit1099:
     r"""Amount reported for October."""
     other_income: Optional[float] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('other_income') }})
     r"""Amount in other income by payer."""
-    payer: Optional[shared_credit1099payer.Credit1099Payer] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('payer'), 'exclude': lambda f: f is None }})
+    payer: Optional[Credit1099Payer] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('payer'), 'exclude': lambda f: f is None }})
     r"""An object representing a payer used by 1099-MISC tax documents."""
     payer_made_direct_sales_of_5000_or_more_of_consumer_products_to_buyer: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('payer_made_direct_sales_of_5000_or_more_of_consumer_products_to_buyer') }})
     r"""Whether or not payer made direct sales over $5000 of consumer products."""
@@ -89,7 +89,7 @@ class Credit1099:
     r"""Name of the PSE (Payment Settlement Entity)."""
     pse_telephone_number: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('pse_telephone_number') }})
     r"""Formatted (XXX) XXX-XXXX. Phone number of the PSE (Payment Settlement Entity)."""
-    recipient: Optional[shared_credit1099recipient.Credit1099Recipient] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('recipient'), 'exclude': lambda f: f is None }})
+    recipient: Optional[Credit1099Recipient] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('recipient'), 'exclude': lambda f: f is None }})
     r"""An object representing a recipient used in both 1099-K and 1099-MISC tax documents."""
     rents: Optional[float] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('rents') }})
     r"""Amount in rent by payer."""

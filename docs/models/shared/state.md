@@ -1,4 +1,4 @@
-# DepositSwitchGetResponseState
+# State
 
 
 The state, or status, of the deposit switch.

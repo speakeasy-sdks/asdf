@@ -2,8 +2,8 @@
 
 from __future__ import annotations
 import dataclasses
-from ..shared import creditemployerverification as shared_creditemployerverification
-from ..shared import creditplatformids as shared_creditplatformids
+from .creditemployerverification import CreditEmployerVerification
+from .creditplatformids import CreditPlatformIds
 from dataclasses_json import Undefined, dataclass_json
 from datetime import date
 from test_plaid import utils
@@ -24,13 +24,13 @@ class CreditEmploymentVerification:
     `\"TEMPORARY\"`: A temporary employee.
     `\"OTHER\"`: The employee type is not one of the above defined types.
     """
-    employer: shared_creditemployerverification.CreditEmployerVerification = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('employer') }})
+    employer: CreditEmployerVerification = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('employer') }})
     r"""An object containing employer data."""
     end_date: Optional[date] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('end_date'), 'encoder': utils.dateisoformat(False), 'decoder': utils.datefromisoformat }})
     r"""End of employment, if applicable. Provided in ISO 8601 format (YYY-MM-DD)."""
     last_paystub_date: Optional[date] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('last_paystub_date'), 'encoder': utils.dateisoformat(False), 'decoder': utils.datefromisoformat }})
     r"""The date of the employee's most recent paystub in ISO 8601 format (YYYY-MM-DD)."""
-    platform_ids: shared_creditplatformids.CreditPlatformIds = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('platform_ids') }})
+    platform_ids: CreditPlatformIds = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('platform_ids') }})
     r"""The object containing a set of ids related to an employee."""
     start_date: Optional[date] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('start_date'), 'encoder': utils.dateisoformat(False), 'decoder': utils.datefromisoformat }})
     r"""Start of employment in ISO 8601 format (YYYY-MM-DD)."""

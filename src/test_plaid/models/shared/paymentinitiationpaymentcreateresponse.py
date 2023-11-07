@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 import dataclasses
-from ..shared import paymentinitiationpaymentcreatestatus as shared_paymentinitiationpaymentcreatestatus
+from .paymentinitiationpaymentcreatestatus import PaymentInitiationPaymentCreateStatus
 from dataclasses_json import Undefined, dataclass_json
 from test_plaid import utils
 from typing import Any, Dict, Optional
@@ -16,7 +16,7 @@ class PaymentInitiationPaymentCreateResponse:
     r"""A unique ID identifying the payment"""
     request_id: str = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('request_id') }})
     r"""A unique identifier for the request, which can be used for troubleshooting. This identifier, like all Plaid identifiers, is case sensitive."""
-    status: shared_paymentinitiationpaymentcreatestatus.PaymentInitiationPaymentCreateStatus = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('status') }})
+    status: PaymentInitiationPaymentCreateStatus = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('status') }})
     r"""For a payment returned by this endpoint, there is only one possible value:
 
     `PAYMENT_STATUS_INPUT_NEEDED`: The initial phase of the payment

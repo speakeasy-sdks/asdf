@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 import dataclasses
-from ..shared import incomeverificationprecheckconfidence as shared_incomeverificationprecheckconfidence
+from .incomeverificationprecheckconfidence import IncomeVerificationPrecheckConfidence
 from dataclasses_json import Undefined, dataclass_json
 from test_plaid import utils
 from typing import Any, Dict, Optional
@@ -12,7 +12,7 @@ from typing import Any, Dict, Optional
 @dataclasses.dataclass
 class CreditPayrollIncomePrecheckResponse:
     r"""Defines the response schema for `/credit/payroll_income/precheck`."""
-    confidence: shared_incomeverificationprecheckconfidence.IncomeVerificationPrecheckConfidence = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('confidence') }})
+    confidence: IncomeVerificationPrecheckConfidence = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('confidence') }})
     r"""The confidence that Plaid can support the user in the digital income verification flow instead of requiring a manual paystub upload. One of the following:
 
     `\"HIGH\"`: It is very likely that this user can use the digital income verification flow.

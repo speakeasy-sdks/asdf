@@ -2,9 +2,9 @@
 
 from __future__ import annotations
 import dataclasses
-from ..shared import deductionsbreakdown as shared_deductionsbreakdown
-from ..shared import deductionstotal as shared_deductionstotal
-from ..shared import total as shared_total
+from .deductionsbreakdown import DeductionsBreakdown
+from .deductionstotal import DeductionsTotal
+from .total import Total
 from dataclasses_json import Undefined, dataclass_json
 from test_plaid import utils
 from typing import Any, Dict, List, Optional
@@ -14,13 +14,13 @@ from typing import Any, Dict, List, Optional
 @dataclasses.dataclass
 class Deductions:
     r"""An object with the deduction information found on a paystub."""
-    breakdown: List[shared_deductionsbreakdown.DeductionsBreakdown] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('breakdown') }})
-    total: shared_deductionstotal.DeductionsTotal = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('total') }})
+    breakdown: List[DeductionsBreakdown] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('breakdown') }})
+    total: DeductionsTotal = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('total') }})
     r"""An object representing the total deductions for the pay period"""
     additional_properties: Optional[Dict[str, Any]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'exclude': lambda f: f is None }})
-    subtotals: Optional[List[shared_total.Total]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('subtotals'), 'exclude': lambda f: f is None }})
+    subtotals: Optional[List[Total]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('subtotals'), 'exclude': lambda f: f is None }})
     r"""Deprecated field: This will be removed in a future release, please migrate away from it as soon as possible."""
-    totals: Optional[List[shared_total.Total]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('totals'), 'exclude': lambda f: f is None }})
+    totals: Optional[List[Total]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('totals'), 'exclude': lambda f: f is None }})
     r"""Deprecated field: This will be removed in a future release, please migrate away from it as soon as possible."""
     
 

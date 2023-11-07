@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 import dataclasses
-from ..shared import statementsstatement as shared_statementsstatement
+from .statementsstatement import StatementsStatement
 from dataclasses_json import Undefined, dataclass_json
 from test_plaid import utils
 from typing import Any, Dict, List, Optional
@@ -18,7 +18,7 @@ class StatementsAccount:
     r"""The name of the account, either assigned by the user or by the financial institution itself."""
     account_type: str = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('account_type') }})
     r"""The type of account. Possible values are investment, credit, depository, loan, brokerage, other."""
-    statements: List[shared_statementsstatement.StatementsStatement] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('statements') }})
+    statements: List[StatementsStatement] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('statements') }})
     r"""The list of statements' metadata associated with this account."""
     additional_properties: Optional[Dict[str, Any]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'exclude': lambda f: f is None }})
     

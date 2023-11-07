@@ -2,9 +2,9 @@
 
 from __future__ import annotations
 import dataclasses
-from ..shared import creditbankincomecategory as shared_creditbankincomecategory
-from ..shared import creditbankincomehistoricalsummary as shared_creditbankincomehistoricalsummary
-from ..shared import creditbankincomepayfrequency as shared_creditbankincomepayfrequency
+from .creditbankincomecategory import CreditBankIncomeCategory
+from .creditbankincomehistoricalsummary import CreditBankIncomeHistoricalSummary
+from .creditbankincomepayfrequency import CreditBankIncomePayFrequency
 from dataclasses_json import Undefined, dataclass_json
 from datetime import date
 from test_plaid import utils
@@ -21,14 +21,14 @@ class CreditBankIncomeSource:
     r"""Maximum of all dates within the specific income sources in the user’s bank account for days requested by the client.
     The date will be returned in an ISO 8601 format (YYYY-MM-DD).
     """
-    historical_summary: Optional[List[shared_creditbankincomehistoricalsummary.CreditBankIncomeHistoricalSummary]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('historical_summary'), 'exclude': lambda f: f is None }})
-    income_category: Optional[shared_creditbankincomecategory.CreditBankIncomeCategory] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('income_category'), 'exclude': lambda f: f is None }})
+    historical_summary: Optional[List[CreditBankIncomeHistoricalSummary]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('historical_summary'), 'exclude': lambda f: f is None }})
+    income_category: Optional[CreditBankIncomeCategory] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('income_category'), 'exclude': lambda f: f is None }})
     r"""The income category. Note that the `CASH` value has been deprecated and is used only for existing legacy implementations. It has been replaced by the new categories `CASH_DEPOSIT` (representing cash or check deposits) and `TRANSFER_FROM_APPLICATION` (representing cash transfers originating from apps, such as Zelle or Venmo)."""
     income_description: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('income_description'), 'exclude': lambda f: f is None }})
     r"""The most common name or original description for the underlying income transactions."""
     income_source_id: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('income_source_id'), 'exclude': lambda f: f is None }})
     r"""A unique identifier for an income source."""
-    pay_frequency: Optional[shared_creditbankincomepayfrequency.CreditBankIncomePayFrequency] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('pay_frequency'), 'exclude': lambda f: f is None }})
+    pay_frequency: Optional[CreditBankIncomePayFrequency] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('pay_frequency'), 'exclude': lambda f: f is None }})
     r"""The income pay frequency."""
     start_date: Optional[date] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('start_date'), 'encoder': utils.dateisoformat(True), 'decoder': utils.datefromisoformat, 'exclude': lambda f: f is None }})
     r"""Minimum of all dates within the specific income sources in the user's bank account for days requested by the client.

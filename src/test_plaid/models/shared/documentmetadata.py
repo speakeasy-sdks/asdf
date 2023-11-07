@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 import dataclasses
-from ..shared import doctype as shared_doctype
+from .doctype import DocType
 from dataclasses_json import Undefined, dataclass_json
 from test_plaid import utils
 from typing import Any, Dict, Optional
@@ -15,7 +15,7 @@ class DocumentMetadata:
     additional_properties: Optional[Dict[str, Any]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'exclude': lambda f: f is None }})
     doc_id: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('doc_id'), 'exclude': lambda f: f is None }})
     r"""An identifier of the document that is also present in the paystub response."""
-    doc_type: Optional[shared_doctype.DocType] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('doc_type'), 'exclude': lambda f: f is None }})
+    doc_type: Optional[DocType] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('doc_type'), 'exclude': lambda f: f is None }})
     r"""The type of document.
 
     `DOCUMENT_TYPE_PAYSTUB`: A paystub.

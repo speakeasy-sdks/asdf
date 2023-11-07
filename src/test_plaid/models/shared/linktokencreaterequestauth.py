@@ -7,14 +7,14 @@ from enum import Enum
 from test_plaid import utils
 from typing import Optional
 
-class LinkTokenCreateRequestAuthFlowType(str, Enum):
+class FlowType(str, Enum):
     r"""This field has been deprecated in favor of `auth_type_select_enabled`.
 
     Deprecated class: This will be removed in a future release, please migrate away from it as soon as possible.
     """
     FLEXIBLE_AUTH = 'FLEXIBLE_AUTH'
 
-class LinkTokenCreateRequestAuthRerouteToCredentials(str, Enum):
+class RerouteToCredentials(str, Enum):
     r"""Specifies what type of Reroute to Credentials pane should be used in the Link session for the Same Day Micro-deposits flow."""
     OFF = 'OFF'
     OPTIONAL = 'OPTIONAL'
@@ -29,14 +29,14 @@ class LinkTokenCreateRequestAuth:
     r"""Specifies whether Auth Type Select is enabled for the Link session, allowing the end user to choose between linking instantly or manually prior to selecting their financial institution. Note that this can only be true if `same_day_microdeposits_enabled` is set to true."""
     automated_microdeposits_enabled: Optional[bool] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('automated_microdeposits_enabled'), 'exclude': lambda f: f is None }})
     r"""Specifies whether the Link session is enabled for the Automated Micro-deposits flow."""
-    flow_type: Optional[LinkTokenCreateRequestAuthFlowType] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('flow_type'), 'exclude': lambda f: f is None }})
+    flow_type: Optional[FlowType] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('flow_type'), 'exclude': lambda f: f is None }})
     r"""This field has been deprecated in favor of `auth_type_select_enabled`.
 
     Deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
     """
     instant_match_enabled: Optional[bool] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('instant_match_enabled'), 'exclude': lambda f: f is None }})
     r"""Specifies whether the Link session is enabled for the Instant Match flow. As of November 2022, Instant Match will be enabled by default. Instant Match can be disabled by setting this field to `false`."""
-    reroute_to_credentials: Optional[LinkTokenCreateRequestAuthRerouteToCredentials] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('reroute_to_credentials'), 'exclude': lambda f: f is None }})
+    reroute_to_credentials: Optional[RerouteToCredentials] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('reroute_to_credentials'), 'exclude': lambda f: f is None }})
     r"""Specifies what type of Reroute to Credentials pane should be used in the Link session for the Same Day Micro-deposits flow."""
     same_day_microdeposits_enabled: Optional[bool] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('same_day_microdeposits_enabled'), 'exclude': lambda f: f is None }})
     r"""Specifies whether the Link session is enabled for the Same Day Micro-deposits flow."""

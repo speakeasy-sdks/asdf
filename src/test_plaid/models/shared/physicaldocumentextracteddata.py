@@ -2,8 +2,8 @@
 
 from __future__ import annotations
 import dataclasses
-from ..shared import identityverificationdocumentaddressresponse as shared_identityverificationdocumentaddressresponse
-from ..shared import physicaldocumentcategory as shared_physicaldocumentcategory
+from .identityverificationdocumentaddressresponse import IdentityVerificationDocumentAddressResponse
+from .physicaldocumentcategory import PhysicalDocumentCategory
 from dataclasses_json import Undefined, dataclass_json
 from datetime import date
 from test_plaid import utils
@@ -14,7 +14,7 @@ from typing import Any, Dict, Optional
 @dataclasses.dataclass
 class PhysicalDocumentExtractedData:
     r"""Data extracted from a user-submitted document."""
-    address: Optional[shared_identityverificationdocumentaddressresponse.IdentityVerificationDocumentAddressResponse] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('address') }})
+    address: Optional[IdentityVerificationDocumentAddressResponse] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('address') }})
     r"""The address extracted from the document. The address must at least contain the following fields to be a valid address: `street`, `city`, `country`. If any are missing or unable to be extracted, the address will be null.
 
     `region`, and `postal_code` may be null based on the addressing system. For example:
@@ -25,7 +25,7 @@ class PhysicalDocumentExtractedData:
 
     Note: Optical Character Recognition (OCR) technology may sometimes extract incorrect data from a document.
     """
-    category: shared_physicaldocumentcategory.PhysicalDocumentCategory = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('category') }})
+    category: PhysicalDocumentCategory = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('category') }})
     r"""The type of identity document detected in the images provided. Will always be one of the following values:
 
       `drivers_license` - A driver's license issued by the associated country, establishing identity without any guarantee as to citizenship, and granting driving privileges

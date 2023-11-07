@@ -2,8 +2,8 @@
 
 from __future__ import annotations
 import dataclasses
-from ..shared import sandboxbankincomewebhookfirerequestwebhookcode as shared_sandboxbankincomewebhookfirerequestwebhookcode
-from ..shared import sandboxbankincomewebhookfirerequestwebhookfields as shared_sandboxbankincomewebhookfirerequestwebhookfields
+from .sandboxbankincomewebhookfirerequestwebhookcode import SandboxBankIncomeWebhookFireRequestWebhookCode
+from .sandboxbankincomewebhookfirerequestwebhookfields import SandboxBankIncomeWebhookFireRequestWebhookFields
 from dataclasses_json import Undefined, dataclass_json
 from test_plaid import utils
 from typing import Optional
@@ -13,9 +13,9 @@ from typing import Optional
 @dataclasses.dataclass
 class SandboxBankIncomeFireWebhookRequest:
     r"""SandboxBankIncomeFireWebhookRequest defines the request schema for `/sandbox/bank_income/fire_webhook`"""
-    webhook_code: shared_sandboxbankincomewebhookfirerequestwebhookcode.SandboxBankIncomeWebhookFireRequestWebhookCode = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('webhook_code') }})
+    webhook_code: SandboxBankIncomeWebhookFireRequestWebhookCode = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('webhook_code') }})
     r"""The webhook codes this endpoint can be used to test"""
-    webhook_fields: shared_sandboxbankincomewebhookfirerequestwebhookfields.SandboxBankIncomeWebhookFireRequestWebhookFields = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('webhook_fields') }})
+    webhook_fields: SandboxBankIncomeWebhookFireRequestWebhookFields = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('webhook_fields') }})
     r"""Optional fields which will be populated in the simulated webhook"""
     client_id: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('client_id'), 'exclude': lambda f: f is None }})
     r"""Your Plaid API `client_id`. The `client_id` is required and may be provided either in the `PLAID-CLIENT-ID` header or as part of a request body."""

@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 import dataclasses
-from ..shared import creditsession as shared_creditsession
+from .creditsession import CreditSession
 from dataclasses_json import Undefined, dataclass_json
 from test_plaid import utils
 from typing import Any, Dict, List, Optional
@@ -15,7 +15,7 @@ class CreditSessionsGetResponse:
     request_id: str = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('request_id') }})
     r"""A unique identifier for the request, which can be used for troubleshooting. This identifier, like all Plaid identifiers, is case sensitive."""
     additional_properties: Optional[Dict[str, Any]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'exclude': lambda f: f is None }})
-    sessions: Optional[List[shared_creditsession.CreditSession]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('sessions'), 'exclude': lambda f: f is None }})
+    sessions: Optional[List[CreditSession]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('sessions'), 'exclude': lambda f: f is None }})
     r"""A list of Link sessions for the user. Sessions will be sorted in reverse chronological order."""
     
 

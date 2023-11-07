@@ -2,8 +2,8 @@
 
 from __future__ import annotations
 import dataclasses
-from ..shared import investmenttransactionsubtype as shared_investmenttransactionsubtype
-from ..shared import investmenttransactiontype as shared_investmenttransactiontype
+from .investmenttransactionsubtype import InvestmentTransactionSubtype
+from .investmenttransactiontype import InvestmentTransactionType
 from dataclasses_json import Undefined, dataclass_json
 from datetime import date
 from test_plaid import utils
@@ -34,9 +34,9 @@ class InvestmentTransaction:
     r"""The number of units of the security involved in this transaction. Positive for buy transactions; negative for sell transactions."""
     security_id: Optional[str] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('security_id') }})
     r"""The `security_id` to which this transaction is related."""
-    subtype: shared_investmenttransactionsubtype.InvestmentTransactionSubtype = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('subtype') }})
+    subtype: InvestmentTransactionSubtype = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('subtype') }})
     r"""For descriptions of possible transaction types and subtypes, see the [Investment transaction types schema](https://plaid.com/docs/api/accounts/#investment-transaction-types-schema)."""
-    type: shared_investmenttransactiontype.InvestmentTransactionType = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('type') }})
+    type: InvestmentTransactionType = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('type') }})
     r"""Value is one of the following:
     `buy`: Buying an investment
     `sell`: Selling an investment

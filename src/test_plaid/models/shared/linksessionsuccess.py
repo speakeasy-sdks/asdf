@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 import dataclasses
-from ..shared import linksessionsuccessmetadata as shared_linksessionsuccessmetadata
+from .linksessionsuccessmetadata import LinkSessionSuccessMetadata
 from dataclasses_json import Undefined, dataclass_json
 from test_plaid import utils
 from typing import Optional
@@ -12,7 +12,7 @@ from typing import Optional
 @dataclasses.dataclass
 class LinkSessionSuccess:
     r"""An object representing an [onSuccess](https://plaid.com/docs/link/web/#onsuccess) callback from Link."""
-    metadata: Optional[shared_linksessionsuccessmetadata.LinkSessionSuccessMetadata] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('metadata') }})
+    metadata: Optional[LinkSessionSuccessMetadata] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('metadata') }})
     r"""Displayed once a user has successfully linked their Item."""
     public_token: str = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('public_token') }})
     r"""Displayed once a user has successfully linked their Item."""

@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 import dataclasses
-from ..shared import paymentinitiationstandingordermetadata as shared_paymentinitiationstandingordermetadata
+from .paymentinitiationstandingordermetadata import PaymentInitiationStandingOrderMetadata
 from dataclasses_json import Undefined, dataclass_json
 from test_plaid import utils
 from typing import Any, Dict, Optional
@@ -17,7 +17,7 @@ class PaymentInitiationMetadata:
 
     Example: `{\"GBP\": \"10000\"}`
     """
-    standing_order_metadata: Optional[shared_paymentinitiationstandingordermetadata.PaymentInitiationStandingOrderMetadata] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('standing_order_metadata') }})
+    standing_order_metadata: Optional[PaymentInitiationStandingOrderMetadata] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('standing_order_metadata') }})
     r"""Metadata specifically related to valid Payment Initiation standing order configurations for the institution."""
     supports_international_payments: bool = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('supports_international_payments') }})
     r"""Indicates whether the institution supports payments from a different country."""

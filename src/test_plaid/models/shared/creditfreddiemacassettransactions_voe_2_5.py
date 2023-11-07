@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 import dataclasses
-from ..shared import creditfreddiemacassettransaction_voe_2_5 as shared_creditfreddiemacassettransaction_voe_2_5
+from .creditfreddiemacassettransaction_voe_2_5 import CreditFreddieMacAssetTransactionVOE25
 from dataclasses_json import Undefined, dataclass_json
 from test_plaid import utils
 from typing import Any, Dict, List, Optional
@@ -12,7 +12,7 @@ from typing import Any, Dict, List, Optional
 @dataclasses.dataclass
 class CreditFreddieMacAssetTransactionsVOE25:
     r"""Documentation not found in the MISMO model viewer and not provided by Freddie Mac."""
-    asset_transaction: List[shared_creditfreddiemacassettransaction_voe_2_5.CreditFreddieMacAssetTransactionVOE25] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('ASSET_TRANSACTION') }})
+    asset_transaction: List[CreditFreddieMacAssetTransactionVOE25] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('ASSET_TRANSACTION') }})
     additional_properties: Optional[Dict[str, Any]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'exclude': lambda f: f is None }})
     
 

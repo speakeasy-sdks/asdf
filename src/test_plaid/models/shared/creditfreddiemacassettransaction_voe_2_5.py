@@ -2,8 +2,8 @@
 
 from __future__ import annotations
 import dataclasses
-from ..shared import assettransactiondescription as shared_assettransactiondescription
-from ..shared import creditfreddiemacassettransactiondetail_voe_2_5 as shared_creditfreddiemacassettransactiondetail_voe_2_5
+from .assettransactiondescription import AssetTransactionDescription
+from .creditfreddiemacassettransactiondetail_voe_2_5 import CreditFreddieMacAssetTransactionDetailVOE25
 from dataclasses_json import Undefined, dataclass_json
 from test_plaid import utils
 from typing import Any, Dict, List, Optional
@@ -13,9 +13,9 @@ from typing import Any, Dict, List, Optional
 @dataclasses.dataclass
 class CreditFreddieMacAssetTransactionVOE25:
     r"""An object representing..."""
-    asset_transaction_description: List[shared_assettransactiondescription.AssetTransactionDescription] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('ASSET_TRANSACTION_DESCRIPTION') }})
+    asset_transaction_description: List[AssetTransactionDescription] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('ASSET_TRANSACTION_DESCRIPTION') }})
     r"""Documentation not found in the MISMO model viewer and not provided by Freddie Mac."""
-    asset_transaction_detail: shared_creditfreddiemacassettransactiondetail_voe_2_5.CreditFreddieMacAssetTransactionDetailVOE25 = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('ASSET_TRANSACTION_DETAIL') }})
+    asset_transaction_detail: CreditFreddieMacAssetTransactionDetailVOE25 = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('ASSET_TRANSACTION_DETAIL') }})
     r"""Documentation not found in the MISMO model viewer and not provided by Freddie Mac."""
     additional_properties: Optional[Dict[str, Any]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'exclude': lambda f: f is None }})
     

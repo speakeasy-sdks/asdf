@@ -2,9 +2,9 @@
 
 from __future__ import annotations
 import dataclasses
-from ..shared import identityverificationresponseusername as shared_identityverificationresponseusername
-from ..shared import identityverificationuseraddress as shared_identityverificationuseraddress
-from ..shared import useridnumber as shared_useridnumber
+from .identityverificationresponseusername import IdentityVerificationResponseUserName
+from .identityverificationuseraddress import IdentityVerificationUserAddress
+from .useridnumber import UserIDNumber
 from dataclasses_json import Undefined, dataclass_json
 from datetime import date
 from test_plaid import utils
@@ -15,7 +15,7 @@ from typing import Any, Dict, Optional
 @dataclasses.dataclass
 class IdentityVerificationUserData:
     r"""The identity data that was either collected from the user or provided via API in order to perform an identity verification."""
-    address: Optional[shared_identityverificationuseraddress.IdentityVerificationUserAddress] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('address') }})
+    address: Optional[IdentityVerificationUserAddress] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('address') }})
     r"""Even if an address has been collected, some fields may be null depending on the region's addressing system. For example:
 
     Addresses from the United Kingdom will not include a region
@@ -26,11 +26,11 @@ class IdentityVerificationUserData:
     r"""A date in the format YYYY-MM-DD (RFC 3339 Section 5.6)."""
     email_address: Optional[str] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('email_address') }})
     r"""A valid email address."""
-    id_number: Optional[shared_useridnumber.UserIDNumber] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('id_number') }})
+    id_number: Optional[UserIDNumber] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('id_number') }})
     r"""ID number submitted by the user, currently used only for the Identity Verification product. If the user has not submitted this data yet, this field will be `null`. Otherwise, both fields are guaranteed to be filled."""
     ip_address: Optional[str] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('ip_address') }})
     r"""An IPv4 or IPV6 address."""
-    name: Optional[shared_identityverificationresponseusername.IdentityVerificationResponseUserName] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('name') }})
+    name: Optional[IdentityVerificationResponseUserName] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('name') }})
     r"""The full name provided by the user. If the user has not submitted their name, this field will be null. Otherwise, both fields are guaranteed to be filled."""
     additional_properties: Optional[Dict[str, Any]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'exclude': lambda f: f is None }})
     phone_number: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('phone_number') }})

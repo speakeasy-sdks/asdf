@@ -1,4 +1,4 @@
-# SandboxItemFireWebhookRequestWebhookCode
+# WebhookCode
 
 The webhook codes that can be fired by this test endpoint.
 

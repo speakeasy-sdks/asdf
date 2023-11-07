@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 import dataclasses
-from ..shared import watchlistscreeningstatus as shared_watchlistscreeningstatus
+from .watchlistscreeningstatus import WatchlistScreeningStatus
 from dataclasses_json import Undefined, dataclass_json
 from test_plaid import utils
 from typing import Optional
@@ -24,7 +24,7 @@ class WatchlistScreeningEntityListRequest:
     r"""An identifier that determines which page of results you receive."""
     secret: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('secret'), 'exclude': lambda f: f is None }})
     r"""Your Plaid API `secret`. The `secret` is required and may be provided either in the `PLAID-SECRET` header or as part of a request body."""
-    status: Optional[shared_watchlistscreeningstatus.WatchlistScreeningStatus] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('status'), 'exclude': lambda f: f is None }})
+    status: Optional[WatchlistScreeningStatus] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('status'), 'exclude': lambda f: f is None }})
     r"""A status enum indicating whether a screening is still pending review, has been rejected, or has been cleared."""
     
 

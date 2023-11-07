@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 import dataclasses
-from ..shared import identityverification as shared_identityverification
+from .identityverification import IdentityVerification
 from dataclasses_json import Undefined, dataclass_json
 from test_plaid import utils
 from typing import Any, Dict, List, Optional
@@ -12,7 +12,7 @@ from typing import Any, Dict, List, Optional
 @dataclasses.dataclass
 class IdentityVerificationListResponse:
     r"""Paginated list of Plaid sessions."""
-    identity_verifications: List[shared_identityverification.IdentityVerification] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('identity_verifications') }})
+    identity_verifications: List[IdentityVerification] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('identity_verifications') }})
     r"""List of Plaid sessions"""
     next_cursor: Optional[str] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('next_cursor') }})
     r"""An identifier that determines which page of results you receive."""

@@ -3,7 +3,7 @@
 from __future__ import annotations
 import dataclasses
 import requests as requests_http
-from ..shared import identitymatchresponse as shared_identitymatchresponse
+from ...models.shared import identitymatchresponse as shared_identitymatchresponse
 from typing import Optional
 
 

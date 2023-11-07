@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 import dataclasses
-from ..shared import creditfreddiemacassets_voa_2_4 as shared_creditfreddiemacassets_voa_2_4
+from .creditfreddiemacassets_voa_2_4 import CreditFreddieMacAssetsVOA24
 from dataclasses_json import Undefined, dataclass_json
 from test_plaid import utils
 from typing import Any, Dict, Optional
@@ -12,7 +12,7 @@ from typing import Any, Dict, Optional
 @dataclasses.dataclass
 class CreditFreddieMacVerificationOfAssetResponseVOA24:
     r"""Documentation not found in the MISMO model viewer and not provided by Freddie Mac."""
-    assets: shared_creditfreddiemacassets_voa_2_4.CreditFreddieMacAssetsVOA24 = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('ASSETS') }})
+    assets: CreditFreddieMacAssetsVOA24 = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('ASSETS') }})
     r"""Documentation not found in the MISMO model viewer and not provided by Freddie Mac."""
     additional_properties: Optional[Dict[str, Any]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'exclude': lambda f: f is None }})
     

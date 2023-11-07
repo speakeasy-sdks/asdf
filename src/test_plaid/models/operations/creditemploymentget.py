@@ -3,7 +3,7 @@
 from __future__ import annotations
 import dataclasses
 import requests as requests_http
-from ..shared import creditemploymentgetresponse as shared_creditemploymentgetresponse
+from ...models.shared import creditemploymentgetresponse as shared_creditemploymentgetresponse
 from typing import Optional
 
 

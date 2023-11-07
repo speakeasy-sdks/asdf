@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 import dataclasses
-from ..shared import transfercapabilitiesgetrtp as shared_transfercapabilitiesgetrtp
+from .transfercapabilitiesgetrtp import TransferCapabilitiesGetRTP
 from dataclasses_json import Undefined, dataclass_json
 from test_plaid import utils
 from typing import Any, Dict, Optional
@@ -12,7 +12,7 @@ from typing import Any, Dict, Optional
 @dataclasses.dataclass
 class InstitutionSupportedNetworks:
     r"""Contains the RTP network and types supported by the linked Item's institution."""
-    rtp: shared_transfercapabilitiesgetrtp.TransferCapabilitiesGetRTP = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('rtp') }})
+    rtp: TransferCapabilitiesGetRTP = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('rtp') }})
     r"""Contains the supported service types in RTP"""
     additional_properties: Optional[Dict[str, Any]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'exclude': lambda f: f is None }})
     

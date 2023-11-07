@@ -1,4 +1,4 @@
-# APRAPRType
+# AprType
 
 The type of balance to which the APR applies.
 

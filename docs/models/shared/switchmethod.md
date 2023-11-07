@@ -1,4 +1,4 @@
-# DepositSwitchGetResponseSwitchMethod
+# SwitchMethod
 
 The method used to make the deposit switch.
 

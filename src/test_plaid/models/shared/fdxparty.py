@@ -2,8 +2,8 @@
 
 from __future__ import annotations
 import dataclasses
-from ..shared import fdxpartyregistry as shared_fdxpartyregistry
-from ..shared import fdxpartytype as shared_fdxpartytype
+from .fdxpartyregistry import FDXPartyRegistry
+from .fdxpartytype import FDXPartyType
 from dataclasses_json import Undefined, dataclass_json
 from test_plaid import utils
 from typing import Optional
@@ -15,7 +15,7 @@ class FDXParty:
     r"""FDX Participant - an entity or person that is a part of a FDX API transaction"""
     name: str = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('name') }})
     r"""Human recognizable common name"""
-    type: shared_fdxpartytype.FDXPartyType = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('type') }})
+    type: FDXPartyType = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('type') }})
     r"""Identifies the type of a party"""
     home_uri: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('homeUri'), 'exclude': lambda f: f is None }})
     r"""URI for party, where an end user could learn more about the company or application involved in the data sharing chain"""
@@ -25,7 +25,7 @@ class FDXParty:
     r"""Registered id of party"""
     registered_entity_name: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('registeredEntityName'), 'exclude': lambda f: f is None }})
     r"""Registered name of party"""
-    registry: Optional[shared_fdxpartyregistry.FDXPartyRegistry] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('registry'), 'exclude': lambda f: f is None }})
+    registry: Optional[FDXPartyRegistry] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('registry'), 'exclude': lambda f: f is None }})
     r"""The registry containing the party’s registration with name and id"""
     
 

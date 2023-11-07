@@ -3,7 +3,7 @@
 from __future__ import annotations
 import dataclasses
 import requests as requests_http
-from ..shared import depositswitchcreateresponse as shared_depositswitchcreateresponse
+from ...models.shared import depositswitchcreateresponse as shared_depositswitchcreateresponse
 from typing import Optional
 
 

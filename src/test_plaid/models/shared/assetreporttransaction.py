@@ -2,10 +2,10 @@
 
 from __future__ import annotations
 import dataclasses
-from ..shared import assetreporttransactiontype as shared_assetreporttransactiontype
-from ..shared import creditcategory as shared_creditcategory
-from ..shared import location as shared_location
-from ..shared import paymentmeta as shared_paymentmeta
+from .assetreporttransactiontype import AssetReportTransactionType
+from .creditcategory import CreditCategory
+from .location import Location
+from .paymentmeta import PaymentMeta
 from dataclasses_json import Undefined, dataclass_json
 from datetime import date
 from test_plaid import utils
@@ -50,7 +50,7 @@ class AssetReportTransaction:
     """
     check_number: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('check_number') }})
     r"""The check number of the transaction. This field is only populated for check transactions."""
-    credit_category: Optional[shared_creditcategory.CreditCategory] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('credit_category') }})
+    credit_category: Optional[CreditCategory] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('credit_category') }})
     r"""Information describing the intent of the transaction. Most relevant for credit use cases, but not limited to such use cases.
 
     See the [`taxonomy csv file`](https://plaid.com/documents/credit-category-taxonomy.csv) for a full list of credit categories.
@@ -59,7 +59,7 @@ class AssetReportTransaction:
     r"""The date on which the transaction took place, in IS0 8601 format."""
     income_source_id: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('income_source_id'), 'exclude': lambda f: f is None }})
     r"""A unique identifier for an income source."""
-    location: Optional[shared_location.Location] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('location'), 'exclude': lambda f: f is None }})
+    location: Optional[Location] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('location'), 'exclude': lambda f: f is None }})
     r"""A representation of where a transaction took place"""
     merchant_name: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('merchant_name') }})
     r"""The merchant name, as enriched by Plaid from the `name` field. This is typically a more human-readable version of the merchant counterparty in the transaction. For some bank transactions (such as checks or account transfers) where there is no meaningful merchant name, this value will be `null`."""
@@ -68,14 +68,14 @@ class AssetReportTransaction:
 
     This field will only appear in an Asset Report with Insights.
     """
-    payment_meta: Optional[shared_paymentmeta.PaymentMeta] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('payment_meta'), 'exclude': lambda f: f is None }})
+    payment_meta: Optional[PaymentMeta] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('payment_meta'), 'exclude': lambda f: f is None }})
     r"""Transaction information specific to inter-bank transfers. If the transaction was not an inter-bank transfer, all fields will be `null`.
 
     If the `transactions` object was returned by a Transactions endpoint such as `/transactions/sync` or `/transactions/get`, the `payment_meta` key will always appear, but no data elements are guaranteed. If the `transactions` object was returned by an Assets endpoint such as `/asset_report/get/` or `/asset_report/pdf/get`, this field will only appear in an Asset Report with Insights.
     """
     pending_transaction_id: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('pending_transaction_id') }})
     r"""The ID of a posted transaction's associated pending transaction, where applicable."""
-    transaction_type: Optional[shared_assetreporttransactiontype.AssetReportTransactionType] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('transaction_type'), 'exclude': lambda f: f is None }})
+    transaction_type: Optional[AssetReportTransactionType] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('transaction_type'), 'exclude': lambda f: f is None }})
     r"""`digital:` transactions that took place online.
 
     `place:` transactions that were made at a physical location.

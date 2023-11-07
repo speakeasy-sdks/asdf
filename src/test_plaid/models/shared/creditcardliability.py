@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 import dataclasses
-from ..shared import apr as shared_apr
+from .apr import Apr
 from dataclasses_json import Undefined, dataclass_json
 from datetime import date
 from test_plaid import utils
@@ -15,7 +15,7 @@ class CreditCardLiability:
     r"""An object representing a credit card account."""
     account_id: Optional[str] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('account_id') }})
     r"""The ID of the account that this liability belongs to."""
-    aprs: List[shared_apr.Apr] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('aprs') }})
+    aprs: List[Apr] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('aprs') }})
     r"""The various interest rates that apply to the account. APR information is not provided by all card issuers; if APR data is not available, this array will be empty."""
     is_overdue: Optional[bool] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('is_overdue') }})
     r"""true if a payment is currently overdue. Availability for this field is limited."""

@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 import dataclasses
-from ..shared import status as shared_status
+from .status import Status
 from dataclasses_json import Undefined, dataclass_json
 from test_plaid import utils
 from typing import Any, Dict, Optional
@@ -12,7 +12,7 @@ from typing import Any, Dict, Optional
 @dataclasses.dataclass
 class Statuses:
     r"""A collection of STATUS containers."""
-    status: shared_status.Status = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('STATUS') }})
+    status: Status = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('STATUS') }})
     r"""Documentation not found in the MISMO model viewer and not provided by Freddie Mac."""
     additional_properties: Optional[Dict[str, Any]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'exclude': lambda f: f is None }})
     

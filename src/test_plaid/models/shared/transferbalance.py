@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 import dataclasses
-from ..shared import transferbalancetype as shared_transferbalancetype
+from .transferbalancetype import TransferBalanceType
 from dataclasses_json import Undefined, dataclass_json
 from test_plaid import utils
 from typing import Any, Dict, Optional
@@ -14,7 +14,7 @@ class TransferBalance:
     r"""Information about the balance held with Plaid."""
     available: str = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('available') }})
     r"""The amount of this balance available for use (decimal string with two digits of precision e.g. \\"10.00\\")."""
-    type: shared_transferbalancetype.TransferBalanceType = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('type') }})
+    type: TransferBalanceType = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('type') }})
     r"""The type of balance.
 
     `prefunded_rtp_credits` - Your prefunded RTP credit balance with Plaid

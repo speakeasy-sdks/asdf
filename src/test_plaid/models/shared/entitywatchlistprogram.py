@@ -3,9 +3,9 @@
 from __future__ import annotations
 import dataclasses
 import dateutil.parser
-from ..shared import entitywatchlistcode as shared_entitywatchlistcode
-from ..shared import programnamesensitivity as shared_programnamesensitivity
-from ..shared import watchlistscreeningaudittrail as shared_watchlistscreeningaudittrail
+from .entitywatchlistcode import EntityWatchlistCode
+from .programnamesensitivity import ProgramNameSensitivity
+from .watchlistscreeningaudittrail import WatchlistScreeningAuditTrail
 from dataclasses_json import Undefined, dataclass_json
 from datetime import datetime
 from test_plaid import utils
@@ -16,7 +16,7 @@ from typing import Any, Dict, List, Optional
 @dataclasses.dataclass
 class EntityWatchlistProgram:
     r"""A program that configures the active lists, search parameters, and other behavior for initial and ongoing screening of entities."""
-    audit_trail: shared_watchlistscreeningaudittrail.WatchlistScreeningAuditTrail = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('audit_trail') }})
+    audit_trail: WatchlistScreeningAuditTrail = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('audit_trail') }})
     r"""Information about the last change made to the parent object specifying what caused the change as well as when it occurred."""
     created_at: datetime = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('created_at'), 'encoder': utils.datetimeisoformat(False), 'decoder': dateutil.parser.isoparse }})
     r"""An ISO8601 formatted timestamp."""
@@ -26,11 +26,11 @@ class EntityWatchlistProgram:
     r"""Archived programs are read-only and cannot screen new customers nor participate in ongoing monitoring."""
     is_rescanning_enabled: bool = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('is_rescanning_enabled') }})
     r"""Indicator specifying whether the program is enabled and will perform daily rescans."""
-    lists_enabled: List[shared_entitywatchlistcode.EntityWatchlistCode] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('lists_enabled') }})
+    lists_enabled: List[EntityWatchlistCode] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('lists_enabled') }})
     r"""Watchlists enabled for the associated program"""
     name: str = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('name') }})
     r"""A name for the entity program to define its purpose. For example, \\"High Risk Organizations\\" or \\"Applicants\\"."""
-    name_sensitivity: shared_programnamesensitivity.ProgramNameSensitivity = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('name_sensitivity') }})
+    name_sensitivity: ProgramNameSensitivity = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('name_sensitivity') }})
     r"""The valid name matching sensitivity configurations for a screening program. Note that while certain matching techniques may be more prevalent on less strict settings, all matching algorithms are enabled for every sensitivity.
 
     `coarse` - See more potential matches. This sensitivity will see more broad phonetic matches across alphabets that make missing a potential hit very unlikely. This setting is noisier and will require more manual review.

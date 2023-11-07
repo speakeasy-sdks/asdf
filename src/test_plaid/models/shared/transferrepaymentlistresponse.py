@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 import dataclasses
-from ..shared import transferrepayment as shared_transferrepayment
+from .transferrepayment import TransferRepayment
 from dataclasses_json import Undefined, dataclass_json
 from test_plaid import utils
 from typing import Any, Dict, List, Optional
@@ -12,7 +12,7 @@ from typing import Any, Dict, List, Optional
 @dataclasses.dataclass
 class TransferRepaymentListResponse:
     r"""Defines the response schema for `/transfer/repayments/list`"""
-    repayments: List[shared_transferrepayment.TransferRepayment] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('repayments') }})
+    repayments: List[TransferRepayment] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('repayments') }})
     request_id: str = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('request_id') }})
     r"""A unique identifier for the request, which can be used for troubleshooting. This identifier, like all Plaid identifiers, is case sensitive."""
     additional_properties: Optional[Dict[str, Any]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'exclude': lambda f: f is None }})

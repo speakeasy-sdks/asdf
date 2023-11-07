@@ -2,12 +2,12 @@
 
 from __future__ import annotations
 import dataclasses
-from ..shared import accountbase as shared_accountbase
-from ..shared import holding as shared_holding
-from ..shared import investmentsauthgetnumbers as shared_investmentsauthgetnumbers
-from ..shared import investmentsauthowner as shared_investmentsauthowner
-from ..shared import item as shared_item
-from ..shared import security as shared_security
+from .accountbase import AccountBase
+from .holding import Holding
+from .investmentsauthgetnumbers import InvestmentsAuthGetNumbers
+from .investmentsauthowner import InvestmentsAuthOwner
+from .item import Item
+from .security import Security
 from dataclasses_json import Undefined, dataclass_json
 from test_plaid import utils
 from typing import Any, Dict, List, Optional
@@ -17,19 +17,19 @@ from typing import Any, Dict, List, Optional
 @dataclasses.dataclass
 class InvestmentsAuthGetResponse:
     r"""InvestmentsAuthGetResponse defines the response schema for `/investments/auth/get`"""
-    accounts: List[shared_accountbase.AccountBase] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('accounts') }})
+    accounts: List[AccountBase] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('accounts') }})
     r"""The accounts for which data is being retrieved"""
-    holdings: List[shared_holding.Holding] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('holdings') }})
+    holdings: List[Holding] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('holdings') }})
     r"""The holdings belonging to investment accounts associated with the Item. Details of the securities in the holdings are provided in the `securities` field."""
-    item: shared_item.Item = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('item') }})
+    item: Item = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('item') }})
     r"""Metadata about the Item."""
-    numbers: shared_investmentsauthgetnumbers.InvestmentsAuthGetNumbers = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('numbers') }})
+    numbers: InvestmentsAuthGetNumbers = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('numbers') }})
     r"""Identifying information for transferring holdings to an investments account."""
-    owners: List[shared_investmentsauthowner.InvestmentsAuthOwner] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('owners') }})
+    owners: List[InvestmentsAuthOwner] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('owners') }})
     r"""Information about the account owners for the accounts associated with the Item."""
     request_id: str = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('request_id') }})
     r"""A unique identifier for the request, which can be used for troubleshooting. This identifier, like all Plaid identifiers, is case sensitive."""
-    securities: List[shared_security.Security] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('securities') }})
+    securities: List[Security] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('securities') }})
     r"""Objects describing the securities held in the accounts associated with the Item."""
     additional_properties: Optional[Dict[str, Any]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'exclude': lambda f: f is None }})
     

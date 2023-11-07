@@ -3,7 +3,7 @@
 from __future__ import annotations
 import dataclasses
 import requests as requests_http
-from ..shared import dashboardusergetresponse as shared_dashboardusergetresponse
+from ...models.shared import dashboardusergetresponse as shared_dashboardusergetresponse
 from typing import Optional
 
 

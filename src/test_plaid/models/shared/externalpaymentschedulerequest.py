@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 import dataclasses
-from ..shared import paymentscheduleinterval as shared_paymentscheduleinterval
+from .paymentscheduleinterval import PaymentScheduleInterval
 from dataclasses_json import Undefined, dataclass_json
 from datetime import date
 from test_plaid import utils
@@ -13,7 +13,7 @@ from typing import Any, Dict, Optional
 @dataclasses.dataclass
 class ExternalPaymentScheduleRequest:
     r"""The schedule that the payment will be executed on. If a schedule is provided, the payment is automatically set up as a standing order. If no schedule is specified, the payment will be executed only once."""
-    interval: shared_paymentscheduleinterval.PaymentScheduleInterval = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('interval') }})
+    interval: PaymentScheduleInterval = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('interval') }})
     r"""The frequency interval of the payment."""
     interval_execution_day: int = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('interval_execution_day') }})
     r"""The day of the interval on which to schedule the payment.

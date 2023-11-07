@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 import dataclasses
-from ..shared import assetreportgetrequestoptions as shared_assetreportgetrequestoptions
+from .assetreportgetrequestoptions import AssetReportGetRequestOptions
 from dataclasses_json import Undefined, dataclass_json
 from test_plaid import utils
 from typing import Optional
@@ -20,7 +20,7 @@ class AssetReportGetRequest:
     r"""`true` to fetch \\"fast\\" version of asset report. Defaults to false if omitted. Can only be used if `/asset_report/create` was called with `options.add_ons` set to `[\\"fast_assets\\"]`."""
     include_insights: Optional[bool] = dataclasses.field(default=False, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('include_insights'), 'exclude': lambda f: f is None }})
     r"""`true` if you would like to retrieve the Asset Report with Insights, `false` otherwise. This field defaults to `false` if omitted."""
-    options: Optional[shared_assetreportgetrequestoptions.AssetReportGetRequestOptions] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('options'), 'exclude': lambda f: f is None }})
+    options: Optional[AssetReportGetRequestOptions] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('options'), 'exclude': lambda f: f is None }})
     r"""An optional object to filter or add data to `/asset_report/get` results. If provided, must be non-`null`."""
     secret: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('secret'), 'exclude': lambda f: f is None }})
     r"""Your Plaid API `secret`. The `secret` is required and may be provided either in the `PLAID-SECRET` header or as part of a request body."""

@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 import dataclasses
-from ..shared import pay as shared_pay
+from .pay import Pay
 from dataclasses_json import Undefined, dataclass_json
 from datetime import date
 from test_plaid import utils
@@ -17,7 +17,7 @@ class EmploymentDetails:
     Deprecated class: This will be removed in a future release, please migrate away from it as soon as possible.
     """
     additional_properties: Optional[Dict[str, Any]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'exclude': lambda f: f is None }})
-    annual_salary: Optional[shared_pay.Pay] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('annual_salary'), 'exclude': lambda f: f is None }})
+    annual_salary: Optional[Pay] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('annual_salary'), 'exclude': lambda f: f is None }})
     r"""An object representing a monetary amount.
 
     Deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.

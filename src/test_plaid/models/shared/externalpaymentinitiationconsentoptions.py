@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 import dataclasses
-from ..shared import paymentinitiationoptionalrestrictionbacs as shared_paymentinitiationoptionalrestrictionbacs
+from .paymentinitiationoptionalrestrictionbacs import PaymentInitiationOptionalRestrictionBacs
 from dataclasses_json import Undefined, dataclass_json
 from test_plaid import utils
 from typing import Optional
@@ -12,7 +12,7 @@ from typing import Optional
 @dataclasses.dataclass
 class ExternalPaymentInitiationConsentOptions:
     r"""Additional payment consent options"""
-    bacs: Optional[shared_paymentinitiationoptionalrestrictionbacs.PaymentInitiationOptionalRestrictionBacs] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('bacs') }})
+    bacs: Optional[PaymentInitiationOptionalRestrictionBacs] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('bacs') }})
     r"""An optional object used to restrict the accounts used for payments. If provided, the end user will be able to send payments only from the specified bank account."""
     iban: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('iban') }})
     r"""The International Bank Account Number (IBAN) for the payer's account. Where possible, the end user will be able to set up payment consent using only the specified bank account if provided."""

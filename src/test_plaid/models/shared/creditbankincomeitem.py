@@ -3,8 +3,8 @@
 from __future__ import annotations
 import dataclasses
 import dateutil.parser
-from ..shared import creditbankincomeaccount as shared_creditbankincomeaccount
-from ..shared import creditbankincomesource as shared_creditbankincomesource
+from .creditbankincomeaccount import CreditBankIncomeAccount
+from .creditbankincomesource import CreditBankIncomeSource
 from dataclasses_json import Undefined, dataclass_json
 from datetime import datetime
 from test_plaid import utils
@@ -15,9 +15,9 @@ from typing import List, Optional
 @dataclasses.dataclass
 class CreditBankIncomeItem:
     r"""The details and metadata for an end user's Item."""
-    bank_income_accounts: Optional[List[shared_creditbankincomeaccount.CreditBankIncomeAccount]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('bank_income_accounts'), 'exclude': lambda f: f is None }})
+    bank_income_accounts: Optional[List[CreditBankIncomeAccount]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('bank_income_accounts'), 'exclude': lambda f: f is None }})
     r"""The Item's accounts that have Bank Income data."""
-    bank_income_sources: Optional[List[shared_creditbankincomesource.CreditBankIncomeSource]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('bank_income_sources'), 'exclude': lambda f: f is None }})
+    bank_income_sources: Optional[List[CreditBankIncomeSource]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('bank_income_sources'), 'exclude': lambda f: f is None }})
     r"""The income sources for this Item. Each entry in the array is a single income source."""
     institution_id: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('institution_id'), 'exclude': lambda f: f is None }})
     r"""The unique identifier of the institution associated with the Item."""

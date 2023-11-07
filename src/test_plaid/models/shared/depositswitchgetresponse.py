@@ -8,7 +8,7 @@ from enum import Enum
 from test_plaid import utils
 from typing import Any, Dict, Optional
 
-class DepositSwitchGetResponseState(str, Enum):
+class State(str, Enum):
     r"""The state, or status, of the deposit switch.
 
     - `initialized` – The deposit switch has been initialized with the user entering the information required to submit the deposit switch request.
@@ -24,7 +24,7 @@ class DepositSwitchGetResponseState(str, Enum):
     COMPLETED = 'completed'
     ERROR = 'error'
 
-class DepositSwitchGetResponseSwitchMethod(str, Enum):
+class SwitchMethod(str, Enum):
     r"""The method used to make the deposit switch.
 
     - `instant` – User instantly switched their direct deposit to a new or existing bank account by connecting their payroll or employer account.
@@ -59,7 +59,7 @@ class DepositSwitchGetResponse:
     r"""The percentage of direct deposit allocated to the target account. Always `null` if the target account is not allocated a percentage or if the deposit switch has not been completed or if `is_allocated_remainder` is true."""
     request_id: str = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('request_id') }})
     r"""A unique identifier for the request, which can be used for troubleshooting. This identifier, like all Plaid identifiers, is case sensitive."""
-    state: DepositSwitchGetResponseState = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('state') }})
+    state: State = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('state') }})
     r"""The state, or status, of the deposit switch.
 
     - `initialized` – The deposit switch has been initialized with the user entering the information required to submit the deposit switch request.
@@ -83,7 +83,7 @@ class DepositSwitchGetResponse:
     r"""The ID of the institution selected by the user. If the user did not select an institution, the value returned is `null`."""
     institution_name: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('institution_name') }})
     r"""The name of the institution selected by the user. If the user did not select an institution, the value returned is `null`."""
-    switch_method: Optional[DepositSwitchGetResponseSwitchMethod] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('switch_method') }})
+    switch_method: Optional[SwitchMethod] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('switch_method') }})
     r"""The method used to make the deposit switch.
 
     - `instant` – User instantly switched their direct deposit to a new or existing bank account by connecting their payroll or employer account.

@@ -2,11 +2,11 @@
 
 from __future__ import annotations
 import dataclasses
-from ..shared import creditdocumentmetadata as shared_creditdocumentmetadata
-from ..shared import creditpaystubemployee as shared_creditpaystubemployee
-from ..shared import creditpaystubemployer as shared_creditpaystubemployer
-from ..shared import w2box12 as shared_w2box12
-from ..shared import w2stateandlocalwages as shared_w2stateandlocalwages
+from .creditdocumentmetadata import CreditDocumentMetadata
+from .creditpaystubemployee import CreditPayStubEmployee
+from .creditpaystubemployer import CreditPayStubEmployer
+from .w2box12 import W2Box12
+from .w2stateandlocalwages import W2StateAndLocalWages
 from dataclasses_json import Undefined, dataclass_json
 from test_plaid import utils
 from typing import Any, Dict, List, Optional
@@ -18,18 +18,18 @@ class CreditW2:
     r"""W2 is an object that represents income data taken from a W2 tax document."""
     allocated_tips: Optional[str] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('allocated_tips') }})
     r"""Allocated tips."""
-    box_12: List[shared_w2box12.W2Box12] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('box_12') }})
+    box_12: List[W2Box12] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('box_12') }})
     box_9: Optional[str] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('box_9') }})
     r"""Contents from box 9 on the W2."""
     dependent_care_benefits: Optional[str] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('dependent_care_benefits') }})
     r"""Dependent care benefits."""
     document_id: str = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('document_id') }})
     r"""An identifier of the document referenced by the document metadata."""
-    document_metadata: shared_creditdocumentmetadata.CreditDocumentMetadata = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('document_metadata') }})
+    document_metadata: CreditDocumentMetadata = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('document_metadata') }})
     r"""Object representing metadata pertaining to the document."""
-    employee: shared_creditpaystubemployee.CreditPayStubEmployee = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('employee') }})
+    employee: CreditPayStubEmployee = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('employee') }})
     r"""Data about the employee."""
-    employer: shared_creditpaystubemployer.CreditPayStubEmployer = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('employer') }})
+    employer: CreditPayStubEmployer = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('employer') }})
     r"""Information about the employer on the pay stub."""
     employer_id_number: Optional[str] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('employer_id_number') }})
     r"""An employee identification number or EIN."""
@@ -51,7 +51,7 @@ class CreditW2:
     r"""Tips from social security."""
     social_security_wages: Optional[str] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('social_security_wages') }})
     r"""Wages from social security."""
-    state_and_local_wages: List[shared_w2stateandlocalwages.W2StateAndLocalWages] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('state_and_local_wages') }})
+    state_and_local_wages: List[W2StateAndLocalWages] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('state_and_local_wages') }})
     statutory_employee: Optional[str] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('statutory_employee') }})
     r"""Statutory employee."""
     tax_year: Optional[str] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('tax_year') }})

@@ -3,18 +3,18 @@
 from __future__ import annotations
 import dataclasses
 import dateutil.parser
-from ..shared import achclass as shared_achclass
-from ..shared import transferauthorizationguaranteedecision as shared_transferauthorizationguaranteedecision
-from ..shared import transferauthorizationguaranteedecisionrationale as shared_transferauthorizationguaranteedecisionrationale
-from ..shared import transfercreditfundssource as shared_transfercreditfundssource
-from ..shared import transferexpectedsweepsettlementscheduleitem as shared_transferexpectedsweepsettlementscheduleitem
-from ..shared import transferfailure as shared_transferfailure
-from ..shared import transfernetwork as shared_transfernetwork
-from ..shared import transferrefund as shared_transferrefund
-from ..shared import transferstatus as shared_transferstatus
-from ..shared import transfersweepstatus as shared_transfersweepstatus
-from ..shared import transfertype as shared_transfertype
-from ..shared import transferuserinresponse as shared_transferuserinresponse
+from .achclass import ACHClass
+from .transferauthorizationguaranteedecision import TransferAuthorizationGuaranteeDecision
+from .transferauthorizationguaranteedecisionrationale import TransferAuthorizationGuaranteeDecisionRationale
+from .transfercreditfundssource import TransferCreditFundsSource
+from .transferexpectedsweepsettlementscheduleitem import TransferExpectedSweepSettlementScheduleItem
+from .transferfailure import TransferFailure
+from .transfernetwork import TransferNetwork
+from .transferrefund import TransferRefund
+from .transferstatus import TransferStatus
+from .transfersweepstatus import TransferSweepStatus
+from .transfertype import TransferType
+from .transferuserinresponse import TransferUserInResponse
 from dataclasses_json import Undefined, dataclass_json
 from datetime import date, datetime
 from test_plaid import utils
@@ -33,7 +33,7 @@ class Transfer:
     r"""When `true`, you can still cancel this transfer."""
     created: datetime = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('created'), 'encoder': utils.datetimeisoformat(False), 'decoder': dateutil.parser.isoparse }})
     r"""The datetime when this transfer was created. This will be of the form `2006-01-02T15:04:05Z`"""
-    credit_funds_source: Optional[shared_transfercreditfundssource.TransferCreditFundsSource] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('credit_funds_source') }})
+    credit_funds_source: Optional[TransferCreditFundsSource] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('credit_funds_source') }})
     r"""Specifies the source of funds for the transfer. Only valid for `credit` transfers, and defaults to `sweep` if not specified. This field is not specified for `debit` transfers.
 
     `sweep` - Sweep funds from your funding account
@@ -44,13 +44,13 @@ class Transfer:
     r"""The description of the transfer."""
     expected_settlement_date: Optional[date] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('expected_settlement_date'), 'encoder': utils.dateisoformat(False), 'decoder': utils.datefromisoformat }})
     r"""The expected date when the full amount of the transfer settles at the consumers’ account, if the transfer is credit; or at the customer's business checking account, if the transfer is debit. Only set for ACH transfers and is null for non-ACH transfers. Only set for ACH transfers. This will be of the form YYYY-MM-DD."""
-    failure_reason: Optional[shared_transferfailure.TransferFailure] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('failure_reason') }})
+    failure_reason: Optional[TransferFailure] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('failure_reason') }})
     r"""The failure reason if the event type for a transfer is `\\"failed\\"` or `\\"returned\\"`. Null value otherwise."""
     funding_account_id: Optional[str] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('funding_account_id') }})
     r"""The id of the associated funding account, available in the Plaid Dashboard. If present, this indicates which of your business checking accounts will be credited or debited."""
-    guarantee_decision: Optional[shared_transferauthorizationguaranteedecision.TransferAuthorizationGuaranteeDecision] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('guarantee_decision') }})
+    guarantee_decision: Optional[TransferAuthorizationGuaranteeDecision] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('guarantee_decision') }})
     r"""Indicates whether the transfer is guaranteed by Plaid (Guarantee customers only). This field will contain either `GUARANTEED` or `NOT_GUARANTEED` indicating whether Plaid will guarantee the transfer. If the transfer is not guaranteed, additional information will be provided in the `guarantee_decision_rationale` field. Refer to the `code` field in `guarantee_decision_rationale` for details."""
-    guarantee_decision_rationale: Optional[shared_transferauthorizationguaranteedecisionrationale.TransferAuthorizationGuaranteeDecisionRationale] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('guarantee_decision_rationale') }})
+    guarantee_decision_rationale: Optional[TransferAuthorizationGuaranteeDecisionRationale] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('guarantee_decision_rationale') }})
     r"""The rationale for Plaid's decision to not guarantee a transfer. Will be `null` unless `guarantee_decision` is `NOT_GUARANTEED`."""
     id: str = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('id') }})
     r"""Plaid’s unique identifier for a transfer."""
@@ -64,7 +64,7 @@ class Transfer:
     Maximum key length of 40 characters
     Maximum value length of 500 characters
     """
-    network: shared_transfernetwork.TransferNetwork = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('network') }})
+    network: TransferNetwork = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('network') }})
     r"""The network or rails used for the transfer.
 
     For transfers submitted as either `ach` or `same-day-ach` the cutoff for same-day is 3:30 PM Eastern Time and the cutoff for next-day transfers is 5:30 PM Eastern Time. It is recommended to submit a transfer at least 15 minutes before the cutoff time in order to ensure that it will be processed before the cutoff. Any transfer that is indicated as `same-day-ach` and that misses the same-day cutoff, but is submitted in time for the next-day cutoff, will be sent over next-day rails and will not incur same-day charges. Note that both legs of the transfer will be downgraded if applicable.
@@ -78,11 +78,11 @@ class Transfer:
     r"""The Plaid client ID that is the originator of this transfer. Only present if created on behalf of another client as a third-party sender (TPS)."""
     recurring_transfer_id: Optional[str] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('recurring_transfer_id') }})
     r"""The id of the recurring transfer if this transfer belongs to a recurring transfer."""
-    refunds: List[shared_transferrefund.TransferRefund] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('refunds') }})
+    refunds: List[TransferRefund] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('refunds') }})
     r"""A list of refunds associated with this transfer."""
     standard_return_window: Optional[date] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('standard_return_window'), 'encoder': utils.dateisoformat(False), 'decoder': utils.datefromisoformat }})
     r"""The date 3 business days from settlement date indicating the following ACH returns can no longer happen: R01, R02, R03, R29. This will be of the form YYYY-MM-DD."""
-    status: shared_transferstatus.TransferStatus = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('status') }})
+    status: TransferStatus = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('status') }})
     r"""The status of the transfer.
 
     `pending`: A new transfer was created; it is in the pending state.
@@ -92,15 +92,15 @@ class Transfer:
     `failed`: The transfer failed, no funds were moved.
     `returned`: A posted transfer was returned.
     """
-    type: shared_transfertype.TransferType = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('type') }})
+    type: TransferType = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('type') }})
     r"""The type of transfer. This will be either `debit` or `credit`.  A `debit` indicates a transfer of money into the origination account; a `credit` indicates a transfer of money out of the origination account."""
     unauthorized_return_window: Optional[date] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('unauthorized_return_window'), 'encoder': utils.dateisoformat(False), 'decoder': utils.datefromisoformat }})
     r"""The date 61 business days from settlement date indicating the following ACH returns can no longer happen: R05, R07, R10, R11, R51, R33, R37, R38, R51, R52, R53. This will be of the form YYYY-MM-DD."""
-    user: shared_transferuserinresponse.TransferUserInResponse = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('user') }})
+    user: TransferUserInResponse = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('user') }})
     r"""The legal name and other information for the account holder."""
     account_id: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('account_id'), 'exclude': lambda f: f is None }})
     r"""The Plaid `account_id` corresponding to the end-user account that will be debited or credited."""
-    ach_class: Optional[shared_achclass.ACHClass] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('ach_class'), 'exclude': lambda f: f is None }})
+    ach_class: Optional[ACHClass] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('ach_class'), 'exclude': lambda f: f is None }})
     r"""Specifies the use case of the transfer. Required for transfers on an ACH network.
 
     `\"ccd\"` - Corporate Credit or Debit - fund transfer between two corporate bank accounts
@@ -112,9 +112,9 @@ class Transfer:
     `\"web\"` - Internet-Initiated Entry - debits from a consumer’s account where their authorization is obtained over the Internet
     """
     additional_properties: Optional[Dict[str, Any]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'exclude': lambda f: f is None }})
-    expected_sweep_settlement_schedule: Optional[List[shared_transferexpectedsweepsettlementscheduleitem.TransferExpectedSweepSettlementScheduleItem]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('expected_sweep_settlement_schedule'), 'exclude': lambda f: f is None }})
+    expected_sweep_settlement_schedule: Optional[List[TransferExpectedSweepSettlementScheduleItem]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('expected_sweep_settlement_schedule'), 'exclude': lambda f: f is None }})
     r"""The expected sweep settlement schedule of this transfer, assuming this transfer is not `returned`. Only applies to ACH debit transfers."""
-    sweep_status: Optional[shared_transfersweepstatus.TransferSweepStatus] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('sweep_status') }})
+    sweep_status: Optional[TransferSweepStatus] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('sweep_status') }})
     r"""The status of the sweep for the transfer.
 
     `unswept`: The transfer hasn't been swept yet.

@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 import dataclasses
-from ..shared import recipientbacsnullable as shared_recipientbacsnullable
+from .recipientbacsnullable import RecipientBACSNullable
 from dataclasses_json import Undefined, dataclass_json
 from test_plaid import utils
 from typing import Optional
@@ -12,7 +12,7 @@ from typing import Optional
 @dataclasses.dataclass
 class ExternalPaymentRefundDetails:
     r"""Details about external payment refund"""
-    bacs: Optional[shared_recipientbacsnullable.RecipientBACSNullable] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('bacs') }})
+    bacs: Optional[RecipientBACSNullable] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('bacs') }})
     r"""An object containing a BACS account number and sort code. If an IBAN is not provided or if this recipient needs to accept domestic GBP-denominated payments, BACS data is required."""
     iban: Optional[str] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('iban') }})
     r"""The International Bank Account Number (IBAN) for the account."""

@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 import dataclasses
-from ..shared import documentrisksignalinstitutionmetadata as shared_documentrisksignalinstitutionmetadata
+from .documentrisksignalinstitutionmetadata import DocumentRiskSignalInstitutionMetadata
 from dataclasses_json import Undefined, dataclass_json
 from test_plaid import utils
 from typing import Any, Dict, Optional
@@ -20,7 +20,7 @@ class DocumentRiskSignal:
     r"""The field which the risk signal was computed for"""
     has_fraud_risk: Optional[bool] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('has_fraud_risk') }})
     r"""A flag used to quickly identify if the signal indicates that this field is authentic or fraudulent"""
-    institution_metadata: Optional[shared_documentrisksignalinstitutionmetadata.DocumentRiskSignalInstitutionMetadata] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('institution_metadata') }})
+    institution_metadata: Optional[DocumentRiskSignalInstitutionMetadata] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('institution_metadata') }})
     r"""An object which contains additional metadata about the institution used to compute the verification attribute"""
     page_number: Optional[int] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('page_number') }})
     r"""The relevant page associated with the risk signal"""

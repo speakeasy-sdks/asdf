@@ -3,9 +3,9 @@
 from __future__ import annotations
 import dataclasses
 import dateutil.parser
-from ..shared import transfereventtype as shared_transfereventtype
-from ..shared import transferfailure as shared_transferfailure
-from ..shared import transfertype as shared_transfertype
+from .transfereventtype import TransferEventType
+from .transferfailure import TransferFailure
+from .transfertype import TransferType
 from dataclasses_json import Undefined, dataclass_json
 from datetime import datetime
 from test_plaid import utils
@@ -20,7 +20,7 @@ class TransferEvent:
     r"""The account ID associated with the transfer."""
     event_id: int = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('event_id') }})
     r"""Plaid’s unique identifier for this event. IDs are sequential unsigned 64-bit integers."""
-    event_type: shared_transfereventtype.TransferEventType = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('event_type') }})
+    event_type: TransferEventType = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('event_type') }})
     r"""The type of event that this transfer represents.
 
     `pending`: A new transfer was created; it is in the pending state.
@@ -41,7 +41,7 @@ class TransferEvent:
 
     `return_swept`: Due to the transfer being returned, funds were pulled from or pushed back to the sweep account.
     """
-    failure_reason: Optional[shared_transferfailure.TransferFailure] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('failure_reason') }})
+    failure_reason: Optional[TransferFailure] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('failure_reason') }})
     r"""The failure reason if the event type for a transfer is `\\"failed\\"` or `\\"returned\\"`. Null value otherwise."""
     funding_account_id: Optional[str] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('funding_account_id') }})
     r"""The id of the associated funding account, available in the Plaid Dashboard. If present, this indicates which of your business checking accounts will be credited or debited."""
@@ -64,7 +64,7 @@ class TransferEvent:
     r"""The amount of the transfer (decimal string with two digits of precision e.g. \\"10.00\\")."""
     transfer_id: str = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('transfer_id') }})
     r"""Plaid’s unique identifier for a transfer."""
-    transfer_type: shared_transfertype.TransferType = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('transfer_type') }})
+    transfer_type: TransferType = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('transfer_type') }})
     r"""The type of transfer. This will be either `debit` or `credit`.  A `debit` indicates a transfer of money into the origination account; a `credit` indicates a transfer of money out of the origination account."""
     additional_properties: Optional[Dict[str, Any]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'exclude': lambda f: f is None }})
     

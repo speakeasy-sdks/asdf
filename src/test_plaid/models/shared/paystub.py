@@ -2,16 +2,16 @@
 
 from __future__ import annotations
 import dataclasses
-from ..shared import deductions as shared_deductions
-from ..shared import earnings as shared_earnings
-from ..shared import employee as shared_employee
-from ..shared import employmentdetails as shared_employmentdetails
-from ..shared import incomebreakdown as shared_incomebreakdown
-from ..shared import netpay as shared_netpay
-from ..shared import payperioddetails as shared_payperioddetails
-from ..shared import paystubdetails as shared_paystubdetails
-from ..shared import paystubemployer as shared_paystubemployer
-from ..shared import paystubytddetails as shared_paystubytddetails
+from .deductions import Deductions
+from .earnings import Earnings
+from .employee import Employee
+from .employmentdetails import EmploymentDetails
+from .incomebreakdown import IncomeBreakdown
+from .netpay import NetPay
+from .payperioddetails import PayPeriodDetails
+from .paystubdetails import PaystubDetails
+from .paystubemployer import PaystubEmployer
+from .paystubytddetails import PaystubYTDDetails
 from dataclasses_json import Undefined, dataclass_json
 from test_plaid import utils
 from typing import Any, Dict, List, Optional
@@ -21,34 +21,34 @@ from typing import Any, Dict, List, Optional
 @dataclasses.dataclass
 class Paystub:
     r"""An object representing data extracted from the end user's paystub."""
-    deductions: shared_deductions.Deductions = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('deductions') }})
+    deductions: Deductions = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('deductions') }})
     r"""An object with the deduction information found on a paystub."""
     doc_id: str = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('doc_id') }})
     r"""An identifier of the document referenced by the document metadata."""
-    earnings: shared_earnings.Earnings = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('earnings') }})
+    earnings: Earnings = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('earnings') }})
     r"""An object representing both a breakdown of earnings on a paystub and the total earnings."""
-    employee: shared_employee.Employee = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('employee') }})
+    employee: Employee = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('employee') }})
     r"""Data about the employee."""
-    employer: shared_paystubemployer.PaystubEmployer = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('employer') }})
+    employer: PaystubEmployer = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('employer') }})
     r"""Information about the employer on the paystub"""
-    net_pay: shared_netpay.NetPay = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('net_pay') }})
+    net_pay: NetPay = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('net_pay') }})
     r"""An object representing information about the net pay amount on the paystub."""
-    pay_period_details: shared_payperioddetails.PayPeriodDetails = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('pay_period_details') }})
+    pay_period_details: PayPeriodDetails = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('pay_period_details') }})
     r"""Details about the pay period."""
     additional_properties: Optional[Dict[str, Any]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'exclude': lambda f: f is None }})
-    employment_details: Optional[shared_employmentdetails.EmploymentDetails] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('employment_details'), 'exclude': lambda f: f is None }})
+    employment_details: Optional[EmploymentDetails] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('employment_details'), 'exclude': lambda f: f is None }})
     r"""An object representing employment details found on a paystub.
 
     Deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
     """
-    income_breakdown: Optional[List[shared_incomebreakdown.IncomeBreakdown]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('income_breakdown'), 'exclude': lambda f: f is None }})
+    income_breakdown: Optional[List[IncomeBreakdown]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('income_breakdown'), 'exclude': lambda f: f is None }})
     r"""Deprecated field: This will be removed in a future release, please migrate away from it as soon as possible."""
-    paystub_details: Optional[shared_paystubdetails.PaystubDetails] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('paystub_details'), 'exclude': lambda f: f is None }})
+    paystub_details: Optional[PaystubDetails] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('paystub_details'), 'exclude': lambda f: f is None }})
     r"""An object representing details that can be found on the paystub.
 
     Deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
     """
-    ytd_earnings: Optional[shared_paystubytddetails.PaystubYTDDetails] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('ytd_earnings'), 'exclude': lambda f: f is None }})
+    ytd_earnings: Optional[PaystubYTDDetails] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('ytd_earnings'), 'exclude': lambda f: f is None }})
     r"""The amount of income earned year to date, as based on paystub data.
 
     Deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.

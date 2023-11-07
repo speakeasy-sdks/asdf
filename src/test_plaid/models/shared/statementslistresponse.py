@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 import dataclasses
-from ..shared import statementsaccount as shared_statementsaccount
+from .statementsaccount import StatementsAccount
 from dataclasses_json import Undefined, dataclass_json
 from test_plaid import utils
 from typing import Any, Dict, List, Optional
@@ -12,7 +12,7 @@ from typing import Any, Dict, List, Optional
 @dataclasses.dataclass
 class StatementsListResponse:
     r"""StatementsListResponse defines the response schema for `/statements/list`"""
-    accounts: List[shared_statementsaccount.StatementsAccount] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('accounts') }})
+    accounts: List[StatementsAccount] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('accounts') }})
     institution_id: str = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('institution_id') }})
     r"""The Plaid Institution ID associated with the Item."""
     institution_name: str = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('institution_name') }})

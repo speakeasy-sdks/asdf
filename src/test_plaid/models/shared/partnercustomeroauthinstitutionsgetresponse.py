@@ -2,9 +2,9 @@
 
 from __future__ import annotations
 import dataclasses
-from ..shared import partnerendcustomerflowdownstatus as shared_partnerendcustomerflowdownstatus
-from ..shared import partnerendcustomeroauthinstitution as shared_partnerendcustomeroauthinstitution
-from ..shared import partnerendcustomerquestionnairestatus as shared_partnerendcustomerquestionnairestatus
+from .partnerendcustomerflowdownstatus import PartnerEndCustomerFlowdownStatus
+from .partnerendcustomeroauthinstitution import PartnerEndCustomerOAuthInstitution
+from .partnerendcustomerquestionnairestatus import PartnerEndCustomerQuestionnaireStatus
 from dataclasses_json import Undefined, dataclass_json
 from test_plaid import utils
 from typing import Any, Dict, List, Optional
@@ -15,11 +15,11 @@ from typing import Any, Dict, List, Optional
 class PartnerCustomerOAuthInstitutionsGetResponse:
     r"""Response schema for `/partner/customer/oauth_institutions/get`."""
     additional_properties: Optional[Dict[str, Any]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'exclude': lambda f: f is None }})
-    flowdown_status: Optional[shared_partnerendcustomerflowdownstatus.PartnerEndCustomerFlowdownStatus] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('flowdown_status'), 'exclude': lambda f: f is None }})
+    flowdown_status: Optional[PartnerEndCustomerFlowdownStatus] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('flowdown_status'), 'exclude': lambda f: f is None }})
     r"""The status of the addendum to the Plaid MSA (\\"flowdown\\") for the end customer."""
-    institutions: Optional[List[shared_partnerendcustomeroauthinstitution.PartnerEndCustomerOAuthInstitution]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('institutions'), 'exclude': lambda f: f is None }})
+    institutions: Optional[List[PartnerEndCustomerOAuthInstitution]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('institutions'), 'exclude': lambda f: f is None }})
     r"""The OAuth institutions with which the end customer's application is being registered."""
-    questionnaire_status: Optional[shared_partnerendcustomerquestionnairestatus.PartnerEndCustomerQuestionnaireStatus] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('questionnaire_status'), 'exclude': lambda f: f is None }})
+    questionnaire_status: Optional[PartnerEndCustomerQuestionnaireStatus] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('questionnaire_status'), 'exclude': lambda f: f is None }})
     r"""The status of the end customer's security questionnaire."""
     request_id: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('request_id'), 'exclude': lambda f: f is None }})
     r"""A unique identifier for the request, which can be used for troubleshooting. This identifier, like all Plaid identifiers, is case sensitive."""

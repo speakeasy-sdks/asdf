@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 import dataclasses
-from ..shared import transferuseraddressinresponse as shared_transferuseraddressinresponse
+from .transferuseraddressinresponse import TransferUserAddressInResponse
 from dataclasses_json import Undefined, dataclass_json
 from test_plaid import utils
 from typing import Any, Dict, Optional
@@ -12,7 +12,7 @@ from typing import Any, Dict, Optional
 @dataclasses.dataclass
 class TransferUserInResponse:
     r"""The legal name and other information for the account holder."""
-    address: Optional[shared_transferuseraddressinresponse.TransferUserAddressInResponse] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('address') }})
+    address: Optional[TransferUserAddressInResponse] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('address') }})
     r"""The address associated with the account holder."""
     email_address: Optional[str] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('email_address') }})
     r"""The user's email address."""

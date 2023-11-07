@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 import dataclasses
-from ..shared import enhancements as shared_enhancements
+from .enhancements import Enhancements
 from dataclasses_json import Undefined, dataclass_json
 from test_plaid import utils
 from typing import Any, Dict, Optional
@@ -16,7 +16,7 @@ class ClientProvidedEnhancedTransaction:
     r"""The value of the transaction, denominated in the account's currency, as stated in `iso_currency_code`. Positive values when money moves out of the account; negative values when money moves in. For example, debit card purchases are positive; credit card payments, direct deposits, and refunds are negative."""
     description: str = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('description') }})
     r"""The raw description of the transaction."""
-    enhancements: shared_enhancements.Enhancements = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('enhancements') }})
+    enhancements: Enhancements = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('enhancements') }})
     r"""A grouping of the Plaid produced transaction enhancement fields."""
     id: str = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('id') }})
     r"""Unique transaction identifier to tie transactions back to clients' systems."""

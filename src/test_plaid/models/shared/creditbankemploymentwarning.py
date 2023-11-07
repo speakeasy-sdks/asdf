@@ -2,9 +2,9 @@
 
 from __future__ import annotations
 import dataclasses
-from ..shared import creditbankemploymentwarningtype as shared_creditbankemploymentwarningtype
-from ..shared import creditbankincomecause as shared_creditbankincomecause
-from ..shared import creditbankincomewarningcode as shared_creditbankincomewarningcode
+from .creditbankemploymentwarningtype import CreditBankEmploymentWarningType
+from .creditbankincomecause import CreditBankIncomeCause
+from .creditbankincomewarningcode import CreditBankIncomeWarningCode
 from dataclasses_json import Undefined, dataclass_json
 from test_plaid import utils
 
@@ -13,9 +13,9 @@ from test_plaid import utils
 @dataclasses.dataclass
 class CreditBankEmploymentWarning:
     r"""The warning associated with the data that was unavailable for the Bank Employment Report."""
-    cause: shared_creditbankincomecause.CreditBankIncomeCause = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('cause') }})
+    cause: CreditBankIncomeCause = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('cause') }})
     r"""An error object and associated `item_id` used to identify a specific Item and error when a batch operation operating on multiple Items has encountered an error in one of the Items."""
-    warning_code: shared_creditbankincomewarningcode.CreditBankIncomeWarningCode = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('warning_code') }})
+    warning_code: CreditBankIncomeWarningCode = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('warning_code') }})
     r"""The warning code identifies a specific kind of warning.
     `IDENTITY_UNAVAILABLE`: Unable to extract identity for the Item
     `TRANSACTIONS_UNAVAILABLE`: Unable to extract transactions for the Item
@@ -23,7 +23,7 @@ class CreditBankEmploymentWarning:
     `REPORT_DELETED`: Report deleted due to customer or consumer request
     `DATA_UNAVAILABLE`: No relevant data was found for the Item
     """
-    warning_type: shared_creditbankemploymentwarningtype.CreditBankEmploymentWarningType = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('warning_type') }})
+    warning_type: CreditBankEmploymentWarningType = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('warning_type') }})
     r"""The warning type which will always be `BANK_EMPLOYMENT_WARNING`."""
     
 

@@ -2,9 +2,9 @@
 
 from __future__ import annotations
 import dataclasses
-from ..shared import riskcheckbehaviorbotdetectedlabel as shared_riskcheckbehaviorbotdetectedlabel
-from ..shared import riskcheckbehaviorfraudringdetectedlabel as shared_riskcheckbehaviorfraudringdetectedlabel
-from ..shared import riskcheckbehavioruserinteractionslabel as shared_riskcheckbehavioruserinteractionslabel
+from .riskcheckbehaviorbotdetectedlabel import RiskCheckBehaviorBotDetectedLabel
+from .riskcheckbehaviorfraudringdetectedlabel import RiskCheckBehaviorFraudRingDetectedLabel
+from .riskcheckbehavioruserinteractionslabel import RiskCheckBehaviorUserInteractionsLabel
 from dataclasses_json import Undefined, dataclass_json
 from test_plaid import utils
 from typing import Any, Dict, Optional
@@ -14,7 +14,7 @@ from typing import Any, Dict, Optional
 @dataclasses.dataclass
 class RiskCheckBehavior:
     r"""Result summary object specifying values for `behavior` attributes of risk check, when available."""
-    bot_detected: shared_riskcheckbehaviorbotdetectedlabel.RiskCheckBehaviorBotDetectedLabel = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('bot_detected') }})
+    bot_detected: RiskCheckBehaviorBotDetectedLabel = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('bot_detected') }})
     r"""Field describing the outcome of a bot detection behavior risk check.
 
     `yes` indicates that automated activity was detected.
@@ -23,7 +23,7 @@ class RiskCheckBehavior:
 
     `no_data` indicates there was not enough information available to give an accurate signal.
     """
-    fraud_ring_detected: shared_riskcheckbehaviorfraudringdetectedlabel.RiskCheckBehaviorFraudRingDetectedLabel = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('fraud_ring_detected') }})
+    fraud_ring_detected: RiskCheckBehaviorFraudRingDetectedLabel = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('fraud_ring_detected') }})
     r"""Field describing the outcome of a fraud ring behavior risk check.
 
     `yes` indicates that fraud ring activity was detected.
@@ -32,7 +32,7 @@ class RiskCheckBehavior:
 
     `no_data` indicates there was not enough information available to give an accurate signal.
     """
-    user_interactions: shared_riskcheckbehavioruserinteractionslabel.RiskCheckBehaviorUserInteractionsLabel = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('user_interactions') }})
+    user_interactions: RiskCheckBehaviorUserInteractionsLabel = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('user_interactions') }})
     r"""Field describing the overall user interaction signals of a behavior risk check. This value represents how familiar the user is with the personal data they provide, based on a number of signals that are collected during their session.
 
     `genuine` indicates the user has high familiarity with the data they are providing, and that fraud is unlikely.

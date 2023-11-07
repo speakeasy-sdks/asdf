@@ -3,12 +3,12 @@
 from __future__ import annotations
 import dataclasses
 import dateutil.parser
-from ..shared import achclass as shared_achclass
-from ..shared import transfernetwork as shared_transfernetwork
-from ..shared import transferrecurringschedule as shared_transferrecurringschedule
-from ..shared import transferrecurringstatus as shared_transferrecurringstatus
-from ..shared import transfertype as shared_transfertype
-from ..shared import transferuserinresponse as shared_transferuserinresponse
+from .achclass import ACHClass
+from .transfernetwork import TransferNetwork
+from .transferrecurringschedule import TransferRecurringSchedule
+from .transferrecurringstatus import TransferRecurringStatus
+from .transfertype import TransferType
+from .transferuserinresponse import TransferUserInResponse
 from dataclasses_json import Undefined, dataclass_json
 from datetime import date, datetime
 from test_plaid import utils
@@ -31,7 +31,7 @@ class RecurringTransferNullable:
     r"""The id of the funding account to use, available in the Plaid Dashboard. This determines which of your business checking accounts will be credited or debited."""
     iso_currency_code: str = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('iso_currency_code') }})
     r"""The currency of the transfer amount, e.g. \\"USD\\" """
-    network: shared_transfernetwork.TransferNetwork = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('network') }})
+    network: TransferNetwork = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('network') }})
     r"""The network or rails used for the transfer.
 
     For transfers submitted as either `ach` or `same-day-ach` the cutoff for same-day is 3:30 PM Eastern Time and the cutoff for next-day transfers is 5:30 PM Eastern Time. It is recommended to submit a transfer at least 15 minutes before the cutoff time in order to ensure that it will be processed before the cutoff. Any transfer that is indicated as `same-day-ach` and that misses the same-day cutoff, but is submitted in time for the next-day cutoff, will be sent over next-day rails and will not incur same-day charges. Note that both legs of the transfer will be downgraded if applicable.
@@ -48,9 +48,9 @@ class RecurringTransferNullable:
     """
     recurring_transfer_id: str = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('recurring_transfer_id') }})
     r"""Plaid’s unique identifier for a recurring transfer."""
-    schedule: shared_transferrecurringschedule.TransferRecurringSchedule = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('schedule') }})
+    schedule: TransferRecurringSchedule = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('schedule') }})
     r"""The schedule that the recurring transfer will be executed on."""
-    status: shared_transferrecurringstatus.TransferRecurringStatus = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('status') }})
+    status: TransferRecurringStatus = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('status') }})
     r"""The status of the recurring transfer.
 
     `active`: The recurring transfer is currently active.
@@ -58,11 +58,11 @@ class RecurringTransferNullable:
     `expired`: The recurring transfer has completed all originations according to its recurring schedule.
     """
     transfer_ids: List[str] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('transfer_ids') }})
-    type: shared_transfertype.TransferType = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('type') }})
+    type: TransferType = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('type') }})
     r"""The type of transfer. This will be either `debit` or `credit`.  A `debit` indicates a transfer of money into the origination account; a `credit` indicates a transfer of money out of the origination account."""
-    user: shared_transferuserinresponse.TransferUserInResponse = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('user') }})
+    user: TransferUserInResponse = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('user') }})
     r"""The legal name and other information for the account holder."""
-    ach_class: Optional[shared_achclass.ACHClass] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('ach_class'), 'exclude': lambda f: f is None }})
+    ach_class: Optional[ACHClass] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('ach_class'), 'exclude': lambda f: f is None }})
     r"""Specifies the use case of the transfer. Required for transfers on an ACH network.
 
     `\"ccd\"` - Corporate Credit or Debit - fund transfer between two corporate bank accounts

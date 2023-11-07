@@ -3,11 +3,11 @@
 from __future__ import annotations
 import dataclasses
 import dateutil.parser
-from ..shared import location as shared_location
-from ..shared import paymentmeta as shared_paymentmeta
-from ..shared import personalfinancecategory as shared_personalfinancecategory
-from ..shared import transactioncode as shared_transactioncode
-from ..shared import transactioncounterparty as shared_transactioncounterparty
+from .location import Location
+from .paymentmeta import PaymentMeta
+from .personalfinancecategory import PersonalFinanceCategory
+from .transactioncode import TransactionCode
+from .transactioncounterparty import TransactionCounterparty
 from dataclasses_json import Undefined, dataclass_json
 from datetime import date, datetime
 from enum import Enum
@@ -28,7 +28,7 @@ class TransactionPaymentChannel(str, Enum):
     IN_STORE = 'in store'
     OTHER = 'other'
 
-class TransactionTransactionType(str, Enum):
+class TransactionType(str, Enum):
     r"""Please use the `payment_channel` field, `transaction_type` will be deprecated in the future.
 
     `digital:` transactions that took place online.
@@ -87,7 +87,7 @@ class Transaction:
     """
     iso_currency_code: Optional[str] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('iso_currency_code') }})
     r"""The ISO-4217 currency code of the transaction. Always `null` if `unofficial_currency_code` is non-null."""
-    location: shared_location.Location = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('location') }})
+    location: Location = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('location') }})
     r"""A representation of where a transaction took place"""
     name: str = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('name') }})
     r"""The merchant name or transaction description.
@@ -104,7 +104,7 @@ class Transaction:
 
     This field replaces the `transaction_type` field.
     """
-    payment_meta: shared_paymentmeta.PaymentMeta = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('payment_meta') }})
+    payment_meta: PaymentMeta = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('payment_meta') }})
     r"""Transaction information specific to inter-bank transfers. If the transaction was not an inter-bank transfer, all fields will be `null`.
 
     If the `transactions` object was returned by a Transactions endpoint such as `/transactions/sync` or `/transactions/get`, the `payment_meta` key will always appear, but no data elements are guaranteed. If the `transactions` object was returned by an Assets endpoint such as `/asset_report/get/` or `/asset_report/pdf/get`, this field will only appear in an Asset Report with Insights.
@@ -113,7 +113,7 @@ class Transaction:
     r"""When `true`, identifies the transaction as pending or unsettled. Pending transaction details (name, type, amount, category ID) may change before they are settled."""
     pending_transaction_id: Optional[str] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('pending_transaction_id') }})
     r"""The ID of a posted transaction's associated pending transaction, where applicable."""
-    transaction_code: Optional[shared_transactioncode.TransactionCode] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('transaction_code') }})
+    transaction_code: Optional[TransactionCode] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('transaction_code') }})
     r"""An identifier classifying the transaction type.
 
     This field is only populated for European institutions. For institutions in the US and Canada, this field is set to `null`.
@@ -152,7 +152,7 @@ class Transaction:
     additional_properties: Optional[Dict[str, Any]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'exclude': lambda f: f is None }})
     check_number: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('check_number') }})
     r"""The check number of the transaction. This field is only populated for check transactions."""
-    counterparties: Optional[List[shared_transactioncounterparty.TransactionCounterparty]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('counterparties'), 'exclude': lambda f: f is None }})
+    counterparties: Optional[List[TransactionCounterparty]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('counterparties'), 'exclude': lambda f: f is None }})
     r"""The counterparties present in the transaction. Counterparties, such as the financial institutions, are extracted by Plaid from the raw description."""
     logo_url: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('logo_url') }})
     r"""The logo associated with the merchant, if available. Formatted as a 100x100 pixels PNG file path."""
@@ -160,14 +160,14 @@ class Transaction:
     r"""The merchant name, as enriched by Plaid from the `name` field. This is typically a more human-readable version of the merchant counterparty in the transaction. For some bank transactions (such as checks or account transfers) where there is no meaningful merchant name, this value will be `null`."""
     original_description: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('original_description') }})
     r"""The string returned by the financial institution to describe the transaction. For transactions returned by `/transactions/sync` or `/transactions/get`, this field is in beta and will be omitted unless the client is both enrolled in the closed beta program and has set `options.include_original_description` to `true`."""
-    personal_finance_category: Optional[shared_personalfinancecategory.PersonalFinanceCategory] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('personal_finance_category') }})
+    personal_finance_category: Optional[PersonalFinanceCategory] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('personal_finance_category') }})
     r"""Information describing the intent of the transaction. Most relevant for personal finance use cases, but not limited to such use cases.
 
     See the [`taxonomy csv file`](https://plaid.com/documents/transactions-personal-finance-category-taxonomy.csv) for a full list of personal finance categories.
     """
     personal_finance_category_icon_url: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('personal_finance_category_icon_url'), 'exclude': lambda f: f is None }})
     r"""A link to the icon associated with the primary personal finance category. The logo will always be 100x100 pixels."""
-    transaction_type: Optional[TransactionTransactionType] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('transaction_type'), 'exclude': lambda f: f is None }})
+    transaction_type: Optional[TransactionType] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('transaction_type'), 'exclude': lambda f: f is None }})
     r"""Please use the `payment_channel` field, `transaction_type` will be deprecated in the future.
 
     `digital:` transactions that took place online.

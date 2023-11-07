@@ -3,7 +3,7 @@
 from __future__ import annotations
 import dataclasses
 import requests as requests_http
-from ..shared import crabankincomegetresponse as shared_crabankincomegetresponse
+from ...models.shared import crabankincomegetresponse as shared_crabankincomegetresponse
 from typing import Optional
 
 

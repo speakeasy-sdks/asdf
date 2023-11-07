@@ -2,8 +2,8 @@
 
 from __future__ import annotations
 import dataclasses
-from ..shared import creditfreddiemacverificationofasset_voa_2_4 as shared_creditfreddiemacverificationofasset_voa_2_4
-from ..shared import statuses as shared_statuses
+from .creditfreddiemacverificationofasset_voa_2_4 import CreditFreddieMacVerificationOfAssetVOA24
+from .statuses import Statuses
 from dataclasses_json import Undefined, dataclass_json
 from test_plaid import utils
 from typing import Any, Dict, List, Optional
@@ -13,9 +13,9 @@ from typing import Any, Dict, List, Optional
 @dataclasses.dataclass
 class CreditFreddieMacServiceVOA24:
     r"""A collection of details related to a fulfillment service or product in terms of request, process and result."""
-    statuses: shared_statuses.Statuses = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('STATUSES') }})
+    statuses: Statuses = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('STATUSES') }})
     r"""A collection of STATUS containers."""
-    verification_of_asset: List[shared_creditfreddiemacverificationofasset_voa_2_4.CreditFreddieMacVerificationOfAssetVOA24] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('VERIFICATION_OF_ASSET') }})
+    verification_of_asset: List[CreditFreddieMacVerificationOfAssetVOA24] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('VERIFICATION_OF_ASSET') }})
     additional_properties: Optional[Dict[str, Any]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'exclude': lambda f: f is None }})
     
 

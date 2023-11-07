@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 import dataclasses
-from ..shared import serviceproductfulfillmentidentifier as shared_serviceproductfulfillmentidentifier
+from .serviceproductfulfillmentidentifier import ServiceProductFulfillmentIdentifier
 from dataclasses_json import Undefined, dataclass_json
 from test_plaid import utils
 from typing import Any, Dict, Optional
@@ -12,7 +12,7 @@ from typing import Any, Dict, Optional
 @dataclasses.dataclass
 class ServiceProductFulfillmentDetail:
     r"""Documentation not found in the MISMO model viewer and not provided by Freddie Mac."""
-    service_product_fulfillment_identifier: shared_serviceproductfulfillmentidentifier.ServiceProductFulfillmentIdentifier = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('ServiceProductFulfillmentIdentifier') }})
+    service_product_fulfillment_identifier: ServiceProductFulfillmentIdentifier = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('ServiceProductFulfillmentIdentifier') }})
     r"""Documentation not found in the MISMO model viewer and not provided by Freddie Mac."""
     vendor_order_identifier: Optional[str] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('VendorOrderIdentifier') }})
     r"""A string that uniquely identifies a type of order Verification of Asset."""

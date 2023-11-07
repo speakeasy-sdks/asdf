@@ -3,7 +3,7 @@
 from __future__ import annotations
 import dataclasses
 import dateutil.parser
-from ..shared import transactionstream as shared_transactionstream
+from .transactionstream import TransactionStream
 from dataclasses_json import Undefined, dataclass_json
 from datetime import datetime
 from test_plaid import utils
@@ -14,9 +14,9 @@ from typing import Any, Dict, List, Optional
 @dataclasses.dataclass
 class TransactionsRecurringGetResponse:
     r"""TransactionsRecurringGetResponse defines the response schema for `/transactions/recurring/get`"""
-    inflow_streams: List[shared_transactionstream.TransactionStream] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('inflow_streams') }})
+    inflow_streams: List[TransactionStream] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('inflow_streams') }})
     r"""An array of depository transaction streams."""
-    outflow_streams: List[shared_transactionstream.TransactionStream] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('outflow_streams') }})
+    outflow_streams: List[TransactionStream] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('outflow_streams') }})
     r"""An array of expense transaction streams."""
     request_id: str = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('request_id') }})
     r"""A unique identifier for the request, which can be used for troubleshooting. This identifier, like all Plaid identifiers, is case sensitive."""

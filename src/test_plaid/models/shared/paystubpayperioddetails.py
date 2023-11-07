@@ -2,8 +2,8 @@
 
 from __future__ import annotations
 import dataclasses
-from ..shared import creditpaystubpaybasistype as shared_creditpaystubpaybasistype
-from ..shared import paystubdistributionbreakdown as shared_paystubdistributionbreakdown
+from .creditpaystubpaybasistype import CreditPayStubPayBasisType
+from .paystubdistributionbreakdown import PayStubDistributionBreakdown
 from dataclasses_json import Undefined, dataclass_json
 from datetime import date
 from test_plaid import utils
@@ -14,7 +14,7 @@ from typing import Any, Dict, List, Optional
 @dataclasses.dataclass
 class PayStubPayPeriodDetails:
     r"""Details about the pay period."""
-    distribution_breakdown: List[shared_paystubdistributionbreakdown.PayStubDistributionBreakdown] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('distribution_breakdown') }})
+    distribution_breakdown: List[PayStubDistributionBreakdown] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('distribution_breakdown') }})
     end_date: Optional[date] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('end_date'), 'encoder': utils.dateisoformat(False), 'decoder': utils.datefromisoformat }})
     r"""The date on which the pay period ended, in [ISO 8601](https://wikipedia.org/wiki/ISO_8601) format (\\"yyyy-mm-dd\\")."""
     gross_earnings: Optional[float] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('gross_earnings') }})
@@ -35,7 +35,7 @@ class PayStubPayPeriodDetails:
     See the [currency code schema](https://plaid.com/docs/api/accounts#currency-code-schema) for a full listing of supported `iso_currency_code`s.
     """
     additional_properties: Optional[Dict[str, Any]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'exclude': lambda f: f is None }})
-    pay_basis: Optional[shared_creditpaystubpaybasistype.CreditPayStubPayBasisType] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('pay_basis'), 'exclude': lambda f: f is None }})
+    pay_basis: Optional[CreditPayStubPayBasisType] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('pay_basis'), 'exclude': lambda f: f is None }})
     r"""The explicit pay basis on the paystub (if present)."""
     
 

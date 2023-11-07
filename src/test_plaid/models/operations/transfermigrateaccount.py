@@ -3,8 +3,8 @@
 from __future__ import annotations
 import dataclasses
 import requests as requests_http
-from ..shared import plaiderror as shared_plaiderror
-from ..shared import transfermigrateaccountresponse as shared_transfermigrateaccountresponse
+from ...models.shared import plaiderror as shared_plaiderror
+from ...models.shared import transfermigrateaccountresponse as shared_transfermigrateaccountresponse
 from typing import Optional
 
 

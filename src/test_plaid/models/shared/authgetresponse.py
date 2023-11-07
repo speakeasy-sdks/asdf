@@ -2,9 +2,9 @@
 
 from __future__ import annotations
 import dataclasses
-from ..shared import accountbase as shared_accountbase
-from ..shared import authgetnumbers as shared_authgetnumbers
-from ..shared import item as shared_item
+from .accountbase import AccountBase
+from .authgetnumbers import AuthGetNumbers
+from .item import Item
 from dataclasses_json import Undefined, dataclass_json
 from test_plaid import utils
 from typing import Any, Dict, List, Optional
@@ -14,11 +14,11 @@ from typing import Any, Dict, List, Optional
 @dataclasses.dataclass
 class AuthGetResponse:
     r"""AuthGetResponse defines the response schema for `/auth/get`"""
-    accounts: List[shared_accountbase.AccountBase] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('accounts') }})
+    accounts: List[AccountBase] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('accounts') }})
     r"""The `accounts` for which numbers are being retrieved."""
-    item: shared_item.Item = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('item') }})
+    item: Item = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('item') }})
     r"""Metadata about the Item."""
-    numbers: shared_authgetnumbers.AuthGetNumbers = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('numbers') }})
+    numbers: AuthGetNumbers = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('numbers') }})
     r"""An object containing identifying numbers used for making electronic transfers to and from the `accounts`. The identifying number type (ACH, EFT, IBAN, or BACS) used will depend on the country of the account. An account may have more than one number type. If a particular identifying number type is not used by any `accounts` for which data has been requested, the array for that type will be empty."""
     request_id: str = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('request_id') }})
     r"""A unique identifier for the request, which can be used for troubleshooting. This identifier, like all Plaid identifiers, is case sensitive."""

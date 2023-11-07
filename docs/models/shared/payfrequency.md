@@ -1,4 +1,4 @@
-# PayPeriodDetailsPayFrequency
+# PayFrequency
 
 The frequency at which an individual is paid.
 

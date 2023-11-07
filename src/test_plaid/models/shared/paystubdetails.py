@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 import dataclasses
-from ..shared import paystubpayfrequency as shared_paystubpayfrequency
+from .paystubpayfrequency import PaystubPayFrequency
 from dataclasses_json import Undefined, dataclass_json
 from datetime import date
 from test_plaid import utils
@@ -19,7 +19,7 @@ class PaystubDetails:
     additional_properties: Optional[Dict[str, Any]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'exclude': lambda f: f is None }})
     pay_date: Optional[date] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('pay_date'), 'encoder': utils.dateisoformat(True), 'decoder': utils.datefromisoformat }})
     r"""Pay date on the paystub in the 'YYYY-MM-DD' format."""
-    pay_frequency: Optional[shared_paystubpayfrequency.PaystubPayFrequency] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('pay_frequency') }})
+    pay_frequency: Optional[PaystubPayFrequency] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('pay_frequency') }})
     r"""The frequency at which the employee is paid. Possible values: `MONTHLY`, `BI-WEEKLY`, `WEEKLY`, `SEMI-MONTHLY`."""
     pay_period_end_date: Optional[date] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('pay_period_end_date'), 'encoder': utils.dateisoformat(True), 'decoder': utils.datefromisoformat }})
     r"""Ending date of the pay period on the paystub in the 'YYYY-MM-DD' format."""

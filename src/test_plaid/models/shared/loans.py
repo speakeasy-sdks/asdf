@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 import dataclasses
-from ..shared import loan as shared_loan
+from .loan import Loan
 from dataclasses_json import Undefined, dataclass_json
 from test_plaid import utils
 from typing import Any, Dict, Optional
@@ -12,7 +12,7 @@ from typing import Any, Dict, Optional
 @dataclasses.dataclass
 class Loans:
     r"""A collection of loans that are part of a single deal."""
-    loan: shared_loan.Loan = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('LOAN') }})
+    loan: Loan = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('LOAN') }})
     r"""Information specific to a mortgage loan agreement between one or more borrowers and a mortgage lender."""
     additional_properties: Optional[Dict[str, Any]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'exclude': lambda f: f is None }})
     

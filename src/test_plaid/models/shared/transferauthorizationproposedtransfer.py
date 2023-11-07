@@ -2,10 +2,10 @@
 
 from __future__ import annotations
 import dataclasses
-from ..shared import achclass as shared_achclass
-from ..shared import transfercreditfundssource as shared_transfercreditfundssource
-from ..shared import transfertype as shared_transfertype
-from ..shared import transferuserinresponse as shared_transferuserinresponse
+from .achclass import ACHClass
+from .transfercreditfundssource import TransferCreditFundsSource
+from .transfertype import TransferType
+from .transferuserinresponse import TransferUserInResponse
 from dataclasses_json import Undefined, dataclass_json
 from test_plaid import utils
 from typing import Any, Dict, Optional
@@ -17,7 +17,7 @@ class TransferAuthorizationProposedTransfer:
     r"""Details regarding the proposed transfer."""
     amount: str = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('amount') }})
     r"""The amount of the transfer (decimal string with two digits of precision e.g. \\"10.00\\")."""
-    credit_funds_source: Optional[shared_transfercreditfundssource.TransferCreditFundsSource] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('credit_funds_source') }})
+    credit_funds_source: Optional[TransferCreditFundsSource] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('credit_funds_source') }})
     r"""Specifies the source of funds for the transfer. Only valid for `credit` transfers, and defaults to `sweep` if not specified. This field is not specified for `debit` transfers.
 
     `sweep` - Sweep funds from your funding account
@@ -37,13 +37,13 @@ class TransferAuthorizationProposedTransfer:
     """
     originator_client_id: Optional[str] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('originator_client_id') }})
     r"""The Plaid client ID that is the originator of this transfer. Only present if created on behalf of another client as a third-party sender (TPS)."""
-    type: shared_transfertype.TransferType = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('type') }})
+    type: TransferType = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('type') }})
     r"""The type of transfer. This will be either `debit` or `credit`.  A `debit` indicates a transfer of money into the origination account; a `credit` indicates a transfer of money out of the origination account."""
-    user: shared_transferuserinresponse.TransferUserInResponse = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('user') }})
+    user: TransferUserInResponse = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('user') }})
     r"""The legal name and other information for the account holder."""
     account_id: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('account_id'), 'exclude': lambda f: f is None }})
     r"""The Plaid `account_id` for the account that will be debited or credited."""
-    ach_class: Optional[shared_achclass.ACHClass] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('ach_class'), 'exclude': lambda f: f is None }})
+    ach_class: Optional[ACHClass] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('ach_class'), 'exclude': lambda f: f is None }})
     r"""Specifies the use case of the transfer. Required for transfers on an ACH network.
 
     `\"ccd\"` - Corporate Credit or Debit - fund transfer between two corporate bank accounts

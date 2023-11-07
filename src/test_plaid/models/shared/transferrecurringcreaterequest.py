@@ -2,12 +2,12 @@
 
 from __future__ import annotations
 import dataclasses
-from ..shared import achclass as shared_achclass
-from ..shared import transferdevice as shared_transferdevice
-from ..shared import transfernetwork as shared_transfernetwork
-from ..shared import transferrecurringschedule as shared_transferrecurringschedule
-from ..shared import transfertype as shared_transfertype
-from ..shared import transferuserinrequest as shared_transferuserinrequest
+from .achclass import ACHClass
+from .transferdevice import TransferDevice
+from .transfernetwork import TransferNetwork
+from .transferrecurringschedule import TransferRecurringSchedule
+from .transfertype import TransferType
+from .transferuserinrequest import TransferUserInRequest
 from dataclasses_json import Undefined, dataclass_json
 from test_plaid import utils
 from typing import Optional
@@ -25,27 +25,27 @@ class TransferRecurringCreateRequest:
     r"""The amount of the transfer (decimal string with two digits of precision e.g. \\"10.00\\")."""
     description: str = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('description') }})
     r"""The description of the recurring transfer."""
-    device: shared_transferdevice.TransferDevice = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('device') }})
+    device: TransferDevice = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('device') }})
     r"""Information about the device being used to initiate the authorization."""
     idempotency_key: str = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('idempotency_key') }})
     r"""A random key provided by the client, per unique recurring transfer. Maximum of 50 characters.
 
     The API supports idempotency for safely retrying requests without accidentally performing the same operation twice. For example, if a request to create a recurring fails due to a network connection error, you can retry the request with the same idempotency key to guarantee that only a single recurring transfer is created.
     """
-    network: shared_transfernetwork.TransferNetwork = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('network') }})
+    network: TransferNetwork = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('network') }})
     r"""The network or rails used for the transfer.
 
     For transfers submitted as either `ach` or `same-day-ach` the cutoff for same-day is 3:30 PM Eastern Time and the cutoff for next-day transfers is 5:30 PM Eastern Time. It is recommended to submit a transfer at least 15 minutes before the cutoff time in order to ensure that it will be processed before the cutoff. Any transfer that is indicated as `same-day-ach` and that misses the same-day cutoff, but is submitted in time for the next-day cutoff, will be sent over next-day rails and will not incur same-day charges. Note that both legs of the transfer will be downgraded if applicable.
     """
-    schedule: shared_transferrecurringschedule.TransferRecurringSchedule = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('schedule') }})
+    schedule: TransferRecurringSchedule = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('schedule') }})
     r"""The schedule that the recurring transfer will be executed on."""
-    type: shared_transfertype.TransferType = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('type') }})
+    type: TransferType = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('type') }})
     r"""The type of transfer. This will be either `debit` or `credit`.  A `debit` indicates a transfer of money into the origination account; a `credit` indicates a transfer of money out of the origination account."""
-    user: shared_transferuserinrequest.TransferUserInRequest = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('user') }})
+    user: TransferUserInRequest = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('user') }})
     r"""The legal name and other information for the account holder."""
     user_present: Optional[bool] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('user_present') }})
     r"""If the end user is initiating the specific transfer themselves via an interactive UI, this should be `true`; for automatic recurring payments where the end user is not actually initiating each individual transfer, it should be `false`."""
-    ach_class: Optional[shared_achclass.ACHClass] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('ach_class'), 'exclude': lambda f: f is None }})
+    ach_class: Optional[ACHClass] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('ach_class'), 'exclude': lambda f: f is None }})
     r"""Specifies the use case of the transfer. Required for transfers on an ACH network.
 
     `\"ccd\"` - Corporate Credit or Debit - fund transfer between two corporate bank accounts

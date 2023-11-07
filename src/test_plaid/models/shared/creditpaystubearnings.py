@@ -2,8 +2,8 @@
 
 from __future__ import annotations
 import dataclasses
-from ..shared import paystubearningsbreakdown as shared_paystubearningsbreakdown
-from ..shared import paystubearningstotal as shared_paystubearningstotal
+from .paystubearningsbreakdown import PayStubEarningsBreakdown
+from .paystubearningstotal import PayStubEarningsTotal
 from dataclasses_json import Undefined, dataclass_json
 from test_plaid import utils
 from typing import Any, Dict, List, Optional
@@ -13,8 +13,8 @@ from typing import Any, Dict, List, Optional
 @dataclasses.dataclass
 class CreditPayStubEarnings:
     r"""An object representing both a breakdown of earnings on a pay stub and the total earnings."""
-    breakdown: List[shared_paystubearningsbreakdown.PayStubEarningsBreakdown] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('breakdown') }})
-    total: shared_paystubearningstotal.PayStubEarningsTotal = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('total') }})
+    breakdown: List[PayStubEarningsBreakdown] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('breakdown') }})
+    total: PayStubEarningsTotal = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('total') }})
     r"""An object representing both the current pay period and year to date amount for an earning category."""
     additional_properties: Optional[Dict[str, Any]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'exclude': lambda f: f is None }})
     

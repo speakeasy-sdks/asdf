@@ -1,4 +1,4 @@
-# EmailType
+# Type
 
 The type of email account as described by the financial institution.
 

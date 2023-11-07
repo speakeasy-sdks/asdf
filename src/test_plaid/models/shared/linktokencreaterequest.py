@@ -2,26 +2,26 @@
 
 from __future__ import annotations
 import dataclasses
-from ..shared import consumerreportpermissiblepurpose as shared_consumerreportpermissiblepurpose
-from ..shared import countrycode as shared_countrycode
-from ..shared import linktokenaccountfilters as shared_linktokenaccountfilters
-from ..shared import linktokencreatehostedlink as shared_linktokencreatehostedlink
-from ..shared import linktokencreateinstitutiondata as shared_linktokencreateinstitutiondata
-from ..shared import linktokencreaterequestauth as shared_linktokencreaterequestauth
-from ..shared import linktokencreaterequestbasereport as shared_linktokencreaterequestbasereport
-from ..shared import linktokencreaterequestdepositswitch as shared_linktokencreaterequestdepositswitch
-from ..shared import linktokencreaterequestemployment as shared_linktokencreaterequestemployment
-from ..shared import linktokencreaterequestidentityverification as shared_linktokencreaterequestidentityverification
-from ..shared import linktokencreaterequestincomeverification as shared_linktokencreaterequestincomeverification
-from ..shared import linktokencreaterequestpaymentinitiation as shared_linktokencreaterequestpaymentinitiation
-from ..shared import linktokencreaterequeststatements as shared_linktokencreaterequeststatements
-from ..shared import linktokencreaterequesttransfer as shared_linktokencreaterequesttransfer
-from ..shared import linktokencreaterequestupdate as shared_linktokencreaterequestupdate
-from ..shared import linktokencreaterequestuser as shared_linktokencreaterequestuser
-from ..shared import linktokeneuconfig as shared_linktokeneuconfig
-from ..shared import linktokeninvestments as shared_linktokeninvestments
-from ..shared import linktokeninvestmentsauth as shared_linktokeninvestmentsauth
-from ..shared import products as shared_products
+from .consumerreportpermissiblepurpose import ConsumerReportPermissiblePurpose
+from .countrycode import CountryCode
+from .linktokenaccountfilters import LinkTokenAccountFilters
+from .linktokencreatehostedlink import LinkTokenCreateHostedLink
+from .linktokencreateinstitutiondata import LinkTokenCreateInstitutionData
+from .linktokencreaterequestauth import LinkTokenCreateRequestAuth
+from .linktokencreaterequestbasereport import LinkTokenCreateRequestBaseReport
+from .linktokencreaterequestdepositswitch import LinkTokenCreateRequestDepositSwitch
+from .linktokencreaterequestemployment import LinkTokenCreateRequestEmployment
+from .linktokencreaterequestidentityverification import LinkTokenCreateRequestIdentityVerification
+from .linktokencreaterequestincomeverification import LinkTokenCreateRequestIncomeVerification
+from .linktokencreaterequestpaymentinitiation import LinkTokenCreateRequestPaymentInitiation
+from .linktokencreaterequeststatements import LinkTokenCreateRequestStatements
+from .linktokencreaterequesttransfer import LinkTokenCreateRequestTransfer
+from .linktokencreaterequestupdate import LinkTokenCreateRequestUpdate
+from .linktokencreaterequestuser import LinkTokenCreateRequestUser
+from .linktokeneuconfig import LinkTokenEUConfig
+from .linktokeninvestments import LinkTokenInvestments
+from .linktokeninvestmentsauth import LinkTokenInvestmentsAuth
+from .products import Products
 from dataclasses_json import Undefined, dataclass_json
 from test_plaid import utils
 from typing import List, Optional
@@ -33,7 +33,7 @@ class LinkTokenCreateRequest:
     r"""LinkTokenCreateRequest defines the request schema for `/link/token/create`"""
     client_name: str = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('client_name') }})
     r"""The name of your application, as it should be displayed in Link. Maximum length of 30 characters. If a value longer than 30 characters is provided, Link will display \\"This Application\\" instead."""
-    country_codes: List[shared_countrycode.CountryCode] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('country_codes') }})
+    country_codes: List[CountryCode] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('country_codes') }})
     r"""Specify an array of Plaid-supported country codes using the ISO-3166-1 alpha-2 country code standard. Institutions from all listed countries will be shown. For a complete mapping of supported products by country, see https://plaid.com/global/.
 
     If Link is launched with multiple country codes, only products that you are enabled for in all countries will be used by Link. Note that while all countries are enabled by default in Sandbox and Development, in Production only US and Canada are enabled by default. Access to European institutions requires additional compliance steps. To request access to European institutions in the Production environment, [file a product access Support ticket](https://dashboard.plaid.com/support/new/product-and-development/product-troubleshooting/request-product-access) via the Plaid dashboard. If you initialize with a European country code, your users will see the European consent panel during the Link flow.
@@ -64,16 +64,16 @@ class LinkTokenCreateRequest:
 
     When using a Link customization, the language configured here must match the setting in the customization, or the customization will not be applied.
     """
-    user: shared_linktokencreaterequestuser.LinkTokenCreateRequestUser = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('user') }})
+    user: LinkTokenCreateRequestUser = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('user') }})
     r"""An object specifying information about the end user who will be linking their account."""
     access_token: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('access_token'), 'exclude': lambda f: f is None }})
     r"""The `access_token` associated with the Item to update or reference, used when updating, modifying, or accessing an existing `access_token`. Used when launching Link in update mode, when completing the Same-day (manual) Micro-deposit flow, or (optionally) when initializing Link for a returning user as part of the Transfer UI flow."""
-    account_filters: Optional[shared_linktokenaccountfilters.LinkTokenAccountFilters] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('account_filters'), 'exclude': lambda f: f is None }})
+    account_filters: Optional[LinkTokenAccountFilters] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('account_filters'), 'exclude': lambda f: f is None }})
     r"""By default, Link will provide limited account filtering: it will only display Institutions that are compatible with all products supplied in the `products` parameter of `/link/token/create`, and, if `auth` is specified in the `products` array, will also filter out accounts other than `checking` and `savings` accounts on the Account Select pane. You can further limit the accounts shown in Link by using `account_filters` to specify the account subtypes to be shown in Link. Only the specified subtypes will be shown. This filtering applies to both the Account Select view (if enabled) and the Institution Select view. Institutions that do not support the selected subtypes will be omitted from Link. To indicate that all subtypes should be shown, use the value `\\"all\\"`. If the `account_filters` filter is used, any account type for which a filter is not specified will be entirely omitted from Link. For a full list of valid types and subtypes, see the [Account schema](https://plaid.com/docs/api/accounts#account-type-schema).
 
     For institutions using OAuth, the filter will not affect the list of accounts shown by the bank in the OAuth window.
     """
-    additional_consented_products: Optional[List[shared_products.Products]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('additional_consented_products'), 'exclude': lambda f: f is None }})
+    additional_consented_products: Optional[List[Products]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('additional_consented_products'), 'exclude': lambda f: f is None }})
     r"""(Beta) This field has no effect unless you are participating in the [Data Transparency](https://plaid.com/docs/link/data-transparency-messaging-migration-guide) beta program.
     List of additional Plaid product(s) you wish to collect consent for. These products will not be billed until you start using them by calling the relevant endpoints.
 
@@ -83,13 +83,13 @@ class LinkTokenCreateRequest:
     """
     android_package_name: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('android_package_name'), 'exclude': lambda f: f is None }})
     r"""The name of your app's Android package. Required if using the `link_token` to initialize Link on Android. Any package name specified here must also be added to the Allowed Android package names setting on the [developer dashboard](https://dashboard.plaid.com/team/api). When creating a `link_token` for initializing Link on other platforms, `android_package_name` must be left blank and `redirect_uri` should be used instead."""
-    auth: Optional[shared_linktokencreaterequestauth.LinkTokenCreateRequestAuth] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('auth'), 'exclude': lambda f: f is None }})
+    auth: Optional[LinkTokenCreateRequestAuth] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('auth'), 'exclude': lambda f: f is None }})
     r"""Specifies options for initializing Link for use with the Auth product. This field can be used to enable or disable extended Auth flows for the resulting Link session. Omitting any field will result in a default that can be configured by your account manager."""
-    base_report: Optional[shared_linktokencreaterequestbasereport.LinkTokenCreateRequestBaseReport] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('base_report'), 'exclude': lambda f: f is None }})
+    base_report: Optional[LinkTokenCreateRequestBaseReport] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('base_report'), 'exclude': lambda f: f is None }})
     r"""Specifies options for initializing Link for use with the Base Report product. This field is required if `assets` is included in the `products` array and the client is CRA-enabled."""
     client_id: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('client_id'), 'exclude': lambda f: f is None }})
     r"""Your Plaid API `client_id`. The `client_id` is required and may be provided either in the `PLAID-CLIENT-ID` header or as part of a request body."""
-    consumer_report_permissible_purpose: Optional[shared_consumerreportpermissiblepurpose.ConsumerReportPermissiblePurpose] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('consumer_report_permissible_purpose'), 'exclude': lambda f: f is None }})
+    consumer_report_permissible_purpose: Optional[ConsumerReportPermissiblePurpose] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('consumer_report_permissible_purpose'), 'exclude': lambda f: f is None }})
     r"""This enum describes the reason a consumer report is created for
 
     `ACCOUNT_REVIEW_CREDIT`: In connection with a consumer credit transaction for the review or collection of an account pursuant to FCRA Section 604(a)(3)(A).
@@ -101,31 +101,31 @@ class LinkTokenCreateRequest:
     `WRITTEN_INSTRUCTION_PREQUALIFICATION`: In accordance with the written instructions of the consumer pursuant to FCRA Section 604(a)(2), to evaluate an application’s profile to make an offer to the consumer.
     `WRITTEN_INSTRUCTION_OTHER`: In accordance with the written instructions of the consumer pursuant to FCRA Section 604(a)(2), such as when an individual agrees to act as a guarantor or assumes personal liability for a consumer, business, or commercial loan.
     """
-    deposit_switch: Optional[shared_linktokencreaterequestdepositswitch.LinkTokenCreateRequestDepositSwitch] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('deposit_switch'), 'exclude': lambda f: f is None }})
+    deposit_switch: Optional[LinkTokenCreateRequestDepositSwitch] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('deposit_switch'), 'exclude': lambda f: f is None }})
     r"""Specifies options for initializing Link for use with the Deposit Switch (beta) product. This field is required if `deposit_switch` is included in the `products` array."""
-    employment: Optional[shared_linktokencreaterequestemployment.LinkTokenCreateRequestEmployment] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('employment'), 'exclude': lambda f: f is None }})
+    employment: Optional[LinkTokenCreateRequestEmployment] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('employment'), 'exclude': lambda f: f is None }})
     r"""Specifies options for initializing Link for use with the Employment product. This field is required if `employment` is included in the `products` array."""
-    eu_config: Optional[shared_linktokeneuconfig.LinkTokenEUConfig] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('eu_config'), 'exclude': lambda f: f is None }})
+    eu_config: Optional[LinkTokenEUConfig] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('eu_config'), 'exclude': lambda f: f is None }})
     r"""Configuration parameters for EU flows"""
-    hosted_link: Optional[shared_linktokencreatehostedlink.LinkTokenCreateHostedLink] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('hosted_link'), 'exclude': lambda f: f is None }})
+    hosted_link: Optional[LinkTokenCreateHostedLink] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('hosted_link'), 'exclude': lambda f: f is None }})
     r"""Configuration parameters for Hosted Link"""
-    identity_verification: Optional[shared_linktokencreaterequestidentityverification.LinkTokenCreateRequestIdentityVerification] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('identity_verification'), 'exclude': lambda f: f is None }})
+    identity_verification: Optional[LinkTokenCreateRequestIdentityVerification] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('identity_verification'), 'exclude': lambda f: f is None }})
     r"""Specifies option for initializing Link for use with the Identity Verification product."""
-    income_verification: Optional[shared_linktokencreaterequestincomeverification.LinkTokenCreateRequestIncomeVerification] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('income_verification'), 'exclude': lambda f: f is None }})
+    income_verification: Optional[LinkTokenCreateRequestIncomeVerification] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('income_verification'), 'exclude': lambda f: f is None }})
     r"""Specifies options for initializing Link for use with the Income product. This field is required if `income_verification` is included in the `products` array."""
-    institution_data: Optional[shared_linktokencreateinstitutiondata.LinkTokenCreateInstitutionData] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('institution_data'), 'exclude': lambda f: f is None }})
+    institution_data: Optional[LinkTokenCreateInstitutionData] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('institution_data'), 'exclude': lambda f: f is None }})
     r"""A map containing data used to highlight institutions in Link."""
     institution_id: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('institution_id'), 'exclude': lambda f: f is None }})
     r"""Used for certain Europe-only configurations, as well as certain legacy use cases in other regions."""
-    investments: Optional[shared_linktokeninvestments.LinkTokenInvestments] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('investments'), 'exclude': lambda f: f is None }})
+    investments: Optional[LinkTokenInvestments] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('investments'), 'exclude': lambda f: f is None }})
     r"""Configuration parameters for the Investments product"""
-    investments_auth: Optional[shared_linktokeninvestmentsauth.LinkTokenInvestmentsAuth] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('investments_auth'), 'exclude': lambda f: f is None }})
+    investments_auth: Optional[LinkTokenInvestmentsAuth] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('investments_auth'), 'exclude': lambda f: f is None }})
     r"""Configuration parameters for the Investments Auth Product"""
     link_customization_name: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('link_customization_name'), 'exclude': lambda f: f is None }})
     r"""The name of the Link customization from the Plaid Dashboard to be applied to Link. If not specified, the `default` customization will be used. When using a Link customization, the language in the customization must match the language selected via the `language` parameter, and the countries in the customization should match the country codes selected via `country_codes`."""
-    payment_initiation: Optional[shared_linktokencreaterequestpaymentinitiation.LinkTokenCreateRequestPaymentInitiation] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('payment_initiation'), 'exclude': lambda f: f is None }})
+    payment_initiation: Optional[LinkTokenCreateRequestPaymentInitiation] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('payment_initiation'), 'exclude': lambda f: f is None }})
     r"""Specifies options for initializing Link for use with the Payment Initiation (Europe) product. This field is required if `payment_initiation` is included in the `products` array. Either `payment_id` or `consent_id` must be provided."""
-    products: Optional[List[shared_products.Products]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('products'), 'exclude': lambda f: f is None }})
+    products: Optional[List[Products]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('products'), 'exclude': lambda f: f is None }})
     r"""List of Plaid product(s) you wish to use. If launching Link in update mode, should be omitted (unless you are using update mode to add Income or Assets to an Item); required otherwise.
 
     `balance` is *not* a valid value, the Balance product does not require explicit initialization and will automatically be initialized when any other product is initialized.
@@ -138,7 +138,7 @@ class LinkTokenCreateRequest:
     """
     redirect_uri: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('redirect_uri'), 'exclude': lambda f: f is None }})
     r"""A URI indicating the destination where a user should be forwarded after completing the Link flow; used to support OAuth authentication flows when launching Link in the browser or via a webview. The `redirect_uri` should not contain any query parameters. When used in Production or Development, must be an https URI. To specify any subdomain, use `*` as a wildcard character, e.g. `https://*.example.com/oauth.html`. Note that any redirect URI must also be added to the Allowed redirect URIs list in the [developer dashboard](https://dashboard.plaid.com/team/api). If initializing on Android, `android_package_name` must be specified instead and `redirect_uri` should be left blank."""
-    required_if_supported_products: Optional[List[shared_products.Products]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('required_if_supported_products'), 'exclude': lambda f: f is None }})
+    required_if_supported_products: Optional[List[Products]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('required_if_supported_products'), 'exclude': lambda f: f is None }})
     r"""List of Plaid product(s) you wish to use only if the institution and account(s) selected by the user support the product. Institutions that do not support these products will still be shown in Link. The products will only be extracted and billed if the user selects an institution and account type that supports them.
 
     There should be no overlap between `products` and `required_if_supported_products`. The `products` array must have at least one product.
@@ -147,11 +147,11 @@ class LinkTokenCreateRequest:
     """
     secret: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('secret'), 'exclude': lambda f: f is None }})
     r"""Your Plaid API `secret`. The `secret` is required and may be provided either in the `PLAID-SECRET` header or as part of a request body."""
-    statements: Optional[shared_linktokencreaterequeststatements.LinkTokenCreateRequestStatements] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('statements'), 'exclude': lambda f: f is None }})
+    statements: Optional[LinkTokenCreateRequestStatements] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('statements'), 'exclude': lambda f: f is None }})
     r"""Specifies options for initializing Link for use with the Statements product."""
-    transfer: Optional[shared_linktokencreaterequesttransfer.LinkTokenCreateRequestTransfer] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('transfer'), 'exclude': lambda f: f is None }})
+    transfer: Optional[LinkTokenCreateRequestTransfer] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('transfer'), 'exclude': lambda f: f is None }})
     r"""Specifies options for initializing Link for use with the Transfer product."""
-    update: Optional[shared_linktokencreaterequestupdate.LinkTokenCreateRequestUpdate] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('update'), 'exclude': lambda f: f is None }})
+    update: Optional[LinkTokenCreateRequestUpdate] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('update'), 'exclude': lambda f: f is None }})
     r"""Specifies options for initializing Link for [update mode](https://plaid.com/docs/link/update-mode)."""
     user_token: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('user_token'), 'exclude': lambda f: f is None }})
     r"""A user token generated using `/user/create`. Any Item created during the Link session will be associated with the user."""

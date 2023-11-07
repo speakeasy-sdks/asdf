@@ -3,9 +3,9 @@
 from __future__ import annotations
 import dataclasses
 import dateutil.parser
-from ..shared import beaconaudittrail as shared_beaconaudittrail
-from ..shared import beaconreporttype as shared_beaconreporttype
-from ..shared import fraudamount as shared_fraudamount
+from .beaconaudittrail import BeaconAuditTrail
+from .beaconreporttype import BeaconReportType
+from .fraudamount import FraudAmount
 from dataclasses_json import Undefined, dataclass_json
 from datetime import date, datetime
 from test_plaid import utils
@@ -22,13 +22,13 @@ class BeaconReportCreateResponse:
 
     You can manage your fraud reports by adding, deleting, or editing reports as you get additional information on fraudulent users.
     """
-    audit_trail: shared_beaconaudittrail.BeaconAuditTrail = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('audit_trail') }})
+    audit_trail: BeaconAuditTrail = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('audit_trail') }})
     r"""Information about the last change made to the parent object specifying what caused the change as well as when it occurred."""
     beacon_user_id: str = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('beacon_user_id') }})
     r"""ID of the associated Beacon User."""
     created_at: datetime = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('created_at'), 'encoder': utils.datetimeisoformat(False), 'decoder': dateutil.parser.isoparse }})
     r"""An ISO8601 formatted timestamp."""
-    fraud_amount: shared_fraudamount.FraudAmount = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('fraud_amount') }})
+    fraud_amount: FraudAmount = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('fraud_amount') }})
     r"""The amount and currency of the fraud or attempted fraud.
     `fraud_amount` should be omitted to indicate an unknown fraud amount.
     """
@@ -38,7 +38,7 @@ class BeaconReportCreateResponse:
     r"""ID of the associated Beacon Report."""
     request_id: str = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('request_id') }})
     r"""A unique identifier for the request, which can be used for troubleshooting. This identifier, like all Plaid identifiers, is case sensitive."""
-    type: shared_beaconreporttype.BeaconReportType = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('type') }})
+    type: BeaconReportType = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('type') }})
     r"""The type of Beacon Report.
 
     `first_party`: If this is the same individual as the one who submitted the KYC.

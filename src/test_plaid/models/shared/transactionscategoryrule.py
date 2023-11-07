@@ -3,7 +3,7 @@
 from __future__ import annotations
 import dataclasses
 import dateutil.parser
-from ..shared import transactionsruledetails as shared_transactionsruledetails
+from .transactionsruledetails import TransactionsRuleDetails
 from dataclasses_json import Undefined, dataclass_json
 from datetime import datetime
 from test_plaid import utils
@@ -25,7 +25,7 @@ class TransactionsCategoryRule:
 
     In the personal finance category taxonomy, this field is represented by the detailed category field.
     """
-    rule_details: Optional[shared_transactionsruledetails.TransactionsRuleDetails] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('rule_details'), 'exclude': lambda f: f is None }})
+    rule_details: Optional[TransactionsRuleDetails] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('rule_details'), 'exclude': lambda f: f is None }})
     r"""A representation of transactions rule details."""
     
 

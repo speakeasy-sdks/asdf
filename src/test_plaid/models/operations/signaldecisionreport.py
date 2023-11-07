@@ -3,8 +3,8 @@
 from __future__ import annotations
 import dataclasses
 import requests as requests_http
-from ..shared import plaiderror as shared_plaiderror
-from ..shared import signaldecisionreportresponse as shared_signaldecisionreportresponse
+from ...models.shared import plaiderror as shared_plaiderror
+from ...models.shared import signaldecisionreportresponse as shared_signaldecisionreportresponse
 from typing import Optional
 
 

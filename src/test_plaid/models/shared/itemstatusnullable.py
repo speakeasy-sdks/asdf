@@ -2,9 +2,9 @@
 
 from __future__ import annotations
 import dataclasses
-from ..shared import itemstatusinvestments as shared_itemstatusinvestments
-from ..shared import itemstatuslastwebhook as shared_itemstatuslastwebhook
-from ..shared import itemstatustransactions as shared_itemstatustransactions
+from .itemstatusinvestments import ItemStatusInvestments
+from .itemstatuslastwebhook import ItemStatusLastWebhook
+from .itemstatustransactions import ItemStatusTransactions
 from dataclasses_json import Undefined, dataclass_json
 from test_plaid import utils
 from typing import Any, Dict, Optional
@@ -15,11 +15,11 @@ from typing import Any, Dict, Optional
 class ItemStatusNullable:
     r"""An object with information about the status of the Item."""
     additional_properties: Optional[Dict[str, Any]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'exclude': lambda f: f is None }})
-    investments: Optional[shared_itemstatusinvestments.ItemStatusInvestments] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('investments') }})
+    investments: Optional[ItemStatusInvestments] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('investments') }})
     r"""Information about the last successful and failed investments update for the Item."""
-    last_webhook: Optional[shared_itemstatuslastwebhook.ItemStatusLastWebhook] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('last_webhook') }})
+    last_webhook: Optional[ItemStatusLastWebhook] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('last_webhook') }})
     r"""Information about the last webhook fired for the Item."""
-    transactions: Optional[shared_itemstatustransactions.ItemStatusTransactions] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('transactions') }})
+    transactions: Optional[ItemStatusTransactions] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('transactions') }})
     r"""Information about the last successful and failed transactions update for the Item."""
     
 

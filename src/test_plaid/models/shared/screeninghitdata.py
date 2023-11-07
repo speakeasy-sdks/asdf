@@ -2,10 +2,10 @@
 
 from __future__ import annotations
 import dataclasses
-from ..shared import genericscreeninghitlocationitems as shared_genericscreeninghitlocationitems
-from ..shared import screeninghitdateofbirthitem as shared_screeninghitdateofbirthitem
-from ..shared import screeninghitdocumentsitems as shared_screeninghitdocumentsitems
-from ..shared import screeninghitnamesitems as shared_screeninghitnamesitems
+from .genericscreeninghitlocationitems import GenericScreeningHitLocationItems
+from .screeninghitdateofbirthitem import ScreeningHitDateOfBirthItem
+from .screeninghitdocumentsitems import ScreeningHitDocumentsItems
+from .screeninghitnamesitems import ScreeningHitNamesItems
 from dataclasses_json import Undefined, dataclass_json
 from test_plaid import utils
 from typing import Any, Dict, List, Optional
@@ -16,13 +16,13 @@ from typing import Any, Dict, List, Optional
 class ScreeningHitData:
     r"""Information associated with the watchlist hit"""
     additional_properties: Optional[Dict[str, Any]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'exclude': lambda f: f is None }})
-    dates_of_birth: Optional[List[shared_screeninghitdateofbirthitem.ScreeningHitDateOfBirthItem]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('dates_of_birth'), 'exclude': lambda f: f is None }})
+    dates_of_birth: Optional[List[ScreeningHitDateOfBirthItem]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('dates_of_birth'), 'exclude': lambda f: f is None }})
     r"""Dates of birth associated with the watchlist hit"""
-    documents: Optional[List[shared_screeninghitdocumentsitems.ScreeningHitDocumentsItems]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('documents'), 'exclude': lambda f: f is None }})
+    documents: Optional[List[ScreeningHitDocumentsItems]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('documents'), 'exclude': lambda f: f is None }})
     r"""Documents associated with the watchlist hit"""
-    locations: Optional[List[shared_genericscreeninghitlocationitems.GenericScreeningHitLocationItems]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('locations'), 'exclude': lambda f: f is None }})
+    locations: Optional[List[GenericScreeningHitLocationItems]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('locations'), 'exclude': lambda f: f is None }})
     r"""Locations associated with the watchlist hit"""
-    names: Optional[List[shared_screeninghitnamesitems.ScreeningHitNamesItems]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('names'), 'exclude': lambda f: f is None }})
+    names: Optional[List[ScreeningHitNamesItems]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('names'), 'exclude': lambda f: f is None }})
     r"""Names associated with the watchlist hit"""
     
 

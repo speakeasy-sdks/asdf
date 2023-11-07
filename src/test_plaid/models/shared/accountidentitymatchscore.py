@@ -2,13 +2,13 @@
 
 from __future__ import annotations
 import dataclasses
-from ..shared import accountbalance as shared_accountbalance
-from ..shared import accountsubtype as shared_accountsubtype
-from ..shared import accounttype as shared_accounttype
-from ..shared import addressmatchscore as shared_addressmatchscore
-from ..shared import emailaddressmatchscore as shared_emailaddressmatchscore
-from ..shared import namematchscore as shared_namematchscore
-from ..shared import phonenumbermatchscore as shared_phonenumbermatchscore
+from .accountbalance import AccountBalance
+from .accountsubtype import AccountSubtype
+from .accounttype import AccountType
+from .addressmatchscore import AddressMatchScore
+from .emailaddressmatchscore import EmailAddressMatchScore
+from .namematchscore import NameMatchScore
+from .phonenumbermatchscore import PhoneNumberMatchScore
 from dataclasses_json import Undefined, dataclass_json
 from enum import Enum
 from test_plaid import utils
@@ -50,7 +50,7 @@ class AccountIdentityMatchScore:
 
     Like all Plaid identifiers, the `account_id` is case sensitive.
     """
-    balances: shared_accountbalance.AccountBalance = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('balances') }})
+    balances: AccountBalance = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('balances') }})
     r"""A set of fields describing the balance for an account. Balance information may be cached unless the balance object was returned by `/accounts/balance/get`."""
     mask: Optional[str] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('mask') }})
     r"""The last 2-4 alphanumeric characters of an account's official account number. Note that the mask may be non-unique between an Item's accounts, and it may also not match the mask that the bank displays to the user."""
@@ -58,9 +58,9 @@ class AccountIdentityMatchScore:
     r"""The name of the account, either assigned by the user or by the financial institution itself"""
     official_name: Optional[str] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('official_name') }})
     r"""The official name of the account as given by the financial institution"""
-    subtype: Optional[shared_accountsubtype.AccountSubtype] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('subtype') }})
+    subtype: Optional[AccountSubtype] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('subtype') }})
     r"""See the [Account type schema](https://plaid.com/docs/api/accounts/#account-type-schema) for a full listing of account types and corresponding subtypes."""
-    type: shared_accounttype.AccountType = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('type') }})
+    type: AccountType = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('type') }})
     r"""`investment:` Investment account. In API versions 2018-05-22 and earlier, this type is called `brokerage` instead.
 
     `credit:` Credit card
@@ -74,15 +74,15 @@ class AccountIdentityMatchScore:
     See the [Account type schema](https://plaid.com/docs/api/accounts#account-type-schema) for a full listing of account types and corresponding subtypes.
     """
     additional_properties: Optional[Dict[str, Any]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'exclude': lambda f: f is None }})
-    address: Optional[shared_addressmatchscore.AddressMatchScore] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('address') }})
+    address: Optional[AddressMatchScore] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('address') }})
     r"""Score found by matching address provided by the API with the address on the account at the financial institution. The score can range from 0 to 100 where 100 is a perfect match and 0 is a no match. If the account contains multiple owners, the maximum match score is filled."""
-    email_address: Optional[shared_emailaddressmatchscore.EmailAddressMatchScore] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('email_address') }})
+    email_address: Optional[EmailAddressMatchScore] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('email_address') }})
     r"""Score found by matching email provided by the API with the email on the account at the financial institution. 100 is a perfect match and 0 is a no match. If the account contains multiple owners, the maximum match score is filled."""
-    legal_name: Optional[shared_namematchscore.NameMatchScore] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('legal_name') }})
+    legal_name: Optional[NameMatchScore] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('legal_name') }})
     r"""Score found by matching name provided by the API with the name on the account at the financial institution. If the account contains multiple owners, the maximum match score is filled."""
     persistent_account_id: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('persistent_account_id'), 'exclude': lambda f: f is None }})
     r"""A unique and persistent identifier for accounts that can be used to trace multiple instances of the same account across different Items for depository accounts. This is currently an opt-in field and only supported for Chase Items."""
-    phone_number: Optional[shared_phonenumbermatchscore.PhoneNumberMatchScore] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('phone_number') }})
+    phone_number: Optional[PhoneNumberMatchScore] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('phone_number') }})
     r"""Score found by matching phone number provided by the API with the phone number on the account at the financial institution. 100 is a perfect match and 0 is a no match. If the account contains multiple owners, the maximum match score is filled."""
     verification_status: Optional[AccountIdentityMatchScoreVerificationStatus] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('verification_status'), 'exclude': lambda f: f is None }})
     r"""The current verification status of an Auth Item initiated through Automated or Manual micro-deposits.  Returned for Auth Items only.

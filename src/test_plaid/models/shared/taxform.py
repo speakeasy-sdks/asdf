@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 import dataclasses
-from ..shared import w2 as shared_w2
+from .w2 import W2
 from dataclasses_json import Undefined, dataclass_json
 from test_plaid import utils
 from typing import Any, Dict, Optional
@@ -17,7 +17,7 @@ class Taxform:
     additional_properties: Optional[Dict[str, Any]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'exclude': lambda f: f is None }})
     doc_id: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('doc_id'), 'exclude': lambda f: f is None }})
     r"""An identifier of the document referenced by the document metadata."""
-    w2: Optional[shared_w2.W2] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('w2'), 'exclude': lambda f: f is None }})
+    w2: Optional[W2] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('w2'), 'exclude': lambda f: f is None }})
     r"""W2 is an object that represents income data taken from a W2 tax document."""
     
 

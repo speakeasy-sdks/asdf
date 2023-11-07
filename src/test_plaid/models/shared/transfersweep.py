@@ -3,7 +3,7 @@
 from __future__ import annotations
 import dataclasses
 import dateutil.parser
-from ..shared import sweepstatus as shared_sweepstatus
+from .sweepstatus import SweepStatus
 from dataclasses_json import Undefined, dataclass_json
 from datetime import date, datetime
 from test_plaid import utils
@@ -37,7 +37,7 @@ class TransferSweep:
     settled: Optional[date] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('settled'), 'encoder': utils.dateisoformat(False), 'decoder': utils.datefromisoformat }})
     r"""The date when the sweep settled, in the YYYY-MM-DD format."""
     additional_properties: Optional[Dict[str, Any]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'exclude': lambda f: f is None }})
-    status: Optional[shared_sweepstatus.SweepStatus] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('status') }})
+    status: Optional[SweepStatus] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('status') }})
     r"""The status of a sweep transfer
 
     `\"pending\"` - The sweep is currently pending

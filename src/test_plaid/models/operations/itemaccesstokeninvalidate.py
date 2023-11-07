@@ -3,7 +3,7 @@
 from __future__ import annotations
 import dataclasses
 import requests as requests_http
-from ..shared import itemaccesstokeninvalidateresponse as shared_itemaccesstokeninvalidateresponse
+from ...models.shared import itemaccesstokeninvalidateresponse as shared_itemaccesstokeninvalidateresponse
 from typing import Optional
 
 

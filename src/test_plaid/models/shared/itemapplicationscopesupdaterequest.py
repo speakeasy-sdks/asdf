@@ -2,8 +2,8 @@
 
 from __future__ import annotations
 import dataclasses
-from ..shared import scopes as shared_scopes
-from ..shared import scopescontext as shared_scopescontext
+from .scopes import Scopes
+from .scopescontext import ScopesContext
 from dataclasses_json import Undefined, dataclass_json
 from test_plaid import utils
 from typing import Optional
@@ -17,9 +17,9 @@ class ItemApplicationScopesUpdateRequest:
     r"""The access token associated with the Item data is being requested for."""
     application_id: str = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('application_id') }})
     r"""This field will map to the application ID that is returned from /item/applications/list, or provided to the institution in an oauth redirect."""
-    context: shared_scopescontext.ScopesContext = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('context') }})
+    context: ScopesContext = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('context') }})
     r"""An indicator for when scopes are being updated. When scopes are updated via enrollment (i.e. OAuth), the partner must send `ENROLLMENT`. When scopes are updated in a post-enrollment view, the partner must send `PORTAL`."""
-    scopes: shared_scopes.Scopes = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('scopes') }})
+    scopes: Scopes = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('scopes') }})
     r"""The scopes object"""
     client_id: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('client_id'), 'exclude': lambda f: f is None }})
     r"""Your Plaid API `client_id`. The `client_id` is required and may be provided either in the `PLAID-CLIENT-ID` header or as part of a request body."""

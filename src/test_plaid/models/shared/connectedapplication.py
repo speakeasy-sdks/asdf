@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 import dataclasses
-from ..shared import scopesnullable as shared_scopesnullable
+from .scopesnullable import ScopesNullable
 from dataclasses_json import Undefined, dataclass_json
 from datetime import date
 from test_plaid import utils
@@ -27,7 +27,7 @@ class ConnectedApplication:
     r"""A URL that links to the application logo image."""
     reason_for_access: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('reason_for_access') }})
     r"""A string provided by the connected app stating why they use their respective enabled products."""
-    scopes: Optional[shared_scopesnullable.ScopesNullable] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('scopes') }})
+    scopes: Optional[ScopesNullable] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('scopes') }})
     r"""The scopes object"""
     
 

@@ -3,8 +3,8 @@
 from __future__ import annotations
 import dataclasses
 import dateutil.parser
-from ..shared import creditbankemploymentitem as shared_creditbankemploymentitem
-from ..shared import creditbankemploymentwarning as shared_creditbankemploymentwarning
+from .creditbankemploymentitem import CreditBankEmploymentItem
+from .creditbankemploymentwarning import CreditBankEmploymentWarning
 from dataclasses_json import Undefined, dataclass_json
 from datetime import datetime
 from test_plaid import utils
@@ -21,9 +21,9 @@ class CreditBankEmploymentReport:
     r"""The number of days requested by the customer for the Bank Employment Report."""
     generated_time: datetime = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('generated_time'), 'encoder': utils.datetimeisoformat(False), 'decoder': dateutil.parser.isoparse }})
     r"""The time when the Bank Employment Report was generated, in [ISO 8601](https://wikipedia.org/wiki/ISO_8601) format (e.g. \\"2018-04-12T03:32:11Z\\")."""
-    items: List[shared_creditbankemploymentitem.CreditBankEmploymentItem] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('items') }})
+    items: List[CreditBankEmploymentItem] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('items') }})
     r"""The list of Items in the report along with the associated metadata about the Item."""
-    warnings: List[shared_creditbankemploymentwarning.CreditBankEmploymentWarning] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('warnings') }})
+    warnings: List[CreditBankEmploymentWarning] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('warnings') }})
     r"""If data from the Bank Employment report was unable to be retrieved, the warnings will contain information about the error that caused the data to be incomplete."""
     
 

@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 import dataclasses
-from ..shared import partnerendcustomeroauthinstitutionenvironments as shared_partnerendcustomeroauthinstitutionenvironments
+from .partnerendcustomeroauthinstitutionenvironments import PartnerEndCustomerOAuthInstitutionEnvironments
 from dataclasses_json import Undefined, dataclass_json
 from test_plaid import utils
 from typing import Any, Dict, Optional
@@ -15,7 +15,7 @@ class PartnerEndCustomerOAuthInstitution:
     additional_properties: Optional[Dict[str, Any]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'exclude': lambda f: f is None }})
     classic_disablement_date: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('classic_disablement_date') }})
     r"""The date on which non-OAuth Item adds will no longer be supported for this institution, or an empty string if no such date has been set by the institution."""
-    environments: Optional[shared_partnerendcustomeroauthinstitutionenvironments.PartnerEndCustomerOAuthInstitutionEnvironments] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('environments'), 'exclude': lambda f: f is None }})
+    environments: Optional[PartnerEndCustomerOAuthInstitutionEnvironments] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('environments'), 'exclude': lambda f: f is None }})
     r"""Registration statuses by environment."""
     institution_id: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('institution_id'), 'exclude': lambda f: f is None }})
     name: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('name'), 'exclude': lambda f: f is None }})

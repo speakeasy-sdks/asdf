@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 import dataclasses
-from ..shared import reporttype as shared_reporttype
+from .reporttype import ReportType
 from dataclasses_json import Undefined, dataclass_json
 from test_plaid import utils
 from typing import Optional
@@ -14,7 +14,7 @@ class CreditRelayRefreshRequest:
     r"""CreditRelayRefreshRequest defines the request schema for `/credit/relay/refresh`"""
     relay_token: str = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('relay_token') }})
     r"""The `relay_token` granting access to the report you would like to refresh."""
-    report_type: shared_reporttype.ReportType = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('report_type') }})
+    report_type: ReportType = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('report_type') }})
     r"""The report type. It can be `asset`. Income report types are not yet supported."""
     client_id: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('client_id'), 'exclude': lambda f: f is None }})
     r"""Your Plaid API `client_id`. The `client_id` is required and may be provided either in the `PLAID-CLIENT-ID` header or as part of a request body."""
