@@ -1,5 +1,5 @@
 # Plaid
-(*.plaid*)
+(*plaid*)
 
 ## Overview
 
@@ -283,7 +283,11 @@ if res.accounts_get_response is not None:
 ### Response
 
 **[operations.AccountsBalanceGetResponse](../../models/operations/accountsbalancegetresponse.md)**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## accounts_get
 
@@ -334,7 +338,11 @@ if res.accounts_get_response is not None:
 ### Response
 
 **[operations.AccountsGetResponse](../../models/operations/accountsgetresponse.md)**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## application_get
 
@@ -377,7 +385,11 @@ if res.application_get_response is not None:
 ### Response
 
 **[operations.ApplicationGetResponse](../../models/operations/applicationgetresponse.md)**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## asset_report_audit_copy_create
 
@@ -422,7 +434,11 @@ if res.asset_report_audit_copy_create_response is not None:
 ### Response
 
 **[operations.AssetReportAuditCopyCreateResponse](../../models/operations/assetreportauditcopycreateresponse.md)**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## asset_report_audit_copy_get
 
@@ -465,7 +481,11 @@ if res.asset_report_get_response is not None:
 ### Response
 
 **[operations.AssetReportAuditCopyGetResponse](../../models/operations/assetreportauditcopygetresponse.md)**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## asset_report_audit_copy_remove
 
@@ -508,7 +528,11 @@ if res.asset_report_audit_copy_remove_response is not None:
 ### Response
 
 **[operations.AssetReportAuditCopyRemoveResponse](../../models/operations/assetreportauditcopyremoveresponse.md)**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## asset_report_create
 
@@ -571,7 +595,11 @@ if res.asset_report_create_response is not None:
 ### Response
 
 **[operations.AssetReportCreateResponse](../../models/operations/assetreportcreateresponse.md)**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## asset_report_filter
 
@@ -623,7 +651,11 @@ if res.asset_report_filter_response is not None:
 ### Response
 
 **[operations.AssetReportFilterResponse](../../models/operations/assetreportfilterresponse.md)**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## asset_report_get
 
@@ -672,7 +704,11 @@ if res.asset_report_get_response is not None:
 ### Response
 
 **[operations.AssetReportGetResponse](../../models/operations/assetreportgetresponse.md)**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## asset_report_pdf_get
 
@@ -722,7 +758,11 @@ if res.asset_report_pdf_get_response is not None:
 ### Response
 
 **[operations.AssetReportPdfGetResponse](../../models/operations/assetreportpdfgetresponse.md)**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## asset_report_refresh
 
@@ -774,7 +814,11 @@ if res.asset_report_refresh_response is not None:
 ### Response
 
 **[operations.AssetReportRefreshResponse](../../models/operations/assetreportrefreshresponse.md)**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## asset_report_remove
 
@@ -819,7 +863,11 @@ if res.asset_report_remove_response is not None:
 ### Response
 
 **[operations.AssetReportRemoveResponse](../../models/operations/assetreportremoveresponse.md)**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## auth_get
 
@@ -871,7 +919,11 @@ if res.auth_get_response is not None:
 ### Response
 
 **[operations.AuthGetResponse](../../models/operations/authgetresponse.md)**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## bank_transfer_balance_get
 
@@ -916,7 +968,11 @@ if res.bank_transfer_balance_get_response is not None:
 ### Response
 
 **[operations.BankTransferBalanceGetResponse](../../models/operations/banktransferbalancegetresponse.md)**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## bank_transfer_cancel
 
@@ -959,7 +1015,11 @@ if res.bank_transfer_cancel_response is not None:
 ### Response
 
 **[operations.BankTransferCancelResponse](../../models/operations/banktransfercancelresponse.md)**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## bank_transfer_create
 
@@ -1018,7 +1078,11 @@ if res.bank_transfer_create_response is not None:
 ### Response
 
 **[operations.BankTransferCreateResponse](../../models/operations/banktransfercreateresponse.md)**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## bank_transfer_event_list
 
@@ -1064,7 +1128,11 @@ if res.bank_transfer_event_list_response is not None:
 ### Response
 
 **[operations.BankTransferEventListResponse](../../models/operations/banktransfereventlistresponse.md)**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## bank_transfer_event_sync
 
@@ -1107,7 +1175,11 @@ if res.bank_transfer_event_sync_response is not None:
 ### Response
 
 **[operations.BankTransferEventSyncResponse](../../models/operations/banktransfereventsyncresponse.md)**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## bank_transfer_get
 
@@ -1150,7 +1222,11 @@ if res.bank_transfer_get_response is not None:
 ### Response
 
 **[operations.BankTransferGetResponse](../../models/operations/banktransfergetresponse.md)**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## bank_transfer_list
 
@@ -1193,7 +1269,11 @@ if res.bank_transfer_list_response is not None:
 ### Response
 
 **[operations.BankTransferListResponse](../../models/operations/banktransferlistresponse.md)**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## bank_transfer_migrate_account
 
@@ -1238,7 +1318,11 @@ if res.bank_transfer_migrate_account_response is not None:
 ### Response
 
 **[operations.BankTransferMigrateAccountResponse](../../models/operations/banktransfermigrateaccountresponse.md)**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## bank_transfer_sweep_get
 
@@ -1281,7 +1365,11 @@ if res.bank_transfer_sweep_get_response is not None:
 ### Response
 
 **[operations.BankTransferSweepGetResponse](../../models/operations/banktransfersweepgetresponse.md)**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## bank_transfer_sweep_list
 
@@ -1323,7 +1411,11 @@ if res.bank_transfer_sweep_list_response is not None:
 ### Response
 
 **[operations.BankTransferSweepListResponse](../../models/operations/banktransfersweeplistresponse.md)**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## base_report_get
 
@@ -1366,7 +1458,11 @@ if res.base_report_get_response is not None:
 ### Response
 
 **[operations.BaseReportGetResponse](../../models/operations/basereportgetresponse.md)**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## beacon_report_create
 
@@ -1421,7 +1517,11 @@ if res.beacon_report_create_response is not None:
 ### Response
 
 **[operations.BeaconReportCreateResponse](../../models/operations/beaconreportcreateresponse.md)**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## beacon_user_create
 
@@ -1522,7 +1622,11 @@ if res.beacon_user_create_response is not None:
 ### Response
 
 **[operations.BeaconUserCreateResponse](../../models/operations/beaconusercreateresponse.md)**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## beacon_user_get
 
@@ -1568,7 +1672,11 @@ if res.beacon_user_get_response is not None:
 ### Response
 
 **[operations.BeaconUserGetResponse](../../models/operations/beaconusergetresponse.md)**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## categories_get
 
@@ -1611,7 +1719,11 @@ if res.categories_get_response is not None:
 ### Response
 
 **[operations.CategoriesGetResponse](../../models/operations/categoriesgetresponse.md)**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## cra_bank_income_get
 
@@ -1652,7 +1764,11 @@ if res.cra_bank_income_get_response is not None:
 ### Response
 
 **[operations.CraBankIncomeGetResponse](../../models/operations/crabankincomegetresponse.md)**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## ~~create_payment_token~~
 
@@ -1699,7 +1815,11 @@ if res.payment_initiation_payment_token_create_response is not None:
 ### Response
 
 **[operations.CreatePaymentTokenResponse](../../models/operations/createpaymenttokenresponse.md)**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## credit_asset_report_freddie_mac_get
 
@@ -1745,7 +1865,11 @@ if res.asset_report_freddie_get_response is not None:
 ### Response
 
 **[operations.CreditAssetReportFreddieMacGetResponse](../../models/operations/creditassetreportfreddiemacgetresponse.md)**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## credit_audit_copy_token_create
 
@@ -1792,7 +1916,11 @@ if res.credit_audit_copy_token_create_response is not None:
 ### Response
 
 **[operations.CreditAuditCopyTokenCreateResponse](../../models/operations/creditauditcopytokencreateresponse.md)**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## credit_audit_copy_token_update
 
@@ -1838,7 +1966,11 @@ if res.credit_audit_copy_token_update_response is not None:
 ### Response
 
 **[operations.CreditAuditCopyTokenUpdateResponse](../../models/operations/creditauditcopytokenupdateresponse.md)**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## credit_bank_employment_get
 
@@ -1881,7 +2013,11 @@ if res.credit_bank_employment_get_response is not None:
 ### Response
 
 **[operations.CreditBankEmploymentGetResponse](../../models/operations/creditbankemploymentgetresponse.md)**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## credit_bank_income_get
 
@@ -1924,7 +2060,11 @@ if res.credit_bank_income_get_response is not None:
 ### Response
 
 **[operations.CreditBankIncomeGetResponse](../../models/operations/creditbankincomegetresponse.md)**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## credit_bank_income_pdf_get
 
@@ -1967,7 +2107,11 @@ if res.credit_bank_income_pdf_get_response is not None:
 ### Response
 
 **[operations.CreditBankIncomePdfGetResponse](../../models/operations/creditbankincomepdfgetresponse.md)**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## credit_bank_income_refresh
 
@@ -2011,7 +2155,11 @@ if res.credit_bank_income_refresh_response is not None:
 ### Response
 
 **[operations.CreditBankIncomeRefreshResponse](../../models/operations/creditbankincomerefreshresponse.md)**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## credit_bank_income_webhook_update
 
@@ -2057,7 +2205,11 @@ if res.credit_bank_income_webhook_update_response is not None:
 ### Response
 
 **[operations.CreditBankIncomeWebhookUpdateResponse](../../models/operations/creditbankincomewebhookupdateresponse.md)**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## credit_bank_statements_uploads_get
 
@@ -2100,7 +2252,11 @@ if res.credit_bank_statements_uploads_get_response is not None:
 ### Response
 
 **[operations.CreditBankStatementsUploadsGetResponse](../../models/operations/creditbankstatementsuploadsgetresponse.md)**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## credit_employment_get
 
@@ -2143,7 +2299,11 @@ if res.credit_employment_get_response is not None:
 ### Response
 
 **[operations.CreditEmploymentGetResponse](../../models/operations/creditemploymentgetresponse.md)**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## credit_freddie_mac_reports_get
 
@@ -2186,7 +2346,11 @@ if res.credit_freddie_mac_reports_get_response is not None:
 ### Response
 
 **[operations.CreditFreddieMacReportsGetResponse](../../models/operations/creditfreddiemacreportsgetresponse.md)**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## credit_payroll_income_get
 
@@ -2227,7 +2391,11 @@ if res.credit_payroll_income_get_response is not None:
 ### Response
 
 **[operations.CreditPayrollIncomeGetResponse](../../models/operations/creditpayrollincomegetresponse.md)**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## credit_payroll_income_precheck
 
@@ -2285,7 +2453,11 @@ if res.credit_payroll_income_precheck_response is not None:
 ### Response
 
 **[operations.CreditPayrollIncomePrecheckResponse](../../models/operations/creditpayrollincomeprecheckresponse.md)**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## credit_payroll_income_refresh
 
@@ -2333,7 +2505,11 @@ if res.credit_payroll_income_refresh_response is not None:
 ### Response
 
 **[operations.CreditPayrollIncomeRefreshResponse](../../models/operations/creditpayrollincomerefreshresponse.md)**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## credit_payroll_income_risk_signals_get
 
@@ -2376,7 +2552,11 @@ if res.credit_payroll_income_risk_signals_get_response is not None:
 ### Response
 
 **[operations.CreditPayrollIncomeRiskSignalsGetResponse](../../models/operations/creditpayrollincomerisksignalsgetresponse.md)**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## credit_relay_create
 
@@ -2424,7 +2604,11 @@ if res.credit_relay_create_response is not None:
 ### Response
 
 **[operations.CreditRelayCreateResponse](../../models/operations/creditrelaycreateresponse.md)**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## credit_relay_get
 
@@ -2468,7 +2652,11 @@ if res.asset_report_get_response is not None:
 ### Response
 
 **[operations.CreditRelayGetResponse](../../models/operations/creditrelaygetresponse.md)**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## credit_relay_pdf_get
 
@@ -2518,7 +2706,11 @@ if res.credit_relay_pdf_get_response is not None:
 ### Response
 
 **[operations.CreditRelayPdfGetResponse](../../models/operations/creditrelaypdfgetresponse.md)**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## credit_relay_refresh
 
@@ -2562,7 +2754,11 @@ if res.credit_relay_refresh_response is not None:
 ### Response
 
 **[operations.CreditRelayRefreshResponse](../../models/operations/creditrelayrefreshresponse.md)**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## credit_relay_remove
 
@@ -2605,7 +2801,11 @@ if res.credit_relay_remove_response is not None:
 ### Response
 
 **[operations.CreditRelayRemoveResponse](../../models/operations/creditrelayremoveresponse.md)**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## credit_report_audit_copy_remove
 
@@ -2648,7 +2848,11 @@ if res.credit_audit_copy_token_remove_response is not None:
 ### Response
 
 **[operations.CreditReportAuditCopyRemoveResponse](../../models/operations/creditreportauditcopyremoveresponse.md)**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## credit_sessions_get
 
@@ -2693,7 +2897,11 @@ if res.credit_sessions_get_response is not None:
 ### Response
 
 **[operations.CreditSessionsGetResponse](../../models/operations/creditsessionsgetresponse.md)**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## dashboard_user_get
 
@@ -2736,7 +2944,11 @@ if res.dashboard_user_get_response is not None:
 ### Response
 
 **[operations.DashboardUserGetResponse](../../models/operations/dashboardusergetresponse.md)**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## dashboard_user_list
 
@@ -2779,7 +2991,11 @@ if res.dashboard_user_list_response is not None:
 ### Response
 
 **[operations.DashboardUserListResponse](../../models/operations/dashboarduserlistresponse.md)**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## deposit_switch_alt_create
 
@@ -2854,7 +3070,11 @@ if res.deposit_switch_alt_create_response is not None:
 ### Response
 
 **[operations.DepositSwitchAltCreateResponse](../../models/operations/depositswitchaltcreateresponse.md)**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## deposit_switch_create
 
@@ -2903,7 +3123,11 @@ if res.deposit_switch_create_response is not None:
 ### Response
 
 **[operations.DepositSwitchCreateResponse](../../models/operations/depositswitchcreateresponse.md)**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## deposit_switch_get
 
@@ -2946,7 +3170,11 @@ if res.deposit_switch_get_response is not None:
 ### Response
 
 **[operations.DepositSwitchGetResponse](../../models/operations/depositswitchgetresponse.md)**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## deposit_switch_token_create
 
@@ -2990,7 +3218,11 @@ if res.deposit_switch_token_create_response is not None:
 ### Response
 
 **[operations.DepositSwitchTokenCreateResponse](../../models/operations/depositswitchtokencreateresponse.md)**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## employers_search
 
@@ -3038,7 +3270,11 @@ if res.employers_search_response is not None:
 ### Response
 
 **[operations.EmployersSearchResponse](../../models/operations/employerssearchresponse.md)**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## ~~employment_verification_get~~
 
@@ -3085,7 +3321,11 @@ if res.employment_verification_get_response is not None:
 ### Response
 
 **[operations.EmploymentVerificationGetResponse](../../models/operations/employmentverificationgetresponse.md)**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## fdx_notifications
 
@@ -3154,7 +3394,11 @@ if res.status_code == 200:
 ### Response
 
 **[operations.FdxNotificationsResponse](../../models/operations/fdxnotificationsresponse.md)**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## identity_get
 
@@ -3206,7 +3450,11 @@ if res.identity_get_response is not None:
 ### Response
 
 **[operations.IdentityGetResponse](../../models/operations/identitygetresponse.md)**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## identity_match
 
@@ -3266,7 +3514,11 @@ if res.identity_match_response is not None:
 ### Response
 
 **[operations.IdentityMatchResponse](../../models/operations/identitymatchresponse.md)**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## identity_refresh
 
@@ -3310,7 +3562,11 @@ if res.identity_refresh_response is not None:
 ### Response
 
 **[operations.IdentityRefreshResponse](../../models/operations/identityrefreshresponse.md)**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## identity_verification_create
 
@@ -3390,7 +3646,11 @@ if res.identity_verification_create_response is not None:
 ### Response
 
 **[operations.IdentityVerificationCreateResponse](../../models/operations/identityverificationcreateresponse.md)**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## identity_verification_get
 
@@ -3433,7 +3693,11 @@ if res.identity_verification_get_response is not None:
 ### Response
 
 **[operations.IdentityVerificationGetResponse](../../models/operations/identityverificationgetresponse.md)**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## identity_verification_list
 
@@ -3478,7 +3742,11 @@ if res.identity_verification_list_response is not None:
 ### Response
 
 **[operations.IdentityVerificationListResponse](../../models/operations/identityverificationlistresponse.md)**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## identity_verification_retry
 
@@ -3560,7 +3828,11 @@ if res.identity_verification_retry_response is not None:
 ### Response
 
 **[operations.IdentityVerificationRetryResponse](../../models/operations/identityverificationretryresponse.md)**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## ~~income_verification_create~~
 
@@ -3610,7 +3882,11 @@ if res.income_verification_create_response is not None:
 ### Response
 
 **[operations.IncomeVerificationCreateResponse](../../models/operations/incomeverificationcreateresponse.md)**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## ~~income_verification_documents_download~~
 
@@ -3661,7 +3937,11 @@ if res.stream is not None:
 ### Response
 
 **[operations.IncomeVerificationDocumentsDownloadResponse](../../models/operations/incomeverificationdocumentsdownloadresponse.md)**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## ~~income_verification_paystubs_get~~
 
@@ -3706,7 +3986,11 @@ if res.income_verification_paystubs_get_response is not None:
 ### Response
 
 **[operations.IncomeVerificationPaystubsGetResponse](../../models/operations/incomeverificationpaystubsgetresponse.md)**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## ~~income_verification_precheck~~
 
@@ -3773,7 +4057,11 @@ if res.income_verification_precheck_response is not None:
 ### Response
 
 **[operations.IncomeVerificationPrecheckResponse](../../models/operations/incomeverificationprecheckresponse.md)**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## ~~income_verification_taxforms_get~~
 
@@ -3818,7 +4106,11 @@ if res.income_verification_taxforms_get_response is not None:
 ### Response
 
 **[operations.IncomeVerificationTaxformsGetResponse](../../models/operations/incomeverificationtaxformsgetresponse.md)**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## institutions_get
 
@@ -3875,7 +4167,11 @@ if res.institutions_get_response is not None:
 ### Response
 
 **[operations.InstitutionsGetResponse](../../models/operations/institutionsgetresponse.md)**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## institutions_get_by_id
 
@@ -3925,7 +4221,11 @@ if res.institutions_get_by_id_response is not None:
 ### Response
 
 **[operations.InstitutionsGetByIDResponse](../../models/operations/institutionsgetbyidresponse.md)**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## institutions_search
 
@@ -3980,7 +4280,11 @@ if res.institutions_search_response is not None:
 ### Response
 
 **[operations.InstitutionsSearchResponse](../../models/operations/institutionssearchresponse.md)**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## investments_auth_get
 
@@ -4028,7 +4332,11 @@ if res.investments_auth_get_response is not None:
 ### Response
 
 **[operations.InvestmentsAuthGetResponse](../../models/operations/investmentsauthgetresponse.md)**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## investments_holdings_get
 
@@ -4076,7 +4384,11 @@ if res.investments_holdings_get_response is not None:
 ### Response
 
 **[operations.InvestmentsHoldingsGetResponse](../../models/operations/investmentsholdingsgetresponse.md)**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## investments_refresh
 
@@ -4120,7 +4432,11 @@ if res.investments_refresh_response is not None:
 ### Response
 
 **[operations.InvestmentsRefreshResponse](../../models/operations/investmentsrefreshresponse.md)**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## investments_transactions_get
 
@@ -4179,7 +4495,11 @@ if res.investments_transactions_get_response is not None:
 ### Response
 
 **[operations.InvestmentsTransactionsGetResponse](../../models/operations/investmentstransactionsgetresponse.md)**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## item_access_token_invalidate
 
@@ -4225,7 +4545,11 @@ if res.item_access_token_invalidate_response is not None:
 ### Response
 
 **[operations.ItemAccessTokenInvalidateResponse](../../models/operations/itemaccesstokeninvalidateresponse.md)**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## item_activity_list
 
@@ -4264,7 +4588,11 @@ if res.item_activity_list_response is not None:
 ### Response
 
 **[operations.ItemActivityListResponse](../../models/operations/itemactivitylistresponse.md)**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## item_application_list
 
@@ -4303,7 +4631,11 @@ if res.item_application_list_response is not None:
 ### Response
 
 **[operations.ItemApplicationListResponse](../../models/operations/itemapplicationlistresponse.md)**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## item_application_scopes_update
 
@@ -4363,7 +4695,11 @@ if res.item_application_scopes_update_response is not None:
 ### Response
 
 **[operations.ItemApplicationScopesUpdateResponse](../../models/operations/itemapplicationscopesupdateresponse.md)**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## item_create_public_token
 
@@ -4412,7 +4748,11 @@ if res.item_public_token_create_response is not None:
 ### Response
 
 **[operations.ItemCreatePublicTokenResponse](../../models/operations/itemcreatepublictokenresponse.md)**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## item_get
 
@@ -4455,7 +4795,11 @@ if res.item_get_response is not None:
 ### Response
 
 **[operations.ItemGetResponse](../../models/operations/itemgetresponse.md)**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## item_import
 
@@ -4505,7 +4849,11 @@ if res.item_import_response is not None:
 ### Response
 
 **[operations.ItemImportResponse](../../models/operations/itemimportresponse.md)**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## item_public_token_exchange
 
@@ -4550,7 +4898,11 @@ if res.item_public_token_exchange_response is not None:
 ### Response
 
 **[operations.ItemPublicTokenExchangeResponse](../../models/operations/itempublictokenexchangeresponse.md)**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## item_remove
 
@@ -4599,7 +4951,11 @@ if res.item_remove_response is not None:
 ### Response
 
 **[operations.ItemRemoveResponse](../../models/operations/itemremoveresponse.md)**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## item_webhook_update
 
@@ -4642,7 +4998,11 @@ if res.item_webhook_update_response is not None:
 ### Response
 
 **[operations.ItemWebhookUpdateResponse](../../models/operations/itemwebhookupdateresponse.md)**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## liabilities_get
 
@@ -4694,7 +5054,11 @@ if res.liabilities_get_response is not None:
 ### Response
 
 **[operations.LiabilitiesGetResponse](../../models/operations/liabilitiesgetresponse.md)**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## link_delivery_create
 
@@ -4744,7 +5108,11 @@ if res.link_delivery_create_response is not None:
 ### Response
 
 **[operations.LinkDeliveryCreateResponse](../../models/operations/linkdeliverycreateresponse.md)**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## link_delivery_get
 
@@ -4787,7 +5155,11 @@ if res.link_delivery_get_response is not None:
 ### Response
 
 **[operations.LinkDeliveryGetResponse](../../models/operations/linkdeliverygetresponse.md)**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## link_oauth_correlation_id_exchange
 
@@ -4831,7 +5203,11 @@ if res.link_o_auth_correlation_id_exchange_response is not None:
 ### Response
 
 **[operations.LinkOauthCorrelationIDExchangeResponse](../../models/operations/linkoauthcorrelationidexchangeresponse.md)**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## link_token_create
 
@@ -5005,7 +5381,11 @@ if res.link_token_create_response is not None:
 ### Response
 
 **[operations.LinkTokenCreateResponse](../../models/operations/linktokencreateresponse.md)**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## link_token_get
 
@@ -5049,7 +5429,11 @@ if res.link_token_get_response is not None:
 ### Response
 
 **[operations.LinkTokenGetResponse](../../models/operations/linktokengetresponse.md)**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## partner_customer_create
 
@@ -5130,7 +5514,11 @@ if res.partner_customer_create_response is not None:
 ### Response
 
 **[operations.PartnerCustomerCreateResponse](../../models/operations/partnercustomercreateresponse.md)**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## partner_customer_enable
 
@@ -5173,7 +5561,11 @@ if res.partner_customer_enable_response is not None:
 ### Response
 
 **[operations.PartnerCustomerEnableResponse](../../models/operations/partnercustomerenableresponse.md)**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## partner_customer_get
 
@@ -5216,7 +5608,11 @@ if res.partner_customer_get_response is not None:
 ### Response
 
 **[operations.PartnerCustomerGetResponse](../../models/operations/partnercustomergetresponse.md)**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## partner_customer_oauth_institutions_get
 
@@ -5259,7 +5655,11 @@ if res.partner_customer_o_auth_institutions_get_response is not None:
 ### Response
 
 **[operations.PartnerCustomerOauthInstitutionsGetResponse](../../models/operations/partnercustomeroauthinstitutionsgetresponse.md)**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## partner_customer_remove
 
@@ -5302,7 +5702,11 @@ if res.partner_customer_remove_response is not None:
 ### Response
 
 **[operations.PartnerCustomerRemoveResponse](../../models/operations/partnercustomerremoveresponse.md)**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## payment_initiation_consent_create
 
@@ -5376,7 +5780,11 @@ if res.payment_initiation_consent_create_response is not None:
 ### Response
 
 **[operations.PaymentInitiationConsentCreateResponse](../../models/operations/paymentinitiationconsentcreateresponse.md)**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## payment_initiation_consent_get
 
@@ -5419,7 +5827,11 @@ if res.payment_initiation_consent_get_response is not None:
 ### Response
 
 **[operations.PaymentInitiationConsentGetResponse](../../models/operations/paymentinitiationconsentgetresponse.md)**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## payment_initiation_consent_payment_execute
 
@@ -5467,7 +5879,11 @@ if res.payment_initiation_consent_payment_execute_response is not None:
 ### Response
 
 **[operations.PaymentInitiationConsentPaymentExecuteResponse](../../models/operations/paymentinitiationconsentpaymentexecuteresponse.md)**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## payment_initiation_consent_revoke
 
@@ -5510,7 +5926,11 @@ if res.payment_initiation_consent_revoke_response is not None:
 ### Response
 
 **[operations.PaymentInitiationConsentRevokeResponse](../../models/operations/paymentinitiationconsentrevokeresponse.md)**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## payment_initiation_payment_create
 
@@ -5578,7 +5998,11 @@ if res.payment_initiation_payment_create_response is not None:
 ### Response
 
 **[operations.PaymentInitiationPaymentCreateResponse](../../models/operations/paymentinitiationpaymentcreateresponse.md)**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## payment_initiation_payment_get
 
@@ -5621,7 +6045,11 @@ if res.payment_initiation_payment_get_response is not None:
 ### Response
 
 **[operations.PaymentInitiationPaymentGetResponse](../../models/operations/paymentinitiationpaymentgetresponse.md)**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## payment_initiation_payment_list
 
@@ -5663,7 +6091,11 @@ if res.payment_initiation_payment_list_response is not None:
 ### Response
 
 **[operations.PaymentInitiationPaymentListResponse](../../models/operations/paymentinitiationpaymentlistresponse.md)**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## payment_initiation_payment_reverse
 
@@ -5725,7 +6157,11 @@ if res.payment_initiation_payment_reverse_response is not None:
 ### Response
 
 **[operations.PaymentInitiationPaymentReverseResponse](../../models/operations/paymentinitiationpaymentreverseresponse.md)**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## payment_initiation_recipient_create
 
@@ -5789,7 +6225,11 @@ if res.payment_initiation_recipient_create_response is not None:
 ### Response
 
 **[operations.PaymentInitiationRecipientCreateResponse](../../models/operations/paymentinitiationrecipientcreateresponse.md)**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## payment_initiation_recipient_get
 
@@ -5832,7 +6272,11 @@ if res.payment_initiation_recipient_get_response is not None:
 ### Response
 
 **[operations.PaymentInitiationRecipientGetResponse](../../models/operations/paymentinitiationrecipientgetresponse.md)**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## payment_initiation_recipient_list
 
@@ -5873,7 +6317,11 @@ if res.payment_initiation_recipient_list_response is not None:
 ### Response
 
 **[operations.PaymentInitiationRecipientListResponse](../../models/operations/paymentinitiationrecipientlistresponse.md)**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## payment_profile_create
 
@@ -5916,7 +6364,11 @@ if res.payment_profile_create_response is not None:
 ### Response
 
 **[operations.PaymentProfileCreateResponse](../../models/operations/paymentprofilecreateresponse.md)**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## payment_profile_get
 
@@ -5959,7 +6411,11 @@ if res.payment_profile_get_response is not None:
 ### Response
 
 **[operations.PaymentProfileGetResponse](../../models/operations/paymentprofilegetresponse.md)**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## payment_profile_remove
 
@@ -6002,7 +6458,11 @@ if res.payment_profile_remove_response is not None:
 ### Response
 
 **[operations.PaymentProfileRemoveResponse](../../models/operations/paymentprofileremoveresponse.md)**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## processor_apex_processor_token_create
 
@@ -6046,7 +6506,11 @@ if res.processor_token_create_response is not None:
 ### Response
 
 **[operations.ProcessorApexProcessorTokenCreateResponse](../../models/operations/processorapexprocessortokencreateresponse.md)**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## processor_auth_get
 
@@ -6092,7 +6556,11 @@ if res.processor_auth_get_response is not None:
 ### Response
 
 **[operations.ProcessorAuthGetResponse](../../models/operations/processorauthgetresponse.md)**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## processor_balance_get
 
@@ -6137,7 +6605,11 @@ if res.processor_balance_get_response is not None:
 ### Response
 
 **[operations.ProcessorBalanceGetResponse](../../models/operations/processorbalancegetresponse.md)**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## processor_bank_transfer_create
 
@@ -6195,7 +6667,11 @@ if res.processor_bank_transfer_create_response is not None:
 ### Response
 
 **[operations.ProcessorBankTransferCreateResponse](../../models/operations/processorbanktransfercreateresponse.md)**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## processor_identity_get
 
@@ -6238,7 +6714,11 @@ if res.processor_identity_get_response is not None:
 ### Response
 
 **[operations.ProcessorIdentityGetResponse](../../models/operations/processoridentitygetresponse.md)**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## processor_identity_match
 
@@ -6293,7 +6773,11 @@ if res.processor_identity_match_response is not None:
 ### Response
 
 **[operations.ProcessorIdentityMatchResponse](../../models/operations/processoridentitymatchresponse.md)**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## processor_signal_decision_report
 
@@ -6338,7 +6822,11 @@ if res.processor_signal_decision_report_response is not None:
 ### Response
 
 **[operations.ProcessorSignalDecisionReportResponse](../../models/operations/processorsignaldecisionreportresponse.md)**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## processor_signal_evaluate
 
@@ -6396,7 +6884,11 @@ if res.processor_signal_evaluate_response is not None:
 ### Response
 
 **[operations.ProcessorSignalEvaluateResponse](../../models/operations/processorsignalevaluateresponse.md)**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## processor_signal_return_report
 
@@ -6442,7 +6934,11 @@ if res.processor_signal_return_report_response is not None:
 ### Response
 
 **[operations.ProcessorSignalReturnReportResponse](../../models/operations/processorsignalreturnreportresponse.md)**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## processor_stripe_bank_account_token_create
 
@@ -6491,7 +6987,11 @@ if res.processor_stripe_bank_account_token_create_response is not None:
 ### Response
 
 **[operations.ProcessorStripeBankAccountTokenCreateResponse](../../models/operations/processorstripebankaccounttokencreateresponse.md)**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## processor_token_create
 
@@ -6536,7 +7036,11 @@ if res.processor_token_create_response is not None:
 ### Response
 
 **[operations.ProcessorTokenCreateResponse](../../models/operations/processortokencreateresponse.md)**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## processor_token_permissions_get
 
@@ -6579,7 +7083,11 @@ if res.processor_token_permissions_get_response is not None:
 ### Response
 
 **[operations.ProcessorTokenPermissionsGetResponse](../../models/operations/processortokenpermissionsgetresponse.md)**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## processor_token_permissions_set
 
@@ -6625,7 +7133,11 @@ if res.processor_token_permissions_set_response is not None:
 ### Response
 
 **[operations.ProcessorTokenPermissionsSetResponse](../../models/operations/processortokenpermissionssetresponse.md)**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## processor_token_webhook_update
 
@@ -6669,7 +7181,11 @@ if res.processor_token_webhook_update_response is not None:
 ### Response
 
 **[operations.ProcessorTokenWebhookUpdateResponse](../../models/operations/processortokenwebhookupdateresponse.md)**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## processor_transactions_get
 
@@ -6730,7 +7246,11 @@ if res.processor_transactions_get_response is not None:
 ### Response
 
 **[operations.ProcessorTransactionsGetResponse](../../models/operations/processortransactionsgetresponse.md)**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## processor_transactions_recurring_get
 
@@ -6785,7 +7305,11 @@ if res.processor_transactions_recurring_get_response is not None:
 ### Response
 
 **[operations.ProcessorTransactionsRecurringGetResponse](../../models/operations/processortransactionsrecurringgetresponse.md)**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## processor_transactions_refresh
 
@@ -6830,7 +7354,11 @@ if res.processor_transactions_refresh_response is not None:
 ### Response
 
 **[operations.ProcessorTransactionsRefreshResponse](../../models/operations/processortransactionsrefreshresponse.md)**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## processor_transactions_sync
 
@@ -6892,7 +7420,11 @@ if res.processor_transactions_sync_response is not None:
 ### Response
 
 **[operations.ProcessorTransactionsSyncResponse](../../models/operations/processortransactionssyncresponse.md)**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## sandbox_bank_income_fire_webhook
 
@@ -6938,7 +7470,11 @@ if res.sandbox_bank_income_fire_webhook_response is not None:
 ### Response
 
 **[operations.SandboxBankIncomeFireWebhookResponse](../../models/operations/sandboxbankincomefirewebhookresponse.md)**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## sandbox_bank_transfer_fire_webhook
 
@@ -6981,7 +7517,11 @@ if res.sandbox_bank_transfer_fire_webhook_response is not None:
 ### Response
 
 **[operations.SandboxBankTransferFireWebhookResponse](../../models/operations/sandboxbanktransferfirewebhookresponse.md)**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## sandbox_bank_transfer_simulate
 
@@ -7030,7 +7570,11 @@ if res.sandbox_bank_transfer_simulate_response is not None:
 ### Response
 
 **[operations.SandboxBankTransferSimulateResponse](../../models/operations/sandboxbanktransfersimulateresponse.md)**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## sandbox_income_fire_webhook
 
@@ -7075,7 +7619,11 @@ if res.sandbox_income_fire_webhook_response is not None:
 ### Response
 
 **[operations.SandboxIncomeFireWebhookResponse](../../models/operations/sandboxincomefirewebhookresponse.md)**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## sandbox_item_fire_webhook
 
@@ -7135,7 +7683,11 @@ if res.sandbox_item_fire_webhook_response is not None:
 ### Response
 
 **[operations.SandboxItemFireWebhookResponse](../../models/operations/sandboxitemfirewebhookresponse.md)**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## sandbox_item_reset_login
 
@@ -7181,7 +7733,11 @@ if res.sandbox_item_reset_login_response is not None:
 ### Response
 
 **[operations.SandboxItemResetLoginResponse](../../models/operations/sandboxitemresetloginresponse.md)**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## sandbox_item_set_verification_status
 
@@ -7230,7 +7786,11 @@ if res.sandbox_item_set_verification_status_response is not None:
 ### Response
 
 **[operations.SandboxItemSetVerificationStatusResponse](../../models/operations/sandboxitemsetverificationstatusresponse.md)**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## sandbox_oauth_select_accounts
 
@@ -7274,7 +7834,11 @@ if res.sandbox_oauth_select_accounts_response is not None:
 ### Response
 
 **[operations.SandboxOauthSelectAccountsResponse](../../models/operations/sandboxoauthselectaccountsresponse.md)**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## sandbox_payment_profile_reset_login
 
@@ -7321,7 +7885,11 @@ if res.sandbox_payment_profile_reset_login_response is not None:
 ### Response
 
 **[operations.SandboxPaymentProfileResetLoginResponse](../../models/operations/sandboxpaymentprofileresetloginresponse.md)**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## sandbox_processor_token_create
 
@@ -7365,7 +7933,11 @@ if res.sandbox_processor_token_create_response is not None:
 ### Response
 
 **[operations.SandboxProcessorTokenCreateResponse](../../models/operations/sandboxprocessortokencreateresponse.md)**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## sandbox_public_token_create
 
@@ -7421,7 +7993,11 @@ if res.sandbox_public_token_create_response is not None:
 ### Response
 
 **[operations.SandboxPublicTokenCreateResponse](../../models/operations/sandboxpublictokencreateresponse.md)**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## sandbox_transfer_fire_webhook
 
@@ -7464,7 +8040,11 @@ if res.sandbox_transfer_fire_webhook_response is not None:
 ### Response
 
 **[operations.SandboxTransferFireWebhookResponse](../../models/operations/sandboxtransferfirewebhookresponse.md)**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## sandbox_transfer_repayment_simulate
 
@@ -7505,7 +8085,11 @@ if res.sandbox_transfer_repayment_simulate_response is not None:
 ### Response
 
 **[operations.SandboxTransferRepaymentSimulateResponse](../../models/operations/sandboxtransferrepaymentsimulateresponse.md)**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## sandbox_transfer_simulate
 
@@ -7554,7 +8138,11 @@ if res.sandbox_transfer_simulate_response is not None:
 ### Response
 
 **[operations.SandboxTransferSimulateResponse](../../models/operations/sandboxtransfersimulateresponse.md)**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## sandbox_transfer_sweep_simulate
 
@@ -7595,7 +8183,11 @@ if res.sandbox_transfer_sweep_simulate_response is not None:
 ### Response
 
 **[operations.SandboxTransferSweepSimulateResponse](../../models/operations/sandboxtransfersweepsimulateresponse.md)**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## sandbox_transfer_test_clock_advance
 
@@ -7648,7 +8240,11 @@ if res.sandbox_transfer_test_clock_advance_response is not None:
 ### Response
 
 **[operations.SandboxTransferTestClockAdvanceResponse](../../models/operations/sandboxtransfertestclockadvanceresponse.md)**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## sandbox_transfer_test_clock_create
 
@@ -7694,7 +8290,11 @@ if res.sandbox_transfer_test_clock_create_response is not None:
 ### Response
 
 **[operations.SandboxTransferTestClockCreateResponse](../../models/operations/sandboxtransfertestclockcreateresponse.md)**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## sandbox_transfer_test_clock_get
 
@@ -7737,7 +8337,11 @@ if res.sandbox_transfer_test_clock_get_response is not None:
 ### Response
 
 **[operations.SandboxTransferTestClockGetResponse](../../models/operations/sandboxtransfertestclockgetresponse.md)**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## sandbox_transfer_test_clock_list
 
@@ -7779,7 +8383,11 @@ if res.sandbox_transfer_test_clock_list_response is not None:
 ### Response
 
 **[operations.SandboxTransferTestClockListResponse](../../models/operations/sandboxtransfertestclocklistresponse.md)**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## signal_decision_report
 
@@ -7823,7 +8431,11 @@ if res.signal_decision_report_response is not None:
 ### Response
 
 **[operations.SignalDecisionReportResponse](../../models/operations/signaldecisionreportresponse.md)**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## signal_evaluate
 
@@ -7882,7 +8494,11 @@ if res.signal_evaluate_response is not None:
 ### Response
 
 **[operations.SignalEvaluateResponse](../../models/operations/signalevaluateresponse.md)**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## signal_prepare
 
@@ -7929,7 +8545,11 @@ if res.signal_prepare_response is not None:
 ### Response
 
 **[operations.SignalPrepareResponse](../../models/operations/signalprepareresponse.md)**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## signal_return_report
 
@@ -7974,7 +8594,11 @@ if res.signal_return_report_response is not None:
 ### Response
 
 **[operations.SignalReturnReportResponse](../../models/operations/signalreturnreportresponse.md)**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## statements_download
 
@@ -8018,7 +8642,11 @@ if res.statements_download_response is not None:
 ### Response
 
 **[operations.StatementsDownloadResponse](../../models/operations/statementsdownloadresponse.md)**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## statements_list
 
@@ -8061,7 +8689,11 @@ if res.statements_list_response is not None:
 ### Response
 
 **[operations.StatementsListResponse](../../models/operations/statementslistresponse.md)**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## transactions_enhance
 
@@ -8115,7 +8747,11 @@ if res.transactions_enhance_get_response is not None:
 ### Response
 
 **[operations.TransactionsEnhanceResponse](../../models/operations/transactionsenhanceresponse.md)**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## transactions_enrich
 
@@ -8177,7 +8813,11 @@ if res.transactions_enrich_get_response is not None:
 ### Response
 
 **[operations.TransactionsEnrichResponse](../../models/operations/transactionsenrichresponse.md)**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## transactions_get
 
@@ -8238,7 +8878,11 @@ if res.transactions_get_response is not None:
 ### Response
 
 **[operations.TransactionsGetResponse](../../models/operations/transactionsgetresponse.md)**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## transactions_recurring_get
 
@@ -8291,7 +8935,11 @@ if res.transactions_recurring_get_response is not None:
 ### Response
 
 **[operations.TransactionsRecurringGetResponse](../../models/operations/transactionsrecurringgetresponse.md)**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## transactions_refresh
 
@@ -8336,7 +8984,11 @@ if res.transactions_refresh_response is not None:
 ### Response
 
 **[operations.TransactionsRefreshResponse](../../models/operations/transactionsrefreshresponse.md)**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## transactions_rules_create
 
@@ -8387,7 +9039,11 @@ if res.transactions_rules_create_response is not None:
 ### Response
 
 **[operations.TransactionsRulesCreateResponse](../../models/operations/transactionsrulescreateresponse.md)**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## transactions_rules_list
 
@@ -8428,7 +9084,11 @@ if res.transactions_rules_list_response is not None:
 ### Response
 
 **[operations.TransactionsRulesListResponse](../../models/operations/transactionsruleslistresponse.md)**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## transactions_rules_remove
 
@@ -8470,7 +9130,11 @@ if res.transactions_rules_remove_response is not None:
 ### Response
 
 **[operations.TransactionsRulesRemoveResponse](../../models/operations/transactionsrulesremoveresponse.md)**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## transactions_sync
 
@@ -8532,7 +9196,11 @@ if res.transactions_sync_response is not None:
 ### Response
 
 **[operations.TransactionsSyncResponse](../../models/operations/transactionssyncresponse.md)**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## transfer_authorization_create
 
@@ -8600,7 +9268,11 @@ if res.transfer_authorization_create_response is not None:
 ### Response
 
 **[operations.TransferAuthorizationCreateResponse](../../models/operations/transferauthorizationcreateresponse.md)**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## transfer_balance_get
 
@@ -8641,7 +9313,11 @@ if res.transfer_balance_get_response is not None:
 ### Response
 
 **[operations.TransferBalanceGetResponse](../../models/operations/transferbalancegetresponse.md)**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## transfer_cancel
 
@@ -8684,7 +9360,11 @@ if res.transfer_cancel_response is not None:
 ### Response
 
 **[operations.TransferCancelResponse](../../models/operations/transfercancelresponse.md)**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## transfer_capabilities_get
 
@@ -8725,7 +9405,11 @@ if res.transfer_capabilities_get_response is not None:
 ### Response
 
 **[operations.TransferCapabilitiesGetResponse](../../models/operations/transfercapabilitiesgetresponse.md)**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## transfer_configuration_get
 
@@ -8766,7 +9450,11 @@ if res.transfer_configuration_get_response is not None:
 ### Response
 
 **[operations.TransferConfigurationGetResponse](../../models/operations/transferconfigurationgetresponse.md)**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## transfer_create
 
@@ -8813,7 +9501,11 @@ if res.transfer_create_response is not None:
 ### Response
 
 **[operations.TransferCreateResponse](../../models/operations/transfercreateresponse.md)**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## transfer_diligence_document_upload
 
@@ -8859,7 +9551,11 @@ if res.transfer_diligence_document_upload_response is not None:
 ### Response
 
 **[operations.TransferDiligenceDocumentUploadResponse](../../models/operations/transferdiligencedocumentuploadresponse.md)**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## transfer_diligence_submit
 
@@ -8933,7 +9629,11 @@ if res.transfer_diligence_submit_response is not None:
 ### Response
 
 **[operations.TransferDiligenceSubmitResponse](../../models/operations/transferdiligencesubmitresponse.md)**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## transfer_event_list
 
@@ -8979,7 +9679,11 @@ if res.transfer_event_list_response is not None:
 ### Response
 
 **[operations.TransferEventListResponse](../../models/operations/transfereventlistresponse.md)**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## transfer_event_sync
 
@@ -9022,7 +9726,11 @@ if res.transfer_event_sync_response is not None:
 ### Response
 
 **[operations.TransferEventSyncResponse](../../models/operations/transfereventsyncresponse.md)**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## transfer_get
 
@@ -9065,7 +9773,11 @@ if res.transfer_get_response is not None:
 ### Response
 
 **[operations.TransferGetResponse](../../models/operations/transfergetresponse.md)**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## transfer_intent_create
 
@@ -9117,7 +9829,11 @@ if res.transfer_intent_create_response is not None:
 ### Response
 
 **[operations.TransferIntentCreateResponse](../../models/operations/transferintentcreateresponse.md)**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## transfer_intent_get
 
@@ -9163,7 +9879,11 @@ if res.transfer_intent_get_response is not None:
 ### Response
 
 **[operations.TransferIntentGetResponse](../../models/operations/transferintentgetresponse.md)**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## transfer_ledger_get
 
@@ -9204,7 +9924,11 @@ if res.transfer_ledger_get_response is not None:
 ### Response
 
 **[operations.TransferLedgerGetResponse](../../models/operations/transferledgergetresponse.md)**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## transfer_list
 
@@ -9247,7 +9971,11 @@ if res.transfer_list_response is not None:
 ### Response
 
 **[operations.TransferListResponse](../../models/operations/transferlistresponse.md)**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## transfer_metrics_get
 
@@ -9288,7 +10016,11 @@ if res.transfer_metrics_get_response is not None:
 ### Response
 
 **[operations.TransferMetricsGetResponse](../../models/operations/transfermetricsgetresponse.md)**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## transfer_migrate_account
 
@@ -9333,7 +10065,11 @@ if res.transfer_migrate_account_response is not None:
 ### Response
 
 **[operations.TransferMigrateAccountResponse](../../models/operations/transfermigrateaccountresponse.md)**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## transfer_originator_create
 
@@ -9376,7 +10112,11 @@ if res.transfer_originator_create_response is not None:
 ### Response
 
 **[operations.TransferOriginatorCreateResponse](../../models/operations/transferoriginatorcreateresponse.md)**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## transfer_originator_get_json
 
@@ -9419,7 +10159,11 @@ if res.transfer_originator_get_response is not None:
 ### Response
 
 **[operations.TransferOriginatorGetJSONResponse](../../models/operations/transferoriginatorgetjsonresponse.md)**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## transfer_originator_get_raw
 
@@ -9454,13 +10198,17 @@ if res.transfer_originator_get_response is not None:
 
 | Parameter                                  | Type                                       | Required                                   | Description                                |
 | ------------------------------------------ | ------------------------------------------ | ------------------------------------------ | ------------------------------------------ |
-| `request`                                  | [bytes](../../models//.md)                 | :heavy_check_mark:                         | The request object to use for the request. |
+| `request`                                  | [bytes](../../models/.md)                  | :heavy_check_mark:                         | The request object to use for the request. |
 
 
 ### Response
 
 **[operations.TransferOriginatorGetRawResponse](../../models/operations/transferoriginatorgetrawresponse.md)**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## transfer_originator_list
 
@@ -9501,7 +10249,11 @@ if res.transfer_originator_list_response is not None:
 ### Response
 
 **[operations.TransferOriginatorListResponse](../../models/operations/transferoriginatorlistresponse.md)**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## transfer_questionnaire_create
 
@@ -9545,7 +10297,11 @@ if res.transfer_questionnaire_create_response is not None:
 ### Response
 
 **[operations.TransferQuestionnaireCreateResponse](../../models/operations/transferquestionnairecreateresponse.md)**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## transfer_recurring_cancel
 
@@ -9588,7 +10344,11 @@ if res.transfer_recurring_cancel_response is not None:
 ### Response
 
 **[operations.TransferRecurringCancelResponse](../../models/operations/transferrecurringcancelresponse.md)**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## transfer_recurring_create
 
@@ -9656,7 +10416,11 @@ if res.transfer_recurring_create_response is not None:
 ### Response
 
 **[operations.TransferRecurringCreateResponse](../../models/operations/transferrecurringcreateresponse.md)**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## transfer_recurring_get
 
@@ -9699,7 +10463,11 @@ if res.transfer_recurring_get_response is not None:
 ### Response
 
 **[operations.TransferRecurringGetResponse](../../models/operations/transferrecurringgetresponse.md)**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## transfer_recurring_list
 
@@ -9742,7 +10510,11 @@ if res.transfer_recurring_list_response is not None:
 ### Response
 
 **[operations.TransferRecurringListResponse](../../models/operations/transferrecurringlistresponse.md)**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## transfer_refund_cancel
 
@@ -9785,7 +10557,11 @@ if res.transfer_refund_cancel_response is not None:
 ### Response
 
 **[operations.TransferRefundCancelResponse](../../models/operations/transferrefundcancelresponse.md)**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## transfer_refund_create
 
@@ -9832,7 +10608,11 @@ if res.transfer_refund_create_response is not None:
 ### Response
 
 **[operations.TransferRefundCreateResponse](../../models/operations/transferrefundcreateresponse.md)**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## transfer_refund_get
 
@@ -9875,7 +10655,11 @@ if res.transfer_refund_get_response is not None:
 ### Response
 
 **[operations.TransferRefundGetResponse](../../models/operations/transferrefundgetresponse.md)**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## transfer_repayment_list
 
@@ -9917,7 +10701,11 @@ if res.transfer_repayment_list_response is not None:
 ### Response
 
 **[operations.TransferRepaymentListResponse](../../models/operations/transferrepaymentlistresponse.md)**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## transfer_repayment_return_list
 
@@ -9960,7 +10748,11 @@ if res.transfer_repayment_return_list_response is not None:
 ### Response
 
 **[operations.TransferRepaymentReturnListResponse](../../models/operations/transferrepaymentreturnlistresponse.md)**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## transfer_sweep_get
 
@@ -10003,7 +10795,11 @@ if res.transfer_sweep_get_response is not None:
 ### Response
 
 **[operations.TransferSweepGetResponse](../../models/operations/transfersweepgetresponse.md)**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## transfer_sweep_list
 
@@ -10045,7 +10841,11 @@ if res.transfer_sweep_list_response is not None:
 ### Response
 
 **[operations.TransferSweepListResponse](../../models/operations/transfersweeplistresponse.md)**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## user_create
 
@@ -10115,7 +10915,11 @@ if res.user_create_response is not None:
 ### Response
 
 **[operations.UserCreateResponse](../../models/operations/usercreateresponse.md)**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## wallet_create
 
@@ -10158,7 +10962,11 @@ if res.wallet_create_response is not None:
 ### Response
 
 **[operations.WalletCreateResponse](../../models/operations/walletcreateresponse.md)**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## wallet_get
 
@@ -10201,7 +11009,11 @@ if res.wallet_get_response is not None:
 ### Response
 
 **[operations.WalletGetResponse](../../models/operations/walletgetresponse.md)**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## wallet_list
 
@@ -10242,7 +11054,11 @@ if res.wallet_list_response is not None:
 ### Response
 
 **[operations.WalletListResponse](../../models/operations/walletlistresponse.md)**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## wallet_transaction_execute
 
@@ -10329,7 +11145,11 @@ if res.wallet_transaction_execute_response is not None:
 ### Response
 
 **[operations.WalletTransactionExecuteResponse](../../models/operations/wallettransactionexecuteresponse.md)**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## wallet_transaction_get
 
@@ -10372,7 +11192,11 @@ if res.wallet_transaction_get_response is not None:
 ### Response
 
 **[operations.WalletTransactionGetResponse](../../models/operations/wallettransactiongetresponse.md)**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## wallet_transaction_list
 
@@ -10417,7 +11241,11 @@ if res.wallet_transaction_list_response is not None:
 ### Response
 
 **[operations.WalletTransactionListResponse](../../models/operations/wallettransactionlistresponse.md)**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## watchlist_screening_entity_create
 
@@ -10469,7 +11297,11 @@ if res.watchlist_screening_entity_create_response is not None:
 ### Response
 
 **[operations.WatchlistScreeningEntityCreateResponse](../../models/operations/watchlistscreeningentitycreateresponse.md)**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## watchlist_screening_entity_get
 
@@ -10512,7 +11344,11 @@ if res.watchlist_screening_entity_get_response is not None:
 ### Response
 
 **[operations.WatchlistScreeningEntityGetResponse](../../models/operations/watchlistscreeningentitygetresponse.md)**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## watchlist_screening_entity_history_list
 
@@ -10556,7 +11392,11 @@ if res.watchlist_screening_entity_history_list_response is not None:
 ### Response
 
 **[operations.WatchlistScreeningEntityHistoryListResponse](../../models/operations/watchlistscreeningentityhistorylistresponse.md)**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## watchlist_screening_entity_hit_list
 
@@ -10600,7 +11440,11 @@ if res.watchlist_screening_entity_hit_list_response is not None:
 ### Response
 
 **[operations.WatchlistScreeningEntityHitListResponse](../../models/operations/watchlistscreeningentityhitlistresponse.md)**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## watchlist_screening_entity_list
 
@@ -10647,7 +11491,11 @@ if res.watchlist_screening_entity_list_response is not None:
 ### Response
 
 **[operations.WatchlistScreeningEntityListResponse](../../models/operations/watchlistscreeningentitylistresponse.md)**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## watchlist_screening_entity_program_get
 
@@ -10690,7 +11538,11 @@ if res.watchlist_screening_entity_program_get_response is not None:
 ### Response
 
 **[operations.WatchlistScreeningEntityProgramGetResponse](../../models/operations/watchlistscreeningentityprogramgetresponse.md)**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## watchlist_screening_entity_program_list
 
@@ -10733,7 +11585,11 @@ if res.watchlist_screening_entity_program_list_response is not None:
 ### Response
 
 **[operations.WatchlistScreeningEntityProgramListResponse](../../models/operations/watchlistscreeningentityprogramlistresponse.md)**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## watchlist_screening_entity_review_create
 
@@ -10783,7 +11639,11 @@ if res.watchlist_screening_entity_review_create_response is not None:
 ### Response
 
 **[operations.WatchlistScreeningEntityReviewCreateResponse](../../models/operations/watchlistscreeningentityreviewcreateresponse.md)**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## watchlist_screening_entity_review_list
 
@@ -10827,7 +11687,11 @@ if res.watchlist_screening_entity_review_list_response is not None:
 ### Response
 
 **[operations.WatchlistScreeningEntityReviewListResponse](../../models/operations/watchlistscreeningentityreviewlistresponse.md)**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## watchlist_screening_entity_update
 
@@ -10885,7 +11749,11 @@ if res.watchlist_screening_entity_update_response is not None:
 ### Response
 
 **[operations.WatchlistScreeningEntityUpdateResponse](../../models/operations/watchlistscreeningentityupdateresponse.md)**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## watchlist_screening_individual_create
 
@@ -10936,7 +11804,11 @@ if res.watchlist_screening_individual_create_response is not None:
 ### Response
 
 **[operations.WatchlistScreeningIndividualCreateResponse](../../models/operations/watchlistscreeningindividualcreateresponse.md)**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## watchlist_screening_individual_get
 
@@ -10979,7 +11851,11 @@ if res.watchlist_screening_individual_get_response is not None:
 ### Response
 
 **[operations.WatchlistScreeningIndividualGetResponse](../../models/operations/watchlistscreeningindividualgetresponse.md)**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## watchlist_screening_individual_history_list
 
@@ -11023,7 +11899,11 @@ if res.watchlist_screening_individual_history_list_response is not None:
 ### Response
 
 **[operations.WatchlistScreeningIndividualHistoryListResponse](../../models/operations/watchlistscreeningindividualhistorylistresponse.md)**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## watchlist_screening_individual_hit_list
 
@@ -11067,7 +11947,11 @@ if res.watchlist_screening_individual_hit_list_response is not None:
 ### Response
 
 **[operations.WatchlistScreeningIndividualHitListResponse](../../models/operations/watchlistscreeningindividualhitlistresponse.md)**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## watchlist_screening_individual_list
 
@@ -11114,7 +11998,11 @@ if res.watchlist_screening_individual_list_response is not None:
 ### Response
 
 **[operations.WatchlistScreeningIndividualListResponse](../../models/operations/watchlistscreeningindividuallistresponse.md)**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## watchlist_screening_individual_program_get
 
@@ -11157,7 +12045,11 @@ if res.watchlist_screening_individual_program_get_response is not None:
 ### Response
 
 **[operations.WatchlistScreeningIndividualProgramGetResponse](../../models/operations/watchlistscreeningindividualprogramgetresponse.md)**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## watchlist_screening_individual_program_list
 
@@ -11200,7 +12092,11 @@ if res.watchlist_screening_individual_program_list_response is not None:
 ### Response
 
 **[operations.WatchlistScreeningIndividualProgramListResponse](../../models/operations/watchlistscreeningindividualprogramlistresponse.md)**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## watchlist_screening_individual_review_create
 
@@ -11250,7 +12146,11 @@ if res.watchlist_screening_individual_review_create_response is not None:
 ### Response
 
 **[operations.WatchlistScreeningIndividualReviewCreateResponse](../../models/operations/watchlistscreeningindividualreviewcreateresponse.md)**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## watchlist_screening_individual_review_list
 
@@ -11294,7 +12194,11 @@ if res.watchlist_screening_individual_review_list_response is not None:
 ### Response
 
 **[operations.WatchlistScreeningIndividualReviewListResponse](../../models/operations/watchlistscreeningindividualreviewlistresponse.md)**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## watchlist_screening_individual_update
 
@@ -11351,7 +12255,11 @@ if res.watchlist_screening_individual_update_response is not None:
 ### Response
 
 **[operations.WatchlistScreeningIndividualUpdateResponse](../../models/operations/watchlistscreeningindividualupdateresponse.md)**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## webhook_verification_key_get
 
@@ -11396,4 +12304,8 @@ if res.webhook_verification_key_get_response is not None:
 ### Response
 
 **[operations.WebhookVerificationKeyGetResponse](../../models/operations/webhookverificationkeygetresponse.md)**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |

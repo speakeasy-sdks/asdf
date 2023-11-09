@@ -314,6 +314,7 @@ src/test_plaid/models/shared/banktransferfailure.py
 src/test_plaid/models/shared/banktransferdirection.py
 src/test_plaid/models/shared/achclass.py
 src/test_plaid/models/shared/banktransfercreaterequest.py
+src/test_plaid/models/shared/banktransferuser_input.py
 src/test_plaid/models/shared/banktransfereventlistresponse.py
 src/test_plaid/models/shared/banktransferevent.py
 src/test_plaid/models/shared/banktransfereventtype.py
@@ -1402,6 +1403,7 @@ src/test_plaid/models/shared/watchlistscreeningindividualupdaterequestresettable
 src/test_plaid/models/shared/webhookverificationkeygetresponse.py
 src/test_plaid/models/shared/jwkpublickey.py
 src/test_plaid/models/shared/webhookverificationkeygetrequest.py
+src/test_plaid/models/shared/security1.py
 src/test_plaid/models/__init__.py
 src/test_plaid/models/errors/__init__.py
 src/test_plaid/models/operations/__init__.py
@@ -1711,7 +1713,6 @@ docs/models/shared/banktransfercancelresponse.md
 docs/models/shared/banktransfercancelrequest.md
 docs/models/shared/banktransfercreateresponse.md
 docs/models/shared/banktransfer.md
-docs/models/shared/banktransferuserinput.md
 docs/models/shared/banktransferuser.md
 docs/models/shared/banktransfertype.md
 docs/models/shared/banktransferstatus.md
@@ -1720,6 +1721,7 @@ docs/models/shared/banktransferfailure.md
 docs/models/shared/banktransferdirection.md
 docs/models/shared/achclass.md
 docs/models/shared/banktransfercreaterequest.md
+docs/models/shared/banktransferuserinput.md
 docs/models/shared/banktransfereventlistresponse.md
 docs/models/shared/banktransferevent.md
 docs/models/shared/banktransfereventtype.md
@@ -2835,6 +2837,7 @@ docs/models/shared/watchlistscreeningindividualupdaterequestresettablefield.md
 docs/models/shared/webhookverificationkeygetresponse.md
 docs/models/shared/jwkpublickey.md
 docs/models/shared/webhookverificationkeygetrequest.md
+docs/models/shared/security1.md
 docs/sdks/testplaid/README.md
 docs/sdks/plaid/README.md
 .gitattributes
