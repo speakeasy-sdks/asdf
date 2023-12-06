@@ -1409,7 +1409,6 @@ src/test_plaid/models/__init__.py
 src/test_plaid/models/errors/__init__.py
 src/test_plaid/models/operations/__init__.py
 src/test_plaid/models/shared/__init__.py
-USAGE.md
 docs/models/operations/accountsbalancegetresponse.md
 docs/models/operations/accountsgetresponse.md
 docs/models/operations/applicationgetresponse.md
@@ -2841,4 +2840,5 @@ docs/models/shared/webhookverificationkeygetrequest.md
 docs/models/shared/security1.md
 docs/sdks/testplaid/README.md
 docs/sdks/plaid/README.md
+USAGE.md
 .gitattributes

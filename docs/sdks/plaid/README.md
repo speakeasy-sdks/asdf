@@ -572,7 +572,7 @@ req = shared.AssetReportCreateRequest(
         ],
         user=shared.AssetReportUser(
             additional_properties={
-                "key": 'string',
+                'key': 'string',
             },
         ),
     ),
@@ -791,7 +791,7 @@ req = shared.AssetReportRefreshRequest(
     options=shared.AssetReportRefreshRequestOptions(
         user=shared.AssetReportUser(
             additional_properties={
-                "key": 'string',
+                'key': 'string',
             },
         ),
     ),
@@ -1049,13 +1049,13 @@ req = shared.BankTransferCreateRequest(
     idempotency_key='string',
     iso_currency_code='string',
     metadata={
-        "key": 'string',
+        'key': 'string',
     },
     network=shared.BankTransferNetwork.ACH,
     type=shared.BankTransferType.DEBIT,
     user=shared.BankTransferUserInput(
         additional_properties={
-            "key": 'string',
+            'key': 'string',
         },
         legal_name='string',
     ),
@@ -1491,7 +1491,7 @@ req = shared.BeaconReportCreateRequest(
     beacon_user_id='becusr_11111111111111',
     fraud_amount=shared.FraudAmount(
         additional_properties={
-            "key": 'string',
+            'key': 'string',
         },
         iso_currency_code=shared.ISOCurrencyCode.USD,
         value=100,
@@ -1557,11 +1557,11 @@ req = shared.BeaconUserCreateRequest(
     program_id='becprg_11111111111111',
     report=shared.BeaconUserCreateEmbeddedReport(
         additional_properties={
-            "key": 'string',
+            'key': 'string',
         },
         fraud_amount=shared.FraudAmountNullable(
             additional_properties={
-                "key": 'string',
+                'key': 'string',
             },
             iso_currency_code=shared.ISOCurrencyCode.USD,
             value=100,
@@ -1571,11 +1571,11 @@ req = shared.BeaconUserCreateRequest(
     ),
     user=shared.BeaconUserRequestData(
         additional_properties={
-            "key": 'string',
+            'key': 'string',
         },
         address=shared.BeaconUserRequestAddress(
             additional_properties={
-                "key": 'string',
+                'key': 'string',
             },
             city='Pawnee',
             country='US',
@@ -1588,7 +1588,7 @@ req = shared.BeaconUserCreateRequest(
         email_address='user@example.com',
         id_number=shared.BeaconUserIDNumber(
             additional_properties={
-                "key": 'string',
+                'key': 'string',
             },
             type=shared.IDNumberType.US_SSN,
             value='123456789',
@@ -1596,7 +1596,7 @@ req = shared.BeaconUserCreateRequest(
         ip_address='192.0.2.42',
         name=shared.BeaconUserName(
             additional_properties={
-                "key": 'string',
+                'key': 'string',
             },
             family_name='Knope',
             given_name='Leslie',
@@ -1843,7 +1843,7 @@ s = test_plaid.TestPlaid(
 
 req = shared.AssetReportFreddieGetRequest(
     additional_properties={
-        "key": 'string',
+        'key': 'string',
     },
     audit_copy_token='string',
 )
@@ -2428,7 +2428,7 @@ req = shared.CreditPayrollIncomePrecheckRequest(
     employer=shared.IncomeVerificationPrecheckEmployer(
         address=shared.IncomeVerificationPrecheckEmployerAddress(
             additional_properties={
-                "key": 'string',
+                'key': 'string',
             },
         ),
     ),
@@ -3025,7 +3025,7 @@ req = shared.DepositSwitchAltCreateRequest(
     ),
     target_account=shared.DepositSwitchTargetAccount(
         additional_properties={
-            "key": 'string',
+            'key': 'string',
         },
         account_name='string',
         account_number='string',
@@ -3034,11 +3034,11 @@ req = shared.DepositSwitchAltCreateRequest(
     ),
     target_user=shared.DepositSwitchTargetUser(
         additional_properties={
-            "key": 'string',
+            'key': 'string',
         },
         address=shared.DepositSwitchAddressData(
             additional_properties={
-                "key": 'string',
+                'key': 'string',
             },
             city='Lake Phyllis',
             country='Palestinian Territory',
@@ -3487,11 +3487,11 @@ req = shared.IdentityMatchRequest(
     ),
     user=shared.IdentityMatchUser(
         additional_properties={
-            "key": 'string',
+            'key': 'string',
         },
         address=shared.AddressDataNullableNoRequiredFields(
             additional_properties={
-                "key": 'string',
+                'key': 'string',
             },
         ),
     ),
@@ -3602,7 +3602,7 @@ req = shared.IdentityVerificationCreateRequest(
     user=shared.IdentityVerificationCreateRequestUser(
         address=shared.UserAddress(
             additional_properties={
-                "key": 'string',
+                'key': 'string',
             },
             city='Pawnee',
             country='US',
@@ -3616,7 +3616,7 @@ req = shared.IdentityVerificationCreateRequest(
         email_address='user@example.com',
         id_number=shared.UserIDNumber(
             additional_properties={
-                "key": 'string',
+                'key': 'string',
             },
             type=shared.IDNumberType.US_SSN,
             value='123456789',
@@ -3781,11 +3781,11 @@ req = shared.IdentityVerificationRetryRequest(
     template_id='idvtmp_4FrXJvfQU3zGUR',
     user=shared.IdentityVerificationRequestUser(
         additional_properties={
-            "key": 'string',
+            'key': 'string',
         },
         address=shared.UserAddress(
             additional_properties={
-                "key": 'string',
+                'key': 'string',
             },
             city='Pawnee',
             country='US',
@@ -3798,7 +3798,7 @@ req = shared.IdentityVerificationRetryRequest(
         email_address='user@example.com',
         id_number=shared.UserIDNumber(
             additional_properties={
-                "key": 'string',
+                'key': 'string',
             },
             type=shared.IDNumberType.US_SSN,
             value='123456789',
@@ -4022,7 +4022,7 @@ req = shared.IncomeVerificationPrecheckRequest(
     employer=shared.IncomeVerificationPrecheckEmployer(
         address=shared.IncomeVerificationPrecheckEmployerAddress(
             additional_properties={
-                "key": 'string',
+                'key': 'string',
             },
         ),
     ),
@@ -4034,7 +4034,7 @@ req = shared.IncomeVerificationPrecheckRequest(
     user=shared.IncomeVerificationPrecheckUser(
         home_address=shared.SignalAddressData(
             additional_properties={
-                "key": 'string',
+                'key': 'string',
             },
         ),
     ),
@@ -4664,7 +4664,7 @@ req = shared.ItemApplicationScopesUpdateRequest(
             shared.AccountAccess(
                 account_product_access=shared.AccountProductAccessNullable(
                     additional_properties={
-                        "key": 'string',
+                        'key': 'string',
                     },
                 ),
                 unique_id='string',
@@ -4672,7 +4672,7 @@ req = shared.ItemApplicationScopesUpdateRequest(
         ],
         product_access=shared.ProductAccess(
             additional_properties={
-                "key": 'string',
+                'key': 'string',
             },
         ),
     ),
@@ -5235,11 +5235,11 @@ s = test_plaid.TestPlaid(
 req = shared.LinkTokenCreateRequest(
     account_filters=shared.LinkTokenAccountFilters(
         additional_properties={
-            "key": 'string',
+            'key': 'string',
         },
         credit=shared.CreditFilter(
             additional_properties={
-                "key": 'string',
+                'key': 'string',
             },
             account_subtypes=[
                 shared.CreditAccountSubtype.PAYPAL,
@@ -5247,7 +5247,7 @@ req = shared.LinkTokenCreateRequest(
         ),
         depository=shared.DepositoryFilter(
             additional_properties={
-                "key": 'string',
+                'key': 'string',
             },
             account_subtypes=[
                 shared.DepositoryAccountSubtype.PREPAID,
@@ -5255,7 +5255,7 @@ req = shared.LinkTokenCreateRequest(
         ),
         investment=shared.InvestmentFilter(
             additional_properties={
-                "key": 'string',
+                'key': 'string',
             },
             account_subtypes=[
                 shared.InvestmentAccountSubtype.LRSP,
@@ -5263,7 +5263,7 @@ req = shared.LinkTokenCreateRequest(
         ),
         loan=shared.LoanFilter(
             additional_properties={
-                "key": 'string',
+                'key': 'string',
             },
             account_subtypes=[
                 shared.LoanAccountSubtype.LOAN,
@@ -5293,7 +5293,7 @@ req = shared.LinkTokenCreateRequest(
     eu_config=shared.LinkTokenEUConfig(),
     hosted_link=shared.LinkTokenCreateHostedLink(
         additional_properties={
-            "key": 'string',
+            'key': 'string',
         },
     ),
     identity_verification=shared.LinkTokenCreateRequestIdentityVerification(
@@ -5340,7 +5340,7 @@ req = shared.LinkTokenCreateRequest(
     user=shared.LinkTokenCreateRequestUser(
         address=shared.UserAddress(
             additional_properties={
-                "key": 'string',
+                'key': 'string',
             },
             city='Pawnee',
             country='US',
@@ -5352,7 +5352,7 @@ req = shared.LinkTokenCreateRequest(
         client_user_id='string',
         id_number=shared.UserIDNumber(
             additional_properties={
-                "key": 'string',
+                'key': 'string',
             },
             type=shared.IDNumberType.US_SSN,
             value='123456789',
@@ -5458,26 +5458,26 @@ s = test_plaid.TestPlaid(
 req = shared.PartnerCustomerCreateRequest(
     address=shared.PartnerEndCustomerAddress(
         additional_properties={
-            "key": 'string',
+            'key': 'string',
         },
     ),
     application_name='string',
     assets_under_management=shared.PartnerEndCustomerAssetsUnderManagement(
         additional_properties={
-            "key": 'string',
+            'key': 'string',
         },
         amount=4878.61,
         iso_currency_code='string',
     ),
     billing_contact=shared.PartnerEndCustomerBillingContact(
         additional_properties={
-            "key": 'string',
+            'key': 'string',
         },
     ),
     company_name='Hyatt, Bartell and Kub',
     customer_support_info=shared.PartnerEndCustomerCustomerSupportInfo(
         additional_properties={
-            "key": 'string',
+            'key': 'string',
         },
     ),
     is_bank_addendum_completed=False,
@@ -5491,7 +5491,7 @@ req = shared.PartnerCustomerCreateRequest(
     ],
     technical_contact=shared.PartnerEndCustomerTechnicalContact(
         additional_properties={
-            "key": 'string',
+            'key': 'string',
         },
     ),
     website='string',
@@ -5752,7 +5752,7 @@ req = shared.PaymentInitiationConsentCreateRequest(
     options=shared.ExternalPaymentInitiationConsentOptions(
         bacs=shared.PaymentInitiationOptionalRestrictionBacs(
             additional_properties={
-                "key": 'string',
+                'key': 'string',
             },
         ),
     ),
@@ -5965,7 +5965,7 @@ req = shared.PaymentInitiationPaymentCreateRequest(
     options=shared.ExternalPaymentOptions(
         bacs=shared.PaymentInitiationOptionalRestrictionBacs(
             additional_properties={
-                "key": 'string',
+                'key': 'string',
             },
         ),
     ),
@@ -5973,7 +5973,7 @@ req = shared.PaymentInitiationPaymentCreateRequest(
     reference='string',
     schedule=shared.ExternalPaymentScheduleRequest(
         additional_properties={
-            "key": 'string',
+            'key': 'string',
         },
         interval=shared.PaymentScheduleInterval.MONTHLY,
         interval_execution_day=136559,
@@ -6130,7 +6130,7 @@ s = test_plaid.TestPlaid(
 req = shared.PaymentInitiationPaymentReverseRequest(
     amount=shared.PaymentAmountToRefund(
         additional_properties={
-            "key": 'string',
+            'key': 'string',
         },
         currency=shared.PaymentAmountCurrency.DKK,
         value=9546.44,
@@ -6191,7 +6191,7 @@ s = test_plaid.TestPlaid(
 req = shared.PaymentInitiationRecipientCreateRequest(
     address=shared.PaymentInitiationAddress(
         additional_properties={
-            "key": 'string',
+            'key': 'string',
         },
         city='Port Kendallfort',
         country='Pakistan',
@@ -6202,7 +6202,7 @@ req = shared.PaymentInitiationRecipientCreateRequest(
     ),
     bacs=shared.RecipientBACSNullable(
         additional_properties={
-            "key": 'string',
+            'key': 'string',
         },
     ),
     name='string',
@@ -6637,14 +6637,14 @@ req = shared.ProcessorBankTransferCreateRequest(
     idempotency_key='string',
     iso_currency_code='string',
     metadata={
-        "key": 'string',
+        'key': 'string',
     },
     network=shared.BankTransferNetwork.WIRE,
     processor_token='string',
     type=shared.BankTransferType.DEBIT,
     user=shared.BankTransferUserInput(
         additional_properties={
-            "key": 'string',
+            'key': 'string',
         },
         legal_name='string',
     ),
@@ -6746,11 +6746,11 @@ req = shared.ProcessorIdentityMatchRequest(
     processor_token='string',
     user=shared.IdentityMatchUser(
         additional_properties={
-            "key": 'string',
+            'key': 'string',
         },
         address=shared.AddressDataNullableNoRequiredFields(
             additional_properties={
-                "key": 'string',
+                'key': 'string',
             },
         ),
     ),
@@ -6860,7 +6860,7 @@ req = shared.ProcessorSignalEvaluateRequest(
     user=shared.SignalUser(
         address=shared.SignalAddressData(
             additional_properties={
-                "key": 'string',
+                'key': 'string',
             },
         ),
         name=shared.SignalPersonName(),
@@ -7548,7 +7548,7 @@ req = shared.SandboxBankTransferSimulateRequest(
     event_type='string',
     failure_reason=shared.BankTransferFailure(
         additional_properties={
-            "key": 'string',
+            'key': 'string',
         },
     ),
 )
@@ -8115,7 +8115,7 @@ req = shared.SandboxTransferSimulateRequest(
     event_type='string',
     failure_reason=shared.TransferFailure(
         additional_properties={
-            "key": 'string',
+            'key': 'string',
         },
     ),
     transfer_id='string',
@@ -8470,7 +8470,7 @@ req = shared.SignalEvaluateRequest(
     user=shared.SignalUser(
         address=shared.SignalAddressData(
             additional_properties={
-                "key": 'string',
+                'key': 'string',
             },
         ),
         name=shared.SignalPersonName(),
@@ -8720,7 +8720,7 @@ req = shared.TransactionsEnhanceGetRequest(
     transactions=[
         shared.ClientProvidedRawTransaction(
             additional_properties={
-                "key": 'string',
+                'key': 'string',
             },
             amount=8716.21,
             description='Integrated user-facing model',
@@ -8780,7 +8780,7 @@ req = shared.TransactionsEnrichGetRequest(
     transactions=[
         shared.ClientProvidedTransaction(
             additional_properties={
-                "key": 'string',
+                'key': 'string',
             },
             amount=9570.07,
             description='Multi-lateral secondary customer loyalty',
@@ -8789,7 +8789,7 @@ req = shared.TransactionsEnrichGetRequest(
             iso_currency_code='string',
             location=shared.ClientProvidedTransactionLocation(
                 additional_properties={
-                    "key": 'string',
+                    'key': 'string',
                 },
             ),
         ),
@@ -9240,7 +9240,7 @@ req = shared.TransferAuthorizationCreateRequest(
     amount='237.18',
     device=shared.TransferAuthorizationDevice(
         additional_properties={
-            "key": 'string',
+            'key': 'string',
         },
     ),
     network=shared.TransferNetwork.SAME_DAY_ACH,
@@ -9480,7 +9480,7 @@ req = shared.TransferCreateRequest(
     authorization_id='string',
     description='Horizontal incremental throughput',
     metadata={
-        "key": 'string',
+        'key': 'string',
     },
 )
 
@@ -9803,7 +9803,7 @@ req = shared.TransferIntentCreateRequest(
     amount='610.36',
     description='Distributed systemic data-warehouse',
     metadata={
-        "key": 'string',
+        'key': 'string',
     },
     mode=shared.TransferIntentCreateMode.PAYMENT,
     user=shared.TransferUserInRequest(
@@ -9857,7 +9857,7 @@ s = test_plaid.TestPlaid(
 
 req = shared.TransferIntentGetRequest(
     additional_properties={
-        "key": 'string',
+        'key': 'string',
     },
     transfer_intent_id='string',
 )
@@ -10378,7 +10378,7 @@ req = shared.TransferRecurringCreateRequest(
     description='Centralized tertiary model',
     device=shared.TransferDevice(
         additional_properties={
-            "key": 'string',
+            'key': 'string',
         },
         ip_address='20.163.92.142',
         user_agent='string',
@@ -10875,7 +10875,7 @@ req = shared.UserCreateRequest(
     client_user_id='string',
     consumer_report_user_identity=shared.ConsumerReportUserIdentity(
         additional_properties={
-            "key": 'string',
+            'key': 'string',
         },
         emails=[
             'string',
@@ -10887,7 +10887,7 @@ req = shared.UserCreateRequest(
         ],
         primary_address=shared.AddressData(
             additional_properties={
-                "key": 'string',
+                'key': 'string',
             },
             city='Schmidtburgh',
             country='El Salvador',
@@ -11086,18 +11086,18 @@ s = test_plaid.TestPlaid(
 req = shared.WalletTransactionExecuteRequest(
     amount=shared.WalletTransactionAmount(
         additional_properties={
-            "key": 'string',
+            'key': 'string',
         },
         iso_currency_code=shared.WalletISOCurrencyCode.GBP,
         value=6174.29,
     ),
     counterparty=shared.WalletTransactionCounterparty(
         additional_properties={
-            "key": 'string',
+            'key': 'string',
         },
         address=shared.PaymentInitiationAddress(
             additional_properties={
-                "key": 'string',
+                'key': 'string',
             },
             city='Lake Demetrius',
             country='Niger',
@@ -11109,16 +11109,16 @@ req = shared.WalletTransactionExecuteRequest(
         name='string',
         numbers=shared.WalletTransactionCounterpartyNumbers(
             additional_properties={
-                "key": 'string',
+                'key': 'string',
             },
             bacs=shared.WalletTransactionCounterpartyBACS(
                 additional_properties={
-                    "key": 'string',
+                    'key': 'string',
                 },
             ),
             international=shared.WalletTransactionCounterpartyInternational(
                 additional_properties={
-                    "key": 'string',
+                    'key': 'string',
                 },
             ),
         ),
