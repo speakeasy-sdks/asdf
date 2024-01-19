@@ -4,9 +4,9 @@ management:
   docChecksum: d62b45f8252bcb7b88b01760791f410e
   docVersion: 2020-09-14_1.421.0
   speakeasyVersion: internal
-  generationVersion: 2.233.2
-  releaseVersion: 0.11.1
-  configChecksum: 72cba4c04f4d0c7c9c333e73c7d57672
+  generationVersion: 2.237.2
+  releaseVersion: 0.11.2
+  configChecksum: a61d0b0431d9c35115c8656d5de74f56
   repoURL: https://github.com/speakeasy-sdks/asdf.git
   repoSubDirectory: .
   installationURL: https://github.com/speakeasy-sdks/asdf.git
@@ -14,10 +14,10 @@ features:
   python:
     additionalProperties: 0.1.0
     constsAndDefaults: 0.1.2
-    core: 4.4.1
+    core: 4.4.2
     deprecations: 2.81.1
     downloadStreams: 0.0.2
-    globalSecurity: 2.83.1
+    globalSecurity: 2.83.2
     globalServerURLs: 2.82.1
     inputOutputModels: 2.83.0
 generatedFiles:
