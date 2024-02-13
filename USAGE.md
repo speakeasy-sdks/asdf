@@ -1,6 +1,5 @@
 <!-- Start SDK Example Usage [usage] -->
 ```python
-import dateutil.parser
 import test_plaid
 from test_plaid.models import shared
 
@@ -14,11 +13,6 @@ s = test_plaid.TestPlaid(
 
 req = shared.AccountsBalanceGetRequest(
     access_token='string',
-    options=shared.AccountsBalanceGetRequestOptions(
-        account_ids=[
-            'string',
-        ],
-    ),
 )
 
 res = s.plaid.accounts_balance_get(req)

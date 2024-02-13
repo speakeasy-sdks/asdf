@@ -25,7 +25,7 @@ class TestPlaid:
         """Instantiates the SDK configuring it with the provided parameters.
         
         :param security: The security details required for authentication
-        :type security: Union[shared.Security,Callable[[], shared.Security]]
+        :type security: Union[shared.Security1,Callable[[], shared.Security1]]
         :param server_idx: The index of the server to use for all operations
         :type server_idx: int
         :param server_url: The server URL to use for all operations
