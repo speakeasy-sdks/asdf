@@ -32,7 +32,7 @@ s = test_plaid.TestPlaid(
 )
 
 req = shared.AccountsBalanceGetRequest(
-    access_token='string',
+    access_token='<value>',
 )
 
 res = s.plaid.accounts_balance_get(req)
@@ -308,7 +308,7 @@ s = test_plaid.TestPlaid(
 )
 
 req = shared.AccountsBalanceGetRequest(
-    access_token='string',
+    access_token='<value>',
 )
 
 res = None
@@ -355,7 +355,7 @@ s = test_plaid.TestPlaid(
 )
 
 req = shared.AccountsBalanceGetRequest(
-    access_token='string',
+    access_token='<value>',
 )
 
 res = s.plaid.accounts_balance_get(req)
@@ -383,7 +383,7 @@ s = test_plaid.TestPlaid(
 )
 
 req = shared.AccountsBalanceGetRequest(
-    access_token='string',
+    access_token='<value>',
 )
 
 res = s.plaid.accounts_balance_get(req)
@@ -441,7 +441,7 @@ s = test_plaid.TestPlaid(
 )
 
 req = shared.AccountsBalanceGetRequest(
-    access_token='string',
+    access_token='<value>',
 )
 
 res = s.plaid.accounts_balance_get(req)
