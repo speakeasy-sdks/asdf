@@ -1600,13 +1600,7 @@ All implementations are recommended to use the newer `personal_finance_category`
 import test_plaid
 from test_plaid.models import shared
 
-s = test_plaid.TestPlaid(
-    security=shared.Security1(
-        client_id="<YOUR_API_KEY_HERE>",
-        plaid_version="<YOUR_API_KEY_HERE>",
-        secret="<YOUR_API_KEY_HERE>",
-    ),
-)
+s = test_plaid.TestPlaid()
 
 req = shared.CategoriesGetRequest()
 
