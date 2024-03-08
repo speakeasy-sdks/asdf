@@ -28,9 +28,9 @@ class SDKConfiguration:
     server_idx: int = 0
     language: str = 'python'
     openapi_doc_version: str = '2020-09-14_1.421.0'
-    sdk_version: str = '0.14.0'
-    gen_version: str = '2.275.4'
-    user_agent: str = 'speakeasy-sdk/python 0.14.0 2.275.4 2020-09-14_1.421.0 test-plaid'
+    sdk_version: str = '0.15.0'
+    gen_version: str = '2.279.1'
+    user_agent: str = 'speakeasy-sdk/python 0.15.0 2.279.1 2020-09-14_1.421.0 test-plaid'
     retry_config: RetryConfig = None
     _hooks: SDKHooks = None
 
