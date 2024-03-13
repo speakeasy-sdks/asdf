@@ -3,10 +3,10 @@ id: 66ddba57-aeac-4cc8-b5bf-e8c0a61df2ad
 management:
   docChecksum: d62b45f8252bcb7b88b01760791f410e
   docVersion: 2020-09-14_1.421.0
-  speakeasyVersion: 1.204.1
-  generationVersion: 2.279.1
-  releaseVersion: 0.15.0
-  configChecksum: 004655a9abc0d618cbced2e9daa6d189
+  speakeasyVersion: 1.207.1
+  generationVersion: 2.280.6
+  releaseVersion: 0.15.1
+  configChecksum: e45b50cae78b4dc1867fb6f4686ac7f0
   repoURL: https://github.com/speakeasy-sdks/asdf.git
   repoSubDirectory: .
   installationURL: https://github.com/speakeasy-sdks/asdf.git
@@ -18,7 +18,7 @@ features:
     deprecations: 2.81.1
     downloadStreams: 0.0.2
     globalSecurity: 2.83.4
-    globalServerURLs: 2.82.1
+    globalServerURLs: 2.82.2
     inputOutputModels: 2.83.1
     responseFormat: 0.1.0
 generatedFiles:
